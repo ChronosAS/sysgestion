@@ -116,7 +116,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Logout') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
