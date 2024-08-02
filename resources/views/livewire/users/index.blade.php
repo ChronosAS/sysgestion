@@ -146,7 +146,7 @@
                             </tbody>
                         </table>
                         <div class="m-4 text-white ">
-                            {{ $users->links() }}
+                            {{ $users->links('vendor.livewire.tailwind-pagination') }}
                         </div>
                     </div>
                 </div>
