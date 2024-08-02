@@ -34,6 +34,7 @@ class User extends Authenticatable
         'dob',
         'email',
         'password',
+        'status',
     ];
 
     /**
@@ -67,7 +68,18 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'status' => 'boolean'
         ];
+    }
+
+    public function scopeSearch($query,$term): void
+    {
+        if($term){
+            $query->where('first_names','like','%'.$term.'%')
+                ->orWhere('last_names','like','%'.$term.'%')
+                ->orWhere('email','like','%'.$term.'%')
+                ->orWhere('document','like','%'.$term.'%');
+        }
     }
 
     public function name() : Attribute
