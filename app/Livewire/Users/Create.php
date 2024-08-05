@@ -13,10 +13,13 @@ class Create extends Component
     public $dob;
     public $email;
     public $password;
+    public $role;
 
     #[Layout('layouts.app',['header'=>'Crear Usuario'])]
     public function render()
     {
-        return view('livewire.users.create');
+        return view('livewire.users.create',[
+            'roles' => ['1'=>'first','2' => 'second']
+        ]);
     }
 }
