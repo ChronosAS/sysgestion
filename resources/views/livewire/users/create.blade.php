@@ -28,7 +28,7 @@
                         <x-select
                             name="role"
                             wire="live"
-                            placeholder="Estado"
+                            placeholder="Seleccionar"
                             :values="$roles"
                         />
                     </div>
@@ -46,7 +46,7 @@
                     <div class="mt-5 mb-5 w-full px-3 sm:w-1/2">
                         <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                         <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required/>
-                        <x-input-error for="document"/>
+                        <x-input-error for="password_confirmation"/>
                     </div>
                     <x-button class="ms-4  mb-5 bg-blue-900">
                         Agregar
