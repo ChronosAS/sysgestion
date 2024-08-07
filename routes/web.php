@@ -18,6 +18,8 @@ Route::middleware([
             Route::get('/',App\Livewire\Users\Index::class)->name('users.index');
 
             Route::get('/crear',App\Livewire\Users\Create::class)->name('users.create');
+
+            Route::get('/editar/{user}',App\Livewire\Users\Edit::class)->name('users.edit');
         });
 
 });

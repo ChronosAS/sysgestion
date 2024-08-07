@@ -110,7 +110,7 @@
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="{{-- route('users.show',$user) --}}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                                <a href="{{-- route('users.edit',$user) --}}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                                <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                             </td>
                                         </tr>
                                     @else
@@ -134,7 +134,7 @@
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="{{-- route('users.show',$user) --}}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                                <a href="{{-- route('users.edit',$user) --}}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                                <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                             </td>
                                         </tr>
                                     @endif
