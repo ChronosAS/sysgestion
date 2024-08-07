@@ -20,6 +20,12 @@ class Index extends Component
         'perPage' => ['except' => '10']
     ];
 
+    public function toggleStatus(User $user) : void
+    {
+        $user->status = !$user->status;
+        $user->save();
+    }
+
     private function loadUsers(){
         return User::query()
             ->select([

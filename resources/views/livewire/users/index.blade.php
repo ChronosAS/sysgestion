@@ -104,9 +104,15 @@
                                                 {{ $user->email }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {!! ($user->status == 1)
-                                                    ? '<span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>'
-                                                    : '<span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>' !!}
+                                                @if($user->status == 1)
+                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
+                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
+                                                </a>
+                                                @else
+                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
+                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
+                                                </a>
+                                                @endif
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="{{-- route('users.show',$user) --}}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
@@ -128,9 +134,15 @@
                                                 {{ $user->email }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {!! ($user->status == 1)
-                                                    ? '<span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>'
-                                                    : '<span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>' !!}
+                                                @if($user->status == 1)
+                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
+                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
+                                                </a>
+                                                @else
+                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
+                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
+                                                </a>
+                                                @endif
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="{{-- route('users.show',$user) --}}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
