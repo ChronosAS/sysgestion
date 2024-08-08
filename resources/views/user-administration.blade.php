@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot name="header" class="font-sans font-black">
         Administracion de Usuarios
     </x-slot>
     <div class="py-12">

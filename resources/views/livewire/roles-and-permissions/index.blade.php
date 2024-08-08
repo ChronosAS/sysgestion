@@ -1,5 +1,6 @@
 <div class="max-w-sm">
     <div class="bg-white overflow-hidden mt-6 p-8 shadow-xl sm:rounded-lg">
+        <header class="text-center text-xl mb-3 font-black breack-all font-sans underline">Roles </header>
         <div class="relative overflow-x-auto sm:rounded-lg">
             <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                 <label for="table-search" class="sr-only">Search</label>
