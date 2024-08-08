@@ -1,4 +1,4 @@
-<div>
+<div class="max-w-xl">
     <div class="bg-white overflow-hidden mt-6 p-10 shadow-xl sm:rounded-lg">
         <div class="relative overflow-x-auto sm:rounded-lg">
             <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
