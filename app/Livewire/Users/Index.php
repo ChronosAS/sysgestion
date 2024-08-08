@@ -36,6 +36,7 @@ class Index extends Component
                 'email',
                 'status'
             ])
+            ->where('id','!=',auth()->user()->id)
             ->when(strlen($this->is_active)>0,function($query){
                 return $query->where('status',$this->is_active);
             })

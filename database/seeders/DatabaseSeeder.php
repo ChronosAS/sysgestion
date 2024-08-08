@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
     {
         return [
             'user' => $this->defaultActions(),
+            'role' => $this->defaultActions()
         ];
     }
 

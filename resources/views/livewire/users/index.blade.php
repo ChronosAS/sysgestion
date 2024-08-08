@@ -160,11 +160,14 @@
                             </tbody>
                         </table>
                         <div class="m-4 text-white ">
-                            {{ $users->links('vendor.livewire.tailwind-pagination') }}
+                            {{ $users->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>
                 </div>
             </div>
+            @can('role:access')
+                @livewire('roles-and-permissions.index')
+            @endcan
         </div>
     </div>
 </div>
