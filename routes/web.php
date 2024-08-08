@@ -15,7 +15,9 @@ Route::middleware([
 
     Route::middleware(RoleMiddleware::using('admin'))
         ->prefix('/usuarios')->group(function(){
-            Route::get('/',App\Livewire\Users\Index::class)->name('users.index');
+            Route::get('/',function(){
+                return view('user-administration');
+            })->name('users.administration');
 
             Route::get('/crear',App\Livewire\Users\Create::class)->name('users.create');
 

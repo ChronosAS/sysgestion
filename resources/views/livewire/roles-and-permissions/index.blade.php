@@ -1,5 +1,5 @@
-<div class="max-w-xl">
-    <div class="bg-white overflow-hidden mt-6 p-10 shadow-xl sm:rounded-lg">
+<div class="max-w-sm">
+    <div class="bg-white overflow-hidden mt-6 p-8 shadow-xl sm:rounded-lg">
         <div class="relative overflow-x-auto sm:rounded-lg">
             <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                 <label for="table-search" class="sr-only">Search</label>
@@ -10,7 +10,7 @@
                     <input wire:model.live='roleSearch' type="text" name="roleSearch" id="roleSearch" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                 </div>
             </div>
-            <table class="w-full border border-gray-200  text-sm text-left rtl:text-right text-gray-500">
+            <table class="w-full border border-gray-200 text-sm text-center rtl:text-right text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -21,7 +21,7 @@
                                   </svg></a>
                             </div>
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-4 py-3">
                             @can('role:create')
                                 <x-button-href>
                                     Crear
@@ -38,8 +38,7 @@
                                     {{ $role->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a class="font-medium text-blue-600 hover:underline">Ver</a>
-                                    <a class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                    <a class="font-medium text-blue-600 cursor-pointer hover:underline">Permisos</a>
                                 </td>
                             </tr>
                         @else
@@ -48,8 +47,7 @@
                                     {{ $role->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a class="font-medium text-blue-600 hover:underline">Ver</a>
-                                    <a class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                    <a class="font-medium text-blue-600 cursor-pointer hover:underline">Permisos</a>
                                 </td>
                             </tr>
                         @endif

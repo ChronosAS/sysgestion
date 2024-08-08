@@ -43,8 +43,8 @@
                                         </div> --}}
 
                                         <!-- Users -->
-                                        <x-dropdown-link href="{{ route('users.index') }}">
-                                            Usuarios
+                                        <x-dropdown-link href="{{ route('users.administration') }}">
+                                            Administracion de Usuarios
                                         </x-dropdown-link>
                                         <!-- Medicine -->
                                         <x-dropdown-link href="#">
