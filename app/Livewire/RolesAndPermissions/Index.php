@@ -4,8 +4,9 @@ namespace App\Livewire\RolesAndPermissions;
 
 
 use App\Livewire\RolesAndPermissions\Concerns\RolesAndPermissionsCustomPagination;
-use Livewire\Component;
 use App\Models\Role;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class Index extends Component
 {
@@ -19,6 +20,10 @@ class Index extends Component
         'rolePerPage' => ['except' => '10']
     ];
 
+    public function deleteRole(Role $role){
+        $role->delete();
+    }
+
     private function loadRoles(){
         return Role::query()
             ->select([
@@ -30,6 +35,7 @@ class Index extends Component
             ->paginate($this->rolePerPage);
     }
 
+    #[On('roleChanged')]
     public function render()
     {
         return view('livewire.roles-and-permissions.index',[

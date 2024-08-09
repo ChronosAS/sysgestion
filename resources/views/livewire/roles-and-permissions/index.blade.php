@@ -25,7 +25,7 @@
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 @can('role:create')
-                                    <x-button-href wire:click="$dispatch('createRole')" wire:loading.attr="disabled">
+                                    <x-button-href wire:click="$dispatch('roleModal')" wire:loading.attr="disabled">
                                         Crear
                                     </x-button-href>
                                 @endcan
@@ -34,25 +34,26 @@
                     </thead>
                     <tbody>
                         @forelse ($roles as $role)
-                            @if ($loop->last)
+                            {{-- @if ($loop->last)
                                 <tr class="bg-white hover:bg-gray-50">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         {{ $role->name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
+                                        <a @click="$dispatch('roleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
                                     </td>
                                 </tr>
-                            @else
+                            @else --}}
                                 <tr class="bg-white border-b hover:bg-gray-50">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         {{ $role->name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
+                                        <a @click="$dispatch('roleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
+                                        <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-600 cursor-pointer hover:underline">Eliminar</a>
                                     </td>
                                 </tr>
-                            @endif
+                            {{-- @endif --}}
                         @empty
                             <tr>
                                 <td class="px-6 py-4 text-center text-xl col-span-5" colspan="6">
@@ -68,5 +69,5 @@
             </div>
         </div>
     </div>
-    <livewire:roles-and-permissions.modals.create>
+    <livewire:roles-and-permissions.modals.create-and-edit>
 </div>
