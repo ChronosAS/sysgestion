@@ -4,8 +4,8 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="mt-4">
-            <x-input type="text" class="mt-1 block w-3/4"
+        <div class="mt-4 flex flex-col items-center">
+            <x-input type="text" class="mt-1 block w-3/4  "
                         placeholder="Nombre de el rol"
                         wire:model="name"
                         wire:keydown.enter="save" />
