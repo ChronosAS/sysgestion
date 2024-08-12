@@ -49,15 +49,19 @@
                                         {{ $role->name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a @click="$dispatch('roleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
-                                        <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-600 cursor-pointer hover:underline">Eliminar</a>
+                                        @can('role:edit')
+                                            <a @click="$dispatch('roleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
+                                        @endcan
+                                        @can('role:delete')
+                                            <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-600 cursor-pointer hover:underline">Eliminar</a>
+                                        @endcan
                                     </td>
                                 </tr>
                             {{-- @endif --}}
                         @empty
                             <tr>
                                 <td class="px-6 py-4 text-center text-xl col-span-5" colspan="6">
-                                    No hay usuarios registrados.
+                                    No hay roles creados.
                                 </td>
                             </tr>
                         @endforelse

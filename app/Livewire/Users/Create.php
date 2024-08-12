@@ -57,7 +57,7 @@ class Create extends Component
         session()->flash('flash.banner','Usuario creado con exito.');
         session()->flash('flash.bannerStyle','success');
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.administration');
 
     }
 

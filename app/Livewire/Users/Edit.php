@@ -64,7 +64,7 @@ class Edit extends Component
         session()->flash('flash.banner','Usuario actualizado con exito.');
         session()->flash('flash.bannerStyle','success');
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.administration');
     }
 
     #[Layout('layouts.app',['header'=>'Editar Usuario'])]

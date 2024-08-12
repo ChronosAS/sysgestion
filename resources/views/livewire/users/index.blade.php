@@ -82,14 +82,14 @@
                     </thead>
                     <tbody>
                         @forelse ($users as $user)
-                            @if ($loop->last)
+                            {{-- @if ($loop->last)
                                 <tr class="bg-white hover:bg-gray-50">
-                                    {{-- <td class="w-4 p-4">
+                                    <td class="w-4 p-4">
                                         <div class="flex items-center">
                                             <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
                                             <label for="checkbox-table-3" class="sr-only">checkbox</label>
                                         </div>
-                                    </td> --}}
+                                    </td>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         {{ $user->document }}
                                     </th>
@@ -114,12 +114,12 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{-- route('users.show',$user) --}}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                        <a href="{{ route('users.show',$user) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
                                         <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                     </td>
                                 </tr>
-                            @else
-                                <tr class="bg-white border-b hover:bg-gray-50">
+                            @else --}}
+                                <tr class="bg-white border-b hover:bg-slate-200/50">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         {{ $user->document }}
                                     </th>
@@ -144,11 +144,11 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{-- route('users.show',$user) --}}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                        <a href="{{ route('users.show',$user) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
                                         <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                     </td>
                                 </tr>
-                            @endif
+                            {{-- @endif --}}
                         @empty
                             <tr>
                                 <td class="px-6 py-4 text-center text-xl col-span-5" colspan="6">
