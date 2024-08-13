@@ -6,17 +6,17 @@
                 <div class="mt-5  mx-10 container-xl  text-center  flex  justify-between flex-wrap">
                     <div class="mt-5 px-8 ml-5 w-60 text-center">
                         <x-label for="document" class="border-b border-black" value="Cedula de Identidad" />
-                        {{ $user->document }}
+                        <div class="max-w-72 break-all">{{ $user->document }}</div>
                     </div>
                     <div class="mt-5 px-8 ml-5 w-60 text-center">
                         <x-label for="email" class="border-b border-black" value="Correo Electronico" />
-                        {{ $user->email }}
+                        <div class="max-w-72 break-all">{{ $user->email }}</div>
                     </div>
                     <div class="mt-5 px-8 ml-5 w-60 text-center">
                         <x-label for="status" class="border-b border-black" value="Estado"/>
                         @if($user->status == 1)
                             <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
+                                <span class="flex  items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
                             </a>
                         @else
                             <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
