@@ -1,6 +1,6 @@
 <x-dialog-modal wire:model.live="showRoleModal">
-    <x-slot name="title">
-        Crear Rol
+    <x-slot name="title" >
+        <h1 class="text-center border-b">Crear Rol</h1>
     </x-slot>
 
     <x-slot name="content">
