@@ -23,7 +23,7 @@ Route::middleware([
 
             Route::get('/editar/{user}',App\Livewire\Users\Edit::class)->name('users.edit');
 
-            Route::get('/{user}',App\Livewire\Users\Show::class)->name('users.show');
+            Route::get('/{user}',App\Livewire\Users\Show::class)->name('user.show');
         });
 
 });

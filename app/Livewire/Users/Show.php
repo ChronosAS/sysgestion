@@ -15,6 +15,12 @@ class Show extends Component
         $this->user = $user;
     }
 
+    public function toggleStatus() : void
+    {
+        $this->user->status = !$this->user->status;
+        $this->user->save();
+    }
+
 
     public function render()
     {
