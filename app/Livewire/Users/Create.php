@@ -32,7 +32,7 @@ class Create extends Component
             'last_names' => ['required','string','max:255'],
             'dob' => ['required','date'],
             'role' => ['required'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')],
+            'email' => ['required', 'email', 'max:255', Rule::unique('users','email')],
             'password' => ['required', 'string', Password::default()],
         ],[
             'required' => 'Este campo no puede estar vacio.',
