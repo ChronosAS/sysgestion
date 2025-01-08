@@ -43,7 +43,8 @@ class RoleAndPermissionsSeeder extends Seeder
     {
         return [
             'user' => $this->defaultActions(),
-            'role' => $this->defaultActions()
+            'role' => $this->defaultActions(),
+            'official'=> $this->defaultActions()
         ];
     }
 

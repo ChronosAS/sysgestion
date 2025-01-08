@@ -2,23 +2,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black font-sans pb-5 ">Usuarios</header>
+                <header class="text-center text-xl mt-5 font-black font-sans pb-5 ">Funcionarios</header>
                 <div class="p-6 lg:p-8 bg-white border-t-2  border-gray-200">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                            {{-- <div class="flex space-x-5">
+                            <div class="flex space-x-5">
                                  <x-select
-                                    name="type"
+                                    name="gender"
                                     wire="live"
-                                    placeholder="Todos los Tipos"
-                                    :values="App\Enum\UserType::options()"
-                                />
-
-                                <x-select
-                                    name="is_active"
-                                    wire="live"
-                                    placeholder="Estado"
-                                    :values="$status"
+                                    placeholder="Genero"
+                                    :values="App\Enum\GenderEnum::options()"
                                 />
                             </div>
                             <label for="table-search" class="sr-only">Search</label>
@@ -28,7 +21,7 @@
                                 </div>
                                 <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                             </div>
-                        </div> --}}
+                        </div>
                         <table class="w-full border border-gray-200  text-sm text-left rtl:text-right text-gray-500">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                                 <tr>
@@ -52,7 +45,7 @@
                                     <th scope="col" class="px-6 py-3">
                                         <div class="flex items-center">
                                             Apellido/s
-                                            <a href="#" wire:click.prevent="sortBy('first_names')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <a href="#" wire:click.prevent="sortBy('last_names')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg></a>
                                         </div>
@@ -67,14 +60,22 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         <div class="flex items-center">
-                                            Estado
-                                            <a href="#" wire:click.prevent="sortBy('status')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            Telefono
+                                            <a href="#" wire:click.prevent="sortBy('phone_number')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg></a>
                                         </div>
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        @can('user:create')
+                                        <div class="flex items-center">
+                                            Genero
+                                            <a href="#" wire:click.prevent="sortBy('gender')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
+                                                </svg></a>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        @can('official:create')
                                             <x-button-href href="{{ route('officials.create') }}">
                                                 Crear
                                             </x-button-href>
@@ -83,7 +84,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($users as $user)
+                                @forelse ($officials as $official)
                                     @if ($loop->last)
                                         <tr class="bg-white hover:bg-gray-50">
                                             <td class="w-4 p-4">
@@ -93,75 +94,65 @@
                                                 </div>
                                             </td>
                                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                {{ $user->document }}
+                                                {{ $official->document }}
                                             </th>
                                             <td class="px-6 py-4">
-                                                {{ $user->first_names }}
+                                                {{ $official->first_names }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $user->last_names }}
+                                                {{ $official->last_names }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $user->email }}
+                                                {{ $official->email }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                @if($user->status == 1)
-                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
-                                                </a>
-                                                @else
-                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
-                                                </a>
-                                                @endif
+                                                {{ $official->phone_number }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="{{ route('users.show',$user) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                                <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                                {{ $official->gender }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <a href="{{ route('officials.show',$official) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                                <a href="{{ route('officials.edit',$official) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                             </td>
                                         </tr>
                                     @else
                                         <tr class="bg-white border-b hover:bg-slate-200/50">
                                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $user->document }}
+                                                {{ $official->document }}
                                             </th>
                                             <td class="px-6 py-4">
-                                                {{ $user->first_names }}
+                                                {{ $official->first_names }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $user->last_names }}
+                                                {{ $official->last_names }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $user->email }}
+                                                {{ $official->email }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                @if($user->status == 1)
-                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
-                                                </a>
-                                                @else
-                                                <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                                    <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
-                                                </a>
-                                                @endif
+                                                {{ $official->phone_number }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="{{ route('user.show',$user) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                                <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                                {{ $official->gender }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <a href="{{ route('official.show',$official) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                                <a href="{{ route('officials.edit',$official) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                             </td>
                                         </tr>
-                                     @endif
+                                        @endif
                                 @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-5" colspan="6">
-                                            No hay usuarios registrados.
+                                        <td class="px-6 py-4 text-center text-xl col-span-5" colspan="7">
+                                            No hay funcionarios registrados.
                                         </td>
                                     </tr>
-                                @endforelse --}}
+                                @endforelse
                             </tbody>
                         </table>
                         <div class="m-4 text-white ">
-                            {{-- {{ $users->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }} --}}
+                            {{ $officials->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>
                 </div>
