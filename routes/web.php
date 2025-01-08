@@ -31,11 +31,11 @@ Route::middleware([
 
             Route::get('/',App\Livewire\Officials\Index::class)->name('officials.index');
 
-            // Route::get('/crear',App\Livewire\Users\Create::class)->name('users.create');
+            Route::get('/crear',App\Livewire\Officials\Create::class)->name('officials.create');
 
             // Route::get('/crear',App\Livewire\Users\Create::class)->name('users.create');
 
-            // Route::get('/editar/{user}',App\Livewire\Users\Edit::class)->name('users.edit');
+            Route::get('/editar',App\Livewire\Officials\Edit::class)->name('officials.edit');
         });
 
 });
