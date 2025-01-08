@@ -29,9 +29,9 @@
                         <x-input-error class="text-xs" for="email"/>
 
                     </div>
-                    <div class="mt-5  w-full px-3 sm:w-1/2">
+                    <div class="mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="phone" value="Teléfono" />
-                        <x-input id="phone" wire:model='phone' class="block mt-1 w-full truncate" type="text" name="phone" :value="old('phone')" autocomplete="phone" />
+                        <x-input id="phone" wire:model='phone' class="block mt-1 w-full truncate" type="number" name="phone" :value="old('phone')" autocomplete="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
                         <x-input-error class="text-xs" for="phone"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4" >
