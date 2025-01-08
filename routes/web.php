@@ -26,7 +26,7 @@ Route::middleware([
             Route::get('/{user}',App\Livewire\Users\Show::class)->name('user.show');
         });
 
-    Route::middleware(PermissionMiddleware::using('user:access'))
+    Route::middleware(PermissionMiddleware::using('official:access'))
         ->prefix('/funcionarios')->group(function(){
 
             Route::get('/',App\Livewire\Officials\Index::class)->name('officials.index');
