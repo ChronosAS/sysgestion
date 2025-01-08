@@ -49,8 +49,11 @@
                                         {{ $role->name }}
                                     </td>
                                     <td class="px-6 py-4">
+                                        @can('role:create')
+                                            <a @click="$dispatch('createRoleModal')" class="font-medium text-blue-600 cursor-pointer hover:underline">Crear</a>
+                                        @endcan
                                         @can('role:edit')
-                                            <a @click="$dispatch('roleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
+                                            <a @click="$dispatch('editRoleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
                                         @endcan
                                         @can('role:delete')
                                             <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-600 cursor-pointer hover:underline">Eliminar</a>
@@ -73,5 +76,6 @@
             </div>
         </div>
     </div>
-    <livewire:roles-and-permissions.modals.create-and-edit>
+    <livewire:roles-and-permissions.modals.create>
+    <livewire:roles-and-permissions.modals.edit :role="$role">
 </div>
