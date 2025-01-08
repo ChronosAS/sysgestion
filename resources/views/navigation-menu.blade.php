@@ -50,6 +50,9 @@
                                         <x-dropdown-link href="#">
                                             Medicamentos
                                         </x-dropdown-link>
+                                        <x-dropdown-link href="{{ route('officials.index') }}">
+                                            Funcionarios
+                                        </x-dropdown-link>
                                     </div>
                                 </x-slot>
                             </x-dropdown>

@@ -75,7 +75,7 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         @can('user:create')
-                                            <x-button-href href="{{ route('users.create') }}">
+                                            <x-button-href href="{{ route('officials.create') }}">
                                                 Crear
                                             </x-button-href>
                                         @endcan
