@@ -20,7 +20,7 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="dob" value="Fecha de Nacimiento" />
-                        <x-input id="dob" wire:model='dob' class="block mt-1 w-full" type="date" name="dob" :value="old('dob')" autocomplete="dob" />
+                        <x-input id="dob" wire:model='dob' class="block mt-1 w-full " type="date" name="dob" :value="old('dob')" autocomplete="dob" />
                         <x-input-error class="text-xs" for="dob"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
@@ -36,8 +36,8 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4" >
                         <label for="gender" class="block text-sm font-medium text-gray-700">Género</label>
-                        <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
-                            <option value="#" class="text-center">Seleccionar</option>
+                        <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
+                            <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($genders as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                             @endforeach
@@ -63,22 +63,22 @@
                                         Apellido/s
                                     </x-table.th>
                                     <x-table.th class="pb-3 text-center">
-                                        <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block rounded-md bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
+                                        <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block cursor-pointer rounded-md bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
                                     </x-table.th>
                                 </tr>
                             </x-slot>
                             <x-slot name="tbody">
                                 @forelse($beneficiaries as $index => $beneficiary)
-                                    <tr class="bg-slate-300 shadow-md border border-gray-700">
-                                        <x-table.td>
+                                    <tr class="bg-slate-300 shadow-md border border-gray-700 text-center">
+                                        <td class="text-black">
                                             {{ $beneficiary['document'] }}
-                                        </x-table.td>
-                                        <x-table.td>
+                                        </td>
+                                        <td class="text-black">
                                             {{ $beneficiary['first_names'] }}
-                                        </x-table.td>
-                                        <x-table.td>
+                                        </td>
+                                        <td class="text-black">
                                             {{ $beneficiary['last_names'] }}
-                                        </x-table.td>
+                                       </td>
                                         <x-table.td class="text-center">
                                             <button wire:confirm='seguro que desea remover este beneficiario?' wire:click="removeBeneficiary({{ $index }})" type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

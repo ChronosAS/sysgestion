@@ -36,7 +36,7 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4" >
                         <label for="gender" class="block text-sm font-medium text-gray-700">Género</label>
-                        <select id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
+                        <select id="gender" name="gender" class="cursor-pointer mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
                             <option value="choose" class="text-center">Seleccionar</option>
                             <option value="male" class="text-center">Masculino</option>
                             <option value="female" class="text-center">Femenino</option>
