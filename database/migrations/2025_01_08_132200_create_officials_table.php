@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('dob');
             $table->string('email')->unique();
             $table->string('phone_number');
+            $table->string('address');
             $table->string('gender');
             $table->softDeletes();
             $table->timestamps();

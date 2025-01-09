@@ -37,9 +37,10 @@
                     <div class="mt-5 w-full px-3 sm:w-1/4" >
                         <label for="gender" class="block text-sm font-medium text-gray-700">Género</label>
                         <select id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
-                            <option value="choose" class="text-center">Seleccionar</option>
-                            <option value="male" class="text-center">Masculino</option>
-                            <option value="female" class="text-center">Femenino</option>
+                            <option value="#" class="text-center">Seleccionar</option>
+                            @foreach ($genders as $name => $value)
+                                <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                            @endforeach
                         </select>
 
                     </div>
@@ -70,20 +71,13 @@
                                 @foreach($beneficiaries as $index => $beneficiary)
                                     <tr class="bg-slate-300 shadow-md border border-gray-700">
                                         <x-table.td>
-                                            <label for="beneficiaries.{{ $index }}.beneficiary" class="text-black">
-                                                Cédula
-                                            </label>
-                                            <x-input wire:model="beneficiaries.{{ $index }}.document" type="text" id="beneficiaries.{{ $index }}.document" oninput="this.value = this.value.replace(/[^0-9+- ]/g, '');" />
-                                            @error('beneficiaries.*.document')
-                                                <span class="text-danger"><b>{{ $message }}</b></span>
-                                            @enderror
+                                            {{ $beneficiary['document'] }}
                                         </x-table.td>
                                         <x-table.td>
-                                            <input class="mt-1 block w-full text-black bg-white dark:bg-white dark:text-black focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 rounded-md shadow-sm"
-                                            wire:model="beneficiaries.{{ $index }}.description" type="text" id="beneficiaries.{{ $index }}.description" name="beneficiaries.{{ $index }}.description" placeholder="Ingresar...">
-                                            @error('beneficiaries.*.description')
-                                                <span class="text-danger"><b>{{ $message }}</b></span>
-                                            @enderror
+                                            {{ $beneficiary['first_names'] }}
+                                        </x-table.td>
+                                        <x-table.td>
+                                            {{ $beneficiary['last_names'] }}
                                         </x-table.td>
                                         <x-table.td class="text-center">
                                             <button wire:click="removeBeneficiary({{ $index }})" type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
@@ -112,5 +106,5 @@
             </div>
         </div>
     </div>
-    <livewire:officials.beneficiaries.create/>
+    <livewire:officials.beneficiaries.create :beneficiaries="$beneficiaries"/>
 </div>

@@ -22,6 +22,7 @@ class Beneficiary extends Model
         'dob',
         'email',
         'phone_number',
+        'address',
         'gender',
         'relationship',
         'official_id',
@@ -37,6 +38,7 @@ class Beneficiary extends Model
                 ->orWhere('dob', 'like', '%'.$term.'%')
                 ->orWhere('gender', 'like', '%'.$term.'%')
                 ->orWhere('phone_number', 'like', '%'.$term.'%')
+                ->orWhere('address', 'like', '%'.$term.'%')
                 ->orWhereRelation('official', 'first_names','like', '%'.$term.'%')
                 ->orWhereRelation('official', 'last_names','like', '%'.$term.'%')
                 ->orWhereRelation('official', 'document','like', '%'.$term.'%');

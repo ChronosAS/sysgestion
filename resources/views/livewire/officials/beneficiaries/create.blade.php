@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+        <form wire:submit='add' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
             <div class="mt-5 w-full sm:w-1/2 px-3">
                 <x-label for="document" value="Cédula de Identidad" />
                 <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" />
@@ -39,9 +39,10 @@
             <div class="mt-5 w-full px-3 sm:w-1/4" >
                 <label for="gender" class="block text-sm font-medium text-gray-700">Género</label>
                 <select id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
-                    <option value="choose" class="text-center">Seleccionar</option>
-                    <option value="male" class="text-center">Masculino</option>
-                    <option value="female" class="text-center">Femenino</option>
+                    <option value="#" class="text-center">Seleccionar</option>
+                    @foreach ($genders as $name => $value)
+                        <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                    @endforeach
                 </select>
 
             </div>
@@ -58,8 +59,8 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-success-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
-            Crear
+        <x-success-button class="ms-3" wire:click="add" wire:loading.attr="disabled">
+            Agregar
         </x-success-button>
     </x-slot>
 </x-dialog-modal>

@@ -27,6 +27,7 @@ class Official extends Model
         'dob',
         'email',
         'phone_number',
+        'address',
         'gender',
     ];
 
