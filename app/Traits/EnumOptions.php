@@ -9,7 +9,7 @@ trait EnumOptions
         $options = array();
 
         foreach (self::cases() as $case) {
-            $options[$case->value] = $case->name;
+            $options[$case->value] = $case->label();
         }
 
         return $options;

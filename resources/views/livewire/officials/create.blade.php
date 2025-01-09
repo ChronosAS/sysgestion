@@ -30,19 +30,19 @@
 
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="phone" value="Teléfono" />
-                        <x-input id="phone" wire:model='phone' class="block mt-1 w-full truncate" type="text" name="phone" :value="old('phone')" autocomplete="phone" oninput="this.value = this.value.replace(/[^0-9+- ]/g, '');" />
-                        <x-input-error class="text-xs" for="phone"/>
+                        <x-label for="phone_number" value="Teléfono" />
+                        <x-input id="phone_number" wire:model='phone_number' class="block mt-1 w-full truncate" type="text" name="phone_number" :value="old('phone_number')" autocomplete="phone_number" oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');" />
+                        <x-input-error class="text-xs" for="phone_number"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4" >
                         <label for="gender" class="block text-sm font-medium text-gray-700">Género</label>
-                        <select id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
+                        <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
                             <option value="#" class="text-center">Seleccionar</option>
-                            @foreach ($genders as $name => $value)
+                            @foreach ($genders as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                             @endforeach
                         </select>
-
+                        <x-input-error class="text-xs" for="gender"/>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/4">
                         <x-label for="address" value="Dirección" />
