@@ -5,11 +5,11 @@
                 <h1 class="border-b-2 border-black text-2xl ml-5">Información del Usuario</h1>
                 <div class="mt-5  mx-10 container-xl  text-center  flex  justify-between flex-wrap">
                     <div class="mt-5 px-8 ml-5 w-60 text-center">
-                        <x-label for="document" class="border-b border-black" value="Cedula de Identidad" />
+                        <x-label for="document" class="border-b border-black" value="Cédula de Identidad" />
                         <div class="max-w-72 break-all">{{ $user->document }}</div>
                     </div>
                     <div class="mt-5 px-8 ml-5 w-60 text-center">
-                        <x-label for="email" class="border-b border-black" value="Correo Electronico" />
+                        <x-label for="email" class="border-b border-black" value="Correo Electrónico" />
                         <div class="max-w-72 break-all">{{ $user->email }}</div>
                     </div>
                     <div class="mt-5 px-8 ml-5 w-60 text-center">
