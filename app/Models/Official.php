@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enum\GenderEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Official extends Model
 {
@@ -40,5 +41,10 @@ class Official extends Model
                 ->orWhere('gender', 'like', '%'.$term.'%')
                 ->orWhere('dob', 'like', '%'.$term.'%');
         }
+    }
+
+    public function beneficiaries() : HasMany
+    {
+        return $this->hasMany(Beneficiary::class);
     }
 }

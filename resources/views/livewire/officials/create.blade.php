@@ -62,7 +62,7 @@
                                         Apellido/s
                                     </x-table.th>
                                     <x-table.th class="col-2">
-                                        <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
+                                        <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
                                     </x-table.th>
                                 </tr>
                             </x-slot>
@@ -100,16 +100,17 @@
                             </x-slot>
                         </x-table.table>
                     </div>
-                <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
-                    <x-button-href href="{{ route('officials.index') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
-                        Regresar
-                    </x-button-href>
-                    <x-button class="ms-4 mt-5 mb-5 bg-blue-900">
-                        Agregar
-                    </x-button>
-                </div>
-            </form>
+                    <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+                        <x-button-href href="{{ route('officials.index') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
+                            Regresar
+                        </x-button-href>
+                        <x-button class="ms-4 mt-5 mb-5 bg-blue-900">
+                            Agregar
+                        </x-button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <livewire:officials.beneficiaries.create/>
 </div>
