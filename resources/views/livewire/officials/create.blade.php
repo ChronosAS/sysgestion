@@ -68,7 +68,7 @@
                                 </tr>
                             </x-slot>
                             <x-slot name="tbody">
-                                @foreach($beneficiaries as $index => $beneficiary)
+                                @forelse($beneficiaries as $index => $beneficiary)
                                     <tr class="bg-slate-300 shadow-md border border-gray-700">
                                         <x-table.td>
                                             {{ $beneficiary['document'] }}
@@ -80,17 +80,20 @@
                                             {{ $beneficiary['last_names'] }}
                                         </x-table.td>
                                         <x-table.td class="text-center">
-                                            <button wire:click="removeBeneficiary({{ $index }})" type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
+                                            <button wire:confirm='seguro que desea remover este beneficiario?' wire:click="removeBeneficiary({{ $index }})" type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                                 </svg>
                                             </button>
                                         </x-table.td>
                                     </tr>
-                                @endforeach
-                                @error('beneficiaries')
-                                    <tr><x-table.td colspan="3"><span class="text-danger"><b>{{ $message }}</b></span></x-table.td></tr>
-                                @enderror
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="px-6 py-4 text-center text-black text-xl">
+                                            No hay beneficiarios agregados
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </x-slot>
                         </x-table.table>
                     </div>

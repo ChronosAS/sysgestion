@@ -35,6 +35,15 @@ class Create extends Component
         $this->beneficiaries = $beneficiaries;
     }
 
+    public function removeBeneficiary($line)
+    {
+        $this->resetErrorBag();
+
+        unset($this->beneficiaries[$line]);
+
+        $this->beneficiaries = array_values($this->beneficiaries);
+    }
+
     public function save()
     {
         $this->validate([
