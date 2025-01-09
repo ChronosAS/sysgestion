@@ -49,21 +49,21 @@
                         <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address" :value="old('address')" autocomplete="address" />
                         <x-input-error class="text-xs" for="address"/>
                     </div>
-                    <div class="col-span-6">
-                        <x-table.table>
+                    <div class=" mt-5 w-full px-3 sm:w-4/4">
+                        <x-table.table class="w-full">
                             <x-slot name="thead">
-                                <tr class="bg-blue-900 text-white">
+                                <tr class="bg-blue-900 text-white ">
                                     <x-table.th class="pb-3 text-center">
                                         Cédula
                                     </x-table.th>
-                                    <x-table.th class="pb-3">
+                                    <x-table.th class="pb-3 text-center">
                                         Nombre/s
                                     </x-table.th>
-                                    <x-table.th class="pb-3">
+                                    <x-table.th class="pb-3 text-center">
                                         Apellido/s
                                     </x-table.th>
-                                    <x-table.th class="col-2">
-                                        <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
+                                    <x-table.th class="pb-3 text-center">
+                                        <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block rounded-md bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
                                     </x-table.th>
                                 </tr>
                             </x-slot>
@@ -95,7 +95,7 @@
                         </x-table.table>
                     </div>
                     <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
-                        <x-button-href href="{{ route('officials.index') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
+                        <x-button-href href="{{ route('officials.index') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                             Regresar
                         </x-button-href>
                         <x-button class="ms-4 mt-5 mb-5 bg-blue-900">
