@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Beneficiary extends Model
+{
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'document',
+        'first_names',
+        'last_names',
+        'dob',
+        'email',
+        'phone_number',
+        'gender',
+        'relationship',
+        'official_id',
+    ];
+
+    public function scopeSearch($query, $term) : void
+    {
+        if($term){
+            $query->where('document', 'like', '%'.$term.'%')
+                ->orWhere('first_names', 'like', '%'.$term.'%')
+                ->orWhere('last_names', 'like', '%'.$term.'%')
+                ->orWhere('email', 'like', '%'.$term.'%')
+                ->orWhere('dob', 'like', '%'.$term.'%')
+                ->orWhere('gender', 'like', '%'.$term.'%')
+                ->orWhere('phone_number', 'like', '%'.$term.'%')
+                ->orWhereRelation('official', 'first_names','like', '%'.$term.'%')
+                ->orWhereRelation('official', 'last_names','like', '%'.$term.'%')
+                ->orWhereRelation('official', 'document','like', '%'.$term.'%');
+        }
+    }
+
+    /**
+     * Get the official that owns the beneficiary.
+     */
+    public function official() : BelongsTo
+    {
+        return $this->belongsTo(Official::class);
+    }
+}
