@@ -36,16 +36,20 @@
                 <x-input id="phone" wire:model='phone' class="block mt-1 w-full truncate" type="text" name="phone" :value="old('phone')" autocomplete="phone" oninput="this.value = this.value.replace(/[^0-9+- ]/g, '');" />
                 <x-input-error class="text-xs" for="phone"/>
             </div>
-            <div class="mt-5 w-full px-3 sm:w-1/4" >
+            <div class="mt-5 w-full px-3 sm:w-1/2" >
                 <label for="gender" class="block text-sm font-medium text-gray-700">Género</label>
                 <select id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-center">
                     <option value="choose" class="text-center">Seleccionar</option>
                     <option value="male" class="text-center">Masculino</option>
                     <option value="female" class="text-center">Femenino</option>
                 </select>
-
             </div>
-            <div class="mt-5 w-full px-3  sm:w-3/4">
+             <div class=" mt-5 w-full px-3 sm:w-1/2">
+                <x-label for="relationship" value="Relación"/>
+                <x-input id="relationship" wire:model='relationship' class="block mt-1 w-full truncate" type="text" name="relationship" :value="old('relationship')" autocomplete="relationship" />
+                <x-input-error class="text-xs" for="relationship"/>
+            </div>
+            <div class="mt-5 w-full px-3  sm:w-4/2">
                 <x-label for="address" value="Dirección" />
                 <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address" :value="old('address')" autocomplete="address" />
                 <x-input-error class="text-xs" for="address"/>
