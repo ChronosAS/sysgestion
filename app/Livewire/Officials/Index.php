@@ -28,6 +28,7 @@ class Index extends Component
                 'document',
                 'first_names',
                 'last_names',
+                'phone_number',
                 'gender',
                 'email'
             ])
