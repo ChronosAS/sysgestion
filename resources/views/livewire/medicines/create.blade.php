@@ -11,14 +11,14 @@
                 <x-input-error class="text-xs" for="comercial_name"/>
             </div>
             <div class="mt-5 w-full px-3 sm:w-1/2">
-                <x-label for="formula" value="Composición" />
-                <x-input id="formula" wire:model='formula' class="block mt-1 w-full truncate" type="text" name="formula" :value="old('formula')" autocomplete="formula" />
-                <x-input-error class="text-xs" for="formula"/>
-            </div>
-            <div class="mt-5 w-full px-3 sm:w-1/2">
-                <x-label for="composition" value="Componente Activo" />
+                <x-label for="composition" value="Composición" />
                 <x-input id="composition" wire:model='composition' class="block mt-1 w-full truncate" type="text" name="composition" :value="old('composition')" autocomplete="composition" />
                 <x-input-error class="text-xs" for="composition"/>
+            </div>
+            <div class="mt-5 w-full px-3 sm:w-1/2">
+                <x-label for="active_component" value="Componente Activo" />
+                <x-input id="active_component" wire:model='active_component' class="block mt-1 w-full truncate" type="text" name="active_component" :value="old('active_component')" autocomplete="active_component" />
+                <x-input-error class="text-xs" for="active_component"/>
             </div>
             <div class=" mt-5 w-full px-3 sm:w-1/2">
                 <x-label for="type" value="Tipo"/>
