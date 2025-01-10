@@ -5,7 +5,7 @@
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full sm:w-1/2 px-3">
                         <x-label for="document" value="Cédula de Identidad" />
-                        <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" />
+                        <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                         <x-input-error class="text-xs" for="document"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/2">

@@ -33,9 +33,9 @@ Route::middleware([
 
             Route::get('/crear',App\Livewire\Officials\Create::class)->name('officials.create');
 
-            // Route::get('/crear',App\Livewire\Users\Create::class)->name('users.create');
+            Route::get('/{official}',App\Livewire\Officials\Show::class)->name('officials.show');
 
-            Route::get('/editar',App\Livewire\Officials\Edit::class)->name('officials.edit');
+            Route::get('/editar/{official}',App\Livewire\Officials\Edit::class)->name('officials.edit');
         });
 
 });

@@ -91,7 +91,8 @@ class Create extends Component
             $official->beneficiaries()->createMany($this->beneficiaries);
         });
 
-        session()->flash('message', 'Funcionario creado.');
+        session()->flash('flash.banner','Funcionario creado con exito.');
+        session()->flash('flash.bannerStyle','success');
 
         return redirect()->route('officials.index');
     }
