@@ -73,6 +73,8 @@ class Edit extends Component
         session()->flash('flash.banner','Funcionario actualizado con exito.');
         session()->flash('flash.bannerStyle','success');
 
+        return redirect()->route('officials.index');
+
     }
 
     #[Layout('layouts.app',['header'=>'Editar Funcionario'])]
