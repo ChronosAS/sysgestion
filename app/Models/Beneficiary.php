@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\GenderEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,6 +27,16 @@ class Beneficiary extends Model
         'gender',
         'relationship',
         'official_id',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'dob' => 'date',
+        'gender' => GenderEnum::class,
     ];
 
     public function scopeSearch($query, $term) : void

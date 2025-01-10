@@ -3,6 +3,7 @@
 namespace App\Livewire\Officials\Beneficiaries;
 
 use App\Enum\GenderEnum;
+use App\Models\Official;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -10,6 +11,8 @@ use Livewire\Component;
 class Create extends Component
 {
     public $showAddBeneficiaryModal = false;
+
+    public Official $official;
 
     public $beneficiaries = [];
 
@@ -24,12 +27,12 @@ class Create extends Component
     public $relationship;
 
 
-    public function mount($beneficiaries)
+    public function mount($beneficiaries = null)
     {
         $this->beneficiaries = $beneficiaries;
     }
 
-    public function add()
+    public function save()
     {
         $this->validate([
             'document' => 'required|string|max:255',
@@ -69,17 +72,32 @@ class Create extends Component
             'relationship.max' => 'La relación no puede tener más de 255 caracteres.',
         ]);
 
-        $this->beneficiaries[] = [
-            'document' => $this->document,
-            'first_names' => $this->first_names,
-            'last_names' => $this->last_names,
-            'dob' => $this->dob,
-            'email' => $this->email,
-            'phone_number' => $this->phone_number,
-            'address' => $this->address,
-            'gender' => $this->gender,
-            'relationship' => $this->relationship,
-        ];
+        if($this->official)
+        {
+            $this->official->beneficiaries()->create([
+                'document' => $this->document,
+                'first_names' => $this->first_names,
+                'last_names' => $this->last_names,
+                'dob' => $this->dob,
+                'gender' => $this->gender,
+                'email' => $this->email,
+                'phone_number' => $this->phone_number,
+                'address' => $this->address,
+                'relationship' => $this->relationship,
+            ]);
+        }else{
+            $this->beneficiaries[] = [
+                'document' => $this->document,
+                'first_names' => $this->first_names,
+                'last_names' => $this->last_names,
+                'dob' => $this->dob,
+                'email' => $this->email,
+                'phone_number' => $this->phone_number,
+                'address' => $this->address,
+                'gender' => $this->gender,
+                'relationship' => $this->relationship,
+            ];
+        }
 
         $this->dispatch('beneficiaryAdded', $this->beneficiaries);
 

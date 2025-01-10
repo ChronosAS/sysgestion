@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <form wire:submit='add' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+        <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
             <div class="mt-5 w-full sm:w-1/2 px-3">
                 <x-label for="document" value="Cédula de Identidad" />
                 <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" />
@@ -63,7 +63,7 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-success-button class="ms-3" wire:click="add" wire:loading.attr="disabled">
+        <x-success-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
             Agregar
         </x-success-button>
     </x-slot>
