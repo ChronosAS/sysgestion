@@ -46,6 +46,7 @@ class RoleAndPermissionsSeeder extends Seeder
             'role' => $this->defaultActions(),
             'official'=> $this->defaultActions(),
             'beneficiary' => $this->defaultActions(),
+            'medicine' => $this->defaultActions(),
         ];
     }
 
