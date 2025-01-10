@@ -38,4 +38,9 @@ Route::middleware([
             Route::get('/editar/{official}',App\Livewire\Officials\Edit::class)->name('officials.edit');
         });
 
+    Route::middleware(PermissionMiddleware::using('medicine:access'))
+        ->prefix('/medicamentos')->group(function(){
+            Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
+        });
+
 });
