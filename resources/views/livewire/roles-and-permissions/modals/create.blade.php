@@ -14,7 +14,7 @@
         <div class="grid grid-cols-2 gap-2 mt-2 mx-10">
             @foreach ($permissionsGrouped as $group => $permissions)
                 <div>
-                    <h1 class="text-lg font-bold">{{ $group }}</h1>
+                    <h1 class="text-lg text-white font-bold">{{ $group }}</h1>
                     @foreach ($permissions as $permission)
                         <x-custom-checkbox name="permissions" value="{{ $permission['permission_fullname'] }}" title="{{ $permission['permission_name'] }}" id="{{ $permission['permission_fullname'] }}" />
                     @endforeach
@@ -28,8 +28,8 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-success-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
+        <x-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
             Crear
-        </x-success-button>
+        </x-button>
     </x-slot>
 </x-dialog-modal>

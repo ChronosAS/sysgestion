@@ -1,7 +1,7 @@
 <div class="max-w-md">
-    <div class="bg-white overflow-hidden mt-3 shadow-xl sm:rounded-lg">
-        <header class="text-center text-xl font-black font-sans pb-5 mt-5">Roles</header>
-        <div class="p-6 lg:p-8 bg-white border-t-2 border-gray-200">
+    <div class="bg-blue-700 overflow-hidden mt-3 shadow-xl sm:rounded-lg">
+        <header class="text-center text-xl text-white font-black font-sans pb-5 mt-5">Roles</header>
+        <div class="p-6 lg:p-8 bg-blue-600 border-t-2 border-blue-700">
             <div class="relative overflow-x-auto sm:rounded-lg">
                 <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                     <label for="table-search" class="sr-only">Search</label>
@@ -12,8 +12,8 @@
                         <input wire:model.live='roleSearch' type="text" name="roleSearch" id="roleSearch" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                     </div>
                 </div>
-                <table class="w-full border border-gray-200 text-sm text-center rtl:text-right text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                <table class="w-full border border-blue-700 shadow-md text-sm text-center rtl:text-right text-white">
+                    <thead class="text-xs text-gray-700 uppercase bg-blue-800">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 <div class="flex items-center">
@@ -32,7 +32,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-blue-500">
                         @forelse ($roles as $role)
                             {{-- @if ($loop->last)
                                 <tr class="bg-white hover:bg-gray-50">
@@ -44,8 +44,8 @@
                                     </td>
                                 </tr>
                             @else --}}
-                                <tr class="bg-white border-b hover:bg-gray-50">
-                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                <tr class="bg-blue-500 border-b border-blue-700 hover:bg-blue-600">
+                                    <td scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
                                         {{ $role->name }}
                                     </td>
                                     <td class="px-6 py-4">
@@ -56,7 +56,7 @@
                                             <a @click="$dispatch('editRoleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
                                         @endcan
                                         @can('role:delete')
-                                            <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-600 cursor-pointer hover:underline">Eliminar</a>
+                                            <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-500 cursor-pointer hover:underline">Eliminar</a>
                                         @endcan
                                     </td>
                                 </tr>

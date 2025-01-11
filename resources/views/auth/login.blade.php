@@ -16,31 +16,31 @@
             @csrf
 
             <div>
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label class="text-white" for="email" value="Correo electrónico" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-label class="text-white" for="password" value="Contraseña" />
+                <x-input id="password" class="block mt-1 w-full " type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <label class="text-white cursor-pointer" for="remember_me" class="flex items-center">
+                    <x-checkbox class="cursor-pointer" id="remember_me" name="remember" />
+                    <span class="ms-2 text-sm text-white">Recuerdame</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                    <a class="underline text-sm text-white hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                        Olvido su contraseña?
                     </a>
                 @endif
 
-                <x-button class="ms-4">
-                    {{ __('Login') }}
+                <x-button class="text-white bg-blue-600 ms-4">
+                    Iniciar sesion
                 </x-button>
             </div>
         </form>

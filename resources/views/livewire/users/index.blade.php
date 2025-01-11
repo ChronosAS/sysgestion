@@ -1,7 +1,7 @@
 <div>
-    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-        <header class="text-center text-xl mt-5 font-black font-sans pb-5 ">Usuarios</header>
-        <div class="p-6 lg:p-8 bg-white border-t-2  border-gray-200">
+    <div class="bg-blue-700 overflow-hidden shadow-xl sm:rounded-lg">
+        <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Usuarios</header>
+        <div class="p-6 lg:p-8 bg-blue-600 border-t-2  border-blue-700">
             <div class="relative overflow-x-auto  sm:rounded-lg">
                 <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                     <div class="flex space-x-5">
@@ -27,8 +27,8 @@
                         <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                     </div>
                 </div>
-                <table class="w-full border border-gray-200  text-sm text-left rtl:text-right text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                <table class="w-full border border-blue-700 shadow-md text-sm text-left rtl:text-right text-white">
+                    <thead class="text-xs text-white uppercase bg-blue-800">
                         <tr>
 
                             <th scope="col" class="px-6 py-3">
@@ -80,7 +80,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-blue-500">
                         @forelse ($users as $user)
                             {{-- @if ($loop->last)
                                 <tr class="bg-white hover:bg-gray-50">
@@ -119,8 +119,8 @@
                                     </td>
                                 </tr>
                             @else --}}
-                                <tr class="bg-white border-b hover:bg-slate-200/50">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                <tr class="bg-blue-500 border-b border-blue-600 hover:bg-blue-600">
+                                    <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
                                         {{ $user->document }}
                                     </th>
                                     <td class="px-6 py-4">
@@ -135,17 +135,17 @@
                                     <td class="px-6 py-4">
                                         @if($user->status == 1)
                                         <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                            <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
+                                            <span class="flex items-center text-sm font-medium text-white  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
                                         </a>
                                         @else
                                         <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                            <span class="flex items-center text-sm font-medium text-gray-900  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
+                                            <span class="flex items-center text-sm font-medium text-white  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
                                         </a>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('user.show',$user) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                        <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                        <a href="{{ route('user.show',$user) }}" wire:navigate class="font-medium text-white hover:underline">Ver</a>
+                                        <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-white hover:underline">Editar</a>
                                     </td>
                                 </tr>
                             {{-- @endif --}}
