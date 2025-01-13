@@ -4,7 +4,7 @@
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full sm:w-72 px-3">
-                        <x-label for="document" value="Cédula de Identidad" />
+                        <x-label class="text-white " for="document" value="Cédula de Identidad" />
                         <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" />
                         <x-input-error class="text-xs" for="document"/>
                     </div>
@@ -25,7 +25,7 @@
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label class="text-white " for="name" value="Rol" />
-                        <x-select
+                        <x-select-white
                         name="role"
                         wire="live"
                         placeholder="Seleccionar"
@@ -34,7 +34,7 @@
                         <x-input-error class="text-xs" for="role"/>
                     </div>
                     <div class="mt-5  w-full px-3 sm:w-1/2">
-                        <x-label for="email" value="Correo Electrónico" />
+                        <x-label class="text-white " for="email" value="Correo Electrónico" />
                         <x-input id="email" wire:model='email' class="block mt-1 w-full truncate" type="text" name="email" :value="old('email')" autocomplete="email" />
                         <x-input-error class="text-xs" for="email"/>
                     </div>

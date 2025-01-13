@@ -46,10 +46,10 @@
                                             Administracion de Usuarios
                                         </x-dropdown-link>
                                         <!-- Medicine -->
-                                        <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="#">
+                                        <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('medicines.index') }}">
                                             Medicamentos
                                         </x-dropdown-link>
-                                        <x-dropdown-link href="{{ route('officials.index') }}">
+                                        <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('officials.index') }}">
                                             Funcionarios
                                         </x-dropdown-link>
                                     </div>
@@ -89,7 +89,7 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-dropdown-link class="hover:bg-blue-600 text-white hover:text-gray-200" href="{{ route('profile.show') }}">
+                            <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
@@ -105,7 +105,7 @@
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
-                                <x-dropdown-link class="hover:bg-blue-600 text-white hover:text-gray-200" href="{{ route('logout') }}"
+                                <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
                                     {{ __('Logout') }}
                                 </x-dropdown-link>

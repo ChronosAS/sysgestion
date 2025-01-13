@@ -54,7 +54,7 @@
                         Regresar
                     </x-button-href>
                     <x-button class="ms-4 mt-5 mb-5 bg-blue-900">
-                        Editar
+                        Actualizar
                     </x-button>
                 </div>
             </form>

@@ -48,6 +48,7 @@ class DatabaseSeeder extends Seeder
             'official' => $this->defaultActions(),
             'beneficiary' => $this->defaultActions(),
             'medicine' => $this->defaultActions(),
+            'request' => $this->defaultActions(),
         ];
     }
 

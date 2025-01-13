@@ -14,7 +14,7 @@
         <div class="grid grid-cols-2 gap-2 mt-2 mx-10">
             @foreach ($permissionsGrouped as $group => $permissions)
                 <div>
-                    <h1 class="text-lg font-bold">{{ $group }}</h1>
+                    <h1 class="text-lg font-bold text-white">{{ $group }}</h1>
                     @foreach ($permissions as $permission)
                         <x-custom-checkbox name="permissions" value="{{ $permission['permission_id'] }}" title="{{ $permission['permission_name'] }}" id="{{ $permission['permission_fullname'] }}" />
                     @endforeach

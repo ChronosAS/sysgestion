@@ -3,6 +3,7 @@
 namespace App\Livewire\Officials\Beneficiaries;
 
 use App\Enum\GenderEnum;
+use App\Models\Beneficiary;
 use App\Models\Official;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\On;
@@ -12,7 +13,7 @@ class Create extends Component
 {
     public $showAddBeneficiaryModal = false;
 
-    public Official $official;
+    public $official;
 
     public $beneficiaries = [];
 
@@ -27,9 +28,9 @@ class Create extends Component
     public $relationship;
 
 
-    public function mount($beneficiaries = null)
+    public function mount($official = null)
     {
-        $this->beneficiaries = $beneficiaries;
+        $this->official = $official;
     }
 
     public function save()
@@ -118,6 +119,15 @@ class Create extends Component
     }
 
     #[On('addBeneficiaryModal')]
+    public function fillBeneficiaryData($beneficiaries = null)
+    {
+
+        if(!$this->official)
+            $this->beneficiaries = $beneficiaries;
+
+        $this->toggleModal();
+    }
+
     public function toggleModal()
     {
         $this->showAddBeneficiaryModal = !$this->showAddBeneficiaryModal;

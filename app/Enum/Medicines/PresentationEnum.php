@@ -6,7 +6,7 @@ use App\Attributes\Label;
 use App\Traits\AttributableEnum;
 use App\Traits\EnumOptions;
 
-enum CompositionEnum: string
+enum PresentationEnum: string
 {
     use EnumOptions,AttributableEnum;
 

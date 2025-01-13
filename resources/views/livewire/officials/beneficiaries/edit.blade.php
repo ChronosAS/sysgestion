@@ -64,7 +64,7 @@
         </x-secondary-button>
 
         <x-success-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
-            Agregar
+            Actualizar
         </x-success-button>
     </x-slot>
 </x-dialog-modal>

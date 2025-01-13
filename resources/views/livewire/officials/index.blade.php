@@ -1,9 +1,9 @@
 <div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black font-sans pb-5 ">Funcionarios</header>
-                <div class="p-6 lg:p-8 bg-white border-t-2  border-gray-200">
+            <div class="bg-blue-700 overflow-hidden shadow-xl sm:rounded-lg">
+                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Funcionarios</header>
+                <div class="p-6 lg:p-8 bg-blue-600 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                             <div class="flex space-x-5">
@@ -22,8 +22,8 @@
                                 <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                             </div>
                         </div>
-                        <table class="w-full border border-gray-200  text-sm text-left rtl:text-right text-gray-500">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                        <table class="w-full border border-blue-700  text-sm text-left rtl:text-right text-white">
+                            <thead class="text-xs text-white uppercase bg-blue-800">
                                 <tr>
 
                                     <th scope="col" class="px-6 py-3">
@@ -83,59 +83,32 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="bg-blue-500">
                                 @forelse ($officials as $official)
-                                    @if ($loop->last)
-                                        <tr class="bg-white hover:bg-gray-50">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                {{ $official->document }}
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                {{ $official->first_names }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->last_names }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->email }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->phone_number }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->gender }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <a href="{{ route('officials.show',$official) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                                <a href="{{ route('officials.edit',$official) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
-                                            </td>
-                                        </tr>
-                                    @else
-                                        <tr class="bg-white border-b hover:bg-slate-200/50">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $official->document }}
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                {{ $official->first_names }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->last_names }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->email }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->phone_number }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $official->gender }}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <a href="{{ route('officials.show',$official) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                                <a href="{{ route('officials.edit',$official) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
-                                            </td>
-                                        </tr>
-                                        @endif
+                                    <tr class="bg-white border-b">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $official->document }}
+                                        </th>
+                                        <td class="px-6 text-gray-900 py-4">
+                                            {{ $official->first_names }}
+                                        </td>
+                                        <td class="px-6 text-gray-900 py-4">
+                                            {{ $official->last_names }}
+                                        </td>
+                                        <td class="px-6 text-gray-900 py-4">
+                                            {{ $official->email }}
+                                        </td>
+                                        <td class="px-6 text-gray-900 py-4">
+                                            {{ $official->phone_number }}
+                                        </td>
+                                        <td class="px-6 text-gray-900 py-4">
+                                            {{ $official->gender->label() }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="{{ route('officials.show',$official) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                            <a href="{{ route('officials.edit',$official) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                        </td>
+                                    </tr>
                                 @empty
                                     <tr>
                                         <td class="px-6 py-4 text-center text-xl col-span-5" colspan="7">

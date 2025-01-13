@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('active_component');
             $table->string('presentation');
             $table->string('laboratory');
-            $table->string('available');
+            $table->integer('stock');
+            $table->integer('price');
             $table->date('expiration_date');
             $table->date('entry_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

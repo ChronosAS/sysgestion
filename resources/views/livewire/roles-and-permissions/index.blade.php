@@ -25,7 +25,7 @@
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 @can('role:create')
-                                    <x-button-href wire:click="$dispatch('roleModal')" wire:loading.attr="disabled">
+                                    <x-button-href @click="$dispatch('createRoleModal')" wire:loading.attr="disabled">
                                         Crear
                                     </x-button-href>
                                 @endcan
@@ -44,19 +44,16 @@
                                     </td>
                                 </tr>
                             @else --}}
-                                <tr class="bg-blue-500 border-b border-blue-700 hover:bg-blue-600">
-                                    <td scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
+                                <tr class="bg-white border-b">
+                                    <td scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
                                         {{ $role->name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        @can('role:create')
-                                            <a @click="$dispatch('createRoleModal')" class="font-medium text-blue-600 cursor-pointer hover:underline">Crear</a>
-                                        @endcan
                                         @can('role:edit')
-                                            <a @click="$dispatch('editRoleModal',{ role: {{ $role->id }}})" class="font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
+                                            <a @click="$dispatch('editRoleModal',{ role: {{ $role->id }}})" class="font-bold text-blue-500 cursor-pointer hover:underline">Editar</a>
                                         @endcan
                                         @can('role:delete')
-                                            <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-medium ml-1 text-red-500 cursor-pointer hover:underline">Eliminar</a>
+                                            <a wire:click='deleteRole({{ $role->id }})' wire:confirm='Seguro que desea eliminar este rol?.' class="font-bold ml-1 text-red-500 cursor-pointer hover:underline">Eliminar</a>
                                         @endcan
                                     </td>
                                 </tr>

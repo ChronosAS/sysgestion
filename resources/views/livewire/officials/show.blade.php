@@ -4,7 +4,7 @@
             <div class="flex justify-between items-center">
                 <h2 class="text-2xl font-semibold leading-tight text-gray-800">{{ $official->first_names.' '.$official->last_names }}</h2>
                 <div>
-                    <a href="{{ url()->previous() }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
+                    <a href="{{ route('officials.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
                     <a href="{{ route('officials.edit', $official->id) }}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Editar</a>
                 </div>
             </div>

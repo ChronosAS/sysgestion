@@ -29,8 +29,8 @@ class Create extends Component
         ]);
     }
 
-    #[On('beneficiaryAdded')]
-    public function addBeneficiary($beneficiaries)
+    #[On('beneficiaryAdded','beneficiaryUpdated')]
+    public function refreshBeneficiaries($beneficiaries)
     {
         $this->beneficiaries = $beneficiaries;
     }

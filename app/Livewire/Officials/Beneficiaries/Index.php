@@ -46,7 +46,7 @@ class Index extends Component
             ->paginate($this->perPage);
     }
 
-    #[On('beneficiaryAdded')]
+    #[On('beneficiaryAdded','beneficiaryUpdated')]
     public function render()
     {
         return view('livewire.officials.beneficiaries.index',[

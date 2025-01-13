@@ -82,72 +82,43 @@
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 @can('beneficiary:create')
-                                <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block cursor-pointer rounded-md bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
+                                    <button @click="$dispatch('addBeneficiaryModal')" type="button" class="inline-block cursor-pointer rounded-md bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
                                 @endcan
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($beneficiaries as $beneficiary)
-                            @if ($loop->last)
-                                <tr class="bg-white hover:bg-gray-50">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        {{ $beneficiary->document }}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->first_names.''.$beneficiary->last_names }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->gender->label() }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->email }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->phone_number }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->relationship }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->address }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a class="ml-1 cursor-pointer font-medium text-blue-600 hover:underline">Editar</a>
-                                    </td>
-                                </tr>
-                            @else
-                                <tr class="bg-white border-b hover:bg-slate-200/50">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                        {{ $beneficiary->document }}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->first_names.''.$beneficiary->last_names }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->gender->label() }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->email }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->phone_number }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->relationship }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $beneficiary->address }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a class="ml-1 font-medium cursor-pointer text-blue-600 hover:underline">Editar</a>
-                                    </td>
-                                </tr>
-                                @endif
+                            <tr class="bg-white border-b hover:bg-slate-200/50">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    {{ $beneficiary->document }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $beneficiary->first_names.''.$beneficiary->last_names }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $beneficiary->gender->label() }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $beneficiary->email }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $beneficiary->phone_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $beneficiary->relationship }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $beneficiary->address }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a @click="$dispatch('editBeneficiaryModal',{ beneficiary: {{ $beneficiary->id }} })" class="ml-1 font-medium cursor-pointer text-blue-600 hover:underline">Editar</a>
+                                </td>
+                            </tr>
                         @empty
                             <tr>
                                 <td class="px-6 py-4 text-center text-xl col-span-5" colspan="7">
-                                    No hay funcionarios registrados.
+                                    Funcionario no tiene beneficiarios registrados.
                                 </td>
                             </tr>
                         @endforelse
@@ -160,4 +131,5 @@
         </div>
     </div>
     <livewire:officials.beneficiaries.create :official="$official" />
+    <livewire:officials.beneficiaries.edit :official="$official"/>
 </div>
