@@ -38,16 +38,16 @@ Route::middleware([
             Route::get('/editar/{official}',App\Livewire\Officials\Edit::class)->name('officials.edit');
         });
 
-    Route::middleware(PermissionMiddleware::using('request:access'))
+    Route::middleware(PermissionMiddleware::using('application:access'))
         ->prefix('/solicitudes')->group(function(){
 
-            Route::get('/',App\Livewire\Requests\Index::class)->name('requests.index');
+            Route::get('/',App\Livewire\Applications\Index::class)->name('applications.index');
 
-            Route::get('/crear',App\Livewire\Requests\Create::class)->name('requests.create');
+            Route::get('/crear',App\Livewire\Applications\Create::class)->name('applications.create');
 
-            Route::get('/{official}',App\Livewire\Requests\Show::class)->name('requests.show');
+            Route::get('/{application}',App\Livewire\Applications\Show::class)->name('applications.show');
 
-            Route::get('/editar/{official}',App\Livewire\Requests\Edit::class)->name('requests.edit');
+            Route::get('/editar/{application}',App\Livewire\Applications\Edit::class)->name('applications.edit');
         });
 
     Route::middleware(PermissionMiddleware::using('medicine:access'))

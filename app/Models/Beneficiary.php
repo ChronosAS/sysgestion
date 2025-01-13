@@ -66,9 +66,9 @@ class Beneficiary extends Model
         return $this->belongsTo(Official::class);
     }
 
-    public function requests() : MorphMany
+    public function applications() : MorphMany
     {
-        return $this->morphMany(Request::class,'recipientable');
+        return $this->morphMany(Application::class,'recipientable');
     }
 
 }

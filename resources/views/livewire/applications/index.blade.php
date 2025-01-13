@@ -6,14 +6,14 @@
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                            {{-- <div class="flex space-x-5 ">
+                            <div class="flex space-x-5 ">
                                  <x-select
-                                    name="gender"
+                                    name="status"
                                     wire="live"
-                                    placeholder="Género"
-                                    :values="App\Enum\GenderEnum::options()"
+                                    placeholder="Estatus"
+                                    :values="App\Enum\ApplicationStatusEnum::options()"
                                 />
-                            </div> --}}
+                            </div>
                             <label for="table-search" class="sr-only">Search</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
@@ -75,8 +75,8 @@
                                         </div>
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        @can('request:create')
-                                            <x-button-href href="{{ route('requests.create') }}" class="hover:bg-blue-500">
+                                        @can('application:create')
+                                            <x-button-href href="{{ route('applications.create') }}" class="hover:bg-blue-500">
                                                 Crear
                                             </x-button-href>
                                         @endcan
@@ -84,42 +84,42 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-gray-100">
-                                {{-- @forelse ($requests as $request) --}}
+                                @forelse ($applications as $application)
                                     <tr class="bg-white border-b">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                
+
                                         </th>
                                         <td class="px-6 text-gray-900 py-4">
-                            
+
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                        
+
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                            
+
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                
+
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                            
+
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{-- <a href="{{ route('requests.show',$request) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                            <a href="{{ route('requests.edit',$request) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a> --}}
+                                            {{-- <a href="{{ route('applications.show',$application) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                            <a href="{{ route('applications.edit',$application) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a> --}}
                                         </td>
                                     </tr>
-                                {{-- @empty --}}
+                                @empty
                                     <tr>
                                         <td class="px-6 py-4 text-center text-xl col-span-5 text-black" colspan="7">
-                                            No hay funcionarios registrados.
+                                            No hay solicitudes registradas.
                                         </td>
                                     </tr>
-                                {{-- @endforelse --}}
+                                @endforelse
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
-                            {{-- {{ $requests->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }} --}}
+                            {{ $applications->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>
                 </div>

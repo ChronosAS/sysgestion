@@ -43,9 +43,9 @@ class Medicine extends Model
             ->orWhere('stock','like','%'.$term.'%');
     }
 
-    public function requests() : BelongsToMany
+    public function applications() : BelongsToMany
     {
-        return $this->belongsToMany(Request::class);
+        return $this->belongsToMany(Application::class);
     }
 
     public function addToStock($amount)

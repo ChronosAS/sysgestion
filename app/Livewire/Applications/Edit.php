@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Requests;
+namespace App\Livewire\Applications;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Edit extends Component
 {
     public function render()
     {
-        return view('livewire.requests.edit');
+        return view('livewire.applications.edit');
     }
 }

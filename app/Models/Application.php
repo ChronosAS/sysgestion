@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Enum\RequestStatusEnum;
+use App\Enum\ApplicationStatusEnum;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,20 +13,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Request extends Model
+class Application extends Model
 {
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [
         'code',
         'applicant_id',
-        'request_date',
+        'application_date',
         'delivery_date',
         'status',
     ];
 
     protected $casts = [
-        'status' => RequestStatusEnum::class
+        'status' => ApplicationStatusEnum::class
     ];
 
     public function registerMediaConversions(?Media $media = null): void
@@ -36,14 +37,26 @@ class Request extends Model
             ->sharpen(10);
     }
 
-    public function official() : BelongsTo
+    public function scopeSearch($query,$term)
     {
-        return $this->belongsTo(Official::class);
+        return $query->where('id','like','%'.$term.'%')
+        ->orWhere('code','like','%'.$term.'%')
+        ->orWhereRelation('applicant','document','like','%'.$term.'%')
+        ->orWhereRelation('applicant','first_names','like','%'.$term.'%')
+        ->orWhereRelation('applicant','last_names','like','%'.$term.'%')
+        ->orWhereHasMorph('recipientable','*',function($query,$term){
+            $query->where('document','like','%'.$term.'%');
+        });
+    }
+
+    public function applicant() : BelongsTo
+    {
+        return $this->belongsTo(Official::class,'applicant_id');
     }
 
     public function recipientable() : MorphTo
     {
-        return $this->morphTo();
+        return $this->morphTo('recipient','recipient_type','recipient_id');
     }
 
     public function medicines() : HasMany

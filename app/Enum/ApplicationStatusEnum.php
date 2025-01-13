@@ -7,7 +7,7 @@ use App\Attributes\Label;
 use App\Traits\AttributableEnum;
 use App\Traits\EnumOptions;
 
-enum RequestStatusEnum: string
+enum ApplicationStatusEnum: string
 {
     use EnumOptions,AttributableEnum;
 

@@ -46,13 +46,18 @@ class Official extends Model
         }
     }
 
+    public function applications() : HasMany
+    {
+        return $this->hasMany(Application::class,'applicant_id');
+    }
+
     public function beneficiaries() : HasMany
     {
         return $this->hasMany(Beneficiary::class);
     }
 
-    public function requests() : MorphMany
+    public function applicationsAsRecipient() : MorphMany
     {
-        return $this->morphMany(Request::class,'recipientable');
+        return $this->morphMany(Application::class,'recipientable');
     }
 }

@@ -12,13 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('code');
             $table->foreignId('applicant_id')->constrained('officials');
             $table->morphs('recipient');
             $table->string('status')->default(RequestStatusEnum::Pending->value);
-            $table->date('request_date');
+            $table->date('application_date');
             $table->date('delivery_date');
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('requests');
+        Schema::dropIfExists('applications');
     }
 };
