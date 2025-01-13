@@ -1,30 +1,30 @@
 <div>
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 justify-self-center">
-            <div class="bg-blue-700  overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-slate-200  overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full sm:w-72 px-3">
-                        <x-label class="text-white " for="document" value="Cédula de Identidad" />
+                        <x-label  for="document" value="Cédula de Identidad" />
                         <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" />
                         <x-input-error class="text-xs" for="document"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label class="text-white " for="first_names" value="Nombres" />
+                        <x-label  for="first_names" value="Nombres" />
                         <x-input id="first_names" wire:model='first_names' class="block mt-1 w-full truncate" type="text" name="first_names" :value="old('first_names')" autocomplete="first_names" />
                         <x-input-error class="text-xs" for="first_names"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label class="text-white " for="last_names" value="Apellidos" />
+                        <x-label  for="last_names" value="Apellidos" />
                         <x-input id="last_names" wire:model='last_names' class="block mt-1 w-full truncate" type="text" name="last_names" :value="old('last_names')" autocomplete="last_names" />
                         <x-input-error class="text-xs" for="last_names"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label class="text-white " for="dob" value="Fecha de Nacimiento" />
+                        <x-label  for="dob" value="Fecha de Nacimiento" />
                         <x-input id="dob" wire:model='dob' class="block mt-1 w-full" type="date" name="dob" :value="old('dob')" autocomplete="dob" />
                         <x-input-error class="text-xs" for="dob"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
-                        <x-label class="text-white " for="name" value="Rol" />
+                        <x-label  for="name" value="Rol" />
                         <x-select-white
                         name="role"
                         wire="live"
@@ -34,12 +34,12 @@
                         <x-input-error class="text-xs" for="role"/>
                     </div>
                     <div class="mt-5  w-full px-3 sm:w-1/2">
-                        <x-label class="text-white " for="email" value="Correo Electrónico" />
+                        <x-label  for="email" value="Correo Electrónico" />
                         <x-input id="email" wire:model='email' class="block mt-1 w-full truncate" type="text" name="email" :value="old('email')" autocomplete="email" />
                         <x-input-error class="text-xs" for="email"/>
                     </div>
                     <div class="mt-5 w-full relative px-3 sm:w-1/2" x-data="{ show: false }">
-                        <x-label class="text-white " for="password" value="Contraseña" />
+                        <x-label  for="password" value="Contraseña" />
                         <input id="password" name="password" wire:model='password' :type="show ? 'text' : 'password'" class='block mt-1 w-full truncate border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm'>
                         <div class="absolute -right-4 top-9  items-center cursor-pointer">
                             <svg class="h-5 text-white block" fill="none" @click="show = !show" :class="{'block': !show, 'hidden':show }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

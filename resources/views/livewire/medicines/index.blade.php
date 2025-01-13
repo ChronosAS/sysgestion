@@ -3,7 +3,7 @@
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Medicamentos</header>
-                <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-gray-200">
+                <div class="p-6 lg:p-8 bg-slate-200 border-t-2  border-gray-200">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                             <div class="flex space-x-5">
