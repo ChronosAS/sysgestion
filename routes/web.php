@@ -38,6 +38,18 @@ Route::middleware([
             Route::get('/editar/{official}',App\Livewire\Officials\Edit::class)->name('officials.edit');
         });
 
+    Route::middleware(PermissionMiddleware::using('official:access'))
+        ->prefix('/solicitudes')->group(function(){
+
+            Route::get('/',App\Livewire\Requests\Index::class)->name('requests.index');
+
+            Route::get('/crear',App\Livewire\Requests\Create::class)->name('requests.create');
+
+            Route::get('/{official}',App\Livewire\Requests\Show::class)->name('requests.show');
+
+            Route::get('/editar/{official}',App\Livewire\Requests\Edit::class)->name('requests.edit');
+        });
+
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){
             Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
