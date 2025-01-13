@@ -16,7 +16,7 @@ class Index extends Component
 
     public $composition;
     public $presentation;
-    public $availability;
+    public $available = 1;
 
     protected $queryString = [
         'sortField' => ['except' => null],
@@ -34,14 +34,17 @@ class Index extends Component
                 'id',
                 'name',
                 'composition',
-                'active_component',
                 'presentation',
+                'active_component',
                 'laboratory',
                 'price',
                 'stock',
                 'expiration_date',
                 'entry_date',
             ])
+            ->when($this->available == 0, function ($query) {
+                return $query->where('stock','==', 0);
+            })
             ->when($this->composition, function ($query) {
                 return $query->where('composition', $this->composition);
             })
@@ -59,7 +62,11 @@ class Index extends Component
         return view('livewire.medicines.index',[
             'medicines' => $this->loadMedicines(),
             'presentations' => PresentationEnum::options(),
-            'compositions' => CompositionEnum::options()
+            'compositions' => CompositionEnum::options(),
+            'availabilityOptions' => [
+                '1' => 'Disponibles',
+                '0' => 'No disponibles'
+            ]
         ]);
     }
 }
