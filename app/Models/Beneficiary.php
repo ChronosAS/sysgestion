@@ -6,6 +6,8 @@ use App\Enum\GenderEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Beneficiary extends Model
 {
@@ -63,4 +65,10 @@ class Beneficiary extends Model
     {
         return $this->belongsTo(Official::class);
     }
+
+    public function requests() : MorphMany
+    {
+        return $this->morphMany(Request::class,'recipientable');
+    }
+
 }

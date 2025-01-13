@@ -7,6 +7,7 @@ use App\Enum\Medicines\PresentationEnum;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Medicine extends Model
 {
@@ -40,6 +41,11 @@ class Medicine extends Model
             ->orWhere('laboratory','like','%'.$term.'%')
             ->orWhere('price','like','%'.$term.'%')
             ->orWhere('stock','like','%'.$term.'%');
+    }
+
+    public function requests() : BelongsToMany
+    {
+        return $this->belongsToMany(Request::class);
     }
 
     public function addToStock($amount)

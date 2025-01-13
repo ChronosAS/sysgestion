@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->foreignId('applicant_id')->constrained('officials');
+            $table->morphs('recipient');
             $table->string('status')->default(RequestStatusEnum::Pending->value);
             $table->date('request_date');
             $table->date('delivery_date');
