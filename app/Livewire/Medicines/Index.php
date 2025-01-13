@@ -7,6 +7,7 @@ use App\Enum\Medicines\CompositionEnum;
 use App\Enum\Medicines\PresentationEnum;
 use App\Models\Medicine;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Index extends Component
@@ -15,6 +16,7 @@ class Index extends Component
 
     public $composition;
     public $presentation;
+    public $availability;
 
     protected $queryString = [
         'sortField' => ['except' => null],
@@ -23,6 +25,8 @@ class Index extends Component
         'perPage' => ['except' => '10']
     ];
 
+    #[On('medicineCreated')]
+    #[On('medicineUpdated')]
     public function loadMedicines()
     {
         return Medicine::query()

@@ -127,13 +127,13 @@
                                             {{ $medicine->price }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $medicine->entry_date }}
+                                            {{ \Carbon\Carbon::parse($medicine->entry_date)->format('d-m-Y') }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $medicine->expiration_date }}
+                                            {{ \Carbon\Carbon::parse($medicine->expiration_date)->format('d-m-Y') }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="{{ route('medicines.edit',$medicine) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                            <a @click="$dispatch('editMedicine',{ medicine: {{ $medicine->id }}})" class="ml-1 font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
                                         </td>
                                     </tr>
                                 @empty
@@ -154,4 +154,5 @@
         </div>
     </div>
     <livewire:medicines.create />
+    <livewire:medicines.edit />
 </div>

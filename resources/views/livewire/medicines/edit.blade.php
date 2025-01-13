@@ -1,4 +1,4 @@
-<x-dialog-modal maxWidth='2xl' wire:model.live="showCreateMedicineModal">
+<x-dialog-modal maxWidth='2xl' wire:model.live="showEditMedicineModal">
     <x-slot name="title" >
         <h1 class="text-center border-b">Editar medicamento</h1>
     </x-slot>

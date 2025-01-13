@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('presentation');
             $table->string('laboratory');
             $table->integer('stock');
-            $table->integer('price');
+            $table->decimal('price');
             $table->date('expiration_date');
             $table->date('entry_date');
             $table->softDeletes();

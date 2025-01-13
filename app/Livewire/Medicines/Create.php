@@ -15,7 +15,7 @@ class Create extends Component
 
     public $name;
     public $presentation;
-    public $composition;
+    public $composition = CompositionEnum::MG->value;
     public $active_component;
     public $laboratory;
     public $stock;
@@ -25,6 +25,7 @@ class Create extends Component
 
     public function save()
     {
+
         $this->validate([
             'name' => 'required|string|max:255',
             'presentation' => ['required','string',Rule::enum(PresentationEnum::class)],
@@ -76,7 +77,10 @@ class Create extends Component
             'entry_date' => $this->entry_date,
         ]);
 
-        session()->flash('message', 'Medicine successfully created.');
+        $this->dispatch('medicineCreated');
+
+        session()->flash('flash.banner','Medicina registrada con exito.');
+        session()->flash('flash.bannerStyle','success');
 
         $this->reset();
     }

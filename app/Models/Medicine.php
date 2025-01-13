@@ -28,8 +28,6 @@ class Medicine extends Model
         'price' => 'decimal:2',
         'composition' => CompositionEnum::class,
         'presentation' => PresentationEnum::class,
-        'expiration_date' => 'date',
-        'entry_date' => 'date',
     ];
 
     public function scopeSearch($query,$term){
