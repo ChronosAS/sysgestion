@@ -1,12 +1,12 @@
 <div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-blue-700 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Funcionarios</header>
-                <div class="p-6 lg:p-8 bg-blue-600 border-t-2  border-blue-700">
+                <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                            <div class="flex space-x-5">
+                            <div class="flex space-x-5 ">
                                  <x-select
                                     name="gender"
                                     wire="live"
@@ -76,14 +76,14 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         @can('official:create')
-                                            <x-button-href href="{{ route('officials.create') }}">
+                                            <x-button-href href="{{ route('officials.create') }}" class="hover:bg-blue-500">
                                                 Crear
                                             </x-button-href>
                                         @endcan
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-blue-500">
+                            <tbody class="bg-gray-100">
                                 @forelse ($officials as $official)
                                     <tr class="bg-white border-b">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
@@ -111,14 +111,14 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-5" colspan="7">
+                                        <td class="px-6 py-4 text-center text-xl col-span-5 text-black" colspan="7">
                                             No hay funcionarios registrados.
                                         </td>
                                     </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                        <div class="m-4 text-white ">
+                        <div class="m-4 text-black ">
                             {{ $officials->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>

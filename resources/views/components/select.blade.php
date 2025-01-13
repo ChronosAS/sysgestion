@@ -12,8 +12,8 @@
         name="{{ $name }}"
         wire:model.{{ $wire }}="{{ $name }}"
         @class([
-            'block w-full pl-3 pr-10 py-2 text-sm rounded-md',
-            'bg-blue-700 divide-y divide-white text-white border-blue-800 rounded-lg shadow' => !$errors->has($name),
+            'block w-full pl-3 pr-10 py-2 text-sm rounded-md cursor-pointer',
+            'bg-white divide-y divide-white text-black border-blue-800 rounded-lg shadow' => !$errors->has($name),
             'border-red-300 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' => $errors->has($name)
         ])
         @if($disabled)
@@ -21,7 +21,7 @@
         @endif
     >
         @if ($placeholder)
-            <option value="">{{ $placeholder }}</option>
+            <option value="" >{{ $placeholder }}</option>
         @endif
         @foreach ($values as $key => $value)
             <option value="{{ $key }}">{{ str($value)->replace('_',' ') }}</option>

@@ -33,11 +33,6 @@
                 <x-input id="active_component" wire:model='active_component' class="block mt-1 w-full truncate" type="text" name="active_component" :value="old('active_component')" autocomplete="active_component" />
                 <x-input-error class="text-xs" for="active_component"/>
             </div>
-            <div class="mt-5 w-full px-3 sm:w-1/2">
-                <x-label class="text-white" for="laboratory" value="Laboratorio" />
-                <x-input id="laboratory" wire:model='laboratory' class="block mt-1 w-full" type="text" name="laboratory" :value="old('laboratory')" autocomplete="laboratory" />
-                <x-input-error class="text-xs" for="laboratory"/>
-            </div>
             <div class=" mt-5 w-full px-3 sm:w-1/2">
                 <x-label class="text-white" for="stock" value=" Cantidad" />
                 <x-input id="stock" wire:model='stock' class="block mt-1 w-full truncate" type="number" name="stock" :value="old('stock')" autocomplete="stock" />

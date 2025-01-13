@@ -28,7 +28,7 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
+        <x-button class="ms-3 hover:bg-blue-500" wire:click="save" wire:loading.attr="disabled">
             Crear
         </x-button>
     </x-slot>

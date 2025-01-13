@@ -1,7 +1,7 @@
 <div>
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 justify-self-center">
-            <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-blue-700  overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full sm:w-72 px-3">
                         <x-label class="text-white " for="document" value="Cédula de Identidad" />
@@ -54,10 +54,10 @@
                     </div>
                     <x-input-error class="text-xs" for="password"/>
                 </div>
-                <x-button-href href="{{ route('users.administration') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
+                <x-button-href href="{{ route('users.administration') }}" class="ms-4 mt-5 mb-5 bg-blue-900 hover:bg-blue-500 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                     Regresar
                 </x-button-href>
-                <x-button class="ms-4 mt-5 mb-5 bg-blue-900">
+                <x-button class="ms-4 mt-5 mb-5 bg-blue-900 hover:bg-blue-500 ">
                     Agregar
                 </x-button>
             </form>

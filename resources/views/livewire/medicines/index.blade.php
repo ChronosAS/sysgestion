@@ -1,9 +1,9 @@
-<div>
+<div >
     <div class="py-12">
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black font-sans pb-5 ">Medicamentos</header>
-                <div class="p-6 lg:p-8 bg-white border-t-2  border-gray-200">
+            <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
+                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Medicamentos</header>
+                <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-gray-200">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                             <div class="flex space-x-5">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <table class="w-full border border-gray-200  text-sm text-left rtl:text-right text-gray-500">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                            <thead class="text-xs text-white uppercase bg-blue-800">
                                 <tr>
 
                                     <th scope="col" class="px-6 py-3">
@@ -96,44 +96,44 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         @can('medicine:create')
-                                            <x-button-href @click="$dispatch('createMedicine')">
+                                            <x-button-href @click="$dispatch('createMedicine')" class="hover:bg-blue-500">
                                                 Crear
                                             </x-button-href>
                                         @endcan
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="bg-gray-100">
                                 @forelse($medicines as $medicine)
-                                    <tr class="bg-white border-b hover:bg-slate-200/50">
+                                    <tr class="bg-white border-b">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             {{ $medicine->name }}
                                         </th>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 text-gray-900">
                                             {{ $medicine->active_component }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 text-gray-900">
                                             {{ $medicine->presentation->label().'('.$medicine->composition->label().')' }}
                                         </td>
                                         <td class="px-6 py-4 {{ $medicine->stock == 0 ? 'text-red-500' : 'text-green-500' }}">
                                             {{ $medicine->stock }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 text-gray-900">
                                             {{ $medicine->price }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 text-gray-900">
                                             {{ \Carbon\Carbon::parse($medicine->entry_date)->format('d-m-Y') }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 text-gray-900">
                                             {{ \Carbon\Carbon::parse($medicine->expiration_date)->format('d-m-Y') }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 text-gray-900">
                                             <a @click="$dispatch('editMedicine',{ medicine: {{ $medicine->id }}})" class="ml-1 font-medium text-blue-600 cursor-pointer hover:underline">Editar</a>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-5" colspan="7">
+                                        <td class="px-6 py-4 text-center text-xl col-span-5 text-black" colspan="7">
                                             No hay Medicamentos registrados.
                                         </td>
                                     </tr>

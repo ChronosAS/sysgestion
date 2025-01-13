@@ -1,7 +1,7 @@
 <div>
-    <div class="bg-blue-700 overflow-hidden shadow-xl sm:rounded-lg">
+    <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
         <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Usuarios</header>
-        <div class="p-6 lg:p-8 bg-blue-600 border-t-2  border-blue-700">
+        <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
             <div class="relative overflow-x-auto  sm:rounded-lg">
                 <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                     <div class="flex space-x-5">
@@ -73,14 +73,14 @@
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 @can('user:create')
-                                    <x-button-href href="{{ route('users.create') }}">
+                                    <x-button-href href="{{ route('users.create') }}" class="hover:bg-blue-500">
                                         Crear
                                     </x-button-href>
                                 @endcan
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-blue-500">
+                    <tbody class="bg-gray-100">
                         @forelse ($users as $user)
                             {{-- @if ($loop->last)
                                 <tr class="bg-white hover:bg-gray-50">
@@ -120,7 +120,7 @@
                                 </tr>
                             @else --}}
                                 <tr class="bg-blue-500 border-b border-blue-600 hover:bg-blue-600">
-                                    <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
                                         {{ $user->document }}
                                     </th>
                                     <td class="px-6 py-4">
@@ -135,23 +135,23 @@
                                     <td class="px-6 py-4">
                                         @if($user->status == 1)
                                         <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                            <span class="flex items-center text-sm font-medium text-white  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
+                                            <span class="flex items-center text-sm font-medium text-black  me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Activo</span>
                                         </a>
                                         @else
                                         <a class="cursor-pointer" wire:click='toggleStatus({{ $user->id }})'>
-                                            <span class="flex items-center text-sm font-medium text-white  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
+                                            <span class="flex items-center text-sm font-medium text-black  me-3"><span class="flex w-2.5 h-2.5 bg-red-600 rounded-full me-1.5 flex-shrink-0"></span>Inactivo</span>
                                         </a>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('user.show',$user) }}" wire:navigate class="font-medium text-white hover:underline">Ver</a>
-                                        <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-white hover:underline">Editar</a>
+                                        <a href="{{ route('user.show',$user) }}" wire:navigate class="font-medium text-black hover:underline">Ver</a>
+                                        <a href="{{ route('users.edit',$user) }}" wire:navigate class="ml-1 font-medium text-black hover:underline">Editar</a>
                                     </td>
                                 </tr>
                             {{-- @endif --}}
                         @empty
                             <tr>
-                                <td class="px-6 py-4 text-center text-xl col-span-5" colspan="6">
+                                <td class="px-6 py-4 text-center text-xl col-span-5 text-black" colspan="6">
                                     No hay usuarios registrados.
                                 </td>
                             </tr>

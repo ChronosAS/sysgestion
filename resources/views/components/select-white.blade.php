@@ -12,7 +12,7 @@
         name="{{ $name }}"
         wire:model.{{ $wire }}="{{ $name }}"
         @class([
-            'block w-full pl-3 pr-10 py-2 text-sm rounded-md',
+            'block w-full pl-3 pr-10 py-2 text-sm rounded-md cursor-pointer',
             'bg-white divide-y divide-white text-black border-white rounded-lg shadow' => !$errors->has($name),
             'border-red-300 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' => $errors->has($name)
         ])
