@@ -6,7 +6,7 @@
     'id' => null
 ])
 
-<div class="flex items-center">
+<div class="flex items-center text-slate-600">
     <input
         type="checkbox"
         id="{{ $id ?? $title }}"
@@ -21,7 +21,7 @@
     <label
         for="{{ $id ?? $title }}"
         @class([
-            'ml-3 block text-sm font-medium text-white hover:underline cursor-pointer' => !$errors->has($name),
+            'ml-3 block text-sm font-medium text-gray-900 hover:underline cursor-pointer' => !$errors->has($name),
             'ml-3 block text-sm font-medium text-red-600 hover:underline cursor-pointer' => $errors->has($name),
         ])
     >
