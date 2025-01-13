@@ -52,6 +52,9 @@
                                         <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('officials.index') }}">
                                             Funcionarios
                                         </x-dropdown-link>
+                                        <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('requests.index') }}">
+                                            Solicitudes
+                                        </x-dropdown-link>
                                     </div>
                                 </x-slot>
                             </x-dropdown>

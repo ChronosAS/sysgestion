@@ -38,7 +38,7 @@ Route::middleware([
             Route::get('/editar/{official}',App\Livewire\Officials\Edit::class)->name('officials.edit');
         });
 
-    Route::middleware(PermissionMiddleware::using('official:access'))
+    Route::middleware(PermissionMiddleware::using('request:access'))
         ->prefix('/solicitudes')->group(function(){
 
             Route::get('/',App\Livewire\Requests\Index::class)->name('requests.index');
