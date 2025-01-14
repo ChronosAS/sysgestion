@@ -133,7 +133,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-5 text-black" colspan="7">
+                                        <td class="px-6 py-4 text-center text-xl col-span-5 text-black" colspan="9">
                                             No hay Medicamentos registrados.
                                         </td>
                                     </tr>
