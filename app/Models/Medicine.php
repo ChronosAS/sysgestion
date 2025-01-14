@@ -45,7 +45,7 @@ class Medicine extends Model
 
     public function applications() : BelongsToMany
     {
-        return $this->belongsToMany(Application::class);
+        return $this->belongsToMany(Application::class,'application_medicine')->withPivot('quantity');
     }
 
     public function addToStock($amount)

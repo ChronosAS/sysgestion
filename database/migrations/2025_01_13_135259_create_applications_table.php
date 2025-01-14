@@ -20,7 +20,7 @@ return new class extends Migration
             $table->morphs('recipient');
             $table->string('status')->default(ApplicationStatusEnum::Pending->value);
             $table->date('application_date');
-            $table->date('delivery_date');
+            $table->date('delivery_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

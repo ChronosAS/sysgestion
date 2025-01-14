@@ -37,7 +37,6 @@ class Beneficiary extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'dob' => 'date',
         'gender' => GenderEnum::class,
     ];
 

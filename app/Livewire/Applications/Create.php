@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Applications;
 
+use App\Enum\ApplicationStatusEnum;
 use App\Models\Application;
 use App\Models\Beneficiary;
 use App\Models\Medicine;
@@ -16,12 +17,13 @@ class Create extends Component
 
     public $code;
     public $applicant;
+    public $recipient;
     public $beneficiary;
     public $request_date;
-    public $delivery_date;
 
     public $medicines = [];
     public $recipients = [];
+    public $files = [];
 
     public function mount()
     {
@@ -31,8 +33,8 @@ class Create extends Component
     public function additionalMedicine()
     {
         return [
-            'id',
-            'amount'
+            'medicine_id',
+            'quantity'
         ];
     }
 
@@ -77,31 +79,63 @@ class Create extends Component
             ->toArray();
     }
 
-    public function checkMedicineAvailability()
-    {
+    // public function checkMedicineAvailability()
+    // {
+    //     $count = 0;
 
-    }
+    //     foreach($this->medicines as $medicine)
+    //     {
+    //         if((Medicine::find($medicine['medicine_id']))->stock >= $medicine['quantity'])
+    //             $count++;
+    //     }
+
+    //     return $count == count($this->medicines);
+    // }
 
     public function save()
     {
+
         $this->validate([
-            'code' => 'required|string|max:255',
-            'applicant_id' => 'required|exists:officials,id',
+            'applicant' => 'required|exists:officials,id',
+            'recipient' => 'nullable|exists:beneficiaries,id',
             'request_date' => 'required|date',
-            'delivery_date' => 'nullable|date',
-            'status' => 'required|string|max:255',
+            'files' => 'required|array',
+            'files.*' => 'required|file|mimes:pdf',
+            'medicines' => 'required',
+            'medicines.*.medicine_id' => 'required|exists:medicines,id',
+            'medicines.*.quantity' => 'required|integer|min:1|max:30',
+        ], [
+            'applicant.required' => 'El solicitante es obligatorio.',
+            'applicant.exists' => 'El solicitante seleccionado no es válido.',
+            'recipient.exists' => 'El beneficiario seleccionado no es válido.',
+            'request_date.required' => 'La fecha de solicitud es obligatoria.',
+            'request_date.date' => 'La fecha de solicitud no es una fecha válida.',
+            'files.required' => 'Agregue al menos 1 archivo.',
+            'files.*.file' => 'Cada archivo debe ser un archivo válido.',
+            'files.*.mimes' => 'Cada archivo debe ser un archivo de tipo: pdf.',
+            'medicines.required' => 'Agregue al menos 1 medicamento.',
+            'medicines.*.medicine_id.required' => 'El medicamento es obligatorio.',
+            'medicines.*.medicine_id.exists' => 'El medicamento seleccionado no es válido.',
+            'medicines.*.quantity.required' => 'La cantidad del medicamento es obligatoria.',
+            'medicines.*.quantity.max' => 'La cantidad del medicamento no puede ser mayor a 30.',
+            'medicines.*.quantity.min' => 'La cantidad del medicamento no puede ser menor a 1.',
         ]);
 
         tap(Application::create([
-            'code' => $this->code,
-            'applicant_id' => $this->applicant_id,
-            'request_date' => $this->request_date,
+            'applicant_id' => $this->applicant,
+            'recipient_id' => ($this->recipient != null) ? $this->recipient : $this->applicant,
+            'recipient_type' => ($this->recipient != null) ? 'App\Models\Beneficiary' : 'App\Models\Official',
+            'application_date' => $this->request_date,
         ]),function($application){
             foreach ($this->medicines as $medicine) {
-                $application->medicines()->create([
-                    'medicine_id' => $medicine['medicine'],
-                    'amount' => $medicine['amount'],
+                $application->medicines()->attach($medicine['medicine_id'],[
+                    'quantity' => $medicine['quantity'],
                 ]);
+            }
+            foreach($this->files as $file){
+                $application->addMedia($file->getRealPath())
+                        ->usingName($file->getClientOriginalName())
+                        ->toMediaCollection('files');
             }
         });
 
