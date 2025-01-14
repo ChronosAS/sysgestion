@@ -61,7 +61,6 @@ class Application extends Model implements HasMedia
         static::creating(function ($application){
             if(empty($application->code)) {
                 $application->code = 'SOL'.Str::padLeft($application->id, 5, '0');
-                $application->saveQuietly();
             }
         });
     }
@@ -73,7 +72,7 @@ class Application extends Model implements HasMedia
 
     public function recipientable() : MorphTo
     {
-        return $this->morphTo('recipient','recipient_type','recipient_id');
+        return $this->morphTo('recipient');
     }
 
     public function medicines() : BelongsToMany
