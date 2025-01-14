@@ -35,7 +35,7 @@
             </div>
             <div class=" mt-5 w-full px-3 sm:w-1/2">
                 <x-label for="stock" value=" Cantidad" />
-                <x-input id="stock" wire:model='stock' class="block mt-1 w-full truncate" type="number" name="stock" :value="old('stock')" autocomplete="stock" />
+                <x-input id="stock" wire:model='stock' class="block mt-1 w-full truncate" type="number" name="stock" :value="old('stock')" autocomplete="stock" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                 <x-input-error class="text-xs" for="stock"/>
             </div>
             <div class=" mt-5 w-full px-3 sm:w-1/2">

@@ -43,6 +43,58 @@
                         <x-input id="files" wire:model='files[]' class="block mt-1 p-2 bg-white cursor-pointer border border-blue-600 w-full" type="file" name="files[]" multiple />
                         <x-input-error class="text-xs" for="files"/>
                     </div>
+                    <div class="">
+                        <x-label for="medicines[]" value="Medicamentos" class="text-black" />
+                        <x-table.table>
+                            <x-slot name="thead">
+                                <tr class="bg-blue-900 text-white">
+                                    <x-table.th class="pb-3 col-4">
+                                        Medicamento(Composición/Presentación)
+                                    </x-table.th>
+                                    <x-table.th class="pb-3">
+                                        Cantidad
+                                    </x-table.th>
+                                    <x-table.th class="col-2">
+                                        <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none" wire:click="addMedicine">Agregar</button>
+                                    </x-table.th>
+                                </tr>
+                            </x-slot>
+                            <x-slot name="tbody">
+                                @foreach ($medicines as $index => $medicine)
+                                    <tr class="bg-slate-300 shadow-md border border-gray-700">
+                                        <x-table.td>
+                                            <select wire:model='medicines.{{ $index }}.id' id="medicine" name="medicine" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-center">
+                                                <option value="#" class="text-center">Seleccionar</option>
+                                                @foreach ($medicinesList as $value => $name)
+                                                    <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <x-input-error class="text-xs" for="applicant"/>
+                                            @error('medicines.*.id')
+                                                <span class="text-danger"><b>{{ $message }}</b></span>
+                                            @enderror
+                                        </x-table.td>
+                                        <x-table.td>
+                                            <x-input id="amount" wire:model='medicines.{{ $index }}.amount' class="block mt-1 w-full truncate" type="number" name="amount" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                                            @error('images.*.description')
+                                                <span class="text-danger"><b>{{ $message }}</b></span>
+                                            @enderror
+                                        </x-table.td>
+                                        <x-table.td class="text-center">
+                                            <button wire:click="removeMedicine({{ $index }})" type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </x-table.td>
+                                    </tr>
+                                @endforeach
+                                @error('images')
+                                    <tr><x-table.td colspan="3"><span class="text-danger"><b>{{ $message }}</b></span></x-table.td></tr>
+                                @enderror
+                            </x-slot>
+                        </x-table.table>
+                    </div>
                     <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                         <x-button-href href="{{ route('applications.index') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                             Regresar

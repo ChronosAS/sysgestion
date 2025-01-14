@@ -3,21 +3,55 @@
 namespace App\Livewire\Applications;
 
 use App\Models\Application;
-use App\Models\Official;
 use App\Models\Beneficiary;
+use App\Models\Medicine;
+use App\Models\Official;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
+    use WithFileUploads;
+
     public $code;
     public $applicant;
     public $beneficiary;
     public $request_date;
     public $delivery_date;
-    public $status;
 
+    public $medicines = [];
     public $recipients = [];
+
+    public function mount()
+    {
+        $this->medicines[] = $this->additionalMedicine();
+    }
+
+    public function additionalMedicine()
+    {
+        return [
+            'id',
+            'amount'
+        ];
+    }
+
+    public function addMedicine()
+    {
+        if (count($this->medicines) <= 9) {
+            $this->medicines[] = $this->additionalMedicine();
+        }
+    }
+
+    public function removeMedicine($line)
+    {
+        $this->resetErrorBag();
+
+        unset($this->medicines[$line]);
+
+        $this->medicines = array_values($this->medicines);
+    }
+
 
     #[Layout('layouts.app',['header'=>'Registrar Solicitud'])]
     public function render()
@@ -26,7 +60,10 @@ class Create extends Component
             'officials' => Official::all()->mapWithKeys(function ($beneficiary) {
                 return [$beneficiary->id => $beneficiary->first_names . ' ' . $beneficiary->last_names];
             })
-            ->toArray()
+            ->toArray(),
+            'medicinesList' => Medicine::all()->mapWithKeys(function($medicine){
+                return [$medicine->id => $medicine->name.'('.$medicine->composition->label().'/'.$medicine->presentation->label().')'];
+            })
         ]);
     }
 
@@ -40,6 +77,11 @@ class Create extends Component
             ->toArray();
     }
 
+    public function checkMedicineAvailability()
+    {
+
+    }
+
     public function save()
     {
         $this->validate([
@@ -50,15 +92,21 @@ class Create extends Component
             'status' => 'required|string|max:255',
         ]);
 
-        Application::create([
+        tap(Application::create([
             'code' => $this->code,
             'applicant_id' => $this->applicant_id,
             'request_date' => $this->request_date,
-            'delivery_date' => $this->delivery_date,
-            'status' => $this->status,
-        ]);
+        ]),function($application){
+            foreach ($this->medicines as $medicine) {
+                $application->medicines()->create([
+                    'medicine_id' => $medicine['medicine'],
+                    'amount' => $medicine['amount'],
+                ]);
+            }
+        });
 
-        session()->flash('message', 'Application created successfully.');
+        session()->flash('flash.banner','Solicitud registrada con exito.');
+        session()->flash('flash.bannerStyle','success');
 
         return redirect()->route('applications.index');
     }
