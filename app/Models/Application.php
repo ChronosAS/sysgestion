@@ -61,6 +61,7 @@ class Application extends Model implements HasMedia
         static::creating(function ($application){
             if(empty($application->code)) {
                 $application->code = 'SOL'.Str::padLeft($application->id, 5, '0');
+                $application->saveQuietly();
             }
         });
     }
