@@ -20,6 +20,11 @@ class Index extends Component
         'perPage' => ['except' => '10']
     ];
 
+    public function getRecipient($type,$id)
+    {
+        return ($type::find($id))->document;
+    }
+
     public function loadApplications()
     {
         return Application::query()
@@ -27,12 +32,11 @@ class Index extends Component
                 'id',
                 'code',
                 'status',
+                'recipient_id',
+                'recipient_type',
                 'application_date',
                 'delivery_date',
             ])
-            ->with(['recipientable'=> function($query){
-                $query->select('document');
-            }])
             ->withAggregate('applicant','document')
             ->when($this->status, function ($query) {
                 return $query->where('status',$this->status);

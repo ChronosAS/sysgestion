@@ -22,7 +22,6 @@
                                 <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                             </div>
                         </div>
-                        @dd($applications->first())
                         <table class="w-full border border-blue-700  text-sm text-left rtl:text-right text-white">
                             <thead class="text-xs text-white uppercase bg-blue-800">
                                 <tr>
@@ -66,7 +65,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                  
+
                                     <th scope="col" class="px-6 py-3">
                                         @can('application:create')
                                             <x-button-href href="{{ route('applications.create') }}" class="hover:bg-blue-500">
@@ -83,10 +82,10 @@
                                             {{ $application->code }}
                                         </th>
                                         <td class="px-6 text-gray-900 py-4">
-                                            {{ $application->applicant->document }}
+                                            {{ $application->applicant_document }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                            {{ $application->recipient->document }}
+                                            {{ $this->getRecipient($application->recipient_type,$application->recipient_id) }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
 
