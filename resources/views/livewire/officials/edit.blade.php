@@ -53,7 +53,7 @@
                     <x-button-href href="{{ url()->previous() }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                         Regresar
                     </x-button-href>
-                    <x-button class="ms-4 mt-5 mb-5 bg-blue-900">
+                    <x-button class="ms-4 mt-5 mb-5 bg-yellow-500 hover:bg-yellow-600">
                         Actualizar
                     </x-button>
                 </div>

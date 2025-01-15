@@ -63,7 +63,7 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-success-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
+        <x-success-button class="ms-3 bg-yellow-500 hover:bg-yellow-600" wire:click="save" wire:loading.attr="disabled">
             Actualizar
         </x-success-button>
     </x-slot>

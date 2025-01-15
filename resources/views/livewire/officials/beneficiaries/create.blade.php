@@ -63,7 +63,7 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-success-button class="ms-3" wire:click="save" wire:loading.attr="disabled">
+        <x-success-button class="ms-3 bg-green-600 hover:bg-green-500" wire:click="save" wire:loading.attr="disabled">
             Agregar
         </x-success-button>
     </x-slot>
