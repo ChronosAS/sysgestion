@@ -18,14 +18,8 @@ class Show extends Component
 
     public $openFileModal = false;
 
+    public $files;
     public $file;
-
-    public function mount(Application $application)
-    {
-        $this->application = $application;
-
-        $this->loadMedicines();
-    }
 
     public function addSubTotalToMedicines()
     {
@@ -34,21 +28,32 @@ class Show extends Component
         }
     }
 
-    public function upload()
+    public function save()
     {
         $this->validate([
-            'file' => 'required|mimes:pdf|max:2048',
+            'file' => 'required|mimes:pdf',
         ], [
             'file.required' => 'El archivo es obligatorio.',
             'file.mimes' => 'Solo se permiten archivos PDF.',
-            'file.max' => 'El tamaño máximo del archivo es 2MB.',
         ]);
 
         $this->application->addMedia($this->file->getRealPath())
                         ->usingName($this->file->getClientOriginalName())
                         ->toMediaCollection('files');
 
+        $this->loadFiles();
+
         $this->openFileModal = !$this->openFileModal;
+    }
+
+    public function deleteFile($id)
+    {
+       $this->application->getMedia('files')->where('id',$id)->first()->delete();
+       $this->loadFiles();
+    }
+
+    public function loadFiles(){
+        $this->files = $this->application->getMedia('files');
     }
 
     public function loadMedicines()
@@ -61,6 +66,9 @@ class Show extends Component
     #[Layout('layouts.app',['header'=>'Solicitud'])]
     public function render()
     {
+        $this->loadMedicines();
+        $this->loadFiles();
+
         return view('livewire.applications.show');
     }
 }
