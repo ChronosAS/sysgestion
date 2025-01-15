@@ -4,6 +4,13 @@
             <div class="flex justify-between items-center">
                 <h2 class="text-2xl font-semibold leading-tight text-gray-800">{{ $application->code }}</h2>
                 <div>
+                    @if($application->status->value =='pending')
+                        <a class="bg-green-600 cursor-pointer text-white px-4 py-2 rounded hover:bg-green-700" wire:click="approve">Aprobar</a>
+                        <a class="bg-red-600 cursor-pointer text-white px-4 py-2 rounded hover:bg-red-700">Rechazar</a>
+                    @endif
+                    @if($application->status->value == 'consolidated')
+                        <a class="bg-green-600 cursor-pointer text-white px-4 py-2 rounded hover:bg-green-700" wire:click="delivered">Entregado</a>
+                    @endif
                     <a href="{{ route('applications.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
                     <a href="{{ route('applications.edit', $application) }}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Editar</a>
                 </div>
@@ -102,7 +109,7 @@
                                     Total Faltantes (Bs)
                                 </th>
                                 <th class="col-2 px-4 sm:px-6 py-3 text-left" scope="col">
-                                    <button type="button" class="inline-block bg-blue-900 hover:bg-blue-500 rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none" wire:click="addMedicine">Agregar</button>
+                                    {{-- <button type="button" class="inline-block bg-blue-900 hover:bg-blue-500 rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none" wire:click="addMedicine">Agregar</button> --}}
                                 </th>
                             </tr>
                         </thead>

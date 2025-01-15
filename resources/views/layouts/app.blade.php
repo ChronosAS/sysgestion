@@ -46,11 +46,19 @@
                                             </svg>
                                         </li>
                                     @endif
-                                    <li>
-                                        <a href="{{ url($segments) }}" class="text-sm font-medium text-white hover:text-blue-500">
-                                            {{ str($segment)->replace('-', ' ')->replace('_', ' ')->title() }}
-                                        </a>
-                                    </li>
+                                    @if($segment != 'editar')
+                                        <li>
+                                            <a href="{{ url($segments) }}" class="text-sm font-medium text-white hover:text-blue-500">
+                                                {{ str($segment)->replace('-', ' ')->replace('_', ' ')->title() }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <label class="text-sm font-medium text-white">
+                                                {{ str($segment)->replace('-', ' ')->replace('_', ' ')->title() }}
+                                            </label>
+                                        </li>
+                                    @endif
                                 @endforeach
                             </ol>
                         </nav>

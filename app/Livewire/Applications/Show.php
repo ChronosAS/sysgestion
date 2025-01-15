@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Applications;
 
+use App\Enum\ApplicationStatusEnum;
 use App\Models\Application;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -54,6 +55,23 @@ class Show extends Component
 
     public function loadFiles(){
         $this->files = $this->application->getMedia('files');
+    }
+
+    public function approve(){
+        if($this->medicinesTotal == 0)
+            $this->application->status = ApplicationStatusEnum::Consolidated->value();
+        else
+            $this->application->status = ApplicationStatusEnum::Aproved->value();
+
+
+        $this->application->save();
+    }
+
+    public function reject(){
+        
+        $this->application->status = ApplicationStatusEnum::Denied->value;
+
+        $this->application->save();
     }
 
     public function loadMedicines()
