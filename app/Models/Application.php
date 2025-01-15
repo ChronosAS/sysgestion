@@ -36,14 +36,6 @@ class Application extends Model implements HasMedia
         'status' => ApplicationStatusEnum::class
     ];
 
-    public function registerMediaConversions(?Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-            ->width(368)
-            ->height(232)
-            ->sharpen(10);
-    }
-
     public function scopeSearch($query,$term)
     {
         return $query->where('id','like','%'.$term.'%')
@@ -61,7 +53,7 @@ class Application extends Model implements HasMedia
         parent::boot();
 
         static::creating(function ($application){
-            $newId = Application::all()->max('id') + 1;
+            $newId = Application::withTrashed()->get()->max('id') + 1;
             if(empty($application->code)) {
                 $application->code = 'SOL'.Str::padLeft($newId, 5, '0');
             }

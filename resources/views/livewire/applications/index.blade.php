@@ -95,6 +95,7 @@
                                         <td class="px-6 py-4">
                                              <a href="{{ route('applications.show',$application) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
                                             <a href="{{ route('applications.edit',$application) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
+                                            <a wire:click="deleteApplication('{{$application->id}}')" class="ml-1 font-medium cursor-pointer text-red-600 hover:underline">Eliminar</a>
                                         </td>
                                     </tr>
                                 @empty

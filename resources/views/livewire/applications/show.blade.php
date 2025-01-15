@@ -35,8 +35,39 @@
                             <p class="mt-1 text-gray-900 text-sm">{{ \Carbon\Carbon::parse($application->delivery_date)->format('d-m-Y') }}</p>
                         </div>
                     @endif
+                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                        <label class="block text-md font-bold text-gray-800">Documentos</label>
+                        <ul>
+                            @foreach($application->getMedia('files') as $file)
+                            <li>
+                                <a href="{{ asset('files/'.$file->id.'/'. $file->file_name) }}" target='__blank'>{{ $file->name }}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="container mx-auto">
+            <div class="relative overflow-x-auto shadow-md">
+                <table class="w-full border-white text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class='text-xs text-white-700 uppercase bg-gray-50 '>
+                        
+                    </thead>
+                    <tbody>
+                        {{-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        </tr> --}}
+                    </tbody>
+                    <tfoot>
+                        {{ $tfoot }}
+                         <tr class="font-semibold text-gray-900 dark:text-white">
+                            <th scope="row" class="px-6 py-3 text-base">Total</th>
+                            <td class="px-6 py-3">3</td>
+                            <td class="px-6 py-3">21,000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>            
         </div>
     </div>
 </div>

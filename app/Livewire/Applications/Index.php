@@ -25,6 +25,11 @@ class Index extends Component
         return ($type::find($id))->document;
     }
 
+    public function deleteApplication($application)
+    {
+        Application::find($application)->delete();
+    }
+
     public function loadApplications()
     {
         return Application::query()
