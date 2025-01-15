@@ -18,7 +18,7 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased bg-blue-600">
-        <x-banner />
+
 
         <div class="min-h-screen bg-slate">
             @livewire('navigation-menu')
@@ -56,6 +56,7 @@
                         </nav>
                     </div>
                 </header>
+                <x-banner />
             @endif
 
             <!-- Page Content -->

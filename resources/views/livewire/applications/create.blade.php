@@ -1,21 +1,25 @@
-<div>
+<div x-data="{ officialIsRecipient: @entangle('official_is_recipient') }">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="applicant" value="Solicitante" class="text-black" />
-                        <select wire:model.live='applicant' id="applicant" name="applicant" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
+                        <select wire:model.live='applicant' id="applicant" name="applicant" class="cursor-pointer rounded mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
                             <option value="#" class="text-center">Seleccionar</option>
                             @foreach ($officials as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                             @endforeach
                         </select>
                         <x-input-error class="text-xs" for="applicant"/>
+                        <label for="official_is_recipient" class="cursor-pointer">
+                            <x-checkbox id="official_is_recipient" wire:model="official_is_recipient" class="text-black" x-model="officialIsRecipient"/>
+                            Solicitante es el beneficiario
+                        </label>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/2">
+                    <div class="mt-5 pb-6 w-full px-3 sm:w-1/2" x-show="!officialIsRecipient">
                         <x-label for="recipient" value="Beneficiario" class="text-black" />
-                        <select wire:model='recipient' id="recipient" name="recipient" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
+                        <select wire:model='recipient' id="recipient" name="recipient" class="cursor-pointer rounded mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
                             <option value="#" class="text-center">Seleccionar</option>
                             @foreach ($recipients as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -23,10 +27,10 @@
                         </select>
                         <x-input-error class="text-xs" for="recipient"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="request_date" value="Fecha de Solicitud" class="text-black" />
-                        <x-input id="request_date" wire:model='request_date' class="block cursor-pointer mt-1 w-full " type="date" name="request_date" :value="old('request_date')" autocomplete="request_date" />
-                        <x-input-error class="text-xs" for="request_date"/>
+                    <div class="mt-5 w-full pb-6 px-3 sm:w-1/2">
+                        <x-label for="application_date" value="Fecha de Solicitud" class="text-black" />
+                        <x-input id="application_date" wire:model='application_date' class="block cursor-pointer mt-1 w-full " type="date" name="application_date" :value="old('application_date')" autocomplete="application_date" />
+                        <x-input-error class="text-xs" for="application_date"/>
                     </div>
                     <div class="mt-5 w-full px-3">
                         <x-label for="files" value="Archivos" class="text-black" />

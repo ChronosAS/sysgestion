@@ -18,8 +18,8 @@ class Create extends Component
     public $code;
     public $applicant;
     public $recipient;
-    public $beneficiary;
-    public $request_date;
+    public $application_date;
+    public $applicant_is_beneficiary;
 
     public $medicines = [];
     public $recipients = [];
@@ -98,7 +98,7 @@ class Create extends Component
         $this->validate([
             'applicant' => 'required|exists:officials,id',
             'recipient' => 'nullable|exists:beneficiaries,id',
-            'request_date' => 'required|date',
+            'application_date' => 'required|date',
             'files' => 'required|array',
             'files.*' => 'required|file|mimes:pdf',
             'medicines' => 'required',
@@ -108,8 +108,8 @@ class Create extends Component
             'applicant.required' => 'El solicitante es obligatorio.',
             'applicant.exists' => 'El solicitante seleccionado no es válido.',
             'recipient.exists' => 'El beneficiario seleccionado no es válido.',
-            'request_date.required' => 'La fecha de solicitud es obligatoria.',
-            'request_date.date' => 'La fecha de solicitud no es una fecha válida.',
+            'application_date.required' => 'La fecha de solicitud es obligatoria.',
+            'application_date.date' => 'La fecha de solicitud no es una fecha válida.',
             'files.required' => 'Agregue al menos 1 archivo.',
             'files.*.file' => 'Cada archivo debe ser un archivo válido.',
             'files.*.mimes' => 'Cada archivo debe ser un archivo de tipo: pdf.',
@@ -123,9 +123,9 @@ class Create extends Component
 
         tap(Application::create([
             'applicant_id' => $this->applicant,
-            'recipient_id' => ($this->recipient != null) ? $this->recipient : $this->applicant,
-            'recipient_type' => ($this->recipient != null) ? 'App\Models\Beneficiary' : 'App\Models\Official',
-            'application_date' => $this->request_date,
+            'recipient_id' => ($this->applicant_is_beneficiary) ? $this->recipient : $this->applicant,
+            'recipient_type' => ($this->applicant_is_beneficiary) ? 'App\Models\Beneficiary' : 'App\Models\Official',
+            'application_date' => $this->application_date,
         ]),function($application){
             foreach ($this->medicines as $medicine) {
                 $application->medicines()->attach($medicine['medicine_id'],[

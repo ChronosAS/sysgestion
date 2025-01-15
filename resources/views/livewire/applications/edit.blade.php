@@ -1,26 +1,25 @@
-<div>
+<div x-data="{ applicantIsRecipient: @entangle('applicant_is_recipient') }">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="code" value="Codigo" class="text-black" />
-                        <x-input id="code" wire:model='code' class="block mt-1 w-full truncate" type="text" name="code" :value="old('code')" autocomplete="code"/>
-                        <x-input-error class="text-xs" for="code"/>
-                    </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="applicant" value="Solicitante" class="text-black" />
-                        <select wire:model.live='applicant' id="applicant" name="applicant" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
+                        <select wire:model.live='applicant' id="applicant" name="applicant" class="cursor-pointer rounded mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
                             <option value="#" class="text-center">Seleccionar</option>
                             @foreach ($officials as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                             @endforeach
                         </select>
                         <x-input-error class="text-xs" for="applicant"/>
+                        <label for="applicant_is_recipient" class="cursor-pointer">
+                            <x-checkbox id="applicant_is_recipient" wire:model="applicant_is_recipient" class="text-black" x-model="applicantIsRecipient"/>
+                            Solicitante es el beneficiario
+                        </label>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/2">
+                    <div class="mt-5 w-full px-3 sm:w-1/2 pb-6" x-show="!applicantIsRecipient">
                         <x-label for="recipient" value="Beneficiario" class="text-black" />
-                        <select wire:model='recipient' id="recipient" name="recipient" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
+                        <select wire:model='recipient' id="recipient" name="recipient" class="cursor-pointer rounded mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center">
                             <option value="#" class="text-center">Seleccionar</option>
                             @foreach ($recipients as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -28,18 +27,14 @@
                         </select>
                         <x-input-error class="text-xs" for="recipient"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="request_date" value="Fecha de Solicitud" class="text-black" />
-                        <x-input id="request_date" wire:model='request_date' class="block cursor-pointer mt-1 w-full " type="date" name="request_date" :value="old('request_date')" autocomplete="request_date" />
-                        <x-input-error class="text-xs" for="request_date"/>
-                    </div>
-                    <div class="mt-5 w-full px-3">
-                        <x-label for="files" value="Archivos" class="text-black" />
-                        <x-input id="files" wire:model='files[]' class="block mt-1 p-2 bg-white cursor-pointer border border-blue-600 w-full" type="file" name="files[]" multiple />
-                        <x-input-error class="text-xs" for="files"/>
+                    <div class="mt-5 pb-6 w-full px-3 sm:w-1/2">
+                        <x-label for="application_date" value="Fecha de Solicitud" class="text-black" />
+                        <x-input id="application_date" wire:model='application_date' class="block cursor-pointer mt-1 w-full " type="date" name="application_date" :value="old('application_date')" autocomplete="application_date" />
+                        <x-input-error class="text-xs" for="application_date"/>
                     </div>
                     <div class="mt-5 w-full px-3 ">
                         <x-label for="medicines[]" value="Medicamentos" class="text-black" />
+                        <x-input-error class="text-xs" for="medicines"/>
                         <x-table.table>
                             <x-slot name="thead">
                                 <tr class="bg-blue-800 text-white">
@@ -58,22 +53,17 @@
                                 @foreach ($medicines as $index => $medicine)
                                     <tr class="bg-slate-300 shadow-md border border-blue-700 text-black">
                                         <x-table.td>
-                                            <select wire:model='medicines.{{ $index }}.id' id="medicine" name="medicine" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center text-black">
+                                            <select wire:model='medicines.{{ $index }}.medicine_id' id="medicine" name="medicine" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-center text-black">
                                                 <option value="#" class="text-center">Seleccionar</option>
                                                 @foreach ($medicinesList as $value => $name)
                                                     <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                                                 @endforeach
                                             </select>
-                                            <x-input-error class="text-xs" for="applicant"/>
-                                            @error('medicines.*.id')
-                                                <span class="text-danger"><b>{{ $message }}</b></span>
-                                            @enderror
+                                            <x-input-error class="text-xs" for="medicines.{{ $index }}.medicine_id"/>
                                         </x-table.td>
                                         <x-table.td>
-                                            <x-input id="amount" wire:model='medicines.{{ $index }}.amount' class="block mt-1 w-full truncate text-black"  min="0" type="number" name="amount" value="0" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
-                                            @error('images.*.description')
-                                                <span class="text-danger"><b>{{ $message }}</b></span>
-                                            @enderror
+                                            <x-input id="quantity" wire:model='medicines.{{ $index }}.quantity' class="block mt-1 w-full truncate text-black"  min="0" type="number" name="quantity" value="0" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                                            <x-input-error class="text-xs" for="medicines.{{ $index }}.quantity"/>
                                         </x-table.td>
                                         <x-table.td class="text-center">
                                             <button wire:click="removeMedicine({{ $index }})" type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
@@ -84,9 +74,6 @@
                                         </x-table.td>
                                     </tr>
                                 @endforeach
-                                @error('images')
-                                    <tr><x-table.td colspan="3"><span class="text-danger"><b>{{ $message }}</b></span></x-table.td></tr>
-                                @enderror
                             </x-slot>
                         </x-table.table>
                     </div>

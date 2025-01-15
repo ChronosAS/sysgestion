@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Official extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $casts = [
         'gender' => GenderEnum::class,
@@ -44,6 +45,13 @@ class Official extends Model
                 ->orWhere('gender', 'like', '%'.$term.'%')
                 ->orWhere('dob', 'like', '%'.$term.'%');
         }
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['*'])
+        ->logOnlyDirty();
     }
 
     public function applications() : HasMany

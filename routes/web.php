@@ -45,9 +45,9 @@ Route::middleware([
 
             Route::get('/crear',App\Livewire\Applications\Create::class)->name('applications.create');
 
-            Route::get('/{application}',App\Livewire\Applications\Show::class)->name('applications.show');
+            Route::get('/{application:code}',App\Livewire\Applications\Show::class)->name('applications.show');
 
-            Route::get('/editar/{application}',App\Livewire\Applications\Edit::class)->name('applications.edit');
+            Route::get('/editar/{application:code}',App\Livewire\Applications\Edit::class)->name('applications.edit');
         });
 
     Route::middleware(PermissionMiddleware::using('medicine:access'))

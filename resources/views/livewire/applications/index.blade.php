@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Funcionarios</header>
+                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Solicitudes</header>
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -65,7 +65,6 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-
                                     <th scope="col" class="px-6 py-3">
                                         @can('application:create')
                                             <x-button-href href="{{ route('applications.create') }}" class="hover:bg-blue-500">
@@ -88,17 +87,14 @@
                                             {{ $this->getRecipient($application->recipient_type,$application->recipient_id) }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-
+                                            {{ \Carbon\Carbon::parse($application->application_date)->format('d-m-Y') }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-
-                                        </td>
-                                        <td class="px-6 text-gray-900 py-4">
-
+                                            <x-badge :title="$application->status->label()" :color="$application->status->color()"/>
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{-- <a href="{{ route('applications.show',$application) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
-                                            <a href="{{ route('applications.edit',$application) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a> --}}
+                                             <a href="{{ route('applications.show',$application) }}" wire:navigate class="font-medium text-blue-600 hover:underline">Ver</a>
+                                            <a href="{{ route('applications.edit',$application) }}" wire:navigate class="ml-1 font-medium text-blue-600 hover:underline">Editar</a>
                                         </td>
                                     </tr>
                                 @empty

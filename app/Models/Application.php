@@ -12,13 +12,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Application extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes, InteractsWithMedia;
+    use HasFactory, SoftDeletes, InteractsWithMedia, LogsActivity;
 
     protected $fillable = [
         'code',
@@ -59,10 +61,18 @@ class Application extends Model implements HasMedia
         parent::boot();
 
         static::creating(function ($application){
+            $newId = Application::all()->max('id') + 1;
             if(empty($application->code)) {
-                $application->code = 'SOL'.Str::padLeft($application->id, 5, '0');
+                $application->code = 'SOL'.Str::padLeft($newId, 5, '0');
             }
         });
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['*'])
+        ->logOnlyDirty();
     }
 
     public function applicant() : BelongsTo
