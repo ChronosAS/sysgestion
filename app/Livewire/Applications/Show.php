@@ -59,9 +59,9 @@ class Show extends Component
 
     public function approve(){
         if($this->medicinesTotal == 0)
-            $this->application->status = ApplicationStatusEnum::Consolidated->value();
+            $this->application->status = ApplicationStatusEnum::Consolidated->value ;
         else
-            $this->application->status = ApplicationStatusEnum::Aproved->value();
+            $this->application->status = ApplicationStatusEnum::Aproved->value;
 
 
         $this->application->save();
