@@ -10,9 +10,9 @@
                 <div x-data="carousel()" class="relative">
                     <div class="flex overflow-hidden">
                         <template x-for="(card, index) in cards" :key="index">
-                            <div x-show="currentSlide === Math.floor(index / 3)" class="flex-shrink-0 w-full sm:w-1/3 p-4">
-                                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                                    <img :src="card.image" class="w-full h-auto mb-4">
+                            <div x-show="currentSlide === Math.floor(index / 3)" class="flex-shrink-0  sm:w-1/3 p-4 ">
+                                <div class="bg-slate-300 p-6 rounded-lg shadow-lg">
+                                    <img :src="card.image" class="w-1-3 h-auto mb-4">
                                     <h2 class="text-lg font-semibold mb-2" x-text="card.title"></h2>
                                     <p class="text-gray-700" x-text="card.description"></p>
                                 </div>
