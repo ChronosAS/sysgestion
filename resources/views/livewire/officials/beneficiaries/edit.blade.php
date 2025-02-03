@@ -1,6 +1,6 @@
 <x-dialog-modal maxWidth='2xl' wire:model.live="showEditBeneficiaryModal">
     <x-slot name="title" >
-        <h1 class="text-center border-b">Editar beneficiario</h1>
+        <h1 class="text-center border-b">Editar Solicitante</h1>
     </x-slot>
 
     <x-slot name="content" >

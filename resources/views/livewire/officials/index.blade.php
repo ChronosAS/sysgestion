@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Funcionarios</header>
+                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Beneficiarios</header>
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -10,7 +10,7 @@
                                  <x-select
                                     name="gender"
                                     wire="live"
-                                    placeholder="Género"
+                                    placeholder="Sexo"
                                     :values="App\Enum\GenderEnum::options()"
                                 />
                             </div>

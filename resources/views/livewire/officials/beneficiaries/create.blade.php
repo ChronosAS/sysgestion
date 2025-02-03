@@ -1,6 +1,6 @@
 <x-dialog-modal maxWidth='6xl' wire:model.live="showAddBeneficiaryModal">
     <x-slot name="title" >
-        <h1 class="text-center border-b border-white text-gray-900">Agregar beneficiario</h1>
+        <h1 class="text-center border-b border-white text-gray-900">Agregar Solicitante</h1>
     </x-slot>
 
     <x-slot name="content" >
