@@ -16,25 +16,25 @@
             @csrf
 
             <div>
-                <x-label class="text-white" for="email" value="Correo electrónico" />
+                <x-label class="text-black" for="email" value="Correo electrónico" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label class="text-white" for="password" value="Contraseña" />
+                <x-label class="text-black" for="password" value="Contraseña" />
                 <x-input id="password" class="block mt-1 w-full " type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
-                <label class="text-white cursor-pointer" for="remember_me" class="flex items-center">
+                <label class="text-black cursor-pointer" for="remember_me" class="flex items-center">
                     <x-checkbox class="cursor-pointer" id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-white">Recuerdame</span>
+                    <span class="ms-2 text-sm text-black">Recuerdame</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-white hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-black hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('password.request') }}">
                         Olvido su contraseña?
                     </a>
                 @endif
