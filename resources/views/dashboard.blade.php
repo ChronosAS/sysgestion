@@ -59,8 +59,8 @@
                                 },
                                 {
                                     image: 'assets/img/foto6.webp',
-                                    title: 'Card Title 6',
-                                    description: 'This is a description for card 6.'
+                                    title: 'La dirección Gestión Social de la Alcaldía de Lechería incluyó atención psicológica en visitas domiciliarias a “Abuelos de Lechería”',
+                                    description: 'Cada jueves por la mañana, de la mano de la doctora de la Clínica Municipal de Lechería (Imasur) y voluntaria social de la gestión, Jennis Barrera, se realizan chequeos médicos de rutina para constatar la salud de los adultos mayores pertenecientes al programa “Abuelos de Lechería”.'
                                 }
                             ],
                             currentSlide: 0
