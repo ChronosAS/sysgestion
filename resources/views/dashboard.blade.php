@@ -19,8 +19,16 @@
                             </div>
                         </template>
                     </div>
-                    <button @click="currentSlide = (currentSlide - 1 + Math.ceil(cards.length / 3)) % Math.ceil(cards.length / 3)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1">Prev</button>
-                    <button @click="currentSlide = (currentSlide + 1) % Math.ceil(cards.length / 3)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1">Next</button>
+                    <button @click="currentSlide = (currentSlide - 1 + Math.ceil(cards.length / 3)) % Math.ceil(cards.length / 3)"  class="  absolute  left-0 top-1/2 transform -translate-y-1/2  -px-6 py-1  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button @click="currentSlide = (currentSlide + 1) % Math.ceil(cards.length / 3)"  class="absolute  right-0  top-1/2 transform -translate-y-1/2  -px-6 py-1  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
                 </div>
                 <script>
                     document.addEventListener('alpine:init', () => {
