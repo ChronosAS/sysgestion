@@ -13,8 +13,22 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        Inicio
+                        <x-logos.inicio />
+                        
                     </x-nav-link>
+                    <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-logos.solicitudes />
+                        
+                    </x-nav-link>
+                    <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-logos.dona-salud />
+                        
+                    </x-nav-link>
+                    <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-logos.abuelos />
+                        
+                    </x-nav-link>
+
                 </div>
                 @role('admin')
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -45,6 +59,7 @@
                                         <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('users.administration') }}">
                                             Administracion de Usuarios
                                         </x-dropdown-link>
+                                       
                                         <!-- Medicine -->
                                         <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('medicines.index') }}">
                                             Medicamentos
