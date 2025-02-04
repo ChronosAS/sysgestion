@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-slate-200 bg-cover bg-center" style="background-image: url('assets/img/platsol.png');">
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-slate-200 bg-cover bg-center" style="background-image: url('assets/img/platsol.webp');">
     <div class="z-50">
         {{ $logo }}
     </div>
