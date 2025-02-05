@@ -17,7 +17,7 @@
                         
                     </x-nav-link>
                     <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        <x-logos.solicitudes />
+                        <x-logos.abuelos />
                         
                     </x-nav-link>
                     <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -25,7 +25,11 @@
                         
                     </x-nav-link>
                     <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        <x-logos.abuelos />
+                        <x-logos.social-help/>
+                        
+                    </x-nav-link>
+                    <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-logos.solicitudes />
                         
                     </x-nav-link>
 
