@@ -27,10 +27,11 @@
             @if (isset($header))
                 <header class="bg-blue-700 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <h2 class="font-semibold text-xl text-white leading-tight">
+                        {{-- <h2 class="font-semibold text-xl text-white leading-tight">
                             {!! $header !!}
-                        </h2>
-                        <nav wire:ignore class="flex -mt-1" aria-label="Breadcrumb">
+                        </h2> --}}
+                        <x-nav.health/>
+                        {{-- <nav wire:ignore class="flex -mt-1" aria-label="Breadcrumb">
                             <ol role="list" class="flex items-center">
                                 @php
                                     $segments = '';
@@ -61,7 +62,7 @@
                                     @endif
                                 @endforeach
                             </ol>
-                        </nav>
+                        </nav> --}}
                     </div>
                 </header>
                 <x-banner />
