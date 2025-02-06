@@ -6,11 +6,11 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
                 <!-- Carousel Start -->
                 <div x-data="carousel()" class="relative">
-                    <div class="flex overflow-hidden">
+                    <div class="flex overflow-hidden w-auto">
                         <template x-for="(card, index) in cards" :key="index">
-                            <div x-show="currentSlide === Math.floor(index / 3)" class="flex md:w-1/3 sm:w-1/2 p-4 ">
-                                <div class="bg-slate-300 p-4 rounded-lg shadow-lg">
-                                    <img :src="card.image" class="w-[25rem] h-[23rem] mb-4">
+                            <div x-show="currentSlide === Math.floor(index / 3)" class="flex md:w-1/3 sm:w-1/2  p-4 ">
+                                <div class="bg-slate-300 p-4 rounded-lg shadow-lg w-full">
+                                    <img :src="card.image" class=" sm:w-[25rem] sm:h-[23rem] xl:w-[15rem] xl:h-[13rem] md:w-[15rem] md:h-[13rem] 2xl:w-[25rem] 2xl:h-[23rem] mb-4">
                                     <h2 class="text-sm  font-bold mb-2" x-text="card.title"></h2>
                                     <p class="text-gray-700 text-sm font-semibold" x-text="card.description"></p>
                                 </div>
