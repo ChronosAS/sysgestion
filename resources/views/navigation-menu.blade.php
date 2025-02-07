@@ -1,34 +1,72 @@
-<div x-data="{ health: false }">
-    <nav x-data="{ open: false }" class="bg-blue-800 border-b border-blue-900 mb-16">
+<div x-data="{ health: false, requests: false, elderHelp: false, socialHelp: false }" class="relative">
+    <nav x-data="{ open: false }" class="bg-blue-800 border-b border-blue-900 mb-16 relative">
         <!-- Primary Navigation Menu -->
+        <div x-show="health"
+            x-transition:enter="transition ease-out duration-200 transform" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 -translate-y-0" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-0"
+            class="absolute w-full top-16 left-0 right-0  mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-blue-700 shadow"
+        >
+            {{-- <h2 class="font-semibold text-xl text-white leading-tight">
+                {!! $header !!}
+            </h2> --}}
+            <x-nav.health/>
+        </div>
+        <div x-show="requests"
+            x-transition:enter="transition ease-out duration-200 transform" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 -translate-y-0" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-0"
+            class="absolute w-full top-16 left-0 right-0  mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-blue-700 shadow"
+        >
+            {{-- <h2 class="font-semibold text-xl text-white leading-tight">
+                {!! $header !!}
+            </h2> --}}
+            <x-nav.requests/>
+        </div>
+        <div x-show="elderHelp"
+            x-transition:enter="transition ease-out duration-200 transform" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 -translate-y-0" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-0"
+            class="absolute w-full top-16 left-0 right-0  mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-blue-700 shadow"
+        >
+            {{-- <h2 class="font-semibold text-xl text-white leading-tight">
+                {!! $header !!}
+            </h2> --}}
+            <x-nav.elder-help/>
+        </div>
+        <div x-show="socialHelp"
+            x-transition:enter="transition ease-out duration-200 transform" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 -translate-y-0" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-0"
+            class="absolute w-full top-16 left-0 right-0  mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-blue-700 shadow"
+        >
+            {{-- <h2 class="font-semibold text-xl text-white leading-tight">
+                {!! $header !!}
+            </h2> --}}
+            <x-nav.social-help/>
+        </div>
+        
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <!-- Logo -->
-                    <div class="shrink-0 flex items-center">
+                    <div class="shrink-0 flex items-center relative ">
                         <a href="{{ route('dashboard') }}">
                             <x-application-mark class="block h-12 w-auto px-2" />
                         </a>
                     </div>
+                    
 
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-nav-link class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             <x-logos.inicio />
                         </x-nav-link>
-                        <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-nav-link @click=" health = false;  socialHelp = false; requests = false; elderHelp = !elderHelp" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
                             <x-logos.abuelos />
                         </x-nav-link>
-                        <x-nav-link @click="health = !health" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" :active="request()->routeIs('medicines.index')">
+                        <x-nav-link @click=" elderHelp = false; socialHelp = false; requests = false; health = !health" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" :active="request()->routeIs('medicines.index')">
                             <x-logos.dona-salud />
                         </x-nav-link>
-                        <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-nav-link @click=" health = false; requests = false; elderHelp = false; socialHelp = !socialHelp" class=" cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
                             <x-logos.social-help/>
                         </x-nav-link>
-                        <x-nav-link class="hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-nav-link @click=" health = false; elderHelp = false; socialHelp = false; requests = !requests"  class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
                             <x-logos.solicitudes />
                         </x-nav-link>
-
                     </div>
                     @role('admin')
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -224,15 +262,6 @@
                     @endif
                 </div>
             </div>
-        </div>
-        <div x-show="health"
-            x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 -translate-y-full" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-full"
-            class="fixed top-16 left-0 right-0 -z-50 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-blue-700 shadow"
-        >
-            {{-- <h2 class="font-semibold text-xl text-white leading-tight">
-                {!! $header !!}
-            </h2> --}}
-            <x-nav.health/>
         </div>
     </nav>
 </div>

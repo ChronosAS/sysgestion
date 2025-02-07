@@ -10,7 +10,7 @@ class Show extends Component
 {
     public Official $official;
 
-    #[Layout('layouts.app',['header'=>'Funcionario'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.officials.show');

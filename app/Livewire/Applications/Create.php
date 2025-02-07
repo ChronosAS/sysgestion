@@ -55,7 +55,7 @@ class Create extends Component
     }
 
 
-    #[Layout('layouts.app',['header'=>'Registrar Solicitud'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.applications.create',[

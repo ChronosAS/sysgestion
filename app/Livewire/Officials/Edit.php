@@ -77,7 +77,7 @@ class Edit extends Component
 
     }
 
-    #[Layout('layouts.app',['header'=>'Editar Funcionario'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.officials.edit',[

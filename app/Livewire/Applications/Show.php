@@ -81,7 +81,7 @@ class Show extends Component
         $this->medicinesTotal = $this->application->medicines->sum('subTotal');
     }
 
-    #[Layout('layouts.app',['header'=>'Solicitud'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         $this->loadMedicines();

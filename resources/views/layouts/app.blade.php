@@ -30,39 +30,6 @@
                         {{-- <h2 class="font-semibold text-xl text-white leading-tight">
                             {!! $header !!}
                         </h2> --}}
-                        <x-nav.health/>
-                        {{-- <nav wire:ignore class="flex -mt-1" aria-label="Breadcrumb">
-                            <ol role="list" class="flex items-center">
-                                @php
-                                    $segments = '';
-                                @endphp
-                                @foreach (request()->segments() as $segment)
-                                    @php
-                                        $segments .= $segment . '/';
-                                    @endphp
-                                    @if (!$loop->first)
-                                        <li>
-                                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-                                            </svg>
-                                        </li>
-                                    @endif
-                                    @if($segment != 'editar')
-                                        <li>
-                                            <a href="{{ url($segments) }}" class="text-sm font-medium text-white hover:text-blue-500">
-                                                {{ str($segment)->replace('-', ' ')->replace('_', ' ')->title() }}
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <label class="text-sm font-medium text-white">
-                                                {{ str($segment)->replace('-', ' ')->replace('_', ' ')->title() }}
-                                            </label>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ol>
-                        </nav> --}}
                     </div>
                 </header>
                 <x-banner />

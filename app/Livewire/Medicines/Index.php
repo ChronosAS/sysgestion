@@ -56,7 +56,7 @@ class Index extends Component
             ->paginate($this->perPage);
     }
 
-    #[Layout('layouts.app',['header'=>'Medicamentos'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.medicines.index',[
