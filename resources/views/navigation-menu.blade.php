@@ -58,7 +58,7 @@
                         <x-nav-link @click=" health = false;  socialHelp = false; requests = false; elderHelp = !elderHelp" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
                             <x-logos.abuelos />
                         </x-nav-link>
-                        <x-nav-link @click=" elderHelp = false; socialHelp = false; requests = false; health = !health" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" :active="request()->routeIs('medicines.index')">
+                        <x-nav-link @click=" elderHelp = false; socialHelp = false; requests = false; health = !health" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" >
                             <x-logos.dona-salud />
                         </x-nav-link>
                         <x-nav-link @click=" health = false; requests = false; elderHelp = false; socialHelp = !socialHelp" class=" cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
