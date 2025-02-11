@@ -8,10 +8,15 @@
                         <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" :value="old('document')" autocomplete="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                         <x-input-error class="text-xs" for="document"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="full_name" value="Nombres y Apellidos" class="text-black " />
-                        <x-input id="full_name" wire:model='full_name' class="block mt-1 w-full truncate" type="text" name="full_name" :value="old('full_name')" autocomplete="full_name" />
-                        <x-input-error class="text-xs" for="full_name"/>
+                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="first_names" value="Nombres" class="text-black " />
+                        <x-input id="first_names" wire:model='first_names' class="block mt-1 w-full truncate" type="text" name="first_names" :value="old('first_names')" autocomplete="first_names" />
+                        <x-input-error class="text-xs" for="first_names"/>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="last_names" value="Apellidos" class="text-black " />
+                        <x-input id="last_names" wire:model='last_names' class="block mt-1 w-full truncate" type="text" name="last_names" :value="old('last_names')" autocomplete="last_names" />
+                        <x-input-error class="text-xs" for="last_names"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="last_names" value="Ocupación" class="text-black " />
@@ -57,26 +62,54 @@
                         <x-input id="gender" wire:model='gender' class="block mt-1 w-full truncate" type="text" name="gender" :value="old('gender')" autocomplete="gender" />
                         <x-input-error class="text-xs" for="gender"/>
                     </div>
-                    <div class=" mt-5 w-full px-3 sm:w-1/3">
-                        <x-label for="pob" value="Lugar de Nacimiento" class="text-black" />
-                        <x-input id="pob" wire:model='pob' class="block mt-1 w-full truncate" type="text" name="pob" :value="old('pob')" autocomplete="pob" />
-                        <x-input-error class="text-xs" for="pob"/> 
-                    </div>
-                      <div class=" mt-5 w-full px-3 sm:w-1/3">
-                        <x-label for="parish" value="Parroquia" class="text-black" />
-                        <x-input id="parish" wire:model='parish' class="block mt-1 w-full truncate" type="text" name="parish" :value="old('parish')" autocomplete="parish" />
-                        <x-input-error class="text-xs" for="parish"/>
-                    </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
                         <x-input id="dob" wire:model='dob' class="block mt-1 w-full " type="date" name="dob" :value="old('dob')" autocomplete="dob" />
                         <x-input-error class="text-xs" for="dob"/>
+                    </div>
+                    <div class=" mt-5 w-full px-3 sm:w-1/6">
+                        <x-label for="pob" value="Lugar de Nacimiento" class="text-black" />
+                        <x-input id="pob" wire:model='pob' class="block mt-1 w-full truncate" type="text" name="pob" :value="old('pob')" autocomplete="pob" />
+                        <x-input-error class="text-xs" for="pob"/> 
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/6">
+                        <x-label for="state" value="Estado" class="block text-sm font-medium text-black"/> 
+                        <select wire:model='state' id="state" name="state" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                            <option>Casado</option>
+                            <option>Soltero</option>
+                            <option>Divorciado</option>
+                            <option>Viudo</option>
+                        </select>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/6">
+                        <x-label for="civil" value="Municipio" class="block text-sm font-medium text-black"/> 
+                        <select wire:model='civil' id="civil" name="civil" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                            <option>Casado</option>
+                            <option>Soltero</option>
+                            <option>Divorciado</option>
+                            <option>Viudo</option>
+                        </select>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/6">
+                        <x-label for="parish" value="Parroquia" class="block text-sm font-medium text-black"/> 
+                        <select wire:model='parish' id="parish" name="parish" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                            <option>Casado</option>
+                            <option>Soltero</option>
+                            <option>Divorciado</option>
+                            <option>Viudo</option>
+                        </select>
+                    </div>
+                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                        <x-label for="address" value="Aspecto Medico" class="text-black"/>
+                        <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address" :value="old('address')" autocomplete="address" />
+                        <x-input-error class="text-xs" for="address"/>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
                         <x-label for="address" value="Dirección de Habitación" class="text-black"/>
                         <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address" :value="old('address')" autocomplete="address" />
                         <x-input-error class="text-xs" for="address"/>
                     </div>
+
                     <div class=" mt-5 w-full px-3 sm:w-4/4 hidden">
                         <x-table.table class="w-full hidden">
                             <x-slot name="thead">
