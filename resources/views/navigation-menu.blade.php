@@ -71,7 +71,7 @@
                     @role('admin')
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <!-- Dropdown -->
-                            <div class="ms-3 relative">
+                            <div class="ms-3 relative hidden">
                                 <x-dropdown contentClasses="py-1 bg-blue-800" align="left" width="60">
                                     <x-slot name="trigger">
                                         <span class="inline-flex rounded-md">
@@ -140,6 +140,9 @@
                             </x-slot>
 
                             <x-slot name="content">
+                                <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('users.administration') }}">
+                                    Administracion de Usuarios
+                                </x-dropdown-link>
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-white">
                                     {{ __('Manage Account') }}
