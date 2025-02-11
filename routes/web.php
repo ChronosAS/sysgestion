@@ -50,6 +50,18 @@ Route::middleware([
             Route::get('/editar/{application:code}',App\Livewire\Applications\Edit::class)->name('applications.edit');
         });
 
+    Route::middleware(PermissionMiddleware::using('application:access'))
+        ->prefix('/programa-abuelos-lecheria')->group(function(){
+
+            Route::get('/',App\Livewire\ElderProgram\Index::class)->name('elder-program.index');
+
+            Route::get('/crear',App\Livewire\ElderProgram\Create::class)->name('elder-program.create');
+
+            Route::get('/{elderProgramApplication:code}',App\Livewire\ElderProgram\Show::class)->name('elder-program.show');
+
+            Route::get('/editar/{elderProgramApplication:code}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
+        });
+
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){
             Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');

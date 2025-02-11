@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -53,7 +52,8 @@ class Citizen extends Model
                 ->orWhere('address', 'like', '%'.$term.'%')
                 ->orWhereRelation('estado', 'estado','like', '%'.$term.'%')
                 ->orWhereRelation('municipio', 'municipio','like', '%'.$term.'%')
-                ->orWhereRelation('parroquia', 'parroquia','like', '%'.$term.'%');
+                ->orWhereRelation('parroquia', 'parroquia','like', '%'.$term.'%')
+                ->orWhereRelation('elderProgramApplication','code','like','%'.$term.'%');
         }
     }
 
@@ -61,6 +61,11 @@ class Citizen extends Model
     {
         return LogOptions::defaults()
             ->logOnly(['*']);
+    }
+
+    public function elderProgramApplication() : HasMany
+    {
+        return $this->hasMany(ElderProgramApplication::class,'elder_id');
     }
 
     public function family() : HasMany
