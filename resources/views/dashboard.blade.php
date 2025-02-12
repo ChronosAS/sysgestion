@@ -13,7 +13,7 @@
                                     <div class="bg-slate-300 p-4 rounded-lg shadow-lg w-full">
                                         <img :src="card.image" class="w-[25rem] h-[20rem] sm:w-[23rem] sm:h-[20rem] xl:w-[30rem] xl:h-[24rem] md:w-[15rem] md:h-[13rem] 2xl:w-[30rem] 2xl:h-[24rem] mb-4">
                                         <h2 class="text-sm font-bold mb-2" x-text="card.title"></h2>
-                                        <p class="text-gray-700 text-sm font-semibold" x-text="card.description"></p>
+                                        <p class="text-gray-700 text-sm font-semibold truncate" x-text="card.description"></p>
                                     </div>
                                 </div>
                             </template>

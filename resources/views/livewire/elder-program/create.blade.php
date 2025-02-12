@@ -100,12 +100,12 @@
                         </select>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="address" value="Aspecto Medico" class="text-black"/>
+                        <x-label for="address" value="Dirección de Habitación" class="text-black"/>
                         <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address" :value="old('address')" autocomplete="address" />
                         <x-input-error class="text-xs" for="address"/>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="address" value="Dirección de Habitación" class="text-black"/>
+                        <x-label for="address" value="Aspecto Medico" class="text-black"/>
                         <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address" :value="old('address')" autocomplete="address" />
                         <x-input-error class="text-xs" for="address"/>
                     </div>
