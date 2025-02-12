@@ -23,16 +23,16 @@
                         <x-input id="last_names" wire:model='last_names' class="block mt-1 w-full truncate" type="text" name="last_names" :value="old('last_names')" autocomplete="last_names" />
                         <x-input-error class="text-xs" for="last_names"/>
                     </div>
-                    {{-- <div class="mt-5 w-full px-3 sm:w-1/6" >
-                        {{-- <x-label for="gender" value="Sexo" class="block text-sm font-medium text-black"/> --}}
-                        {{-- <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                     <div class="mt-5 w-full px-3 sm:w-1/6" >
+                         <x-label for="gender" value="Sexo" class="block text-sm font-medium text-black"/>
+                         <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($genders as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                             @endforeach
-                        </select> --}}
-                        {{-- <x-input-error class="text-xs" for="gender"/> 
-                    </div> --}}
+                        </select>
+                         <x-input-error class="text-xs" for="gender"/>
+                    </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="email" value="Correo Electrónico" class="text-black " />
                         <x-input id="email" wire:model='email' class="block mt-1 w-full truncate" type="text" name="email" :value="old('email')" autocomplete="email" />
@@ -49,19 +49,19 @@
                         <x-input-error class="text-xs" for="grade"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="civil" value="Edo. Civil" class="block text-sm font-medium text-black"/> 
+                        <x-label for="civil" value="Edo. Civil" class="block text-sm font-medium text-black"/>
                         <select wire:model='civil' id="civil" name="civil" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
-                            <option>Casado</option>
-                            <option>Soltero</option>
-                            <option>Divorciado</option>
-                            <option>Viudo</option>
+                            <option value="#" class="text-center ">Seleccionar</option>
+                            @foreach ($civil_statuses as $value => $name)
+                                <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                            @endforeach
                         </select>
                     </div>
-                    <div class=" mt-5 w-full px-3 sm:w-1/6">
+                    {{-- <div class=" mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="gender" value="Sexo" class="text-black" />
                         <x-input id="gender" wire:model='gender' class="block mt-1 w-full truncate" type="text" name="gender" :value="old('gender')" autocomplete="gender" />
                         <x-input-error class="text-xs" for="gender"/>
-                    </div>
+                    </div> --}}
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
                         <x-input id="dob" wire:model='dob' class="block mt-1 w-full " type="date" name="dob" :value="old('dob')" autocomplete="dob" />
@@ -70,33 +70,25 @@
                     <div class=" mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="pob" value="Lugar de Nacimiento" class="text-black" />
                         <x-input id="pob" wire:model='pob' class="block mt-1 w-full truncate" type="text" name="pob" :value="old('pob')" autocomplete="pob" />
-                        <x-input-error class="text-xs" for="pob"/> 
+                        <x-input-error class="text-xs" for="pob"/>
                     </div>
+                    <x-search-select wire:ignore name="estado" label="Estado" :options="$states" />
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="state" value="Estado" class="block text-sm font-medium text-black"/> 
-                        <select wire:model='state' id="state" name="state" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
-                            <option>Casado</option>
-                            <option>Soltero</option>
-                            <option>Divorciado</option>
-                            <option>Viudo</option>
+                        <x-label for="municipio" value="Municipio" class="block text-sm font-medium text-black"/>
+                        <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                            <option value="#" class="text-center ">Seleccionar</option>
+                            @foreach ($municipios as $value => $name)
+                                <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="civil" value="Municipio" class="block text-sm font-medium text-black"/> 
-                        <select wire:model='civil' id="civil" name="civil" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
-                            <option>Casado</option>
-                            <option>Soltero</option>
-                            <option>Divorciado</option>
-                            <option>Viudo</option>
-                        </select>
-                    </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="parish" value="Parroquia" class="block text-sm font-medium text-black"/> 
-                        <select wire:model='parish' id="parish" name="parish" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
-                            <option>Casado</option>
-                            <option>Soltero</option>
-                            <option>Divorciado</option>
-                            <option>Viudo</option>
+                        <x-label for="parroquia" value="Parroquia" class="block text-sm font-medium text-black"/>
+                        <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                            <option value="#" class="text-center ">Seleccionar</option>
+                            @foreach ($parroquias as $value => $name)
+                                <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
@@ -129,28 +121,28 @@
                                 </tr>
                             </x-slot>
                             <x-slot name="tbody">
-                                
+
                                     {{-- <tr class="bg-white shadow-md border border-gray-700 text-center">
                                         <td class="text-black">
-                                           
+
                                         </td>
                                         <td class="text-black">
-                                         
+
                                         </td>
                                         <td class="text-black">
-                                           
+
                                        </td>
                                         <x-table.td class="text-center">
-                                          
+
                                         </x-table.td>
                                     </tr> --}}
-                              
+
                                     {{-- <tr>
                                         <td colspan="4" class="px-6 py-4 bg-white text-center text-black text-xl">
                                             No hay beneficiarios agregados
                                         </td>
                                     </tr> --}}
-                    
+
                             </x-slot>
                         </x-table.table>
                     </div>
@@ -167,5 +159,5 @@
         </div>
     </div>
     {{-- <livewire:officials.beneficiaries.edit /> --}}
-   
+
 </div>

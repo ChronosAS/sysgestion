@@ -22,7 +22,8 @@ class ElderProgramApplication extends Model
         'ocuppation',
         'education_level',
         'status',
-        'medical_aspect'
+        'medical_aspect',
+        'city_of_birth'
     ];
 
     protected $casts = [
@@ -32,16 +33,25 @@ class ElderProgramApplication extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logOnly(['code', 'elder_id', 'ocuppation', 'education_level', 'status','medical_aspect']);
+            ->logOnly([
+                'code',
+                'elder_id',
+                'ocuppation',
+                'education_level',
+                'status',
+                'medical_aspect',
+                'city_of_birth'
+            ]);
     }
 
     public function scopeSearch($query,$term)
     {
         return $query->where('code','like','%'.$term.'%')
-        ->orWhereRelation('elder','document','like','%'.$term.'%')
-        ->orWhereRelation('elder','first_names','like','%'.$term.'%')
-        ->orWhereRelation('elder','last_names','like','%'.$term.'%')
-        ->orWhereRelation('elder','email','like','%'.$term.'%');
+            ->orWhere('city_of_birth','like','%'.$term.'%')
+            ->orWhereRelation('elder','document','like','%'.$term.'%')
+            ->orWhereRelation('elder','first_names','like','%'.$term.'%')
+            ->orWhereRelation('elder','last_names','like','%'.$term.'%')
+            ->orWhereRelation('elder','email','like','%'.$term.'%');
     }
 
     public function elder() : BelongsTo

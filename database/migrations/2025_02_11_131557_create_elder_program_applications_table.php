@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('education_level');
             $table->string('status')->default(ApplicationStatusEnum::Pending);
             $table->string('medical_aspect',250);
+            $table->string('city_of_birth');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -1,13 +1,15 @@
-<div class="mt-5 w-full px-3 sm:w-1/6" 
+@props(
+    [
+        'name' => null,
+        'options' => $options,
+        'label' => null,
+    ]
+)
+<div  {!! $attributes->merge(['class' => 'mt-5 w-full px-3 sm:w-1/6']) !!}
     x-data="{
         open: false,
         search: '',
-        options: [
-            { id: 'casado', name: 'Casado' },
-            { id: 'soltero', name: 'Soltero' },
-            { id: 'divorciado', name: 'Divorciado' },
-            { id: 'viudo', name: 'Viudo' },
-        ],
+        options: {{ collect($options) }},
         selected: '',
         get filteredOptions() {
             return this.options.filter(option =>
@@ -16,13 +18,12 @@
         },
         selectOption(option) {
             this.selected = option.name;
-            @this.set('civil', option.id); // Update Livewire property
+            @this.set('{{ $name }}', option.id); // Update Livewire property
             this.open = false;
             this.search = ''; // Clear search after selection
         }
     }" @click.away="open = false">
-    <x-label for="civil" value="Select" class="block text-sm font-medium text-black"/>
-
+    <x-label for="{{ $name }}" value="{{ $label }}" class="block text-sm font-medium text-black"/>
     <div class="relative">
         <button type="button" @click="open = !open" class="relative mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-left bg-white cursor-default">
             <span x-text="selected ? selected : 'Seleccionar'"></span>
@@ -33,13 +34,13 @@
             </span>
         </button>
 
-        <div x-show="open" class="absolute z-10 mt-1 w-full rounded-md bg-white shadow-lg overflow-auto focus:outline-none sm:text-sm" style="display: none;">
+        <div x-show="open" class="absolute z-10 mt-1 w-full max-h-[20rem] rounded-md bg-white shadow-lg overflow-auto focus:outline-none sm:text-sm" style="display: none;">
             <div class="py-1">
                 <div class="px-2 pb-2">
                     <input type="text" x-model="search" class="mt-1 block w-full pl-3 pr-3 py-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" placeholder="Buscar...">
                 </div>
                 <template x-for="option in filteredOptions" :key="option.id">
-                    <button type="button" @click="selectOption(option)" class="text-gray-900 block w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:bg-gray-100 focus:text-gray-700">
+                    <button :disabled="option.id==null" type="button" @click="selectOption(option)" class="text-gray-900 block w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:bg-gray-100 focus:text-gray-700">
                         <span x-text="option.name"></span>
                     </button>
                 </template>
