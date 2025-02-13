@@ -102,8 +102,8 @@
                         <x-input-error class="text-xs" for="address"/>
                     </div>
 
-                    <div class=" mt-5 w-full px-3 sm:w-4/4 hidden">
-                        <x-table.table class="w-full hidden">
+                    <div class=" mt-5 w-full px-3 sm:w-4/2 ">
+                        <x-table.table class="w-full ">
                             <x-slot name="thead">
                                 <tr class="bg-blue-800 text-white ">
                                     <x-table.th class="pb-3 text-center">
@@ -116,32 +116,54 @@
                                         Apellido/s
                                     </x-table.th>
                                     <x-table.th class="pb-3 text-center">
-                                        {{-- <button @click="$dispatch('addBeneficiaryModal',{ beneficiaries })" type="button" class="inline-block cursor-pointer rounded-md bg-blue-900 hover:bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button> --}}
+                                        Edad
+                                    </x-table.th>
+                                    <x-table.th class="pb-3 text-center">
+                                        Parentesco
+                                    </x-table.th>
+                                    <x-table.th class="pb-3 text-center">
+                                        <button @click="$dispatch('addBeneficiaryModal',{ beneficiaries })" type="button" class="inline-block cursor-pointer rounded-md bg-blue-900 hover:bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
                                     </x-table.th>
                                 </tr>
                             </x-slot>
                             <x-slot name="tbody">
 
-                                    {{-- <tr class="bg-white shadow-md border border-gray-700 text-center">
-                                        <td class="text-black">
-
-                                        </td>
-                                        <td class="text-black">
-
-                                        </td>
-                                        <td class="text-black">
-
-                                       </td>
-                                        <x-table.td class="text-center">
-
+                                    <tr class="bg-white shadow-md border border-blue-700 text-center">
+                                        <x-table.td class="text-black">
+                                            <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document"   oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                                            <x-input-error class="text-xs" for="document"/>
                                         </x-table.td>
-                                    </tr> --}}
+                                        <x-table.td class="text-black">
+                                            <x-input id="first_names" wire:model='first_names' class="block mt-1 w-full truncate" type="text" name="first_names"   />
+                                            <x-input-error class="text-xs" for="first_names"/>
+                                        </x-table.td>
+                                        <x-table.td class="text-black   ">
+                                            <x-input id="last_names" wire:model='last_names' class="block mt-1 w-full truncate" type="text" name="last_names"   />
+                                            <x-input-error class="text-xs" for="last_names"/>
+                                        </x-table.td>
+                                        <x-table.td class="text-center">
+                                            <x-input id="age" wire:model='age' class="block mt-1 w-full truncate text-black"  min="0" type="number" name="age" value="0" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                                            <x-input-error class="text-xs" for="age"/>
+                                        </x-table.td>
+                                        <x-table.td class="text-black   ">
+                                            <x-input id="relation" wire:model='relation' class="block mt-1 w-full truncate" type="text" name="relation"   />
+                                            <x-input-error class="text-xs" for="relation"/>
+                                        </x-table.td>
+                                        <x-table.td class="text-center">
+                                            <button  type="button" class="text-white bg-red-600 border border-red-700 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center " style="border-radius: 50%" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </x-table.td>
+                                    </tr>
+                                    
 
-                                    {{-- <tr>
-                                        <td colspan="4" class="px-6 py-4 bg-white text-center text-black text-xl">
+                                    <tr>
+                                        <td colspan="6" class="px-6 py-4 bg-white text-center text-black text-xl">
                                             No hay beneficiarios agregados
                                         </td>
-                                    </tr> --}}
+                                    </tr>
 
                             </x-slot>
                         </x-table.table>
