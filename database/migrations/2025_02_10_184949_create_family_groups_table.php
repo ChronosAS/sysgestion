@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('family_groups', function (Blueprint $table) {
-            $table->uuid('uuid');
-            $table->foreignUuid('citizen_uuid')->constrained('citizens')->cascadeOnDelete();
+            $table->uuid('id');
+            $table->foreignUuid('citizen_id')->constrained('citizens')->cascadeOnDelete();
             $table->string('first_names');
             $table->string('last_names');
             $table->string('relation');

@@ -17,8 +17,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $file_path = database_path('sql/venezuela.sql');
+        if (file_exists($file_path)) {
+            DB::unprepared(file_get_contents($file_path));
+        }
 
-        DB::unprepared(file_get_contents($file_path));
+        // DB::unprepared(file_get_contents($file_path));
         // User::factory(10)->create();
         Role::create([
             'name' => 'admin'

@@ -56,7 +56,7 @@ class ElderProgramApplication extends Model
 
     public function elder() : BelongsTo
     {
-        return $this->belongsTo(Citizen::class,'elder_uuid');
+        return $this->belongsTo(Citizen::class,'elder_id');
     }
 
     public static function boot()

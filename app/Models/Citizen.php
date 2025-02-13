@@ -65,7 +65,7 @@ class Citizen extends Model
 
     public function elderProgramApplication() : HasMany
     {
-        return $this->hasMany(ElderProgramApplication::class,'elder_uuid');
+        return $this->hasMany(ElderProgramApplication::class,'elder_id');
     }
 
     public function familyMembers() : HasMany

@@ -13,9 +13,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('elder_program_applications', function (Blueprint $table) {
-            $table->uuid('uuid');
+            $table->uuid('id')->primary();
             $table->string('code')->unique()->nullable();
-            $table->foreignUuid('elder_uuid')->constrained('citizens');
+            $table->foreignUuid('elder_id')->constrained('citizens');
             $table->string('ocuppation');
             $table->string('education_level');
             $table->string('status')->default(ApplicationStatusEnum::Pending);
