@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('elder_program_applications', function (Blueprint $table) {
             $table->uuid('uuid');
             $table->string('code')->unique()->nullable();
-            $table->foreignUuid('elder_id')->constrained('citizens');
+            $table->foreignUuid('elder_uuid')->constrained('citizens');
             $table->string('ocuppation');
             $table->string('education_level');
             $table->string('status')->default(ApplicationStatusEnum::Pending);

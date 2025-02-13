@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('relation');
             $table->bigInteger('document',false,true)->nullable();
             $table->integer('age');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
