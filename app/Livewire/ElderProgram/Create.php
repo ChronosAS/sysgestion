@@ -9,6 +9,7 @@ use App\Models\Estado;
 use App\Models\Municipio;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Locked;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -21,10 +22,12 @@ class Create extends Component
     public $dob;
     public $civil_status;
     public $city_of_birth;
+    public $education_level;
     public $email;
     public $phone_number;
     public $phone_number_2;
     public $address;
+    public $medical_aspect;
     public $estado;
     public $municipio;
     public $parroquia;
@@ -34,13 +37,30 @@ class Create extends Component
     public $parroquias = [];
     public $familyMembers = [];
 
-    #[On('familyMemberAdded','familyMemberUpdated')]
-    public function refreshBeneficiaries($familyMembers)
+    public function mount()
     {
-        $this->familyMembers = $familyMembers;
+        $this->familyMembers[] = $this->additionalFamily();
     }
 
-    public function removeBeneficiary($line)
+    public function additionalFamily()
+    {
+        return [
+            'document',
+            'first_names',
+            'last_names',
+            'age',
+            'relation',
+        ];
+    }
+
+    public function addFamilyMember()
+    {
+        if (count($this->familyMembers) <= 9) {
+            $this->familyMembers[] = $this->additionalFamily();
+        }
+    }
+
+    public function removeFamilyMember($line)
     {
         $this->resetErrorBag();
 
@@ -74,15 +94,22 @@ class Create extends Component
     {
 
         $this->validate([
-            'document' => 'required|unique:officials,document',
+            'document' => 'required|unique:citizens,document',
             'first_names' => 'required|string|max:255',
             'last_names' => 'required|string|max:255',
             'dob' => 'required|date',
-            'email' => 'required|email|unique:officials,email',
+            'city_of_birth' => ['required','string'],
+            'email' => 'email|unique:citizens,email',
             'phone_number' => 'required|string|max:20',
+            'phone_number_2' => 'string|max:20',
             'address' => 'required|string|max:255',
+            'medical_aspect' => 'required|string|max:255',
             'gender' => ['required', Rule::enum(GenderEnum::class)],
             'civil_status' => ['required', Rule::enum(CivilStatusEnum::class)],
+            'estado' => 'required',
+            'municipio' => 'required',
+            'parroquia' => 'required',
+
         ], [
             'document.required' => 'El documento es obligatorio.',
             'document.unique' => 'El documento ya está registrado.',
@@ -94,16 +121,27 @@ class Create extends Component
             'last_names.max' => 'Los apellidos no deben exceder los 255 caracteres.',
             'dob.required' => 'La fecha de nacimiento es obligatoria.',
             'dob.date' => 'La fecha de nacimiento no es válida.',
+            'city_of_birth.required' => 'La ciudad de nacimiento es obligatoria.',
+            'city_of_birth.string' => 'La ciudad de nacimiento debe ser una cadena de texto.',
             'email.required' => 'El correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico no es válido.',
             'email.unique' => 'El correo electrónico ya está registrado.',
             'phone_number.required' => 'El número de teléfono es obligatorio.',
             'phone_number.string' => 'El número de teléfono debe ser una cadena de texto.',
             'phone_number.max' => 'El número de teléfono no debe exceder los 20 caracteres.',
+            'phone_number_2.string' => 'El segundo número de teléfono debe ser una cadena de texto.',
+            'phone_number_2.max' => 'El segundo número de teléfono no debe exceder los 20 caracteres.',
             'address.required' => 'La dirección es obligatoria.',
             'address.string' => 'La dirección debe ser una cadena de texto.',
             'address.max' => 'La dirección no debe exceder los 255 caracteres.',
+            'address.required' => 'El aspecto medico es obligatoria.',
+            'address.string' => 'El aspecto medico debe ser una cadena de texto.',
+            'address.max' => 'El aspecto medico no debe exceder los 255 caracteres.',
             'gender.required' => 'El género es obligatorio.',
+            'civil_status.required' => 'El estado civil es obligatorio.',
+            'estado.required' => 'El estado es obligatorio.',
+            'municipio.required' => 'El municipio es obligatorio.',
+            'parroquia.required' => 'La parroquia es obligatoria.',
         ]);
 
         tap(ElderProgramApplication::create([

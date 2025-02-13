@@ -5,7 +5,7 @@
         'label' => null,
     ]
 )
-<div  {!! $attributes->merge(['class' => 'mt-5 w-full px-3 sm:w-1/6']) !!}
+<div  {!! $attributes !!}
     x-data="{
         open: false,
         search: '',
