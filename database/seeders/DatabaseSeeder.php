@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             DB::unprepared(file_get_contents($file_path));
         }
 
-        // DB::unprepared(file_get_contents($file_path));
         // User::factory(10)->create();
         Role::create([
             'name' => 'admin'
