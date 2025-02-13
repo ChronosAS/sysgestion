@@ -17,11 +17,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         DB::statement('CREATE DATABASE IF NOT EXISTS venezuela');
+        DB::statement('USE venezuela');
         $file_path = database_path('sql/venezuela.sql');
         if (file_exists($file_path)) {
             DB::unprepared(file_get_contents($file_path));
         }
-
+        DB::statement('USE sysgestion');
         // User::factory(10)->create();
         Role::create([
             'name' => 'admin'
