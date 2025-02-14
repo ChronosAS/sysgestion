@@ -111,7 +111,19 @@
                         <x-input id="medical_aspect" wire:model='medical_aspect' class="block mt-1 w-full truncate" type="text" name="medical_aspect"/>
                         <x-input-error class="text-xs" for="medical_aspect"/>
                     </div>
-
+                    <div class="mt-5 w-full px-3 my-1 sm:w-3/1 font-medium">
+                        <h1>Aspecto Socio-Económico</h1>
+                    </div>
+                    <div class=" mt-5 w-full px-3 sm:w-1/2">
+                        <x-label for="price" value="Ingreso Familiar" />
+                        <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <x-input-error class="text-xs" for="price"/>
+                    </div>
+                    <div class=" mt-5 w-full px-3 sm:w-1/2">
+                        <x-label for="price" value="Egreso Familiar" />
+                        <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <x-input-error class="text-xs" for="price"/>
+                    </div>
                     <div class=" mt-5 w-full px-3 sm:w-4/2 ">
                         <x-label for="familyMembers[]" value="Grupo Familiar" class="text-black" />
                         <x-table.table class="w-full ">
