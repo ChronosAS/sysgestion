@@ -19,19 +19,21 @@ class Create extends Component
     public $document;
     public $first_names;
     public $last_names;
-    public $dob;
-    public $civil_status;
-    public $city_of_birth;
-    public $education_level;
+    public $ocupation;
+    public $gender;
     public $email;
     public $phone_number;
     public $phone_number_2;
-    public $address;
-    public $medical_aspect;
+    public $education_level;
+    public $civil_status;
+    public $dob;
+    public $city_of_birth;
     public $estado;
     public $municipio;
     public $parroquia;
-    public $gender;
+    public $address;
+    public $medical_aspect;
+    public $citizenExists = false;
 
     public $municipios = [];
     public $parroquias = [];
@@ -69,6 +71,15 @@ class Create extends Component
         $this->familyMembers = array_values($this->familyMembers);
     }
 
+    public function updatedDocument()
+    {
+        $citizen = Citizen::where('document', $this->document)->first();
+
+        if($citizen) {
+            $this->fill($citizen);
+        }
+    }
+
     public function updatedEstado()
     {
         $this->municipios = Estado::find($this->estado)->municipios->pluck('municipio','id_municipio');
@@ -97,7 +108,12 @@ class Create extends Component
             'document' => 'required|unique:citizens,document',
             'first_names' => 'required|string|max:255',
             'last_names' => 'required|string|max:255',
-            'dob' => 'required|date',
+            'dob' => ['required', 'date', function ($attribute, $value, $fail) {
+                $minAge = $this->gender === 'M' ? 65 : 60;
+                if (now()->diffInYears($value) < $minAge) {
+                    $fail('Debe tener al menos ' . $minAge . ' años de edad.');
+                }
+            }],
             'city_of_birth' => ['required','string'],
             'email' => 'email|unique:citizens,email',
             'phone_number' => 'required|string|max:20',
@@ -121,6 +137,7 @@ class Create extends Component
             'last_names.max' => 'Los apellidos no deben exceder los 255 caracteres.',
             'dob.required' => 'La fecha de nacimiento es obligatoria.',
             'dob.date' => 'La fecha de nacimiento no es válida.',
+            'dob.before_or_equal' => 'Debe tener al menos :minAge años de edad.',
             'city_of_birth.required' => 'La ciudad de nacimiento es obligatoria.',
             'city_of_birth.string' => 'La ciudad de nacimiento debe ser una cadena de texto.',
             'email.required' => 'El correo electrónico es obligatorio.',
@@ -134,9 +151,9 @@ class Create extends Component
             'address.required' => 'La dirección es obligatoria.',
             'address.string' => 'La dirección debe ser una cadena de texto.',
             'address.max' => 'La dirección no debe exceder los 255 caracteres.',
-            'address.required' => 'El aspecto medico es obligatoria.',
-            'address.string' => 'El aspecto medico debe ser una cadena de texto.',
-            'address.max' => 'El aspecto medico no debe exceder los 255 caracteres.',
+            'medical_aspect.required' => 'El aspecto médico es obligatorio.',
+            'medical_aspect.string' => 'El aspecto médico debe ser una cadena de texto.',
+            'medical_aspect.max' => 'El aspecto médico no debe exceder los 255 caracteres.',
             'gender.required' => 'El género es obligatorio.',
             'civil_status.required' => 'El estado civil es obligatorio.',
             'estado.required' => 'El estado es obligatorio.',
@@ -144,18 +161,7 @@ class Create extends Component
             'parroquia.required' => 'La parroquia es obligatoria.',
         ]);
 
-        tap(ElderProgramApplication::create([
-            'document' => $this->document,
-            'first_names' => $this->first_names,
-            'last_names' => $this->last_names,
-            'dob' => $this->dob,
-            'email' => $this->email,
-            'phone_number' => $this->phone_number,
-            'address' => $this->address,
-            'gender' => $this->gender,
-        ]),function($application){
-            $application->familyMembers()->createMany($this->familyMembers);
-        });
+        // tap(Citizen::);
 
         session()->flash('flash.banner','Solicitud creada con exito.');
         session()->flash('flash.bannerStyle','success');
