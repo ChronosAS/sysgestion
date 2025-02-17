@@ -70,18 +70,22 @@ class Create extends Component
         $this->familyMembers = array_values($this->familyMembers);
     }
 
-    public function updatedDocument()
-    {
+    // public function searchCitizen()
+    // {
+    //     if ($this->citizen != null){
 
-        $citizen = Citizen::where('document', $this->document)->first();
+    //         $citizen = Citizen::where('document', $this->document)->first();
 
-        if($citizen) {
+    //         if($citizen) {
+    //             $this->citizen = $citizen;
+    //             $this->fill($citizen);
+    //             $this->citizenExists = true;
+    //         }
+    //     }else{
 
-            $this->citizen = $citizen;
-            $this->fill($citizen);
-            $this->citizenExists = true;
-        }
-    }
+    //     }
+
+    // }
 
     public function updatedEstado()
     {
