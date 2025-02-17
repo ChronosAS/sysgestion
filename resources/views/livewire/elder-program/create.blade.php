@@ -3,9 +3,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
-                    <div class="mt-5 w-full sm:w-1/4 px-3 ">
+                    <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label for="document" value="Cédula de Identidad " class="text-black " />
-                        <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                        <div class="flex items-center">
+                            <x-input id="document" wire:model='document' class="block mt-1 w-full truncate" type="text" name="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                            <button type="button" class="ml-2  bg-gray-200 rounded-full hover:bg-gray-300 focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </button>
+                        </div>
                         <x-input-error class="text-xs" for="document"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
@@ -24,7 +31,7 @@
                         <x-input-error class="text-xs" for="last_names"/>
                     </div>
                      <div class="mt-5 w-full px-3 sm:w-1/6" >
-                         <x-label for="gender" value="Sexo" class="block text-sm font-medium text-black"/>
+                         <x-label for="gender" value="Sexo" class="block   text-black"/>
                          <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($genders as $value => $name)
@@ -54,7 +61,7 @@
                         <x-input-error class="text-xs" for="education_level"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="civil" value="Edo. Civil" class="block text-sm font-medium text-black"/>
+                        <x-label for="civil" value="Edo. Civil" class="block   text-black"/>
                         <select wire:model='civil' id="civil" name="civil" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($civil_statuses as $value => $name)
@@ -82,7 +89,7 @@
                         <x-input-error class="text-xs" for="estado"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="municipio" value="Municipio" class="block text-sm font-medium text-black"/>
+                        <x-label for="municipio" value="Municipio" class="block   text-black"/>
                         <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($municipios as $value => $name)
@@ -92,7 +99,7 @@
                         <x-input-error class="text-xs" for="municipio"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="parroquia" value="Parroquia" class="block text-sm font-medium text-black"/>
+                        <x-label for="parroquia" value="Parroquia" class="block   text-black"/>
                         <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($parroquias as $value => $name)
@@ -111,16 +118,16 @@
                         <x-input id="medical_aspect" wire:model='medical_aspect' class="block mt-1 w-full truncate" type="text" name="medical_aspect"/>
                         <x-input-error class="text-xs" for="medical_aspect"/>
                     </div>
-                    <div class="mt-5 w-full px-3 my-1 sm:w-3/1 font-medium">
-                        <h1>Aspecto Socio-Económico</h1>
+                    <div class="mt-5 w-full px-3 sm:w-3/1 ">
+                        <x-label for="social_economy" value="Aspecto Socio-Económico" class="text-black"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="price" value="Ingreso Familiar" />
+                        <x-label for="price" value="Ingreso Familiar" class="text-black"/>
                         <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                         <x-input-error class="text-xs" for="price"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="price" value="Egreso Familiar" />
+                        <x-label for="price" value="Egreso Familiar" class="text-black"/>
                         <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                         <x-input-error class="text-xs" for="price"/>
                     </div>
@@ -145,7 +152,7 @@
                                         Parentesco
                                     </x-table.th>
                                     <x-table.th class="pb-3 text-center">
-                                        <button wire:click='addFamilyMember' type="button" class="inline-block cursor-pointer rounded-md bg-blue-900 hover:bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
+                                        <button wire:click='addFamilyMember' type="button" class="inline-block cursor-pointer rounded-md bg-blue-900 hover:bg-blue-500 px-6 pb-2 pt-2.5 text-xs  uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">Agregar</button>
                                     </x-table.th>
                                 </tr>
                             </x-slot>
