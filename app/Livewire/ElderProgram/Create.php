@@ -4,6 +4,7 @@ namespace App\Livewire\ElderProgram;
 
 use App\Enum\Citizens\CivilStatusEnum;
 use App\Enum\GenderEnum;
+use App\Models\Citizen;
 use App\Models\ElderProgramApplication;
 use App\Models\Estado;
 use App\Models\Municipio;
@@ -16,10 +17,12 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class Create extends Component
 {
+    public Citizen $citizen;
+
     public $document;
     public $first_names;
     public $last_names;
-    public $ocupation;
+    public $occupation;
     public $gender;
     public $email;
     public $phone_number;
@@ -39,10 +42,6 @@ class Create extends Component
     public $parroquias = [];
     public $familyMembers = [];
 
-    public function mount()
-    {
-        $this->familyMembers[] = $this->additionalFamily();
-    }
 
     public function additionalFamily()
     {
@@ -73,15 +72,20 @@ class Create extends Component
 
     public function updatedDocument()
     {
+
         $citizen = Citizen::where('document', $this->document)->first();
 
         if($citizen) {
+
+            $this->citizen = $citizen;
             $this->fill($citizen);
+            $this->citizenExists = true;
         }
     }
 
     public function updatedEstado()
     {
+
         $this->municipios = Estado::find($this->estado)->municipios->pluck('municipio','id_municipio');
 
         $this->municipio = null;
@@ -109,15 +113,16 @@ class Create extends Component
             'first_names' => 'required|string|max:255',
             'last_names' => 'required|string|max:255',
             'dob' => ['required', 'date', function ($attribute, $value, $fail) {
-                $minAge = $this->gender === 'M' ? 65 : 60;
-                if (now()->diffInYears($value) < $minAge) {
-                    $fail('Debe tener al menos ' . $minAge . ' años de edad.');
-                }
+            $minAge = $this->gender === 'M' ? 65 : 60;
+            if (now()->diffInYears($value) < $minAge) {
+                $fail('Debe tener al menos ' . $minAge . ' años de edad.');
+            }
             }],
             'city_of_birth' => ['required','string'],
             'email' => 'email|unique:citizens,email',
             'phone_number' => 'required|string|max:20',
             'phone_number_2' => 'string|max:20',
+            'occupation' => 'required|string|max:100',
             'address' => 'required|string|max:255',
             'medical_aspect' => 'required|string|max:255',
             'gender' => ['required', Rule::enum(GenderEnum::class)],
@@ -125,7 +130,10 @@ class Create extends Component
             'estado' => 'required',
             'municipio' => 'required',
             'parroquia' => 'required',
-
+            'familyMembers.*.document' => count($this->familyMembers) > 0 ? 'required' : '',
+            'familyMembers.*.first_names' => (count($this->familyMembers) > 0 ? 'required' : '').'|string|max:100',
+            'familyMembers.*.last_names' => (count($this->familyMembers) > 0 ? 'required' : '').'|string|max:100',
+            'familyMembers.*.age' => (count($this->familyMembers) > 0 ? 'required' : '').'|integer|min:1',
         ], [
             'document.required' => 'El documento es obligatorio.',
             'document.unique' => 'El documento ya está registrado.',
@@ -148,6 +156,9 @@ class Create extends Component
             'phone_number.max' => 'El número de teléfono no debe exceder los 20 caracteres.',
             'phone_number_2.string' => 'El segundo número de teléfono debe ser una cadena de texto.',
             'phone_number_2.max' => 'El segundo número de teléfono no debe exceder los 20 caracteres.',
+            'occupation.required' => 'La ocupación es obligatoria.',
+            'occupation.string' => 'La ocupación debe ser una cadena de texto.',
+            'occupation.max' => 'La ocupación no debe exceder los 100 caracteres.',
             'address.required' => 'La dirección es obligatoria.',
             'address.string' => 'La dirección debe ser una cadena de texto.',
             'address.max' => 'La dirección no debe exceder los 255 caracteres.',
@@ -159,9 +170,49 @@ class Create extends Component
             'estado.required' => 'El estado es obligatorio.',
             'municipio.required' => 'El municipio es obligatorio.',
             'parroquia.required' => 'La parroquia es obligatoria.',
+            'familyMembers.*.document.required' => 'El documento del miembro de la familia es obligatorio.',
+            'familyMembers.*.first_names.required' => 'Los nombres del miembro de la familia son obligatorios.',
+            'familyMembers.*.first_names.string' => 'Los nombres del miembro de la familia deben ser una cadena de texto.',
+            'familyMembers.*.first_names.max' => 'Los nombres del miembro de la familia no deben exceder los 100 caracteres.',
+            'familyMembers.*.last_names.required' => 'Los apellidos del miembro de la familia son obligatorios.',
+            'familyMembers.*.last_names.string' => 'Los apellidos del miembro de la familia deben ser una cadena de texto.',
+            'familyMembers.*.last_names.max' => 'Los apellidos del miembro de la familia no deben exceder los 100 caracteres.',
+            'familyMembers.*.age.required' => 'La edad del miembro de la familia es obligatoria.',
+            'familyMembers.*.age.integer' => 'La edad del miembro de la familia debe ser un número entero.',
+            'familyMembers.*.age.min' => 'La edad del miembro de la familia debe ser al menos 1.',
         ]);
 
-        // tap(Citizen::);
+        if($this->citizenExists == false){
+            $this->citizen = Citizen::create([
+                'document' => $this->document,
+                'first_names' => $this->first_names,
+                'last_names' => $this->last_names,
+                'civil_status' => $this->civil_status,
+                'dob' => $this->dob,
+                'gender' => $this->gender,
+                'email' => $this->email,
+                'phone_number' => $this->phone_number,
+                'phone_number_2' => $this->phone_number_2,
+                'address' => $this->address,
+                'estado_id' => $this->estado,
+                'municipio_id' => $this->municipio,
+                'parroquia_id' => $this->parroquia,
+            ]);
+        }
+
+        if(count($this->familyMembers)>0){
+            $this->citizen->familyMembers()->createMany($this->familyMembers);
+        }
+
+        ElderProgramApplication::create([
+            'elder_id' => $this->citizen->id,
+            'occupation' => $this->occupation,
+            'education_level' => $this->education_level,
+            'medical_aspect' => $this->medical_aspect,
+            'city_of_birth' => $this->city_of_birth
+        ]);
+
+
 
         session()->flash('flash.banner','Solicitud creada con exito.');
         session()->flash('flash.bannerStyle','success');

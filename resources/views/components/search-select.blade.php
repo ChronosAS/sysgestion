@@ -5,7 +5,7 @@
         'label' => null,
     ]
 )
-<div  {!! $attributes !!}
+<div {!! $attributes !!}
     x-data="{
         open: false,
         search: '',
@@ -25,7 +25,7 @@
     }" @click.away="open = false">
     <x-label for="{{ $name }}" value="{{ $label }}" class="block text-sm font-medium text-black"/>
     <div class="relative">
-        <button type="button" @click="open = !open" class="relative mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-left bg-white cursor-default">
+        <button type="button" @click="open = !open" class="relative mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-left bg-white cursor-pointer disabled:text-slate-400 disabled:cursor-default" :disabled="citizenExists">
             <span x-text="selected ? selected : 'Seleccionar'"></span>
             <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
