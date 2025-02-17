@@ -2,16 +2,16 @@
     
 
     <div class="py-12">
-        <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
                 <!-- Slider Start -->
                 <div x-data="Carousel()" class="relative w-full">
                     <div class="overflow-hidden rounded-lg">
                         <div class="flex transition-transform duration-500 ease-in-out pb-10" :style="`transform: translateX(-${currentIndex * 100}%)`">
                             <template x-for="(card, index) in cards" :key="index">
-                                <div  class="w-full flex-shrink-0">
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-2">
                                     <div class="bg-slate-300 p-4 rounded-lg shadow-lg w-full">
-                                        <img :src="card.image" class="w-[25rem] h-[20rem] sm:w-[23rem] sm:h-[20rem] xl:w-[30rem] xl:h-[24rem] md:w-[15rem] md:h-[13rem] 2xl:w-[30rem] 2xl:h-[24rem] mb-4">
+                                        <img :src="card.image" class="w-full h-[20rem]  sm:h-[20rem] xl:h-[24rem] md:h-[14rem] 2xl:h-[24rem] mb-4 object-cover">
                                         <h2 class="text-sm font-bold mb-2" x-text="card.title"></h2>
                                         <p class="text-gray-700 text-sm font-semibold truncate" x-text="card.description"></p>
                                     </div>
@@ -66,14 +66,39 @@
                         description: 'Cada jueves por la mañana, de la mano de la doctora de la Clínica Municipal de Lechería (Imasur) y voluntaria social de la gestión, Jennis Barrera, se realizan chequeos médicos de rutina para constatar la salud de los adultos mayores pertenecientes al programa “Abuelos de Lechería”.'
                     }
                 ],
+                cardsPerSlide: 3,
                 currentIndex: 0,
                 interval: null,
+                maxSlides: 0,
                 init() {
+                    this.adjustCardsPerSlide();
+                    this.calculateMaxSlides();
                     this.startCarousel();
+
+                    window.addEventListener('resize', () => {
+                        this.adjustCardsPerSlide();
+                        this.calculateMaxSlides();
+                        this.currentIndex = Math.min(this.currentIndex, this.maxSlides - 1);
+                        this.updateCarousel();
+                    });
+                },
+                adjustCardsPerSlide() {
+                    if (window.innerWidth < 768) {
+                        this.cardsPerSlide = 1;
+                    } else {
+                        this.cardsPerSlide = 3;
+                    }
+                    console.log('cardsPerSlide:', this.cardsPerSlide);
+                },
+                calculateMaxSlides() {
+                    this.maxSlides = Math.max(1, Math.ceil(this.cards.length / this.cardsPerSlide));
+                    console.log('maxSlides:', this.maxSlides);
                 },
                 startCarousel() {
+                    clearInterval(this.interval);
                     this.interval = setInterval(() => {
-                        this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+                        this.currentIndex = (this.currentIndex + 1) % this.maxSlides;
+                        console.log('currentIndex:', this.currentIndex);
                     }, 5000);
                 },
                 stopCarousel() {
@@ -81,6 +106,10 @@
                 },
                 goToSlide(index) {
                     this.currentIndex = index;
+                    this.stopCarousel();
+                    this.startCarousel();
+                },
+                updateCarousel() {
                     this.stopCarousel();
                     this.startCarousel();
                 }
