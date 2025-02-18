@@ -28,7 +28,10 @@ class Citizen extends Model
         'phone_number',
         'phone_number_2',
         'address',
-        'observations'
+        'observations',
+        'estado_id',
+        'municipio_id',
+        'parroquia_id',
     ];
 
     protected $casts = [
@@ -59,8 +62,7 @@ class Citizen extends Model
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()
-            ->logOnly(['*']);
+        return LogOptions::defaults();
     }
 
     public function elderProgramApplication() : HasMany

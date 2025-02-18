@@ -41,7 +41,9 @@ class DatabaseSeeder extends Seeder
 
         $user->assignRole('admin');
 
-        $this->createVenezuelaDB();
+        if (!DB::select('SHOW DATABASES LIKE "venezuela"')) {
+            $this->createVenezuelaDB();
+        }
     }
 
     private function models(): array

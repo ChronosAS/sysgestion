@@ -26,8 +26,8 @@
                         <x-input-error class="text-xs" for="last_names"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="ocupation" value="Ocupación" class="text-black " />
-                        <x-input id="ocupation" wire:model='ocupation' class="block mt-1 w-full truncate" type="text" name="ocupation" x-bind:disabled="citizenExists"/>
+                        <x-label for="occupation" value="Ocupación" class="text-black " />
+                        <x-input id="occupation" wire:model='occupation' class="block mt-1 w-full truncate" type="text" name="occupation" x-bind:disabled="citizenExists"/>
                         <x-input-error class="text-xs" for="last_names"/>
                     </div>
                      <div class="mt-5 w-full px-3 sm:w-1/6" >
@@ -61,8 +61,8 @@
                         <x-input-error class="text-xs" for="education_level"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="civil" value="Edo. Civil" class="block   text-black"/>
-                        <select wire:model='civil' id="civil" name="civil" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
+                        <x-label for="civil_status" value="Edo. Civil" class="block   text-black"/>
+                        <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($civil_statuses as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -80,9 +80,9 @@
                         <x-input-error class="text-xs" for="dob" x-bind:disabled="citizenExists"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
-                        <x-label for="pob" value="Lugar de Nacimiento" class="text-black" />
-                        <x-input id="pob" wire:model='pob' class="block mt-1 w-full truncate" type="text" name="pob"/>
-                        <x-input-error class="text-xs" for="pob" x-bind:disabled="citizenExists"/>
+                        <x-label for="city_of_birth" value="Lugar de Nacimiento" class="text-black" />
+                        <x-input id="city_of_birth" wire:model='city_of_birth' class="block mt-1 w-full truncate" type="text" name="city_of_birth"/>
+                        <x-input-error class="text-xs" for="city_of_birth" x-bind:disabled="citizenExists"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-search-select wire:ignore name="estado" label="Estado" :options="$states" />
@@ -122,14 +122,14 @@
                         <x-label for="social_economy" value="Aspecto Socio-Económico" class="text-black"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="price" value="Ingreso Familiar" class="text-black"/>
-                        <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                        <x-input-error class="text-xs" for="price"/>
+                        <x-label for="family_monthly_income" value="Ingreso Familiar" class="text-black"/>
+                        <x-input id="family_monthly_income" wire:model='family_monthly_income' class="block mt-1 w-full truncate" type="text" name="family_monthly_income" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <x-input-error class="text-xs" for="family_monthly_income"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
-                        <x-label for="price" value="Egreso Familiar" class="text-black"/>
-                        <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                        <x-input-error class="text-xs" for="price"/>
+                        <x-label for="family_monthly_expenses" value="Egreso Familiar" class="text-black"/>
+                        <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <x-input-error class="text-xs" for="family_monthly_expenses"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-4/2 " x-show="!citizenExists">
                         <x-label for="familyMembers[]" value="Grupo Familiar" class="text-black" />
