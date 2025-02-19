@@ -6,14 +6,14 @@
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column  space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                            {{-- <div class="flex space-x-5 ">
-                                 <x-select
-                                    name="gender"
-                                    wire="live"
-                                    placeholder="Sexo"
-                                    :values="App\Enum\GenderEnum::options()"
-                                />
-                            </div> --}}
+                            <div class="flex space-x-5 ">
+                                <x-select
+                                   name="status"
+                                   wire="live"
+                                   placeholder="Estatus"
+                                   :values="App\Enum\ApplicationStatusEnum::options()"
+                               />
+                           </div>
                             <label for="table-search" class="sr-only">Search</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
@@ -93,25 +93,28 @@
                                 </tr>
                             </thead>
                             <tbody class="">
-                                
-                                    {{-- <tr class="bg-white border-b">
+                                @forelse( $applications as $application)
+                                    <tr class="bg-white border-b">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                           
+                                            {{ $application->elder->document }}
                                         </th>
                                         <td class="px-6 text-gray-900 py-4">
-             
+                                            {{ $application->elder->first_names.' '.$application->elder->last_names }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                      
+                                            {{ \Carbon\Carbon::parse($application->elder->dob)->age }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                           
+                                            {{ $application->elder->email }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                           
+                                            {{ $application->elder->phone_number }}
                                         </td>
                                         <td class="px-6 text-gray-900 py-4">
-                                          
+                                            {{ \Carbon\Carbon::parse($application->created_at)->format('d/m/Y') }}
+                                        </td>
+                                        <td class="px-6 text-gray-900 py-4">
+                                            <x-badge :title="$application->status->label()" :color="$application->status->color()"/>
                                         </td>
                                         <td class="px-6 py-4 flex gap-6">
                                             <a href="#" wire:navigate class="">
@@ -127,18 +130,18 @@
                                                 </svg>
                                             </a>
                                         </td>
-                                    </tr> --}}
-                             
+                                    </tr>
+                                @empty
                                     <tr>
                                         <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
                                             No hay Abuelos registrados.
                                         </td>
                                     </tr>
-                               
+                                @endforelse
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
-                            
+
                         </div>
                     </div>
                 </div>
