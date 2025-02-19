@@ -32,7 +32,7 @@
                     </div>
                      <div class="mt-5 w-full px-3 sm:w-1/6" >
                          <x-label for="gender" value="Sexo" class="block   text-black"/>
-                         <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
+                         <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:border-blue-500 focus:ring-blue-500  shadow-sm sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($genders as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="civil_status" value="Edo. Civil" class="block   text-black"/>
-                        <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
+                        <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($civil_statuses as $value => $name)
                                 <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -85,12 +85,12 @@
                         <x-input-error class="text-xs" for="city_of_birth" x-bind:disabled="citizenExists"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-search-select wire:ignore name="estado" label="Estado" :options="$states" />
+                        <x-search-select wire:ignore name="estado" label="Estado" :options="$states"  />
                         <x-input-error class="text-xs" for="estado"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="municipio" value="Municipio" class="block   text-black"/>
-                        <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                        <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($municipios as $value => $name)
                                 <option value="{{ $value }}" class="text-center cursor-pointer">{{ $name }}</option>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="parroquia" value="Parroquia" class="block   text-black"/>
-                        <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                        <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                             <option value="#" class="text-center ">Seleccionar</option>
                             @foreach ($parroquias as $value => $name)
                                 <option value="{{ $value }}" class="text-center cursor-pointer">{{ $name }}</option>
