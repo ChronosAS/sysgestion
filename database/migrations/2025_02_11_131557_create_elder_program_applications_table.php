@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('code')->unique()->nullable();
             $table->foreignUuid('elder_id')->constrained('citizens');
-            $table->string('ocuppation');
+            $table->string('occupation');
             $table->string('education_level');
             $table->string('status')->default(ApplicationStatusEnum::Pending);
             $table->string('medical_aspect',250);

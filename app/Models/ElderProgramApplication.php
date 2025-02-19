@@ -19,11 +19,13 @@ class ElderProgramApplication extends Model
     protected $fillable = [
         'code',
         'elder_id',
-        'ocuppation',
+        'occupation',
         'education_level',
         'status',
         'medical_aspect',
-        'city_of_birth'
+        'city_of_birth',
+        'family_monthly_income',
+        'family_monthly_expenses'
     ];
 
     protected $casts = [
@@ -36,7 +38,7 @@ class ElderProgramApplication extends Model
             ->logOnly([
                 'code',
                 'elder_id',
-                'ocuppation',
+                'occupation',
                 'education_level',
                 'status',
                 'medical_aspect',
