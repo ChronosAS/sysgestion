@@ -95,8 +95,8 @@
         </div>
         <div class="container mx-auto p-4 ">
             <div class=" ">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Diagnostico del Caso</h2>
                 <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+                    <h2 class="text-2xl font-semibold text-gray-800  text-center mt-5 w-full px-3 sm:w-4/1">Diagnostico del Caso</h2>
                     <div class=" p-4 mt-5 w-full px-3 sm:w-1/2">
                         <label class="bg-blue-600 block text-md font-bold text-white">Ingreso Familiar</label>
                         <p class="bg-slate-300  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
