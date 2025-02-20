@@ -61,6 +61,11 @@ Route::middleware([
 
             Route::get('/editar/{elderProgramApplication}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
         });
+        
+    // Route::middleware(PermissionMiddleware::using('application:access'))
+    // ->prefix('/carnetizacion')->group(function(){
+    //     Route::get('/',App\Livewire\ElderId\Index::class)->name('elder-identification.index');
+    // });
 
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){

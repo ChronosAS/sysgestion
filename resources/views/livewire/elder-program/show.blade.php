@@ -54,13 +54,16 @@
                     <thead class="bg-blue-700">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Cédula de Identidad
-                            </th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Nombres
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Apellidos
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Parentesco
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Cédula de Identidad
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Edad
@@ -70,13 +73,16 @@
                     <tbody class="bg-slate-300 divide-y divide-gray-200">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->document }}</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->first_names }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->last_names }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">Abuelo</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->document }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">{{ \Carbon\Carbon::parse($elderProgramApplication->elder->dob)->age }}</div>
