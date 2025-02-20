@@ -131,6 +131,17 @@
                         <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" maxlength="13" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                         <x-input-error class="text-xs" for="family_monthly_expenses"/>
                     </div>
+                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                        <x-label for="psycho_social" value="Aspecto Psico-social" class="text-black"/>
+                        <x-input id="psycho_social" wire:model='psycho_social' class="block mt-1 w-full truncate" type="text" name="psycho_social"/>
+                        <x-input-error class="text-xs" for="psycho_social"/>
+                    </div>
+                    
+                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                        <x-label for="environmental_physics" value="Aspecto Fisico-ambiental" class="text-black"/>
+                        <x-input id="environmental_physics" wire:model='environmental_physics' class="block mt-1 w-full truncate" type="text" name="environmental_physics"/>
+                        <x-input-error class="text-xs" for="environmental_physics"/>
+                    </div>
                     <div class=" mt-5 w-full px-3 sm:w-4/2 " x-show="!citizenExists">
                         <x-label for="familyMembers[]" value="Grupo Familiar" class="text-black" />
                         <x-table.table class="w-full ">

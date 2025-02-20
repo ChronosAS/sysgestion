@@ -98,7 +98,15 @@
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4">Diagnostico del Caso</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                        <label class="block text-md font-bold text-gray-800">Cédula de identidad</label>
+                        <label class="block text-md font-bold text-gray-800">Ingreso Familiar</label>
+                        <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    </div>
+                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                        <label class="block text-md font-bold text-gray-800">Egreso Familiar</label>
+                        <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    </div>
+                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                        <label class="block text-md font-bold text-gray-800">Aspecto Medico</label>
                         <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
                     </div>
                 </div>
