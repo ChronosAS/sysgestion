@@ -114,7 +114,7 @@
                         <x-input-error class="text-xs" for="address"/>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="medical_aspect" value="Aspecto Medico" class="text-black"/>
+                        <x-label for="medical_aspect" value="Aspecto Médico" class="text-black"/>
                         <x-input id="medical_aspect" wire:model='medical_aspect' class="block mt-1 w-full truncate" type="text" name="medical_aspect"/>
                         <x-input-error class="text-xs" for="medical_aspect"/>
                     </div>
@@ -138,7 +138,7 @@
                     </div>
                     
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="environmental_physics" value="Aspecto Fisico-ambiental" class="text-black"/>
+                        <x-label for="environmental_physics" value="Aspecto Físico-ambiental" class="text-black"/>
                         <x-input id="environmental_physics" wire:model='environmental_physics' class="block mt-1 w-full truncate" type="text" name="environmental_physics"/>
                         <x-input-error class="text-xs" for="environmental_physics"/>
                     </div>

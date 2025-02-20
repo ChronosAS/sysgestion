@@ -1,6 +1,6 @@
 <div>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 ">
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 shadow-2xl rounded-xl">
+        <div class="bg-white overflow-hidden  p-6">
             <div class="flex justify-between items-center">
                 <h2 class="text-2xl font-semibold leading-tight text-gray-800"></h2>
                 <div>
@@ -8,9 +8,9 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto p-4">
-            <div class="bg-slate-100 shadow-md rounded-lg p-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Información del Abuelo</h2>
+        <div class="container mx-auto p-4 ">
+            <div class=" ">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-justify">Información del Abuelo</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                         <label class="block text-md font-bold text-gray-800">Cédula de identidad</label>
@@ -47,9 +47,9 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto p-4">
+        <div class="container mx-auto p-4 ">
             <div class="overflow-x-auto">
-                <h1  class="text-2xl font-semibold text-gray-800 mb-4">Grupo Familiar</h1>
+                <h1  class="text-2xl font-semibold text-gray-800 mb-4 text-center">Grupo Familiar</h1>
                 <table class="min-w-full bg-white rounded-lg shadow-md">
                     <thead class="bg-blue-700">
                         <tr>
@@ -93,21 +93,29 @@
                 </table>
             </div>
         </div>
-        <div class="container mx-auto p-4">
-            <div class="bg-slate-100 shadow-md rounded-lg p-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Diagnostico del Caso</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                        <label class="block text-md font-bold text-gray-800">Ingreso Familiar</label>
-                        <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+        <div class="container mx-auto p-4 ">
+            <div class=" ">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Diagnostico del Caso</h2>
+                <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+                    <div class=" p-4 mt-5 w-full px-3 sm:w-1/2">
+                        <label class="bg-blue-600 block text-md font-bold text-white">Ingreso Familiar</label>
+                        <p class="bg-slate-300  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
                     </div>
-                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                        <label class="block text-md font-bold text-gray-800">Egreso Familiar</label>
-                        <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <div class="  p-4 mt-5 w-full px-3 sm:w-1/2">
+                        <label class="bg-blue-600 block text-md font-bold text-white">Egreso Familiar</label>
+                        <p class="bg-slate-300  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
                     </div>
-                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                        <label class="block text-md font-bold text-gray-800">Aspecto Medico</label>
-                        <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <div class=" p-4 mt-5 w-full px-3 sm:w-4/1">
+                        <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Médico</label>
+                        <p class="bg-slate-300  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    </div>
+                    <div class="p-4 mt-5 w-full px-3 sm:w-4/1">
+                        <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Psico-Social</label>
+                        <p class="bg-slate-300  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    </div>
+                    <div class=" p-4 mt-5 w-full px-3 sm:w-4/1">
+                        <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Físico-Ambiental</label>
+                        <p class="bg-slate-300  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
                     </div>
                 </div>
             </div>
