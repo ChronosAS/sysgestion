@@ -123,12 +123,12 @@
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_income" value="Ingreso Familiar" class="text-black"/>
-                        <x-input id="family_monthly_income" wire:model='family_monthly_income' class="block mt-1 w-full truncate" type="text" name="family_monthly_income" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <x-input id="family_monthly_income" wire:model='family_monthly_income' class="block mt-1 w-full truncate" type="text" name="family_monthly_income" maxlength="13" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                         <x-input-error class="text-xs" for="family_monthly_income"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_expenses" value="Egreso Familiar" class="text-black"/>
-                        <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" maxlength="13" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                         <x-input-error class="text-xs" for="family_monthly_expenses"/>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-4/2 " x-show="!citizenExists">
