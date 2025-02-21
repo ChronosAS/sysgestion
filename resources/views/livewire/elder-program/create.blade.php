@@ -117,7 +117,7 @@
                         </div>
                         <h1>{{ $city_of_birth }}</h1>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                    {{-- <div class="mt-5 w-full px-3 sm:w-1/4">
                         <div>
                             <x-search-select wire:ignore name="estado" label="Estado" :options="$states"  />
                             <x-input-error class="text-xs" for="estado"/>
@@ -136,7 +136,7 @@
                             <x-input-error class="text-xs" for="municipio"/>
                         </div>
                         <h1>{{ $municipio }}</h1>
-                    </div>
+                    </div> --}}
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="parroquia" value="Parroquia" class="block   text-black"/>
                         <div>
