@@ -1,6 +1,6 @@
 <div>
     <div class="py-12">
-        <div class="max-w-[95rem] mx-auto px-auto sm:px-6 lg:px-8">
+        <div class="max-w-[100rem] mx-auto px-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Miembros del Programa Abuelos de Lecheria</header>
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="w-full border border-blue-700  text-left rtl:text-right text-white">
+                        <table class="w-full border border-blue-700  text-center rtl:text-right text-white">
                             <thead class="text-sm font-semibold  text-white uppercase bg-blue-800">
                                 <tr>
                                     <th scope="col" class="px-10 py-3 ">
@@ -105,29 +105,29 @@
                             <tbody class="">
                                 @forelse( $applications as $application)
                                     <tr class="bg-white border-b">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             <a href="{{ route('elder-program.show',$application->id) }}" wire:navigate class="text-blue-600 hover:underline hover:text-blue-800"> {{ $application->elder->document }}
                                             </a>
                                         </th>
-                                        <td class="px-6 text-gray-900 py-4 break-words">
+                                        <td class=" text-gray-900 py-4 break-words  ">
                                             {{ $application->elder->first_names.' '.$application->elder->last_names }}
                                         </td>
-                                        <td class="px-6 text-gray-900 py-4">
+                                        <td class=" text-gray-900 py-4">
                                             {{ \Carbon\Carbon::parse($application->elder->dob)->age }}
                                         </td>
-                                        <td class="px-6 text-gray-900 py-4 break-all">
+                                        <td class=" text-gray-900 py-4 break-words min-w-0 max-w-[5rem]">
                                             {{ $application->elder->email }}
                                         </td>
-                                        <td class="px-6 text-gray-900 py-4">
+                                        <td class=" text-gray-900 py-4">
                                             {{ $application->elder->phone_number }}
                                         </td>
-                                        <td class="px-6 text-gray-900 py-4">
+                                        <td class=" text-gray-900 py-4">
                                             {{ \Carbon\Carbon::parse($application->created_at)->format('d/m/Y') }}
                                         </td>
-                                        <td class="px-6 text-gray-900 py-4">
+                                        <td class=" text-gray-900 py-4">
                                             
                                         </td>
-                                        <td class="px-6 text-gray-900 py-4">
+                                        <td class=" text-gray-900 py-4">
                                             
                                         </td>
                                     </tr>
