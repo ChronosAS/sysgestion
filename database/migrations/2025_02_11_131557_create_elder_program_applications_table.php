@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('education_level');
             $table->string('status')->default(ApplicationStatusEnum::Pending);
             $table->string('medical_aspect',250);
+            $table->string('psycosocial_aspect',250);
+            $table->string('environmental_aspect',250);
             $table->string('city_of_birth');
             $table->decimal('family_monthly_income', 10,2);
             $table->decimal('family_monthly_expenses', 10,2);

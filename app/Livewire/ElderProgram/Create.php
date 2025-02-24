@@ -38,6 +38,8 @@ class Create extends Component
     public $parroquia;
     public $address;
     public $medical_aspect;
+    public $psycosocial_aspect;
+    public $environmental_aspect;
     public $citizenExists = false;
 
     public $municipios = [];
@@ -143,6 +145,8 @@ class Create extends Component
             'occupation' => $this->occupation,
             'education_level' => $this->education_level,
             'medical_aspect' => $this->medical_aspect,
+            'psycosocial_aspect' => $this->psycosocial_aspect,
+            'environmental_aspect' => $this->environmental_aspect,
             'city_of_birth' => $this->city_of_birth,
             'family_monthly_income' => $this->family_monthly_income,
             'family_monthly_expenses' => $this->family_monthly_expenses,

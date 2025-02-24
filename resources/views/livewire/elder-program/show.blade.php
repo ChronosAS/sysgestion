@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
-        <div class="container mx-auto p-4 "> 
+        <div class="container mx-auto p-4 ">
             <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Información del Abuelo</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
@@ -46,7 +46,7 @@
                     <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->address }}</p>
                 </div>
             </div>
-        
+
         </div>
         <div class="container mx-auto p-4 ">
             <div class="overflow-x-auto">
@@ -71,25 +71,32 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-slate-300 divide-y divide-gray-200">
+                        @forelse ($elderProgramApplication->elder->familyMembers as $familyMember)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $familyMember->first_names }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $familyMember->last_names }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $familyMember->relation }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $familyMember->document }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $familyMember->age }}</div>
+                                </td>
+                            </tr>
+                        @empty
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->first_names }}</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->last_names }}</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">Abuelo</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $elderProgramApplication->elder->document }}</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ \Carbon\Carbon::parse($elderProgramApplication->elder->dob)->age }}</div>
+                            <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
+                                No hay familiares registrados.
                             </td>
                         </tr>
-                       
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -101,15 +108,15 @@
                 <h2 class="text-2xl font-semibold text-gray-800  text-center w-full  sm:w-4/1">Diagnostico del Caso</h2>
                 <div class=" sm:mr-4 mt-5 w-full sm:w-1/3 border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Ingreso Familiar</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->family_monthly_income }} Bs.</p>
                 </div>
                 <div class=" sm:ml-4  mt-5 w-full  sm:w-1/3 border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Egreso Familiar</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->family_monthly_expenses }} Bs.</p>
                 </div>
                 <div class="  mt-5 w-full  sm:w-4/1 border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Médico</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->medical_aspect }}</p>
                 </div>
                 <div class=" mt-5 w-full  sm:w-4/1  border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Psico-Social</label>

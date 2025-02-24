@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-3/1 ">
-                        <x-label for="social_economy" value="Aspecto Socio-Económico" class="text-black"/>
+                        <p class="block font-medium text-sm text-gray-900">Aspecto Socio-Económico</p>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_income" value="Ingreso Familiar" class="text-black"/>
@@ -189,7 +189,7 @@
                             <x-input-error class="text-xs" for="psycho_social"/>
                         </div>
                     </div>
-                    
+
                     <div class="mt-5 w-full px-3  sm:w-3/1">
                         <x-label for="environmental_physics" value="Aspecto Físico-ambiental" class="text-black"/>
                         <div>
