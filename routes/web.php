@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ElderProgramIdCard;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 
@@ -13,9 +14,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/carnet', function () {
-        return view('carnet');
-    });
+    Route::get('/carnet/{id}', ElderProgramIdCard::class)->name('elder-program-card');
 
     Route::middleware(PermissionMiddleware::using('user:access'))
         ->prefix('/usuarios')->group(function(){

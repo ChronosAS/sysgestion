@@ -35,8 +35,11 @@
         <main class=" justify-center items-center absolute top-28 right-32">
             <div class="text-left space-y-7">
                 <p class="text-[10px] font-[1000] -ml-2 " style=" color: #0c558c;">Nombres:</p>
+                <p class="text-[10px] font-[1000] -ml-2 ">{{ $citizen->first_names }}</p>
                 <p class="text-[10px] font-[1000] " style=" color: #0c558c;">Apellidos:</p>
+                <p class="text-[10px] font-[1000] -ml-2 ">{{ $citizen->first_names }}</p>
                 <p class="text-[10px] font-[1000] " style=" color: #0c558c;">Cédula de Identidad:</p>
+                <p class="text-[10px] font-[1000] -ml-2 ">{{ $citizen->document }}</p>
             </div>
         </main>
          <!-- Escudo de lecheria como marca de agua -->
@@ -54,7 +57,7 @@
             <img  class="w-14" src="pdf/elder-program/assets/logo-gestion-social.png" />
         </div>
     </div>
-   
+
 
 </body>
 </html>

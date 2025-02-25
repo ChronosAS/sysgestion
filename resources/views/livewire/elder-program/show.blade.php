@@ -5,6 +5,7 @@
                 <h2 class="text-2xl font-semibold leading-tight text-gray-800"></h2>
                 <div>
                     <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
+                    <a href="{{ route('elder-program-card', $elderProgramApplication->elder->id) }}" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
                 </div>
             </div>
         </div>
