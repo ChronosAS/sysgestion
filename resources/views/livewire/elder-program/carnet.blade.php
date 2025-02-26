@@ -12,39 +12,39 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body >
-    <div style="width: 486px; height: 306px; background-image: url('pdf/elder-program/assets/carnet-fondo.png'); " class=" bg-contain relative overflow-hidden">
+    <div style="width: 486px; height: 306px; background-image: url({{ asset('pdf/elder-program/assets/carnet-fondo.png') }}); " class=" bg-contain relative overflow-hidden">
         <header class="text-center right-3.5 absolute">
             <h1 class="text-[11px] font-black">ALCALDÍA DEL MUNICIPIO TURISTICO “EL MORRO” <br> LIC. DIEGO BAUTISTA URBANEJA</h1>
         </header>
         <div class="absolute top-1  left-[67.5px] ">
             <!-- logo de lecheria sobre la foto -->
-            <img  class=" w-[74px] " src="pdf/elder-program/assets/logotipo-lecheria-blanco.png" />
+            <img  class=" w-[74px] " src="{{ asset('pdf/elder-program/assets/logotipo-lecheria-blanco.png') }}" />
         </div>
         <div class="absolute top-16  -left-32">
         <!-- logo detras del cuadro de la foto -->
-            <img  class=" w-[300px] opacity-25" src="pdf/elder-program/assets/logo-sin-letras.png" />
+            <img  class=" w-[300px] opacity-25" src="{{ asset('pdf/elder-program/assets/logo-sin-letras.png') }}" />
         </div>
         <div class="absolute top-20  left-9">
         <!-- cuadro de la foto -->
-            <img  class=" w-[135px]" src="pdf/elder-program/assets/cuadro-foto.png" />
+            <img  class=" w-[135px]" src="{{ asset('pdf/elder-program/assets/cuadro-foto.png') }}" />
         </div>
         <div class=" absolute right-12 top-9">
         <!-- logo de abuelos de lecheria debajo del header de alcaldia -->
-            <img  class=" w-44" src="pdf/elder-program/assets/logo-abuelo-lecheria.png" />
+            <img  class=" w-44" src="{{ asset('pdf/elder-program/assets/logo-abuelo-lecheria.png') }}" />
         </div>
         <main class=" justify-center items-center absolute top-28 right-32">
-            <div class="text-left space-y-7">
-                <p class="text-[10px] font-[1000] -ml-2 " style=" color: #0c558c;">Nombres:</p>
-                <p class="text-[10px] font-[1000] -ml-2 ">{{ $citizen->first_names }}</p>
+            <div class="text-left">
+                <p class="text-[10px] font-[1000] -ml-2 " style=" color: #0c558c;">Nombres</p>
+                <p class="text-xl font-[1000] -ml-2 ">{{ Str::upper($citizen->first_names) }}</p>
                 <p class="text-[10px] font-[1000] " style=" color: #0c558c;">Apellidos:</p>
-                <p class="text-[10px] font-[1000] -ml-2 ">{{ $citizen->first_names }}</p>
+                <p class="text-xl font-[1000] -ml-2 ">{{ Str::upper($citizen->last_names) }}</p>
                 <p class="text-[10px] font-[1000] " style=" color: #0c558c;">Cédula de Identidad:</p>
-                <p class="text-[10px] font-[1000] -ml-2 ">{{ $citizen->document }}</p>
+                <p class="text-xl font-[1000] -ml-2 ">{{ Str::upper($citizen->document) }}</p>
             </div>
         </main>
          <!-- Escudo de lecheria como marca de agua -->
         <div class=" " >
-            <img class=" absolute top-20 inset-y-0 -right-12 w-[175px] opacity-10 " src="pdf/elder-program/assets/escudo.png"/>
+            <img class=" absolute top-20 inset-y-0 -right-12 w-[175px] opacity-10 " src="{{ asset('pdf/elder-program/assets/escudo.png') }}"/>
         </div>
         <div class="absolute bottom-8 left-10  ">
             <footer class="text-center  flex  flex-row items-center justify-center space-x-16">
@@ -54,10 +54,9 @@
         </div>
         <div class="absolute bottom-0 right-3">
         <!-- logo de gestion social -->
-            <img  class="w-14" src="pdf/elder-program/assets/logo-gestion-social.png" />
+            <img  class="w-14" src="{{ asset('pdf/elder-program/assets/logo-gestion-social.png') }}" />
         </div>
     </div>
-
 
 </body>
 </html>

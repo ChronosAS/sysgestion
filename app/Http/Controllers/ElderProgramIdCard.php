@@ -8,10 +8,12 @@ use App\Models\Citizen;
 
 class ElderProgramIdCard extends Controller
 {
-    public function __invoke(Citizen $citizen)
+    public function __invoke($citizen)
     {
+        $citizen = Citizen::find($citizen);
         return pdf()
-            ->view('livewire.elder-program.carnet', compact('citizen'))
+            ->view('livewire.elder-program.carnet', [
+                'citizen' => $citizen,])
             ->name('carnet-'.$citizen->document.'.pdf');
     }
 }
