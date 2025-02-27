@@ -32,14 +32,14 @@
         <!-- logo de abuelos de lecheria debajo del header de alcaldia -->
             <img  class=" w-44" src="{{ asset('pdf/elder-program/assets/logo-abuelo-lecheria.png') }}" />
         </div>
-        <main class=" justify-center items-center absolute top-28  right-[10px]">
-            <div class="text-left">
+        <main class=" justify-center items-center absolute top-28  right-[40px] mr-[40px]  block">
+            <div class=" ">
                 <p class="text-[10px] font-[1000] -ml-2 " style=" color: #0c558c;">Nombres</p>
-                <p class="text-[17px] font-[1000] -ml-2 ">{{ Str::upper($citizen->first_names) }}</p>
-                <p class="text-[10px] font-[1000] " style=" color: #0c558c;">Apellidos:</p>
-                <p class="text-[17px] font-[1000] -ml-2 ">{{ Str::upper($citizen->last_names) }}</p>
-                <p class="text-[10px] font-[1000] " style=" color: #0c558c;">Cédula de Identidad:</p>
-                <p class="text-[17px] font-[1000] -ml-2 ">{{ Str::upper($citizen->document) }}</p>
+                <p class="text-[15px] font-[1000] -ml-2 ">{{ Str::upper($citizen->first_names) }}</p>
+                <p class="text-[10px] font-[1000] -ml-2" style=" color: #0c558c;">Apellidos:</p>
+                <p class="text-[15px] font-[1000] -ml-2 ">{{ Str::upper($citizen->last_names) }}</p>
+                <p class="text-[10px] font-[1000] -ml-2" style=" color: #0c558c;">Cédula de Identidad:</p>
+                <p class="text-[15px] font-[1000] -ml-2 ">{{ Str::upper($citizen->document) }}</p>
             </div>
         </main>
          <!-- Escudo de lecheria como marca de agua -->
@@ -49,8 +49,11 @@
         <div class="absolute bottom-8 left-10  ">
             <footer class="text-center  flex  flex-row items-center justify-center space-x-16">
                 <p class="text-xs font-black text-white">Fecha de Expedición:</p>
-                <p class="text-[10px] font-black text-sky-950">Dirección:</p>
+                <p class="text-[13px] font-black text-sky-950">Dirección:</p>
             </footer>
+        </div>
+        <div class="absolute bottom-3  right-24  ">
+            <p class="text-xs break-all">{{ $citizen->address }}</p>
         </div>
         <div class="absolute bottom-0 right-3">
         <!-- logo de gestion social -->
