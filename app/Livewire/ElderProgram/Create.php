@@ -9,6 +9,7 @@ use App\Models\Citizen;
 use App\Models\ElderProgramApplication;
 use App\Models\Estado;
 use App\Models\Municipio;
+use App\Models\Parroquia;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -42,8 +43,8 @@ class Create extends Component
     public $environmental_aspect;
     public $citizenExists = false;
 
-    public $municipios = [];
-    public $parroquias = [];
+    // public $municipios = [];
+    // public $parroquias = [];
     public $familyMembers = [];
 
 
@@ -76,7 +77,7 @@ class Create extends Component
 
     public function searchCitizen()
     {
-        $this->resetErrorBag();
+        $this->reset('citizen','first_names','last_names','civil_status','phone_number','phone_number_2','address','dob','citizenExists');
         $this->validate(['document' => 'required'],[
            'document.required' => 'Ingrese cédula para busqueda'
         ]);
@@ -91,27 +92,32 @@ class Create extends Component
 
     }
 
-    public function updatedEstado()
+    public function clearSearch()
     {
-
-        $this->municipios = Estado::find($this->estado)->municipios->pluck('municipio','id_municipio');
-
-        $this->municipio = null;
-        $this->parroquia = null;
-        $this->parroquias = [];
-
+        $this->reset('citizen','first_names','last_names','civil_status','email','phone_number','phone_number_2','address','dob','citizenExists');
     }
 
-    public function updatedMunicipio()
-    {
+    // public function updatedEstado()
+    // {
 
-        if($this->municipio != '#')
-            $this->parroquias = Municipio::find($this->municipio)->parroquias->pluck('parroquia','id_parroquia');
-        else
-            $this->parroquias = [];
+    //     $this->municipios = Estado::find($this->estado)->municipios->pluck('municipio','id_municipio');
 
-        $this->parroquia = null;
-    }
+    //     $this->municipio = null;
+    //     $this->parroquia = null;
+    //     $this->parroquias = [];
+
+    // }
+
+    // public function updatedMunicipio()
+    // {
+
+    //     if($this->municipio != '#')
+    //         $this->parroquias = Municipio::find($this->municipio)->parroquias->pluck('parroquia','id_parroquia');
+    //     else
+    //         $this->parroquias = [];
+
+    //     $this->parroquia = null;
+    // }
 
     public function save()
     {
@@ -130,8 +136,8 @@ class Create extends Component
                 'phone_number' => $this->phone_number,
                 'phone_number_2' => $this->phone_number_2,
                 'address' => $this->address,
-                'estado_id' => $this->estado,
-                'municipio_id' => $this->municipio,
+                'estado_id' => 2,
+                'municipio_id' => 11,
                 'parroquia_id' => $this->parroquia,
             ]);
         }
@@ -165,12 +171,7 @@ class Create extends Component
         return view('livewire.elder-program.create', [
             'genders' => GenderEnum::options(),
             'civil_statuses' => CivilStatusEnum::options(),
-            'states' => Estado::all()->map(function($estado) {
-                return [
-                    'id' => $estado->id_estado,
-                    'name' => $estado->estado,
-                ];
-            }),
+            'parroquias' => Parroquia::where('id_municipio',11)->pluck('parroquia','id_parroquia'),
         ]);
     }
 }

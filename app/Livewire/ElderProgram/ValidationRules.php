@@ -11,7 +11,7 @@ trait ValidationRules
     protected function rules() : array
     {
         return [
-            'document' => 'required|unique:citizens,document',
+            'document' => $this->citizenExists ? 'required' : 'required|unique:citizens,document',
             'first_names' => 'required|string|max:255',
             'last_names' => 'required|string|max:255',
             'dob' => ['required', 'date', function ($attribute, $value, $fail) {
@@ -21,7 +21,7 @@ trait ValidationRules
             }
             }],
             'city_of_birth' => ['required','string'],
-            'email' => 'email|unique:citizens,email',
+            'email' => 'email',
             'phone_number' => 'required|string|max:20',
             'phone_number_2' => 'string|max:20',
             'occupation' => 'required|string|max:100',
@@ -59,7 +59,7 @@ trait ValidationRules
             'city_of_birth.string' => 'La ciudad de nacimiento debe ser una cadena de texto.',
             'email.required' => 'El correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico no es válido.',
-            'email.unique' => 'El correo electrónico ya está registrado.',
+            // 'email.unique' => 'El correo electrónico ya está registrado.',
             'phone_number.required' => 'El número de teléfono es obligatorio.',
             'phone_number.string' => 'El número de teléfono debe ser una cadena de texto.',
             'phone_number.max' => 'El número de teléfono no debe exceder los 20 caracteres.',

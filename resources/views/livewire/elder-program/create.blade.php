@@ -6,10 +6,15 @@
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label for="document" value="Cédula de Identidad " class="text-black " />
                         <div class="flex items-center">
-                            <x-input id="document" wire:model='document' class="block mt-1 w-full truncate rounded-none rounded-l-md" type="text" name="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
-                            <button wire:click='searchCitizen' type="button" class="p-[9px] mt-1 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-none rounded-r-md">
+                            <x-input id="document" wire:model='document' class="block mt-1 w-full truncate rounded-none rounded-l-md disabled:text-slate-400" type="text" name="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');" x-bind:disabled="citizenExists" />
+                            <button x-show="!citizenExists" @click='$wire.searchCitizen' type="button" class="p-[9px] mt-1 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-none rounded-r-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </button>
+                            <button x-show="citizenExists" @click='$wire.clearSearch' type="button" class="p-[9px] mt-1 text-white bg-red-500 hover:bg-red-600 focus:outline-none rounded-none rounded-r-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
@@ -17,32 +22,35 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="first_names" value="Nombres" class="text-black " />
-                        <div>
-                            <x-input id="first_names" wire:model='first_names' class="block mt-1 w-full truncate" type="text" name="first_names" x-bind:disabled="citizenExists" />
+                        <div x-show="!citizenExists">
+                            <x-input id="first_names" wire:model='first_names' class="block mt-1 w-full truncate" type="text" name="first_names" />
                             <x-input-error class="text-xs" for="first_names"/>
                         </div>
-                        <h1>{{ $first_names }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $first_names }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="last_names" value="Apellidos" class="text-black " />
-                        <div>
-                            <x-input id="last_names" wire:model='last_names' class="block mt-1 w-full truncate" type="text" name="last_names" x-bind:disabled="citizenExists"/>
+                        <div x-show="!citizenExists">
+                            <x-input id="last_names" wire:model='last_names' class="block mt-1 w-full truncate" type="text" name="last_names"/>
                             <x-input-error class="text-xs" for="last_names"/>
                         </div>
-                        <h1>{{ $last_names }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $last_names }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="occupation" value="Ocupación" class="text-black " />
                         <div>
-                            <x-input id="occupation" wire:model='occupation' class="block mt-1 w-full truncate" type="text" name="occupation" x-bind:disabled="citizenExists"/>
+                            <x-input id="occupation" wire:model='occupation' class="block mt-1 w-full truncate" type="text" name="occupation"/>
                             <x-input-error class="text-xs" for="last_names"/>
                         </div>
-                        <h1>{{ $occupation }}</h1>
                     </div>
                      <div class="mt-5 w-full px-3 sm:w-1/6" >
                         <x-label for="gender" value="Sexo" class="block   text-black"/>
-                        <div>
-                            <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:border-blue-500 focus:ring-blue-500  shadow-sm sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
+                        <div x-show="!citizenExists">
+                            <select wire:model='gender' id="gender" name="gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:border-blue-500 focus:ring-blue-500  shadow-sm sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center ">Seleccionar</option>
                                 @foreach ($genders as $value => $name)
                                     <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -50,51 +58,60 @@
                             </select>
                             <x-input-error class="text-xs" for="gender"/>
                         </div>
-                        <h1>{{ $gender }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->gender->label() }}</h1>
+                        </div>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="email" value="Correo Electrónico" class="text-black " />
-                        <div>
-                            <x-input id="email" wire:model='email' class="block mt-1 w-full truncate" type="text" name="email" x-bind:disabled="citizenExists"  />
+                        <div x-show="!citizenExists">
+                            <x-input id="email" wire:model='email' class="block mt-1 w-full truncate" type="text" name="email"  />
                             <x-input-error class="text-xs" for="email"/>
                         </div>
-                        <h1>{{ $email }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $email }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="phone_number" value="Teléfono" class="text-black " />
-                        <div>
-                            <x-input id="phone_number" wire:model='phone_number' class="block mt-1 w-full truncate" type="text" name="phone_number"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');" x-bind:disabled="citizenExists"/>
+                        <div x-show="!citizenExists">
+                            <x-input id="phone_number" wire:model='phone_number' class="block mt-1 w-full truncate" type="text" name="phone_number"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');"/>
                             <x-input-error class="text-xs" for="phone_number"/>
                         </div>
-                        <h1>{{ $phone_number }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $phone_number }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="phone_number_2" value="Teléfono 2" class="text-black " />
-                        <div>
-                            <x-input id="phone_number_2" wire:model='phone_number_2' class="block mt-1 w-full truncate" type="text" name="phone_number_2"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');" x-bind:disabled="citizenExists"/>
+                        <div x-show="!citizenExists">
+                            <x-input id="phone_number_2" wire:model='phone_number_2' class="block mt-1 w-full truncate" type="text" name="phone_number_2"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');"/>
                             <x-input-error class="text-xs" for="phone_number_2"/>
                         </div>
-                        <h1>{{ $phone_number_2 }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $phone_number_2 }}</h1>
+                        </div>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="education_level" value="Nivel de Instrucción" class="text-black " />
                         <div>
-                            <x-input id="education_level" wire:model='education_level' class="block mt-1 w-full truncate" type="text" name="education_level"   x-bind:disabled="citizenExists"/>
+                            <x-input id="education_level" wire:model='education_level' class="block mt-1 w-full truncate" type="text" name="education_level"  />
                             <x-input-error class="text-xs" for="education_level"/>
                         </div>
-                        <h1>{{ $education_level }}</h1>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="civil_status" value="Edo. Civil" class="block   text-black"/>
-                        <div>
-                            <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center" x-bind:disabled="citizenExists">
+                        <div x-show="!citizenExists">
+                            <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center ">Seleccionar</option>
                                 @foreach ($civil_statuses as $value => $name)
                                     <option value="{{ $value }}" class="text-center">{{ $name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <h1>{{ $civil_status }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->civil_status->label() }}</h1>
+                        </div>
                     </div>
                     {{-- <div class=" mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="gender" value="Sexo" class="text-black" />
@@ -103,17 +120,19 @@
                     </div> --}}
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
-                        <div>
+                        <div x-show="!citizenExists">
                             <x-input id="dob" wire:model='dob' class="block mt-1 w-full " type="date" name="dob"/>
-                            <x-input-error class="text-xs" for="dob" x-bind:disabled="citizenExists"/>
+                            <x-input-error class="text-xs" for="dob"/>
                         </div>
-                        <h1>{{ $dob }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ \Carbon\Carbon::parse($dob)->format('d/m/Y') }}</h1>
+                        </div>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="city_of_birth" value="Lugar de Nacimiento" class="text-black" />
                         <div>
                             <x-input id="city_of_birth" wire:model='city_of_birth' class="block mt-1 w-full truncate" type="text" name="city_of_birth"/>
-                            <x-input-error class="text-xs" for="city_of_birth" x-bind:disabled="citizenExists"/>
+                            <x-input-error class="text-xs" for="city_of_birth"/>
                         </div>
                         <h1>{{ $city_of_birth }}</h1>
                     </div>
@@ -139,7 +158,7 @@
                     </div> --}}
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="parroquia" value="Parroquia" class="block   text-black"/>
-                        <div>
+                        <div x-show="!citizenExists">
                             <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center ">Seleccionar</option>
                                 @foreach ($parroquias as $value => $name)
@@ -148,15 +167,19 @@
                             </select>
                             <x-input-error class="text-xs" for="parroquia"/>
                         </div>
-                        <h1>{{ $parroquia }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->parroquia->parroquia }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
                         <x-label for="address" value="Dirección de Habitación" class="text-black"/>
-                        <div>
+                        <div x-show="!citizenExists">
                             <x-input id="address" wire:model='address' class="block mt-1 w-full truncate" type="text" name="address"/>
                             <x-input-error class="text-xs" for="address"/>
                         </div>
-                        <h1>{{ $address }}</h1>
+                        <div x-show="citizenExists">
+                            <h1>{{ $address }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
                         <x-label for="medical_aspect" value="Aspecto Médico" class="text-black"/>
@@ -171,14 +194,14 @@
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_income" value="Ingreso Familiar" class="text-black"/>
                         <div>
-                            <x-input id="family_monthly_income" wire:model='family_monthly_income' class="block mt-1 w-full truncate" type="text" name="family_monthly_income" maxlength="13" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                            <x-input id="family_monthly_income" wire:model='family_monthly_income' class="block mt-1 w-full truncate" type="text" name="family_monthly_income" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
                             <x-input-error class="text-xs" for="family_monthly_income"/>
                         </div>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_expenses" value="Egreso Familiar" class="text-black"/>
                         <div>
-                            <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" maxlength="13" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                            <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
                             <x-input-error class="text-xs" for="family_monthly_expenses"/>
                         </div>
                     </div>

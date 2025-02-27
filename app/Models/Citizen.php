@@ -77,16 +77,16 @@ class Citizen extends Model
 
     public function estado() : BelongsTo
     {
-        return $this->belongsTo(Estado::class);
+        return $this->belongsTo(Estado::class,'estado_id');
     }
 
     public function municipio() : BelongsTo
     {
-        return $this->belongsTo(Municipio::class);
+        return $this->belongsTo(Municipio::class,'municipio_id');
     }
 
     public function parroquia() : BelongsTo
     {
-        return $this->belongsTo(Parroquia::class);
+        return $this->belongsTo(Parroquia::class,'parroquia_id');
     }
 }
