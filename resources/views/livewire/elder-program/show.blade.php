@@ -3,9 +3,11 @@
         <div class=" overflow-hidden  p-6">
             <div class="flex justify-between items-center space-x-9">
                 <div class="text-center">
-                    <img class="w-[135px] mx-auto mb-4" src="{{ asset('pdf/elder-program/assets/cuadro-foto.png') }}" />
-                    <x-label for="dob" value="Agregar Foto" class="text-black mb-2" />
+                    <img class="mx-auto mb-4" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}"/>
+                    <x-label for="image" value="Agregar Foto" class="text-black mb-2" />
+                    <x-input-error class="text-xs" for="image"/>
                     <input
+                        wire:model="image"
                         type="file"
                         class="pr-4 text-sm font-medium bg-stone-50 text-stone-700 border border-gray-300 rounded
                         file:mr-2.5 file:p-2.5 file:px-3 file:border file:border-gray-300
@@ -15,11 +17,11 @@
                         hover:file:cursor-pointer hover:file:bg-blue-700
                         "
                     />
+                    <a wire:click='loadImage' class="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Cambiar Foto</a>
                 </div>
                 <div>
                     <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
                     <a href="{{ route('elder-program-card', $elderProgramApplication->elder->id) }}" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
-                    <a href="#" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Cambiar Foto</a>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ class ElderProgramIdCard extends Controller
         return pdf()
             ->view('livewire.elder-program.carnet', [
                 'citizen' => $citizen,])
+            ->paperSize('486','306','px')
             ->name('carnet-'.$citizen->document.'.pdf');
     }
 }

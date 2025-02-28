@@ -26,7 +26,7 @@
         </div>
         <div class="absolute top-20  left-9">
         <!-- cuadro de la foto -->
-            <img  class=" w-[135px]" src="{{ asset('pdf/elder-program/assets/cuadro-foto.png') }}" />
+            <img  class=" w-[135px]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
         </div>
         <div class=" absolute right-12 top-9">
         <!-- logo de abuelos de lecheria debajo del header de alcaldia -->
