@@ -23,7 +23,7 @@ class ElderProgramApplication extends Model
         'education_level',
         'status',
         'medical_aspect',
-        'psycosocial_aspect',
+        'psychosocial_aspect',
         'environmental_aspect',
         'city_of_birth',
         'family_monthly_income',

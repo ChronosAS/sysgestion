@@ -134,7 +134,6 @@
                             <x-input id="city_of_birth" wire:model='city_of_birth' class="block mt-1 w-full truncate" type="text" name="city_of_birth"/>
                             <x-input-error class="text-xs" for="city_of_birth"/>
                         </div>
-                        <h1>{{ $city_of_birth }}</h1>
                     </div>
                     {{-- <div class="mt-5 w-full px-3 sm:w-1/4">
                         <div>
@@ -206,18 +205,18 @@
                         </div>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="psycho_social" value="Aspecto Psico-social" class="text-black"/>
+                        <x-label for="psychosocial_aspect" value="Aspecto Psico-social" class="text-black"/>
                         <div>
-                            <x-input id="psycho_social" wire:model='psycho_social' class="block mt-1 w-full truncate" type="text" name="psycho_social"/>
-                            <x-input-error class="text-xs" for="psycho_social"/>
+                            <x-input id="psychosocial_aspect" wire:model='psychosocial_aspect' class="block mt-1 w-full truncate" type="text" name="psychosocial_aspect"/>
+                            <x-input-error class="text-xs" for="psychosocial_aspect"/>
                         </div>
                     </div>
 
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="environmental_physics" value="Aspecto Físico-ambiental" class="text-black"/>
+                        <x-label for="environmental_aspect" value="Aspecto Físico-ambiental" class="text-black"/>
                         <div>
-                            <x-input id="environmental_physics" wire:model='environmental_physics' class="block mt-1 w-full truncate" type="text" name="environmental_physics"/>
-                            <x-input-error class="text-xs" for="environmental_physics"/>
+                            <x-input id="environmental_aspect" wire:model='environmental_aspect' class="block mt-1 w-full truncate" type="text" name="environmental_aspect"/>
+                            <x-input-error class="text-xs" for="environmental_aspect"/>
                         </div>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-4/2 " x-show="!citizenExists">

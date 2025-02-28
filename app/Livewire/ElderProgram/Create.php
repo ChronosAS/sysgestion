@@ -39,7 +39,7 @@ class Create extends Component
     public $parroquia;
     public $address;
     public $medical_aspect;
-    public $psycosocial_aspect;
+    public $psychosocial_aspect;
     public $environmental_aspect;
     public $citizenExists = false;
 
@@ -84,11 +84,15 @@ class Create extends Component
 
         $citizen = Citizen::where('document', $this->document)->first();
 
-        if($citizen) {
-            $this->citizen = $citizen;
-            $this->fill($citizen);
-            $this->citizenExists = true;
+        if(!$citizen) {
+            $this->addError('document','No se encontró ciudadano con la cédula ingresada');
+            return;
         }
+
+        $this->citizen = $citizen;
+        $this->fill($citizen);
+        $this->parroquia = $citizen->parroquia_id;
+        $this->citizenExists = true;
 
     }
 
@@ -121,7 +125,6 @@ class Create extends Component
 
     public function save()
     {
-
         $this->validate();
 
         if($this->citizenExists == false){
@@ -151,7 +154,7 @@ class Create extends Component
             'occupation' => $this->occupation,
             'education_level' => $this->education_level,
             'medical_aspect' => $this->medical_aspect,
-            'psycosocial_aspect' => $this->psycosocial_aspect,
+            'psychosocial_aspect' => $this->psychosocial_aspect,
             'environmental_aspect' => $this->environmental_aspect,
             'city_of_birth' => $this->city_of_birth,
             'family_monthly_income' => $this->family_monthly_income,
