@@ -75,4 +75,9 @@ Route::middleware([
             Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
         });
 
+    Route::middleware(PermissionMiddleware::using('application:access'))
+        ->prefix('/pension')->group(function(){
+            Route::get('/',App\Livewire\Pension\Index::class)->name('pension.index');
+        });
+
 });
