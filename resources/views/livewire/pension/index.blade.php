@@ -83,7 +83,7 @@
                                             No hay Pensiones registradas.
                                         </td>
                                     </tr>
-                                @endforelse
+            
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">

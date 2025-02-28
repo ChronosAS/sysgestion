@@ -1,11 +1,25 @@
 <div>
     <div class="max-w-7xl bg-gray-200 mb-6 mx-auto py-6 sm:px-6 lg:px-8 shadow-lg rounded-xl">
         <div class=" overflow-hidden  p-6">
-            <div class="flex justify-between items-center">
-                <h2 class="text-2xl font-semibold leading-tight text-gray-800"></h2>
+            <div class="flex justify-between items-center space-x-9">
+                <div class="text-center">
+                    <img class="w-[135px] mx-auto mb-4" src="{{ asset('pdf/elder-program/assets/cuadro-foto.png') }}" />
+                    <x-label for="dob" value="Agregar Foto" class="text-black mb-2" />
+                    <input
+                        type="file"
+                        class="pr-4 text-sm font-medium bg-stone-50 text-stone-700 border border-gray-300 rounded
+                        file:mr-2.5 file:p-2.5 file:px-3 file:border file:border-gray-300
+                        file:text-xs file:font-medium file:ml-0
+                        file:bg-blue-600 file:text-white
+                        file:rounded
+                        hover:file:cursor-pointer hover:file:bg-blue-700
+                        "
+                    />
+                </div>
                 <div>
                     <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
                     <a href="{{ route('elder-program-card', $elderProgramApplication->elder->id) }}" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
+                    <a href="#" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Cambiar Foto</a>
                 </div>
             </div>
         </div>
