@@ -3,7 +3,11 @@
         <div class=" overflow-hidden  p-6">
             <div class="flex justify-between items-center space-x-9">
                 <div class="text-center">
-                    <img class="mx-auto mb-4" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}"/>
+                    @if ($citizen->getFirstMedia('profile'))
+                        <img class="mx-auto mb-4" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}"/>
+                    @else
+                        <img class="mx-auto mb-4" src="{{ asset('path/to/default/image.png') }}"/>
+                    @endif
                     <x-label for="image" value="Agregar Foto" class="text-black mb-2" />
                     <x-input-error class="text-xs" for="image"/>
                     <input
@@ -137,11 +141,11 @@
                 </div>
                 <div class=" mt-5 w-full  sm:w-4/1  border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Psico-Social</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->psychosocial_aspect }}</p>
                 </div>
                 <div class="  mt-5 w-full  sm:w-4/1  border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Físico-Ambiental</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->environmental_aspect }}</p>
                 </div>
             </div>
         </div>
