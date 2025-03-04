@@ -170,6 +170,13 @@
                             <h1>{{ $citizen?->parroquia->parroquia }}</h1>
                         </div>
                     </div>
+                    <div class=" mt-5 w-full px-3 sm:w-1/3">
+                        <x-label for="account_number" value="Número de Cuenta" class="text-black" />
+                        <div>
+                            <x-input id="account_number" wire:model='account_number' class="block mt-1 w-full truncate" type="text" name="account_number " oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                            <x-input-error class="text-xs" for="account_number"/>
+                        </div>
+                    </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
                         <x-label for="address" value="Dirección de Habitación" class="text-black"/>
                         <div x-show="!citizenExists">
