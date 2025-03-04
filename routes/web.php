@@ -63,6 +63,13 @@ Route::middleware([
             Route::get('/{elderProgramApplication}',App\Livewire\ElderProgram\Show::class)->name('elder-program.show');
 
             Route::get('/editar/{elderProgramApplication}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
+
+            Route::middleware(PermissionMiddleware::using('application:access'))
+            ->prefix('/pension')->group(function(){
+                Route::get('/',App\Livewire\Pension\Index::class)->name('pension.index');
+                Route::get('/reporte',App\Http\Controllers\ElderProgramPensionReport::class)->name('pension.report');
+            });
+
         });
 
     // Route::middleware(PermissionMiddleware::using('application:access'))
@@ -73,11 +80,6 @@ Route::middleware([
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){
             Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
-        });
-
-    Route::middleware(PermissionMiddleware::using('application:access'))
-        ->prefix('/pension')->group(function(){
-            Route::get('/',App\Livewire\Pension\Index::class)->name('pension.index');
         });
 
 });
