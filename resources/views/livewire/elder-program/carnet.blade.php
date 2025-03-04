@@ -27,9 +27,9 @@
         <div class="absolute top-20  left-9">
         <!-- cuadro de la foto -->
             @if($citizen->getFirstMedia('profile'))
-                <img class="w-[135px]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
+                <img class="max-w-[135px] min-w-[145px] max-h-[155px] min-h-[155px]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
             @else
-                <img class="w-[135px]" src="{{ asset('path/to/default/image.png') }}" />
+                <img class="max-w-[135px] min-w-[145px] max-h-[155px] min-h-[155px]" src="{{ asset('path/to/default/image.png') }}" />
             @endif
         </div>
         <div class=" absolute right-12 top-9">
@@ -56,7 +56,7 @@
                 <p class="text-[13px] font-black text-sky-950">Dirección:</p>
             </footer>
         </div>
-        <div class="absolute bottom-3  right-24  ">
+        <div class="absolute bottom-3  right-20  ">
             <p class="text-xs break-all">{{ $citizen->address }}</p>
         </div>
         <div class="absolute bottom-0 right-3">
