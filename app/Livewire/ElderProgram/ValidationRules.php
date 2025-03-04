@@ -11,7 +11,18 @@ trait ValidationRules
     protected function rules() : array
     {
         return [
-            'document' => $this->citizenExists ? 'required' : 'required|unique:citizens,document',
+            'document' => [
+            'required',
+            function ($attribute, $value, $fail) {
+                if ($this->citizenExists) {
+                    $fail('La cédula ya esta registrada.');
+                } elseif (\App\Models\ElderProgramApplication::whereHas('elder', function ($query) use ($value) {
+                    $query->where('document', $value);
+                        })->exists()) {
+                    $fail('La cédula ya está registrada en el programa.');
+                }
+            }
+            ],
             'first_names' => 'required|string|max:255',
             'last_names' => 'required|string|max:255',
             'dob' => ['required', 'date', function ($attribute, $value, $fail) {
@@ -44,7 +55,6 @@ trait ValidationRules
     {
         return [
             'document.required' => 'El documento es obligatorio.',
-            'document.unique' => 'El documento ya está registrado.',
             'first_names.required' => 'Los nombres son obligatorios.',
             'first_names.string' => 'Los nombres deben ser una cadena de texto.',
             'first_names.max' => 'Los nombres no deben exceder los 255 caracteres.',

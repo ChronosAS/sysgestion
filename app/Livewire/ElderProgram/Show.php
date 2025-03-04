@@ -16,10 +16,13 @@ class Show extends Component
     public $citizen;
 
     public $image;
+    public $hasImage = false;
 
     public function mount()
     {
         $this->citizen = $this->elderProgramApplication->elder;
+
+        $this->hasImage = $this->citizen->hasMedia('profile');
     }
 
     public function loadImage()
@@ -38,6 +41,8 @@ class Show extends Component
         $this->citizen->addMedia($this->image->getRealPath())
             ->usingName($this->image->getClientOriginalName())
             ->toMediaCollection('profile');
+
+        $this->hasImage = true;
     }
 
     public function render()
