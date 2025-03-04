@@ -27,9 +27,9 @@
         <div class="absolute top-20  left-9">
         <!-- cuadro de la foto -->
             @if($citizen->getFirstMedia('profile'))
-                <img class="max-w-[135px] min-w-[145px] max-h-[155px] min-h-[155px]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
+                <img class="max-w-[135px] min-w-[98.26px] max-h-[155px] min-h-[155px]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
             @else
-                <img class="max-w-[135px] min-w-[145px] max-h-[155px] min-h-[155px]" src="{{ asset('path/to/default/image.png') }}" />
+                <img class="max-w-[135px] min-w-[98.26px] max-h-[155px] min-h-[155px]" src="{{ asset('path/to/default/image.png') }}" />
             @endif
         </div>
         <div class=" absolute right-12 top-9">
@@ -38,12 +38,12 @@
         </div>
         <main class=" justify-center items-center absolute top-28  right-[40px] mr-[40px]  block">
             <div class=" ">
-                <p class="text-[10px] font-[1000] -ml-2 " style=" color: #0c558c;">Nombres</p>
-                <p class="text-[15px] font-[1000] -ml-2 ">{{ Str::upper($citizen->first_names) }}</p>
-                <p class="text-[10px] font-[1000] -ml-2" style=" color: #0c558c;">Apellidos:</p>
-                <p class="text-[15px] font-[1000] -ml-2 ">{{ Str::upper($citizen->last_names) }}</p>
-                <p class="text-[10px] font-[1000] -ml-2" style=" color: #0c558c;">Cédula de Identidad:</p>
-                <p class="text-[15px] font-[1000] -ml-2 ">{{ Str::upper($citizen->document) }}</p>
+                <p class="text-[10px] font-[1000] -ml-10 -mr-1  mx-auto" style=" color: #0c558c;">Nombres</p>
+                <p class="text-[15px] font-[1000] -ml-10 -mr-1 mx-auto">{{ Str::upper($citizen->first_names) }}</p>
+                <p class="text-[10px] font-[1000] -ml-10 -mr-1 mx-auto" style=" color: #0c558c;">Apellidos:</p>
+                <p class="text-[15px] font-[1000] -ml-10 -mr-1 mx-auto">{{ Str::upper($citizen->last_names) }}</p>
+                <p class="text-[10px] font-[1000] -ml-10 -mr-1 mx-auto" style=" color: #0c558c;">Cédula de Identidad:</p>
+                <p class="text-[15px] font-[1000] -ml-10 -mr-1 mx-auto">{{ Str::upper($citizen->document) }}</p>
             </div>
         </main>
          <!-- Escudo de lecheria como marca de agua -->
@@ -52,13 +52,18 @@
         </div>
         <div class="absolute bottom-8 left-10  ">
             <footer class="text-center  flex  flex-row items-center justify-center space-x-16">
-                <p class="text-xs font-black text-white">Fecha de Expedición:</p>
+                <p class="text-xs font-black text-slate-300">Fecha de Expedición:</p>
                 <p class="text-[13px] font-black text-sky-950">Dirección:</p>
             </footer>
         </div>
-        <div class="absolute bottom-3  right-20  ">
-            <p class="text-xs break-all">{{ $citizen->address }}</p>
+        <div class="absolute bottom-3  ml-10  mx-auto right-20  ">
+            <p class="text-xs break-all text-sky-950">{{ $citizen->address }}</p>
         </div>
+        <div class="absolute bottom-3 left-10">  
+            <p class="text-[13px] font-black text-slate-300">{{ now()->format('d/m/Y') }}</p>
+        </div>
+
+
         <div class="absolute bottom-0 right-3">
         <!-- logo de gestion social -->
             <img  class="w-14" src="{{ asset('pdf/elder-program/assets/logo-gestion-social.png') }}" />

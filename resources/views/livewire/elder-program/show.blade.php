@@ -1,5 +1,5 @@
 <div>
-    <div class="flex justify-center items-center" x-data="{ hasImage: @entangle('hasImage')}">
+    <div class="flex justify-center items-center py-6" x-data="{ hasImage: @entangle('hasImage')}">
         <div class="max-w-[26.50rem] max-h-[26.50rem] bg-gray-200 mb-6 mx-5 py-6 sm:px-6 lg:px-8 shadow-lg rounded-xl">
             <div class=" overflow-hidden  p-6">
                 <div class="flex justify-between items-center space-x-9">
@@ -33,11 +33,11 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-[26.50rem] bg-gray-200  mb-6 py-6 sm:px-6 lg:px-8 shadow-lg rounded-xl">
-            <div class=" overflow-hidden  p-6">
-                <div>
-                    <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
-                    <a x-show="hasImage" href="{{ route('elder-program-card', $elderProgramApplication->elder->id) }}" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
+        <div class="max-w-[10rem] bg-gray-200  mb-6 py-6 sm:px-6 lg:px-8 shadow-lg rounded-xl">
+            <div class="">
+                <div class="flex flex-col justify-around overflow-hidden  space-y-2">
+                    <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
+                    <a x-show="hasImage" href="{{ route('elder-program-card', $elderProgramApplication->elder->id) }}" target="_blank" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
                 </div>
             </div>
         </div>
