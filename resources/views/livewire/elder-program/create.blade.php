@@ -173,7 +173,7 @@
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="account_number" value="Número de Cuenta" class="text-black" />
                         <div>
-                            <x-input id="account_number" wire:model='account_number' class="block mt-1 w-full truncate" type="text" name="account_number " oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                            <x-input id="account_number" wire:model='account_number' class="block mt-1 w-full truncate" type="text" name="account_number" maxlength="20" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                             <x-input-error class="text-xs" for="account_number"/>
                         </div>
                     </div>

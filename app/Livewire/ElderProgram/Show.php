@@ -2,7 +2,7 @@
 
 namespace App\Livewire\ElderProgram;
 
-use App\Models\ElderProgramApplication;
+use App\Models\ElderProgramMember;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -12,7 +12,7 @@ class Show extends Component
 {
     use WithFileUploads;
 
-    public ElderProgramApplication $elderProgramApplication;
+    public ElderProgramMember $elderProgramMember;
     public $citizen;
 
     public $image;
@@ -20,7 +20,7 @@ class Show extends Component
 
     public function mount()
     {
-        $this->citizen = $this->elderProgramApplication->elder;
+        $this->citizen = $this->elderProgramMember->elder;
 
         $this->hasImage = $this->citizen->hasMedia('profile');
     }

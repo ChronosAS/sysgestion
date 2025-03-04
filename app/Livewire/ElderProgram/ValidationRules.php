@@ -16,7 +16,7 @@ trait ValidationRules
             function ($attribute, $value, $fail) {
                 if ($this->citizenExists) {
                     $fail('La cédula ya esta registrada.');
-                } elseif (\App\Models\ElderProgramApplication::whereHas('elder', function ($query) use ($value) {
+                } elseif (\App\Models\ElderProgramMember::whereHas('elder', function ($query) use ($value) {
                     $query->where('document', $value);
                         })->exists()) {
                     $fail('La cédula ya está registrada en el programa.');
@@ -32,11 +32,14 @@ trait ValidationRules
             }
             }],
             'city_of_birth' => ['required','string'],
+            'account_number' => 'required|string|max:20',
             'email' => 'email',
             'phone_number' => 'required|string|max:20',
             'phone_number_2' => 'string|max:20',
             'occupation' => 'required|string|max:100',
+            'education_level' => 'required|string|max:255',
             'address' => 'required|string|max:255',
+            'parroquia' => 'required',
             'medical_aspect' => 'required|string|max:255',
             'family_monthly_income' => ['required', 'numeric', 'min:0', 'regex:/^\d{1,10}(\.\d{1,2})?$/'],
             'family_monthly_expenses' => ['required', 'numeric', 'min:0', 'regex:/^\d{1,10}(\.\d{1,2})?$/'],
@@ -77,6 +80,9 @@ trait ValidationRules
             'occupation.required' => 'La ocupación es obligatoria.',
             'occupation.string' => 'La ocupación debe ser una cadena de texto.',
             'occupation.max' => 'La ocupación no debe exceder los 100 caracteres.',
+            'education_level.required' => 'El nivel de instrucción es obligatori0.',
+            'education_level.string' => 'El nivel de instrucción debe ser una cadena de texto.',
+            'education_level.max' => 'El nivel de instrucción no debe exceder los 255 caracteres.',
             'address.required' => 'La dirección es obligatoria.',
             'address.string' => 'La dirección debe ser una cadena de texto.',
             'address.max' => 'La dirección no debe exceder los 255 caracteres.',
@@ -102,7 +108,7 @@ trait ValidationRules
             'civil_status.required' => 'El estado civil es obligatorio.',
             'estado.required' => 'El estado es obligatorio.',
             // 'municipio.required' => 'El municipio es obligatorio.',
-            // 'parroquia.required' => 'La parroquia es obligatoria.',
+            'parroquia.required' => 'La parroquia es obligatoria.',
             'familyMembers.*.document.required' => 'El documento del miembro de la familia es obligatorio.',
             'familyMembers.*.first_names.required' => 'Los nombres del miembro de la familia son obligatorios.',
             'familyMembers.*.first_names.string' => 'Los nombres del miembro de la familia deben ser una cadena de texto.',
@@ -113,6 +119,8 @@ trait ValidationRules
             'familyMembers.*.age.required' => 'La edad del miembro de la familia es obligatoria.',
             'familyMembers.*.age.integer' => 'La edad del miembro de la familia debe ser un número entero.',
             'familyMembers.*.age.min' => 'La edad del miembro de la familia debe ser al menos 1.',
+            'account_number.required' => 'El número de cuenta es obligatorio.',
+            'account_number.max' => 'El número de cuenta no debe exceder los 20 caracteres.',
         ];
     }
 }

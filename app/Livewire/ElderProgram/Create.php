@@ -6,7 +6,7 @@ use App\Enum\Citizens\CivilStatusEnum;
 use App\Enum\GenderEnum;
 use App\Livewire\ElderProgram\ValidationRules;
 use App\Models\Citizen;
-use App\Models\ElderProgramApplication;
+use App\Models\ElderProgramMember;
 use App\Models\Estado;
 use App\Models\Municipio;
 use App\Models\Parroquia;
@@ -32,6 +32,7 @@ class Create extends Component
     public $civil_status;
     public $dob;
     public $city_of_birth;
+    public $account_number;
     public $family_monthly_income;
     public $family_monthly_expenses;
     public $estado;
@@ -149,7 +150,7 @@ class Create extends Component
             $this->citizen->familyMembers()->createMany($this->familyMembers);
         }
 
-        ElderProgramApplication::create([
+        ElderProgramMember::create([
             'elder_id' => $this->citizen->id,
             'occupation' => $this->occupation,
             'education_level' => $this->education_level,
@@ -157,6 +158,7 @@ class Create extends Component
             'psychosocial_aspect' => $this->psychosocial_aspect,
             'environmental_aspect' => $this->environmental_aspect,
             'city_of_birth' => $this->city_of_birth,
+            'account_number' => $this->account_number,
             'family_monthly_income' => $this->family_monthly_income,
             'family_monthly_expenses' => $this->family_monthly_expenses,
         ]);

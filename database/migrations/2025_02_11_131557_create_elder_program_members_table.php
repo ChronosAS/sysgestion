@@ -12,9 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('elder_program_applications', function (Blueprint $table) {
+        Schema::create('elder_program_members', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('code')->unique()->nullable();
+            // $table->string('code')->unique()->nullable();
             $table->foreignUuid('elder_id')->constrained('citizens');
             $table->string('occupation');
             $table->string('education_level');
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('medical_aspect',250);
             $table->string('psychosocial_aspect',250);
             $table->string('environmental_aspect',250);
+            $table->string('account_number');
             $table->string('city_of_birth');
             $table->decimal('family_monthly_income', 10,2);
             $table->decimal('family_monthly_expenses', 10,2);
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('elder_program_applications');
+        Schema::dropIfExists('elder_program_members');
     }
 };

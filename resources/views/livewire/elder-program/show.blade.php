@@ -37,7 +37,7 @@
             <div class="">
                 <div class="flex flex-col justify-around overflow-hidden  space-y-2">
                     <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
-                    <a x-show="hasImage" href="{{ route('elder-program-card', $elderProgramApplication->elder->id) }}" target="_blank" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
+                    <a x-show="hasImage" href="{{ route('elder-program-card', $elderProgramMember->elder->id) }}" target="_blank" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
                 </div>
             </div>
         </div>
@@ -48,35 +48,35 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Cédula de identidad</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->document }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->document }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Nombres</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->first_names }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->first_names }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Apellidos</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->last_names }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->last_names }}</p>
                 </div>
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Fecha de nacimiento</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->dob }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->dob }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Edad</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ \Carbon\Carbon::parse($elderProgramApplication->elder->dob)->age }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ \Carbon\Carbon::parse($elderProgramMember->elder->dob)->age }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Correo electrónico</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->email }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->email }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Numero de Telefono</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->phone_number }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->phone_number }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Dirección</label>
-                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramApplication->elder->address }}</p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->address }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Número de Cuenta</label>
@@ -109,7 +109,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-slate-300 divide-y divide-gray-200">
-                        @forelse ($elderProgramApplication->elder->familyMembers as $familyMember)
+                        @forelse ($elderProgramMember->elder->familyMembers as $familyMember)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">{{ $familyMember->first_names }}</div>
@@ -145,23 +145,23 @@
                 <h2 class="text-2xl font-semibold text-gray-800  text-center w-full  sm:w-4/1">Diagnostico del Caso</h2>
                 <div class=" sm:mr-4 mt-5 w-full sm:w-1/3 border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Ingreso Familiar</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->family_monthly_income }} Bs.</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramMember->family_monthly_income }} Bs.</p>
                 </div>
                 <div class=" sm:ml-4  mt-5 w-full  sm:w-1/3 border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Egreso Familiar</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->family_monthly_expenses }} Bs.</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramMember->family_monthly_expenses }} Bs.</p>
                 </div>
                 <div class="  mt-5 w-full  sm:w-4/1 border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Médico</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->medical_aspect }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramMember->medical_aspect }}</p>
                 </div>
                 <div class=" mt-5 w-full  sm:w-4/1  border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Psico-Social</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->psychosocial_aspect }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramMember->psychosocial_aspect }}</p>
                 </div>
                 <div class="  mt-5 w-full  sm:w-4/1  border border-blue-700">
                     <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Físico-Ambiental</label>
-                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramApplication->environmental_aspect }}</p>
+                    <p class="bg-white  text-gray-900 text-sm">{{ $elderProgramMember->environmental_aspect }}</p>
                 </div>
             </div>
         </div>

@@ -58,7 +58,7 @@ class Citizen extends Model implements HasMedia
                 ->orWhereRelation('estado', 'estado','like', '%'.$term.'%')
                 ->orWhereRelation('municipio', 'municipio','like', '%'.$term.'%')
                 ->orWhereRelation('parroquia', 'parroquia','like', '%'.$term.'%')
-                ->orWhereRelation('elderProgramApplication','code','like','%'.$term.'%');
+                ->orWhereRelation('elderProgramMember','code','like','%'.$term.'%');
         }
     }
 
@@ -67,9 +67,9 @@ class Citizen extends Model implements HasMedia
         return LogOptions::defaults();
     }
 
-    public function elderProgramApplication() : HasMany
+    public function elderProgramMember() : HasMany
     {
-        return $this->hasMany(ElderProgramApplication::class,'elder_id');
+        return $this->hasMany(ElderProgramMember::class,'elder_id');
     }
 
     public function familyMembers() : HasMany

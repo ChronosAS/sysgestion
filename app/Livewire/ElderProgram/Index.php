@@ -3,7 +3,7 @@
 namespace App\Livewire\ElderProgram;
 
 use App\Concerns\LivewireCustomPagination;
-use App\Models\ElderProgramApplication;
+use App\Models\ElderProgramMember;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -21,12 +21,11 @@ class Index extends Component
         'perPage' => ['except' => '10']
     ];
 
-    public function loadApplications()
+    public function loadElders()
     {
-        return ElderProgramApplication::query()
+        return ElderProgramMember::query()
             ->select([
                 'id',
-                'code',
                 'status',
                 'elder_id',
                 'created_at',
@@ -47,7 +46,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.elder-program.index',[
-            'applications' => $this->loadApplications()
+            'elders' => $this->loadElders()
         ]);
     }
 }

@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class ElderProgramApplication extends Model
+class ElderProgramMember extends Model
 {
     use HasFactory, HasUuids, SoftDeletes, LogsActivity;
 
@@ -26,6 +27,7 @@ class ElderProgramApplication extends Model
         'psychosocial_aspect',
         'environmental_aspect',
         'city_of_birth',
+        'account_number',
         'family_monthly_income',
         'family_monthly_expenses'
     ];
@@ -38,7 +40,6 @@ class ElderProgramApplication extends Model
     {
         return LogOptions::defaults()
             ->logOnly([
-                'code',
                 'elder_id',
                 'occupation',
                 'education_level',
@@ -50,12 +51,16 @@ class ElderProgramApplication extends Model
 
     public function scopeSearch($query,$term)
     {
-        return $query->where('code','like','%'.$term.'%')
-            ->orWhere('city_of_birth','like','%'.$term.'%')
+        return $query->where('city_of_birth','like','%'.$term.'%')
             ->orWhereRelation('elder','document','like','%'.$term.'%')
             ->orWhereRelation('elder','first_names','like','%'.$term.'%')
             ->orWhereRelation('elder','last_names','like','%'.$term.'%')
             ->orWhereRelation('elder','email','like','%'.$term.'%');
+    }
+
+    public function pensionReport(): BelongsToMany
+    {
+        return $this->belongsToMany(PensionReport::class,'report_member');
     }
 
     public function elder() : BelongsTo
@@ -63,21 +68,5 @@ class ElderProgramApplication extends Model
         return $this->belongsTo(Citizen::class,'elder_id');
     }
 
-    public static function boot()
-    {
-        parent::boot();
 
-        static::creating(function ($application){
-            $lastApplication = self::withTrashed()->orderBy('code', 'desc')->first();
-            if ($lastApplication) {
-                $lastCode = (int) str_replace('PAL', '', $lastApplication->code);
-                $newCode = $lastCode + 1;
-            } else {
-                $newCode = 1;
-            }
-            if (empty($application->code)) {
-                $application->code = 'PAL' . Str::padLeft($newCode, 5, '0');
-            }
-        });
-    }
 }

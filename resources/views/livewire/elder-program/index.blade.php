@@ -6,14 +6,6 @@
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column  space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                            <div class="flex space-x-5 ">
-                                <x-select
-                                   name="status"
-                                   wire="live"
-                                   placeholder="Estatus"
-                                   :values="App\Enum\ApplicationStatusEnum::options()"
-                               />
-                            </div>
                             <div class="flex justify-between items-center">
                                 <label for="table-search" class="sr-only">Search</label>
                                 <div class="relative">
@@ -103,32 +95,32 @@
                                 </tr>
                             </thead>
                             <tbody class="">
-                                @forelse( $applications as $application)
+                                @forelse( $elders as $elder)
                                     <tr class="bg-white border-b">
                                         <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                            <a href="{{ route('elder-program.show',$application->id) }}" wire:navigate class="text-blue-600 hover:underline hover:text-blue-800"> {{ $application->elder->document }}
+                                            <a href="{{ route('elder-program.show',$elder->id) }}" wire:navigate class="text-blue-600 hover:underline hover:text-blue-800"> {{ $elder->elder->document }}
                                             </a>
                                         </th>
                                         <td class=" text-gray-900 py-4 break-words  ">
-                                            {{ $application->elder->first_names.' '.$application->elder->last_names }}
+                                            {{ $elder->elder->first_names.' '.$elder->elder->last_names }}
                                         </td>
                                         <td class=" text-gray-900 py-4">
-                                            {{ \Carbon\Carbon::parse($application->elder->dob)->age }}
+                                            {{ \Carbon\Carbon::parse($elder->elder->dob)->age }}
                                         </td>
                                         <td class=" text-gray-900 py-4 break-words min-w-0 max-w-[5rem]">
-                                            {{ $application->elder->email }}
+                                            {{ $elder->elder->email }}
                                         </td>
                                         <td class=" text-gray-900 py-4">
-                                            {{ $application->elder->phone_number }}
+                                            {{ $elder->elder->phone_number }}
                                         </td>
                                         <td class=" text-gray-900 py-4">
-                                            {{ \Carbon\Carbon::parse($application->created_at)->format('d/m/Y') }}
+                                            {{ \Carbon\Carbon::parse($elder->created_at)->format('d/m/Y') }}
                                         </td>
                                         <td class=" text-gray-900 py-4">
-                                            
+
                                         </td>
                                         <td class=" text-gray-900 py-4">
-                                            
+
                                         </td>
                                     </tr>
                                 @empty

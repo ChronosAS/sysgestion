@@ -60,9 +60,9 @@ Route::middleware([
 
             Route::get('/crear',App\Livewire\ElderProgram\Create::class)->name('elder-program.create');
 
-            Route::get('/{elderProgramApplication}',App\Livewire\ElderProgram\Show::class)->name('elder-program.show');
+            Route::get('/{elderProgramMember}',App\Livewire\ElderProgram\Show::class)->name('elder-program.show');
 
-            Route::get('/editar/{elderProgramApplication}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
+            Route::get('/editar/{elderProgramMember}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
 
             Route::middleware(PermissionMiddleware::using('application:access'))
             ->prefix('/pension')->group(function(){
