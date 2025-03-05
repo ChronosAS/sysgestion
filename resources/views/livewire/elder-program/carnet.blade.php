@@ -27,9 +27,9 @@
         <div class="absolute top-20  left-9">
         <!-- cuadro de la foto -->
             @if($citizen->getFirstMedia('profile'))
-                <img class="max-w-[135px] min-w-[98.26px] max-h-[155px] min-h-[155px]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
+                <img class="max-w-[135px] min-w-[98.26px] max-h-[155px] min-h-[155px] rounded-xl" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}" />
             @else
-                <img class="max-w-[135px] min-w-[98.26px] max-h-[155px] min-h-[155px]" src="{{ asset('path/to/default/image.png') }}" />
+                <img class="max-w-[135px] min-w-[98.26px] max-h-[155px] min-h-[155px] rounded-xl" src="{{ asset('path/to/default/image.png') }}" />
             @endif
         </div>
         <div class=" absolute right-12 top-9">
