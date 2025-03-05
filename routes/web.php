@@ -56,6 +56,14 @@ Route::middleware([
     Route::middleware(PermissionMiddleware::using('application:access'))
         ->prefix('/programa-abuelos-lecheria')->group(function(){
 
+            Route::middleware(PermissionMiddleware::using('application:access'))
+            ->prefix('/pension')->group(function(){
+
+                Route::get('/',App\Livewire\ElderProgram\Pension\Index::class)->name('elder-program.pension.index');
+
+                Route::get('/reporte',App\Http\Controllers\ElderProgramPensionReport::class)->name('elder-program.pension.report');
+            });
+
             Route::get('/',App\Livewire\ElderProgram\Index::class)->name('elder-program.index');
 
             Route::get('/crear',App\Livewire\ElderProgram\Create::class)->name('elder-program.create');
@@ -63,12 +71,6 @@ Route::middleware([
             Route::get('/{elderProgramMember}',App\Livewire\ElderProgram\Show::class)->name('elder-program.show');
 
             Route::get('/editar/{elderProgramMember}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
-
-            Route::middleware(PermissionMiddleware::using('application:access'))
-            ->prefix('/pension')->group(function(){
-                Route::get('/',App\Livewire\Pension\Index::class)->name('pension.index');
-                Route::get('/reporte',App\Http\Controllers\ElderProgramPensionReport::class)->name('pension.report');
-            });
 
         });
 
