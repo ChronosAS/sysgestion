@@ -5,9 +5,9 @@
                 <div class="flex justify-between items-center space-x-9">
                     <div class="text-center ">
                         @if ($citizen->getFirstMedia('profile'))
-                            <img class="mx-auto mb-4  max-w-[13rem] max-h-[13rem]" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}"/>
+                            <img class="mx-auto mb-4  max-w-[13rem] max-h-[13rem] rounded-xl" src="{{ $citizen->getFirstMedia('profile')->getUrl() }}"/>
                         @else
-                            <img class="mx-auto mb-4  max-w-[13rem] max-h-[13rem]" src="{{ asset('path/to/default/image.png') }}"/>
+                            <img class="mx-auto mb-4  max-w-[13rem] max-h-[13rem] rounded-xl" src="{{ asset('path/to/default/image.png') }}"/>
                         @endif
                         <div class="flex-col justify-center items-center space-y-2">
                             <form wire:submit='loadImage'>

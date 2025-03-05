@@ -34,14 +34,14 @@
                         <td class="py-2 px-4 border-b">John Doe</td>
                         <td class="py-2 px-4 border-b">01234567899874563210</td>
                         <td class="py-2 px-4 border-b">{{ now()->format('d/m/Y') }}</td>
-                        <td class="py-2 px-4 border-b">1000</td>
+                        <td class="py-2 px-4 border-b">7891.20</td>
                     </tr>
                     <tr>
                         <td class="py-2 px-4 border-b">14363454</td>
                         <td class="py-2 px-4 border-b">Jane Smith</td>
                         <td class="py-2 px-4 border-b">01234567899874563210</td>
                         <td class="py-2 px-4 border-b">{{ now()->format('d/m/Y') }}</td>
-                        <td class="py-2 px-4 border-b">1200</td>
+                        <td class="py-2 px-4 border-b">7891.20</td>
                     </tr>
                     <!-- Add more rows as needed -->
                     
@@ -62,7 +62,7 @@
                     <tbody>
                         <tr class="border-b">
                             <td>2</td>
-                            <td>2200</td>
+                            <td>1.578.24</td>
                         </tr>
                     </tbody>
             </table>
