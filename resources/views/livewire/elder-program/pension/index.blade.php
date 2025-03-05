@@ -31,9 +31,9 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="w-full border border-blue-700  text-center rtl:text-right text-white">
-                            <thead class="text-sm font-semibold  text-white uppercase bg-blue-800">
-                                <tr>
+                        <table class="w-full border border-blue-700  text-center  text-white">
+                            <thead class="text-sm font-semibold  text-white uppercase bg-blue-800 ">
+                                <tr class="flex justify-around space-x-4">
                                     <th scope="col" class="px-10 py-3 ">
                                         <div class="flex   items-center">
                                             Cédula
@@ -52,7 +52,7 @@
                                             </a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3">
+                                    <th scope="col" class="px-10 py-3 ">
                                         <div class="flex    items-center ">
                                             Fecha de Pago
                                             <a href="#" wire:click.prevent="sortBy('')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -60,30 +60,26 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-        
                                 </tr>
                             </thead>
-                            <tbody class="">
-                               
-                                    <tr class="bg-white border-b">
-                                        <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                            <a href=""  class="text-blue-600 hover:underline hover:text-blue-800"> 
-                                            </a>
-                                        </th>
-                                        <td class=" text-gray-900 py-4 break-words  ">
-                                            
-                                        </td>
-                                        <td class=" text-gray-900 py-4">
-                                           
-                                        </td>
-                                    </tr>
-                             
-                                    <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
-                                            No hay Pensiones registradas.
-                                        </td>
-                                    </tr>
-            
+                            <tbody class=" items-center">
+                                {{-- <tr class="bg-white border-b  flex justify-between">
+                                    <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        <a href=""  class="text-blue-600 hover:underline hover:text-blue-800"> 
+                                        </a>
+                                    </th>
+                                    <td class=" text-gray-900 py-4 break-words  ">
+                                        
+                                    </td>
+                                    <td class=" text-gray-900 py-4">
+                                        
+                                    </td>
+                                </tr> --}}
+                                <tr>
+                                    <td class="px-6 py-4 text-center text-xl col-span-5  text-black bg-white" colspan="10">
+                                        No hay Pensiones registradas.
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
