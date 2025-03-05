@@ -28,7 +28,7 @@ class Show extends Component
     public function loadImage()
     {
         $this->validate([
-            'image' => 'required|image|max:700|dimensions:width=320,height=260',
+            'image' => 'required|image|max:700|dimensions:width=260,height=320',
         ],[
             'image.required' => 'Agregue una imagen.',
             'image.image' => 'El archivo debe ser una imagen.',
