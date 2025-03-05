@@ -6,14 +6,6 @@
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column  space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                            <div class="flex space-x-5 ">
-                                <x-select
-                                   name="status"
-                                   wire="live"
-                                   placeholder="Estatus"
-                                   :values="App\Enum\ApplicationStatusEnum::options()"
-                               />
-                            </div>
                             <div class="flex justify-between items-center">
                                 <label for="table-search" class="sr-only">Search</label>
                                 <div class="relative">
@@ -23,11 +15,9 @@
                                     <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                                 </div>
                                 <div class="mx-4">
-                                    
-                                        <x-button-href href="{{ route('elder-program.create') }}" class="bg-green-600 hover:bg-green-500">
-                                            Registrar
-                                        </x-button-href>
-             
+                                    <x-button-href href="{{ route('elder-program.create') }}" class="bg-green-600 hover:bg-green-500">
+                                        Generar Reporte
+                                    </x-button-href>
                                 </div>
                             </div>
                         </div>
