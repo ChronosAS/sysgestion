@@ -46,6 +46,8 @@ class GenerateModal extends Component
 
         $this->toggleModal();
         $this->reset('total','total_elders','amount','isGenerated');
+
+        $this->dispatch('reportGenerated');
     }
 
     #[On('showGenerateModal')]
