@@ -22,17 +22,16 @@
 
         <div class="min-h-screen bg-slate">
             @livewire('navigation-menu')
-
+            <x-banner />
             <!-- Page Heading -->
             @if (isset($header))
                 {{-- <header class="bg-blue-700 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{-- <h2 class="font-semibold text-xl text-white leading-tight">
                             {!! $header !!}
-                        </h2> 
+                        </h2>
                     </div>
                 </header> --}}
-                <x-banner />
             @endif
 
             <!-- Page Content -->
