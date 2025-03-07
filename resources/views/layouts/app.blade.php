@@ -22,7 +22,6 @@
 
         <div class="min-h-screen bg-slate">
             @livewire('navigation-menu')
-            <x-banner />
             <!-- Page Heading -->
             @if (isset($header))
                 {{-- <header class="bg-blue-700 shadow">

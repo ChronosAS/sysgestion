@@ -12,15 +12,15 @@ enum CivilStatusEnum: string
     use EnumOptions,AttributableEnum;
 
     #[Label('Soltero/a')]
-    case Single = 's';
+    case s = 's';
 
     #[Label('Casado/a')]
-    case Married = 'm';
+    case m = 'm';
 
     #[Label('Divorciado/a')]
-    case Divorced = 'd';
+    case d = 'd';
 
     #[Label('Viudo/a')]
-    case Widow = 'w';
+    case w = 'w';
 
 }

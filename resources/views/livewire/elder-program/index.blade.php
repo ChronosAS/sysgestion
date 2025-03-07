@@ -133,7 +133,7 @@
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
-
+                            {{ $elders->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>
                 </div>

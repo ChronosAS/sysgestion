@@ -37,8 +37,8 @@
             </h2> --}}
             <x-nav.social-help/>
         </div>
-        
-        
+
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
@@ -48,7 +48,7 @@
                             <x-application-mark class="block h-12 w-auto px-2" />
                         </a>
                     </div>
-                    
+
 
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -267,4 +267,5 @@
             </div>
         </div>
     </nav>
+    <x-banner />
 </div>

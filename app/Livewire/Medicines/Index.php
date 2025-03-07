@@ -14,6 +14,8 @@ class Index extends Component
 {
     use LivewireCustomPagination;
 
+    public $sortField = null;
+
     public $composition;
     public $presentation;
     public $available = 1;

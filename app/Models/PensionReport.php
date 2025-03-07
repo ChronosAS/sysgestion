@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -15,6 +15,13 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class PensionReport extends Model implements HasMedia
 {
     use HasUuids, LogsActivity, InteractsWithMedia;
+
+    protected $fillable = [
+        'code',
+        'total_elders',
+        'amount',
+        'total',
+    ];
 
     public function getActivitylogOptions(): LogOptions
     {
@@ -35,18 +42,20 @@ class PensionReport extends Model implements HasMedia
     public function scopeSearch($query,$term)
     {
         return $query->where('code','like','%'.$term.'%')
-            ->orWhereRelation('elders','document','like','%'.$term.'%')
-            ->orWhereRelation('elders','first_names','like','%'.$term.'%')
-            ->orWhereRelation('elders','last_names','like','%'.$term.'%')
-            ->orWhereRelation('elders','email','like','%'.$term.'%');
-    }
+            ->orWhere('total_elders','like','%'.$term.'%')
+            ->orWhere('amount','like','%'.$term.'%')
+            ->orWhere('total','like','%'.$term.'%')
+            ->orWhereRelation('elders.elder', 'document', 'like', '%'.$term.'%')
+            ->orWhereRelation('elders.elder', 'first_names', 'like', '%'.$term.'%')
+            ->orWhereRelation('elders.elder', 'last_names', 'like', '%'.$term.'%');
+        }
 
     public static function boot()
     {
         parent::boot();
 
         static::creating(function ($application){
-            $lastApplication = self::withTrashed()->orderBy('code', 'desc')->first();
+            $lastApplication = self::orderBy('code', 'desc')->first();
             if ($lastApplication) {
                 $lastCode = (int) str_replace('RP', '', $lastApplication->code);
                 $newCode = $lastCode + 1;

@@ -15,7 +15,7 @@
                                     <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                                 </div>
                                 <div class="mx-4">
-                                    <x-button-href href="{{ route('elder-program.create') }}" class="bg-green-600 hover:bg-green-500">
+                                    <x-button-href @click="$dispatch('showGenerateModal')" class="bg-green-600 hover:bg-green-500">
                                         Generar Reporte
                                     </x-button-href>
                                 </div>
@@ -27,7 +27,7 @@
                                     <th scope="col" class="px-10 py-3 ">
                                         <div class="flex   items-center">
                                             Código
-                                            <a href="#" wire:click.prevent="sortBy('document')" ><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <a href="#" wire:click.prevent="sortBy('code')" ><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg></a>
                                         </div>
@@ -35,7 +35,7 @@
                                     <th scope="col" class="px-10 py-3 ">
                                         <div class="flex text-wrap  items-center ">
                                             Número Total de Abuelos
-                                            <a href="#" wire:click.prevent="sortBy('')">
+                                            <a href="#" wire:click.prevent="sortBy('total_elders')">
                                                 <svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                     <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg>
@@ -45,15 +45,15 @@
                                     <th scope="col" class="px-10 py-3 ">
                                         <div class="flex    items-center ">
                                             Monto Individual
-                                            <a href="#" wire:click.prevent="sortBy('')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <a href="#" wire:click.prevent="sortBy('amount')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg></a>
                                         </div>
                                     </th>
                                     <th scope="col" class="px-10 py-3 ">
                                         <div class="flex    items-center ">
-                                            Monto Total 
-                                            <a href="#" wire:click.prevent="sortBy('')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            Monto Total
+                                            <a href="#" wire:click.prevent="sortBy('total')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg></a>
                                         </div>
@@ -61,7 +61,7 @@
                                     <th scope="col" class="px-10 py-3 ">
                                         <div class="flex    items-center ">
                                             Fecha del Reporte
-                                            <a href="#" wire:click.prevent="sortBy('')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                                 </svg></a>
                                         </div>
@@ -69,29 +69,40 @@
                                 </tr>
                             </thead>
                             <tbody class=" items-center">
-                                {{-- <tr class="bg-white border-b  flex justify-between">
-                                    <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                        <a href=""  class="text-blue-600 hover:underline hover:text-blue-800"> 
+                                @forelse ( $reports as $index => $report)
+                                <tr class="bg-white border-b  flex justify-between">
+                                    <th scope="row" class=" px-6 py-4 text-gray-900 ">
+                                        <a href="#"  class="text-blue-600 hover:underline hover:text-blue-800">
+                                            {{ $report->code }}
                                         </a>
                                     </th>
-                                    <td class=" text-gray-900 py-4 break-words  ">
-                                        
+                                    <td class=" px-6 py-4 text-gray-900">
+                                        {{ $report->total_elders }}
                                     </td>
-                                    <td class=" text-gray-900 py-4">
-                                        
+                                    <td class=" px-6 py-4 text-gray-900">
+                                        {{ $report->amount }}
                                     </td>
-                                </tr> --}}
-                                <tr>
-                                    <td class="px-6 py-4 text-center text-xl col-span-5  text-black bg-white" colspan="10">
-                                        No hay Pensiones registradas.
+                                    <td class=" px-6 py-4 text-gray-900">
+                                        {{ $report->total }}
+                                    </td>
+                                    <td class=" px-6 py-4 text-gray-900">
+                                        {{ $report->created_at->format('d/m/Y') }}
                                     </td>
                                 </tr>
+                                @empty
+                                    <tr>
+                                        <td class="px-6 py-4 text-center text-xl col-span-5  text-black bg-white" colspan="10">
+                                            No hay Pensiones registradas.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
-
+                            {{ $reports->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>
+                    <livewire:elder-program.pension.generate-modal />
                 </div>
             </div>
         </div>
