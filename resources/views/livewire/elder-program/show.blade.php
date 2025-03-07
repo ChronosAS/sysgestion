@@ -80,7 +80,7 @@
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Número de Cuenta</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->account_number }}</p>
                 </div>
             </div>
 
