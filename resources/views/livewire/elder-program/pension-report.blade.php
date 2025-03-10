@@ -71,7 +71,7 @@
     </main>
 
     <footer class="w-full text-center">
-        <div class="overflow-x-auto">
+        {{-- <div class="overflow-x-auto">
             <table class="min-w-full bg-white text-center">
                     <thead class="font-bold">
                         <tr class="">
@@ -86,7 +86,7 @@
                         </tr>
                     </tbody>
             </table>
-        </div>
+        </div> --}}
     </footer>
 </body>
 </html>
