@@ -38,6 +38,7 @@
                 <div class="flex flex-col justify-around overflow-hidden  space-y-2">
                     <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
                     <a x-show="hasImage" href="{{ route('elder-program-card', $elderProgramMember->elder->id) }}" target="_blank" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Carnet</a>
+                    <a href="{{ route('elder-program.index') }}" class="bg-green-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Imprimir</a>
                 </div>
             </div>
         </div>
