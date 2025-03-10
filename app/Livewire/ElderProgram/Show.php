@@ -33,7 +33,7 @@ class Show extends Component
             'image.required' => 'Agregue una imagen.',
             'image.image' => 'El archivo debe ser una imagen.',
             'image.max' => 'La imagen no debe ser mayor a 1024 kilobytes.',
-            'image.dimensions' => 'La imagen debe tener dimensiones de 3.2x2.6 cm.',
+            'image.dimensions' => 'La imagen debe tener dimensiones de 2.6x3.2 cm.',
         ]);
 
         $this->citizen->clearMediaCollection('profile');

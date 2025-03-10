@@ -13,7 +13,16 @@
 </head>
 <body class=" items-center justify-center">
     <header class="w-full text-center">
-        
+        <div class=" py-5 flex items-center justify-around">
+            <div>
+                <img src="{{ asset('assets/img/escudo-lecheria.webp') }}"  class="w-20 h-20 mx-auto"/>
+                <p>Fecha:</p>
+                <p class="text-[13px] font-black text-black">{{ now()->format('d/m/Y') }}</p>
+            </div>
+            <div >
+                <img src="{{ asset('assets/img/logo-lecheria-letras.png') }}"  class="w-24 h-24 mx-auto"/>
+            </div>
+        </div>
     </header>
     
     <main class="p-4 w-full items-center justify-center">
