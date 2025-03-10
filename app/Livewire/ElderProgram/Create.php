@@ -165,7 +165,7 @@ class Create extends Component
 
 
 
-        session()->flash('flash.banner','Solicitud creada con exito.');
+        session()->flash('flash.banner','Abuelo registrado con exito.');
         session()->flash('flash.bannerStyle','success');
 
         return redirect()->route('elder-program.index');
