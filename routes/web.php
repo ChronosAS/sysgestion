@@ -66,6 +66,10 @@ Route::middleware([
                 Route::get('/reporte/{pensionReport:code}',App\Livewire\ElderProgram\Pension\Show::class)->name('elder-program.pension.show');
             });
 
+            Route::get('/reporte-ingreso',function(){
+                return view('livewire.elder-program.application-report');
+            });
+
             Route::get('/',App\Livewire\ElderProgram\Index::class)->name('elder-program.index');
 
             Route::get('/crear',App\Livewire\ElderProgram\Create::class)->name('elder-program.create');
