@@ -30,7 +30,7 @@
                             <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                         </div>
                         <div class="mx-4">
-                            <x-button-href  class="bg-green-600 hover:bg-green-500">
+                            <x-button-href href="{{ route('elder-program.pension.report',$pensionReport->id) }}" target="_blank"  class="bg-green-600 hover:bg-green-500">
                                 Imprimir Reporte
                             </x-button-href>
                         </div>
@@ -78,7 +78,7 @@
                         </tr>
                     </thead>
                     <tbody class=" items-center">
-                    @forelse( $pensionReport ->elders as $elder)    
+                    @forelse( $elders as $elder)
                         <tr class="bg-white border-b  ">
                             <th scope="row" class=" px-6 py-4 text-gray-900 ">
                                 {{ $elder->elder->document }}
@@ -89,15 +89,18 @@
                             <td class=" px-6 py-4 text-gray-900">
                                 {{ $elder->account_number }}
                             </td>
-                    
+
                             <td class=" px-6 py-4 text-gray-900">
                                 {{ $pensionReport->amount }}
                             </td>
                         </tr>
                         @empty
-                    @endforelse    
+                    @endforelse
                     </tbody>
                 </table>
+                <div class="m-4 text-black ">
+                    {{ $elders->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
+                </div>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class=" items-center justify-center">
+<body class=" items-center justify-center mx-6">
     <header class="w-full text-center">
         <div class=" py-5 flex items-center justify-around">
             <div>
@@ -23,8 +23,24 @@
                 <img src="{{ asset('assets/img/logo-lecheria-letras.png') }}"  class="w-24 h-24 mx-auto"/>
             </div>
         </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white text-center">
+                    <thead class="font-bold">
+                        <tr class="">
+                            <td> Número de Abuelos Pensionados: </td>
+                            <td> Monto Total en Bolivares: </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td>{{ $report->total_elders }}</td>
+                            <td>{{ $report->total }}</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
     </header>
-    
+
     <main class="p-4 w-full items-center justify-center">
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white text-center">
@@ -38,40 +54,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="py-2 px-4 border-b">28607128</td>
-                        <td class="py-2 px-4 border-b">John Doe</td>
-                        <td class="py-2 px-4 border-b">01234567899874563210</td>
-                        <td class="py-2 px-4 border-b">{{ now()->format('d/m/Y') }}</td>
-                        <td class="py-2 px-4 border-b">7891.20</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">14363454</td>
-                        <td class="py-2 px-4 border-b">Jane Smith</td>
-                        <td class="py-2 px-4 border-b">01234567899874563210</td>
-                        <td class="py-2 px-4 border-b">{{ now()->format('d/m/Y') }}</td>
-                        <td class="py-2 px-4 border-b">7891.20</td>
-                    </tr>
+                    @foreach ($report->elders as $elder)
+                        <tr>
+                            <td class="py-2 px-4 border-b">{{ $elder->elder->document }}</td>
+                            <td class="py-2 px-4 border-b">{{ $elder->elder->first_names.' '.$elder->elder->last_names }}</td>
+                            <td class="py-2 px-4 border-b">{{ $elder->account_number }}</td>
+                            <td class="py-2 px-4 border-b">{{ now()->format('d/m/Y') }}</td>
+                            <td class="py-2 px-4 border-b">{{ $report->amount }}</td>
+                        </tr>
+                    @endforeach
                     <!-- Add more rows as needed -->
-                    
+
                 </tbody>
             </table>
         </div>
     </main>
-    
+
     <footer class="w-full text-center">
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white text-center">
                     <thead class="font-bold">
                         <tr class="">
-                            <td> Número de Abuelos Pensionados:</td>
-                            <td> Monto Total en Bolivares:</td>
+                            <td> Número de Abuelos Pensionados: </td>
+                            <td> Monto Total en Bolivares: </td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="border-b">
-                            <td>2</td>
-                            <td>1.578.24</td>
+                            <td>{{ $report->total_elders }}</td>
+                            <td>{{ $report->total }}</td>
                         </tr>
                     </tbody>
             </table>

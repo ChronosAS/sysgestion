@@ -32,7 +32,7 @@ trait ValidationRules
             }
             }],
             'city_of_birth' => ['required','string'],
-            'account_number' => 'required|string|max:20',
+            'account_number' => 'required|string|max:20|min:20',
             'email' => 'email',
             'phone_number' => 'required|string|max:20',
             'phone_number_2' => 'string|max:20',
@@ -121,6 +121,7 @@ trait ValidationRules
             'familyMembers.*.age.min' => 'La edad del miembro de la familia debe ser al menos 1.',
             'account_number.required' => 'El número de cuenta es obligatorio.',
             'account_number.max' => 'El número de cuenta no debe exceder los 20 caracteres.',
+            'account_number.min' => 'El número de cuenta debe ser de 20 caracteres.',
         ];
     }
 }

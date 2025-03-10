@@ -2,6 +2,8 @@
 
 namespace App\Livewire\ElderProgram\Pension;
 
+use App\Concerns\LivewireCustomPagination;
+use App\Models\ElderProgramMember;
 use App\Models\PensionReport;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -9,10 +11,46 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class Show extends Component
 {
+    use LivewireCustomPagination;
+
     public PensionReport $pensionReport;
+
+    public $sortField = null;
+
+    protected $queryString = [
+        'sortField' => ['except' => null],
+        'sortAsc' => ['except' => true],
+        'search' => ['except' => ''],
+        'perPage' => ['except' => '10']
+    ];
+
+    public function loadElders()
+    {
+        return ElderProgramMember::query()
+            ->select([
+                'id',
+                'status',
+                'elder_id',
+                'created_at',
+                'account_number'
+            ])
+            ->withAggregate('elder','document')
+            ->withAggregate('elder','first_names')
+            ->withAggregate('elder','last_names')
+            ->withAggregate('elder','email')
+            ->withAggregate('elder','phone_number')
+            ->whereHas('pensionReport', function ($query) {
+                $query->where('pension_report_id', $this->pensionReport->id);
+            })
+            ->search($this->search)
+            // ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')
+            ->paginate($this->perPage);
+    }
 
     public function render()
     {
-        return view('livewire.elder-program.pension.show');
+        return view('livewire.elder-program.pension.show',[
+            'elders' => $this->loadElders()
+        ]);
     }
 }
