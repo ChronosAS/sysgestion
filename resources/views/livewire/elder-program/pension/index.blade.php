@@ -72,7 +72,7 @@
                                 @forelse ( $reports as $index => $report)
                                 <tr class="bg-white border-b  flex justify-between">
                                     <th scope="row" class=" px-6 py-4 text-gray-900 ">
-                                        <a href="#"  class="text-blue-600 hover:underline hover:text-blue-800">
+                                        <a href="{{ route('elder-program.pension.show',$report->code) }}"  class="text-blue-600 hover:underline hover:text-blue-800">
                                             {{ $report->code }}
                                         </a>
                                     </th>

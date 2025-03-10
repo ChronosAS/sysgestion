@@ -26,6 +26,7 @@ class Index extends Component
     {
         return PensionReport::query()
             ->select([
+                'id',
                 'code',
                 'total_elders',
                 'amount',
