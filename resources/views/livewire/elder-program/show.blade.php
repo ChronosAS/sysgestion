@@ -64,6 +64,10 @@
                     <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->dob }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">Lugar de Nacimiento</label>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->city_of_birth }}</p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Edad</label>
                     <p class="mt-1 text-gray-900 text-sm">{{ \Carbon\Carbon::parse($elderProgramMember->elder->dob)->age }}</p>
                 </div>
@@ -74,6 +78,18 @@
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Numero de Telefono</label>
                     <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->phone_number }}</p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">Nivel de Instrucción</label>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->education_level }}</p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">Ocupación</label>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->occupation }}</p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">Edo. Civil</label>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $elderProgramMember->elder->civil_status->label() }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Dirección</label>
