@@ -28,12 +28,12 @@
             <h1><strong><u>INGRESO PROGRAMA ABUELOS DE LECHERIA</u></strong></h1>
         </div>
         <div class="overflow-x-auto border border-black  w-1/2 mx-auto text-left font-bold">
-            <p>DE: COORDINACIÓN DE PROGRAMA - AREA BIENESTAR SOCIAL</p> 
+            <p>DE: COORDINACIÓN DE PROGRAMA - AREA BIENESTAR SOCIAL</p>
             <p>PARA: DIRECCIÓN DE GESTION SOCIAL Y FUNDACIÓN DE GESTION SOCIAL</p>
         </div>
         <div class="pt-5">
             <div class="overflow-x-auto border border-black  w-1/2 mx-auto text-left font-bold">
-                <p>SOLICITUD: INGRESO PROGRAMA "Abuelos de Lechería"- Ayuda Solidaria</p> 
+                <p>SOLICITUD: INGRESO PROGRAMA "Abuelos de Lechería"- Ayuda Solidaria</p>
             </div>
         </div>
     </header>
@@ -46,43 +46,43 @@
             <div class="grid grid-cols-8 grid-rows-5 gap-4">
                 <div class="col-span-2">
                     <p>NOMBRES Y APELLIDOS:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->elder->first_names.' '.$elderProgramMember->elder->last_names }}</p>
                 </div>
                 <div class="col-span-2 col-start-5">
                     <p >C.I N°:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->elder->document }}</p>
                 </div>
                 <div class="col-span-2 row-start-2">
                     <p >LUGAR DE NACIMIENTO:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->city_of_birth }}</p>
                 </div>
                 <div class="col-span-2 col-start-5 row-start-2">
                     <p >FECHA DE NACIMIENTO:</p>
-                    <p>{{}}</p>
+                    <p>{{ \Carbon\Carbon::parse($elderProgramMember->elder->dob)->format('d/m/Y') }}</p>
                 </div>
                 <div class="col-span-2 col-start-5 row-start-4">
                     <p >EDAD:</p>
-                    <p>{{}}</p>
+                    <p>{{ \Carbon\Carbon::parse($elderProgramMember->elder->dob)->age }}</p>
                 </div>
                 <div  class="col-span-2 col-start-1 row-start-3">
                     <p >ESTADO CIVIL:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->elder->civil_status->label() }}</p>
                 </div>
                 <div class="col-span-2 col-start-5 row-start-3">
                     <p >NIVEL DE INSTRUCCION:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->education_level }}</p>
                 </div>
                 <div class="col-span-2 col-start-5 row-start-5">
                     <p >OCUPACIÓN:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->ocupation }}</p>
                 </div>
                 <div class="col-span-2 col-start-1 row-start-4">
                     <p >DIRECCIÓN:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->elder->address }}</p>
                 </div>
                 <div class="col-span-2 col-start-1 row-start-5">
                     <p >TELEFONO:</p>
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->elder->phone_number }}</p>
                 </div>
             </div>
         </div>
@@ -90,28 +90,26 @@
             <p> <u>GRUPO FAMILIAR</u></p>
         </div>
         <div class="overflow-x-auto border border-black  w-1/2 mx-auto text-left font-bold">
-            <div class="grid grid-cols-2 grid-rows-5 gap-4">
-                <div class="">
-                    <p>NOMBRES Y APELLIDOS:</p>
-                    <p>{{}}</p>
+            @foreach($elderProgramMember->elder->familyMembers as $familyMember)
+                <div class="grid grid-cols-2 grid-rows-5 gap-4">
+                    <div class="">
+                        <p>NOMBRES Y APELLIDOS:</p>
+                        <p>{{ $familyMember->first_names }}</p>
+                    </div>
+                    <div class="row-start-2">
+                        <p >C.I N°:</p>
+                        <p>{{ $familyMember->last_names }}</p>
+                    </div>
+                    <div class="row-start-3">
+                        <p >EDAD:</p>
+                        <p>{{ $familyMember->age }}</p>
+                    </div>
+                    <div class="row-start-4">
+                        <p >PARENTESCO:</p>
+                        <p>{{ $familyMember->relation }}</p>
+                    </div>
                 </div>
-                <div class="row-start-2">
-                    <p >C.I N°:</p>
-                    <p>{{}}</p>
-                </div>
-                <div class="row-start-3">
-                    <p >EDAD:</p>
-                    <p>{{}}</p>
-                </div>
-                <div class="row-start-4">
-                    <p >PARENTESCO:</p>
-                    <p>{{}}</p>
-                </div>
-                <div class="row-start-5">
-                    <p >PARENTESCO:</p>
-                    <p>{{}}</p>
-                </div>
-            </div>
+            @endforeach
         </div>
 
 
@@ -127,25 +125,25 @@
                     <div class="flex flex-row space-x-32">
                         <div>
                             Ingreso Familiar:
-                            <p>{{}}</p>
+                            <p>{{ $elderProgramMember->family_monthly_income }}</p>
                         </div>
                         <div>
                             Egreso Familiar:
-                            <p>{{}}</p>
+                            <p>{{ $elderProgramMember->family_monthly_expenses }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-span-2 col-start-1 row-start-3">ASPECTO PSICO-SOCIAL:
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->psychosocial_aspect }}</p>
                 </div>
                 <div class="col-span-2 col-start-1 row-start-2">ASPECTO MEDICO:
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->medical_aspect }}</p>
                 </div>
                 <div class="col-span-2 row-start-4">ASPECTO FISICO-AMBIENTAL:
-                    <p>{{}}</p>
+                    <p>{{ $elderProgramMember->environmental_aspect }}</p>
                 </div>
             </div>
-        </div>    
+        </div>
     </footer>
 </body>
 </html>

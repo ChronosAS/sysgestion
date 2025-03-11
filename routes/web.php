@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ElderProgramIdCard;
+use App\Http\Controllers\ElderProgramController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 
@@ -13,8 +13,6 @@ Route::middleware([
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
-
-    Route::get('/carnet/{id}', ElderProgramIdCard::class)->name('elder-program-card');
 
     Route::middleware(PermissionMiddleware::using('user:access'))
         ->prefix('/usuarios')->group(function(){
@@ -61,14 +59,14 @@ Route::middleware([
 
                 Route::get('/',App\Livewire\ElderProgram\Pension\Index::class)->name('elder-program.pension.index');
 
-                Route::get('/reporte/pdf/{pensionReport}',App\Http\Controllers\ElderProgramPensionReport::class)->name('elder-program.pension.report');
+                Route::get('/reporte/pdf/{pensionReport}',[ElderProgramController::class,'generatePensionReport'])->name('elder-program.pension.report');
 
                 Route::get('/reporte/{pensionReport:code}',App\Livewire\ElderProgram\Pension\Show::class)->name('elder-program.pension.show');
             });
 
-            Route::get('/reporte-ingreso',function(){
-                return view('livewire.elder-program.application-report');
-            });
+            Route::get('/reporte-ingreso/{elderProgramMember}',[ElderProgramController::class,'generateApplicationReport'])->name('elder-program.application.report');
+
+            Route::get('/carnet/{id}', [ElderProgramController::class,'generateIdCard'])->name('elder-program.card');
 
             Route::get('/',App\Livewire\ElderProgram\Index::class)->name('elder-program.index');
 

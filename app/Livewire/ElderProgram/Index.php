@@ -13,6 +13,7 @@ class Index extends Component
     use LivewireCustomPagination;
 
     public $status;
+    public $sortField;
 
     protected $queryString = [
         'sortField' => ['except' => null],
@@ -26,12 +27,13 @@ class Index extends Component
         return ElderProgramMember::query()
             ->select([
                 'id',
-                'status',
+                'account_number',
                 'elder_id',
                 'created_at',
             ])
             ->withAggregate('elder','document')
             ->withAggregate('elder','first_names')
+            ->withAggregate('elder','dob')
             ->withAggregate('elder','last_names')
             ->withAggregate('elder','email')
             ->withAggregate('elder','phone_number')
