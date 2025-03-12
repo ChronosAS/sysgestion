@@ -23,16 +23,16 @@ class ElderProgramController extends Controller
             ->name('carnet-'.$citizen->document.'.pdf');
     }
 
-    public function generatePensionReport(PensionReport $report)
+    public function generatePensionReport($report)
     {
-
+        $report = PensionReport::with('elders.elder')->find($report);
         $reportTxt = $report->elders->map(fn($elder) => implode(' ', [
              $elder->elder->document,
              $elder->account_number,
              $report->amount,
         ]))->implode("\n");
 
-        Storage::put('reports/report-'.$report->code.'.txt', $reportTxt);
+        Storage::put('reports/'.$report->code.'.txt', $reportTxt);
 
         return pdf()
             ->view('livewire.elder-program.pension-report', [

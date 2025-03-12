@@ -35,9 +35,11 @@
                             </x-button-href>
                         </div>
                         <div class="mx-4">
-                            <x-button-href href="{{ route('elder-program.pension.report',$pensionReport->id) }}" target="_blank"  class="bg-blue-600 hover:bg-blue-500">
-                                Guardar TXT
-                            </x-button-href>
+                            @if ($hasTxt)
+                                <x-button-href href="#" wire:click='saveTxt'  class="bg-blue-600 hover:bg-blue-500">
+                                    Guardar TXT
+                                </x-button-href>
+                            @endif
                         </div>
                     </div>
                 </div>

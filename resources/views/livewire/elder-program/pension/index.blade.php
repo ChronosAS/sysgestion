@@ -80,10 +80,10 @@
                                         {{ $report->total_elders }}
                                     </td>
                                     <td class=" px-6 py-4 text-gray-900">
-                                        {{ $report->amount }}
+                                        {{ $report->amount }} Bs
                                     </td>
                                     <td class=" px-6 py-4 text-gray-900">
-                                        {{ $report->total }}
+                                        {{ $report->total }} Bs
                                     </td>
                                     <td class=" px-6 py-4 text-gray-900">
                                         {{ $report->created_at->format('d/m/Y') }}

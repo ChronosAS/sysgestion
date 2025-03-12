@@ -5,6 +5,7 @@ namespace App\Livewire\ElderProgram\Pension;
 use App\Concerns\LivewireCustomPagination;
 use App\Models\ElderProgramMember;
 use App\Models\PensionReport;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -14,6 +15,7 @@ class Show extends Component
     use LivewireCustomPagination;
 
     public PensionReport $pensionReport;
+    public $hasTxt;
 
     public $sortField = null;
 
@@ -23,6 +25,16 @@ class Show extends Component
         'search' => ['except' => ''],
         'perPage' => ['except' => '10']
     ];
+
+    public function mount()
+    {
+        $this->hasTxt = Storage::exists('reports/'.$this->pensionReport->code.'.txt');
+    }
+
+    public function saveTxt()
+    {
+        return Storage::download('reports/'.$this->pensionReport->code.'.txt');
+    }
 
     public function loadElders()
     {
