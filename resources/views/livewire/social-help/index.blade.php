@@ -8,13 +8,13 @@
                         <div class="flex flex-column  space-y-4 sm:space-y-0 items-center justify-between pb-4">
                             <div class="flex justify-between items-center gap-2">
                                 <div class="  ">
-                                    <x-select
+                                    {{-- <x-select
 
                                        name="hasCard"
                                        wire="live"
                                        placeholder="Con Carnet"
                                        :values="[0 => 'No', 1 => 'Si']"
-                                   />
+                                   /> --}}
                                </div>
                                 <label for="table-search" class="sr-only">Search</label>
                                 <div class="relative">
