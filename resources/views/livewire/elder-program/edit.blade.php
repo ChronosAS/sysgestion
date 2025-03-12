@@ -297,7 +297,7 @@
                             Regresar
                         </x-button-href>
                         <x-button class="ms-4 mt-5 mb-5 bg-green-600 hover:bg-green-500">
-                            Registrar
+                            Editar
                         </x-button>
                     </div>
                 </form>
@@ -307,4 +307,3 @@
     {{-- <livewire:officials.beneficiaries.edit /> --}}
 
 </div>
-

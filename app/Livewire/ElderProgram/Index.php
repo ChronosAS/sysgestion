@@ -14,6 +14,7 @@ class Index extends Component
 
     public $status;
     public $sortField;
+    public $hasCard;
 
     protected $queryString = [
         'sortField' => ['except' => null],
@@ -29,6 +30,7 @@ class Index extends Component
                 'id',
                 'account_number',
                 'elder_id',
+                'has_card',
                 'created_at',
             ])
             ->withAggregate('elder','document')
@@ -37,8 +39,8 @@ class Index extends Component
             ->withAggregate('elder','last_names')
             ->withAggregate('elder','email')
             ->withAggregate('elder','phone_number')
-            ->when($this->status, function ($query) {
-                return $query->where('status',$this->status);
+            ->when($this->hasCard, function ($query) {
+                return $query->where('has_card',$this->hasCard);
             })
             ->search($this->search)
             ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')

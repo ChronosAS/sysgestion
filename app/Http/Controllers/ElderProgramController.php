@@ -13,7 +13,9 @@ class ElderProgramController extends Controller
 {
     public function generateIdCard($citizen)
     {
-        $citizen = Citizen::find($citizen);
+        $citizen = Citizen::with('elder')->find($citizen);
+        $citizen->elder->update(['has_card' => true]);
+
         return pdf()
             ->view('livewire.elder-program.carnet', [
                 'citizen' => $citizen,])
@@ -21,9 +23,8 @@ class ElderProgramController extends Controller
             ->name('carnet-'.$citizen->document.'.pdf');
     }
 
-    public function generatePensionReport($pension_report)
+    public function generatePensionReport(PensionReport $report)
     {
-        $report = PensionReport::find($pension_report);
 
         $reportTxt = $report->elders->map(fn($elder) => implode(' ', [
              $elder->elder->document,
@@ -44,7 +45,6 @@ class ElderProgramController extends Controller
 
     public function generateApplicationReport(ElderProgramMember $elderProgramMember)
     {
-
         return pdf()
             ->view('livewire.elder-program.application-report', [
                 'elderProgramMember' => $elderProgramMember,

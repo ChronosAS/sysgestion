@@ -57,9 +57,9 @@
             </footer>
         </div>
         <div class="absolute bottom-3  ml-10  mx-auto right-20  ">
-            <p class="text-xs break-all text-sky-950">{{ $citizen->address }}</p>
+            <p class="text-xs break-all text-slate-300">{{ $citizen->address }}</p>
         </div>
-        <div class="absolute bottom-3 left-10">  
+        <div class="absolute bottom-3 left-10">
             <p class="text-[13px] font-black text-slate-300">{{ now()->format('d/m/Y') }}</p>
         </div>
 

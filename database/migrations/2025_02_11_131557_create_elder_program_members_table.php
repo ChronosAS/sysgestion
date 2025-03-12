@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('city_of_birth');
             $table->decimal('family_monthly_income', 10,2);
             $table->decimal('family_monthly_expenses', 10,2);
+            $table->boolean('has_card')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

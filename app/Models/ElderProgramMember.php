@@ -29,11 +29,13 @@ class ElderProgramMember extends Model
         'city_of_birth',
         'account_number',
         'family_monthly_income',
-        'family_monthly_expenses'
+        'family_monthly_expenses',
+        'has_card'
     ];
 
     protected $casts = [
-        'status' => ApplicationStatusEnum::class
+        'status' => ApplicationStatusEnum::class,
+        'has_card' => 'boolean'
     ];
 
     public function getActivitylogOptions(): LogOptions

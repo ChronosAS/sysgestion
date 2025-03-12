@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -67,9 +68,9 @@ class Citizen extends Model implements HasMedia
         return LogOptions::defaults();
     }
 
-    public function elderProgramMember() : HasMany
+    public function elder() : HasOne
     {
-        return $this->hasMany(ElderProgramMember::class,'elder_id');
+        return $this->hasOne(ElderProgramMember::class,'elder_id','id');
     }
 
     public function familyMembers() : HasMany
