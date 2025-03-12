@@ -78,6 +78,19 @@ Route::middleware([
 
         });
 
+        Route::middleware(PermissionMiddleware::using('application:access'))
+        ->prefix('/ayuda-social')->group(function(){
+
+            Route::get('/',App\Livewire\SocialHelp\Index::class)->name('social-help.index');
+
+            Route::get('/crear',App\Livewire\SocialHelp\Create::class)->name('social-help.create');
+
+            Route::get('/{application:code}',App\Livewire\SocialHelp\Show::class)->name('social-help.show');
+
+            Route::get('/editar/{application:code}',App\Livewire\SocialHelp\Edit::class)->name('social-help.edit');
+
+        });
+
     // Route::middleware(PermissionMiddleware::using('application:access'))
     // ->prefix('/carnetizacion')->group(function(){
     //     Route::get('/',App\Livewire\ElderId\Index::class)->name('elder-identification.index');

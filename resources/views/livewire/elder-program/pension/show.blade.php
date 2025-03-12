@@ -35,11 +35,9 @@
                             </x-button-href>
                         </div>
                         <div class="mx-4">
-                            @if ($hasTxt)
-                                <x-button-href href="#" wire:click='saveTxt'  class="bg-blue-600 hover:bg-blue-500">
-                                    Guardar TXT
-                                </x-button-href>
-                            @endif
+                            <x-button-href href="#" wire:click='saveTxt'  class="bg-blue-600 hover:bg-blue-500">
+                                Guardar TXT
+                            </x-button-href>
                         </div>
                     </div>
                 </div>

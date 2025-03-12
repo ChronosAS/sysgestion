@@ -26,13 +26,20 @@ class Show extends Component
         'perPage' => ['except' => '10']
     ];
 
-    public function mount()
+    private function generateTxt()
     {
-        $this->hasTxt = Storage::exists('reports/'.$this->pensionReport->code.'.txt');
+        $reportTxt = $this->pensionReport->elders->map(fn($elder) => implode(' ', [
+            $elder->elder->document,
+            $elder->account_number,
+            $this->pensionReport->amount,
+       ]))->implode("\n");
+
+       Storage::put('reports/'.$this->pensionReport->code.'.txt', $reportTxt);
     }
 
     public function saveTxt()
     {
+        $this->generateTxt();
         return Storage::download('reports/'.$this->pensionReport->code.'.txt');
     }
 
