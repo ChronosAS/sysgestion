@@ -137,7 +137,7 @@
                         
                                     <tr>
                                         <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
-                                            No hay Ayudas Sociales registrados.
+                                            No hay Solicitudes Medicas registradas.
                                         </td>
                                     </tr>
                                 
