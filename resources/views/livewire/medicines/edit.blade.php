@@ -33,6 +33,11 @@
                 <x-input id="active_component" wire:model='active_component' class="block mt-1 w-full truncate" type="text" name="active_component" :value="old('active_component')" autocomplete="active_component" />
                 <x-input-error class="text-xs" for="active_component"/>
             </div>
+            <div class="mt-5 w-full px-3 sm:w-1/2">
+                <x-label for="composition_unit" value="Cantidad (Composición)" />
+               <x-input id="composition_unit" wire:model='composition_unit' class="block mt-1 w-full truncate" type="text" name="composition_unit"  autocomplete="composition_unit" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                <x-input-error class="text-xs" for="composition_unit"/>
+            </div>
             <div class="mt-5 w-full sm:w-1/2 px-3">
                 <x-label for="laboratory" value="Laboratorio" />
                 <x-input id="laboratory" wire:model='laboratory' class="block mt-1 w-full truncate" type="text" name="laboratory" :value="old('laboratory')" autocomplete="laboratory" />
