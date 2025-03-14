@@ -60,7 +60,7 @@ class Create extends Component
         $this->compositions = [
             'mg',
             'ml',
-            'cm³',
+            'cc (cm³)',
         ];
     }
 
