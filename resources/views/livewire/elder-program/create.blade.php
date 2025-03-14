@@ -3,6 +3,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+                    <div class="mt-5 w-full px-3 sm:w-3/1">
+                        <p class="block font-medium text-2xl text-gray-900">Registro del Programa Abuelos de Lecheria</p>
+                    </div>
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label for="document" value="Cédula de Identidad " class="text-black " />
                         <div class="flex items-center">
