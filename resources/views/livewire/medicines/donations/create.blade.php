@@ -51,13 +51,13 @@
                             <option>Divorciado</option>
                             <option>Viudo</option>
                         </select>
-                    {{-- </div>
+                    </div>
                      <div class="mt-5 w-full px-3 sm:w-1/4">
                         <div>
                             <x-search-select wire:ignore name="estado" label="Estado" :options="$states"  />
                             <x-input-error class="text-xs" for="estado"/>
                         </div>
-                        <h1>{{ $estado }}</h1>
+                        {{-- <h1>{{ $estado }}</h1> --}}
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="municipio" value="Municipio" class="block   text-black"/>
@@ -70,11 +70,11 @@
                             </select>
                             <x-input-error class="text-xs" for="municipio"/>
                         </div>
-                        <h1>{{ $municipio }}</h1>
+                        {{-- <h1>{{ $municipio }}</h1> --}}
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="parroquia" value="Parroquia" class="block   text-black"/>
-                        <div x-show="!citizenExists">
+                        <div>
                             <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center ">Seleccionar</option>
                                 @foreach ($parroquias as $value => $name)
@@ -83,10 +83,10 @@
                             </select>
                             <x-input-error class="text-xs" for="parroquia"/>
                         </div>
-                        <div x-show="citizenExists">
+                        {{-- <div x-show="citizenExists">
                             <h1>{{ $citizen?->parroquia->parroquia }}</h1>
-                        </div>
-                    </div> --}}
+                        </div> --}}
+                    </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
                         <x-input id="dob" wire:model='dob' class="block mt-1 w-full " type="date" name="dob" :value="old('dob')" autocomplete="dob" />
@@ -121,28 +121,28 @@
                                 </tr>
                             </x-slot>
                             <x-slot name="tbody">
-                              
+
                                     {{-- <tr class="bg-white shadow-md border border-gray-700 text-center">
                                         <td class="text-black">
-                                           
+
                                         </td>
                                         <td class="text-black">
-                                            
+
                                         </td>
                                         <td class="text-black">
-                                          
+
                                        </td>
                                         <x-table.td class="text-center">
-                                           
+
                                         </x-table.td>
-                                    </tr> 
-                                
+                                    </tr>
+
                                     <tr>
                                         <td colspan="4" class="px-6 py-4 bg-white text-center text-black text-xl">
                                             No hay beneficiarios agregados
                                         </td>
                                     </tr>
-                                
+
                             </x-slot>
                         </x-table.table>
                     </div> --}}
@@ -158,5 +158,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
