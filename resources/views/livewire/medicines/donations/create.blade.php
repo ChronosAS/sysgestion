@@ -51,22 +51,42 @@
                             <option>Divorciado</option>
                             <option>Viudo</option>
                         </select>
+                    {{-- </div>
+                     <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <div>
+                            <x-search-select wire:ignore name="estado" label="Estado" :options="$states"  />
+                            <x-input-error class="text-xs" for="estado"/>
+                        </div>
+                        <h1>{{ $estado }}</h1>
                     </div>
-                    <div class=" mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="state" value="Estado" class="text-black" />
-                        <x-input id="state" wire:model='state' class="block mt-1 w-full truncate" type="text" name="state" :value="old('state')" autocomplete="state" />
-                        <x-input-error class="text-xs" for="state"/>
+                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="municipio" value="Municipio" class="block   text-black"/>
+                        <div>
+                            <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                                <option value="#" class="text-center ">Seleccionar</option>
+                                @foreach ($municipios as $value => $name)
+                                    <option value="{{ $value }}" class="text-center cursor-pointer">{{ $name }}</option>
+                                @endforeach
+                            </select>
+                            <x-input-error class="text-xs" for="municipio"/>
+                        </div>
+                        <h1>{{ $municipio }}</h1>
                     </div>
-                    <div class=" mt-5 w-full px-3 sm:w-1/3">
-                        <x-label for="municipality" value="Municipio" class="text-black" />
-                        <x-input id="municipality" wire:model='municipality' class="block mt-1 w-full truncate" type="text" name="municipality" :value="old('municipality')" autocomplete="municipality" />
-                        <x-input-error class="text-xs" for="municipality"/> 
-                    </div>
-                      <div class=" mt-5 w-full px-3 sm:w-1/3">
-                        <x-label for="parish" value="Parroquia" class="text-black" />
-                        <x-input id="parish" wire:model='parish' class="block mt-1 w-full truncate" type="text" name="parish" :value="old('parish')" autocomplete="parish" />
-                        <x-input-error class="text-xs" for="parish"/>
-                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="parroquia" value="Parroquia" class="block   text-black"/>
+                        <div x-show="!citizenExists">
+                            <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                                <option value="#" class="text-center ">Seleccionar</option>
+                                @foreach ($parroquias as $value => $name)
+                                    <option value="{{ $value }}" class="text-center cursor-pointer">{{ $name }}</option>
+                                @endforeach
+                            </select>
+                            <x-input-error class="text-xs" for="parroquia"/>
+                        </div>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->parroquia->parroquia }}</h1>
+                        </div>
+                    </div> --}}
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
                         <x-input id="dob" wire:model='dob' class="block mt-1 w-full " type="date" name="dob" :value="old('dob')" autocomplete="dob" />
