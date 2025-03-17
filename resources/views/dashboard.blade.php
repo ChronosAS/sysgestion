@@ -1,12 +1,12 @@
 <x-app-layout>
-    
-
-    <div class="py-12">
+   
+    <div class="py-12 overflow-hidden">
+        <x-logos.watermark/>
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
                 <div x-data="Carousel()" class="relative w-full">
                     <div class="overflow-hidden rounded-lg">
-                        <div class="flex transition-transform duration-500 ease-in-out pb-10" :style="`transform: translateX(-${currentIndex * 100}%)`">
+                        <div class="flex transition-transform duration-500 ease-in-out pb-10 mt-5" :style="`transform: translateX(-${currentIndex * 100}%)`">
                             <template x-for="(card, index) in cards" :key="index">
                                 <div class="w-full md:w-1/3 flex-shrink-0 px-2">
                                     <a :href="card.link" class="cursor-pointer" target="_blank">

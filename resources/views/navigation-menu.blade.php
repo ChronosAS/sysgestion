@@ -1,5 +1,5 @@
 <div x-data="{ health: false, requests: false, elderHelp: false, socialHelp: false }" class="relative">
-    <nav x-data="{ open: false }" class="bg-blue-800 border-b border-blue-900 mb-16 relative">
+    <nav x-data="{ open: false }" class="bg-blue-800 border-b border-blue-900 mb-16 relative z-40">
         <!-- Primary Navigation Menu -->
         <div x-show="health"
             x-transition:enter="transition ease-out duration-200 transform" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 -translate-y-0" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-0"

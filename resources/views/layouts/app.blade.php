@@ -18,7 +18,7 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased bg-white">
-
+       
 
         <div class="min-h-screen bg-slate">
             @livewire('navigation-menu')
