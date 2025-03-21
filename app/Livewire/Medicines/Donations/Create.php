@@ -25,16 +25,21 @@ class Create extends Component
     public $dob;
     public $address;
     public $observation;
-    public $name;
+
+    public $searchMed;
+
+    public $comercial_name;
     public $presentation;
     public $active_component;
+    public $composition_quantity;
     public $composition_unit;
     public $composition;
     public $laboratory;
     public $stock;
-    public $price;
     public $entry_date;
     public $expiration_date;
+
+    public $medicaments = [];
 
     public $municipios = [];
     public $parroquias = [];

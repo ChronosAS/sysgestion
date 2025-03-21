@@ -20,7 +20,6 @@ class Edit extends Component
     public $presentation;
     public $laboratory;
     public $stock;
-    public $price;
     public $expiration_date;
     public $entry_date;
 
@@ -50,7 +49,6 @@ class Edit extends Component
             'active_component' => 'required|string|max:255',
             'laboratory' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
-            'price' => ['required', 'numeric', 'min:0', 'regex:/^\d{1,4}(\.\d{1,2})?$/'],
             'expiration_date' => 'required|date',
             'entry_date' => 'required|date',
         ], [
@@ -72,10 +70,6 @@ class Edit extends Component
             'stock.required' => 'El stock es obligatorio.',
             'stock.integer' => 'El stock debe ser un número entero.',
             'stock.min' => 'El stock no puede ser negativo.',
-            'price.required' => 'El precio es obligatorio.',
-            'price.numeric' => 'El precio debe ser un número.',
-            'price.min' => 'El precio no puede ser negativo.',
-            'price.regex' => 'El precio debe tener hasta 4 dígitos y 2 decimales.',
             'expiration_date.required' => 'La fecha de expiración es obligatoria.',
             'expiration_date.date' => 'La fecha de expiración debe ser una fecha válida.',
             'entry_date.required' => 'La fecha de ingreso es obligatoria.',
@@ -89,7 +83,6 @@ class Edit extends Component
             'active_component' => $this->active_component,
             'laboratory' => $this->laboratory,
             'stock' => $this->stock,
-            'price' => $this->price,
             'expiration_date' => $this->expiration_date,
             'entry_date' => $this->entry_date,
         ]);

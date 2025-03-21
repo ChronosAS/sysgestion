@@ -39,7 +39,6 @@ class Index extends Component
                 'presentation',
                 'active_component',
                 'laboratory',
-                'price',
                 'stock',
                 'expiration_date',
                 'entry_date',

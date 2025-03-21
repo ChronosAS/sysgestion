@@ -48,11 +48,6 @@
                 <x-input id="stock" wire:model='stock' class="block mt-1 w-full truncate" type="number" name="stock" :value="old('stock')" autocomplete="stock" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                 <x-input-error class="text-xs" for="stock"/>
             </div>
-            <div class=" mt-5 w-full px-3 sm:w-1/2">
-                <x-label for="price" value=" Precio" />
-                <x-input id="price" wire:model='price' class="block mt-1 w-full truncate" type="text" name="price" :value="old('price')" autocomplete="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                <x-input-error class="text-xs" for="price"/>
-            </div>
             <div class="mt-5 w-full px-3 sm:w-1/2">
                 <x-label for="entry_date" value="Fecha de Ingreso" />
                 <x-input id="entry_date" wire:model='entry_date' class="block mt-1 w-full truncate" type="date" name="entry_date" :value="old('entry_date')" autocomplete="entry_date" />

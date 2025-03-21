@@ -22,14 +22,12 @@ class Medicine extends Model
         'presentation',
         'laboratory',
         'stock',
-        'price',
         'expiration_date',
         'entry_date',
     ];
 
     protected $casts = [
         'stock' => 'integer',
-        'price' => 'decimal:2',
         'composition' => CompositionEnum::class,
         'presentation' => PresentationEnum::class,
     ];
@@ -41,7 +39,6 @@ class Medicine extends Model
             ->orWhere('active_component','like','%'.$term.'%')
             ->orWhere('presentation','like','%'.$term.'%')
             ->orWhere('laboratory','like','%'.$term.'%')
-            ->orWhere('price','like','%'.$term.'%')
             ->orWhere('stock','like','%'.$term.'%');
     }
 
