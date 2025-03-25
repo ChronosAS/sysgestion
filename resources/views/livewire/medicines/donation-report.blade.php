@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte de Pensiones</title>
+    <title>Reporte de </title>
      <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -27,14 +27,14 @@
             <table class="min-w-full bg-white text-center">
                     <thead class="font-bold">
                         <tr class="">
-                            <td> Número de Abuelos Pensionados: </td>
-                            <td> Monto Total en Bolivares: </td>
+                            <td>  </td>
+                            <td> </td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="border-b">
-                            <td>{{ $report->total_elders }}</td>
-                            <td>{{ $report->total }}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
             </table>
@@ -43,26 +43,54 @@
 
     <main class="p-4 w-full items-center justify-center">
         <div class="overflow-x-auto">
+            <p class="text-center font-bold text-lg">Donantes</p>
             <table class="min-w-full bg-white text-center">
                 <thead>
                     <tr>
-                        <th class="py-2 px-4 border-b">Cedula</th>
-                        <th class="py-2 px-4 border-b">Nombres y Apellidos</th>
-                        <th class="py-2 px-4 border-b">Número de Cuenta</th>
-                        <th class="py-2 px-4 border-b">Fecha de Pago</th>
-                        <th class="py-2 px-4 border-b">Monto en Bs</th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($report->elders as $elder)
+                   
                         <tr>
-                            <td class="py-2 px-4 border-b">{{ $elder->elder->document }}</td>
-                            <td class="py-2 px-4 border-b">{{ $elder->elder->first_names.' '.$elder->elder->last_names }}</td>
-                            <td class="py-2 px-4 border-b">{{ $elder->account_number }}</td>
-                            <td class="py-2 px-4 border-b">{{ now()->format('d/m/Y') }}</td>
-                            <td class="py-2 px-4 border-b">{{ $report->amount }}</td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
                         </tr>
-                    @endforeach
+                    
+                    <!-- Add more rows as needed -->
+
+                </tbody>
+            </table>
+             <p class="text-center font-bold text-lg">Medicamentos Donados</p>
+            <table class="min-w-full bg-white text-center">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        <tr>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                            <td class="py-2 px-4 border-b"></td>
+                        </tr>
+                    
                     <!-- Add more rows as needed -->
 
                 </tbody>

@@ -117,19 +117,7 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="search_medicines" value="Busqueda De Medicamentos" class="text-black" />
-                        <div class="flex items-center">
-                            <x-input id="search_medicines" wire:model='search_medicines' class="block mt-1 w-full truncate rounded-none rounded-l-md disabled:text-slate-400" type="text" name="search_medicines"  />
-                            <button  type="button" class="p-[9px] mt-1 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-none rounded-r-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </svg>
-                            </button>
-                            {{-- <button x-show="citizenExists" @click='$wire.clearSearch' type="button" class="p-[9px] mt-1 text-white bg-red-500 hover:bg-red-600 focus:outline-none rounded-none rounded-r-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                </svg>
-                            </button> --}}
-                        </div>
+                        <x-search-select  wire:model="search_medicines" :options="$medicines" placeholder="Seleccione un medicamento"/>
                         <x-input-error class="text-xs" for="search_medicines"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
