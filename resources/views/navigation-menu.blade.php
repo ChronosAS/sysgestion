@@ -143,10 +143,14 @@
                                 <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('users.administration') }}">
                                     Administracion de Usuarios
                                 </x-dropdown-link>
-                                <!-- Account Management -->
+
+                                <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200 cursor-pointer" target="_blank" href="{{ route('mintainance-plan') }}">
+                                    Plan de mantenimiento
+                                </x-dropdown-link>
+                                {{-- <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-white">
                                     {{ __('Manage Account') }}
-                                </div>
+                                </div> --}}
 
                                 <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}

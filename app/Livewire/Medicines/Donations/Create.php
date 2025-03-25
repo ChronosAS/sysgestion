@@ -3,7 +3,11 @@
 namespace App\Livewire\Medicines\Donations;
 
 use App\Enum\GenderEnum;
+use App\Enum\Medicines\CompositionEnum;
+use App\Enum\Medicines\PresentationEnum;
+use App\Models\Citizen;
 use App\Models\Estado;
+use App\Models\Medicine;
 use App\Models\Municipio;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -11,6 +15,8 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class Create extends Component
 {
+    public Citizen $citizen;
+
     public $document;
     public $first_names;
     public $last_names;
@@ -26,8 +32,6 @@ class Create extends Component
     public $address;
     public $observation;
 
-    public $searchMed;
-
     public $comercial_name;
     public $presentation;
     public $active_component;
@@ -40,6 +44,7 @@ class Create extends Component
     public $expiration_date;
 
     public $medicaments = [];
+    public $medicine;
 
     public $municipios = [];
     public $parroquias = [];
@@ -47,6 +52,34 @@ class Create extends Component
     public $states = [];
     public $presentations = [];
     public $compositions = [];
+
+    public $citizenExists = false;
+
+    public function searchCitizen()
+    {
+        $this->reset('citizen','first_names','last_names','civil_status','phone_number','phone_number_2','address','dob','citizenExists');
+        $this->validate(['document' => 'required'],[
+        'document.required' => 'Ingrese cédula para busqueda'
+        ]);
+
+        $citizen = Citizen::where('document', $this->document)->first();
+
+        if(!$citizen) {
+            $this->addError('document','No se encontró ciudadano con la cédula ingresada');
+            return;
+        }
+
+        $this->citizen = $citizen;
+        $this->fill($citizen);
+        $this->parroquia = $citizen->parroquia_id;
+        $this->citizenExists = true;
+
+    }
+
+    public function clearSearch()
+    {
+        $this->reset('citizen','first_names','last_names','civil_status','email','phone_number','phone_number_2','address','dob','citizenExists');
+    }
 
     public function mount()
     {
@@ -56,17 +89,20 @@ class Create extends Component
                 'id' => $estado->id_estado,
                 'name' => $estado->estado,
             ];
-        });
-        $this->presentations = [
-            'Pastillas',
-            'Jarabe',
-            'Ampollas',
-        ];
-        $this->compositions = [
-            'mg',
-            'ml',
-            'cc (cm³)',
-        ];
+        })->toArray();
+
+        $medicaments = Medicine::all()->map(function($medicine) {
+            return [
+                'id' => $medicine->id,
+                'name' => $medicine->name.'('.$medicine->composition_quantity.$medicine->composition->name.')',
+            ];
+        })->toArray();
+
+        $this->medicaments = $medicaments;
+
+        $this->presentations = PresentationEnum::options();
+
+        $this->compositions = CompositionEnum::options();
     }
 
     public function updatedEstado()

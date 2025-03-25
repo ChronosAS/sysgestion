@@ -5,7 +5,8 @@
         'label' => null,
     ]
 )
-<div {!! $attributes !!} 
+<div
+    {!! $attributes !!}
     x-data="{
         open: false,
         search: '',

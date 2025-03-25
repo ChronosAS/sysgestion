@@ -18,6 +18,7 @@ class Medicine extends Model
     protected $fillable = [
         'name',
         'composition',
+        'composition_quantity',
         'active_component',
         'presentation',
         'laboratory',
@@ -35,6 +36,7 @@ class Medicine extends Model
     public function scopeSearch($query,$term){
 
         return $query->where('name','like','%'.$term.'%')
+            ->orWhere('composition_quantity','like','%'.$term.'%')
             ->orWhere('composition','like','%'.$term.'%')
             ->orWhere('active_component','like','%'.$term.'%')
             ->orWhere('presentation','like','%'.$term.'%')

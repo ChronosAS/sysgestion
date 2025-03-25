@@ -11,9 +11,9 @@ enum CompositionEnum: string
     use EnumOptions,AttributableEnum;
 
     #[Label('mg')]
-    case MG = 'mg';
-    #[Label('cm³')]
-    case CM3 = 'cm3';
+    case mg = 'mg';
+    #[Label('cc(cm³)')]
+    case cm3 = 'cm3';
     #[Label('ml')]
-    case ML = 'ml';
+    case ml = 'ml';
 }

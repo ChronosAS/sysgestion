@@ -1,5 +1,5 @@
 <div>
-    <div class="py-12" >
+    <div class="py-12" x-data='{ citizenExists: $wire.entangle("citizenExists") }'>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit.prevent='save' class="mt-5 mx-10 container-md text-center flex items-center justify-center flex-wrap">
@@ -116,9 +116,8 @@
                         <p class="block font-medium text-2xl text-gray-900">Medicamentos</p>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="search_medicines" value="Busqueda De Medicamentos" class="text-black" />
-                        <x-search-select  wire:model="search_medicines" :options="$medicines" placeholder="Seleccione un medicamento"/>
-                        <x-input-error class="text-xs" for="search_medicines"/>
+                        <x-search-select wire:ignore name="medicine" label="Seleccionar Medicamento" :options="$medicaments" placeholder="Seleccione un medicamento"/>
+                        <x-input-error class="text-xs" for="medicine"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="name" value="Nombre Comercial" />

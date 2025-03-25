@@ -36,6 +36,7 @@ class Index extends Component
                 'id',
                 'name',
                 'composition',
+                'composition_quantity',
                 'presentation',
                 'active_component',
                 'laboratory',

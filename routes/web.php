@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ElderProgramController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 
 Route::middleware([
@@ -13,6 +14,10 @@ Route::middleware([
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/plan-mantenimiento', function () {
+        return response()->file(public_path('assets/plan_mantenimiento.pdf'));
+    })->name('mintainance-plan');
 
     Route::middleware(PermissionMiddleware::using('user:access'))
         ->prefix('/usuarios')->group(function(){
