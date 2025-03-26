@@ -96,11 +96,11 @@
                                         </div>
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        @can('medicine:create')
+                                        {{-- @can('medicine:create')
                                             <x-button-href @click="$dispatch('createMedicine')" class="bg-green-600 hover:bg-green-500">
                                                 Crear
                                             </x-button-href>
-                                        @endcan
+                                        @endcan --}}
                                     </th>
                                 </tr>
                             </thead>
@@ -153,6 +153,4 @@
             </div>
         </div>
     </div>
-    <livewire:medicines.create />
-    <livewire:medicines.edit />
 </div>

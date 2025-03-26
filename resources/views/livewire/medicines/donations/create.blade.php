@@ -119,6 +119,11 @@
                         <x-search-select wire:ignore name="medicine" label="Seleccionar Medicamento" :options="$medicaments" placeholder="Seleccione un medicamento"/>
                         <x-input-error class="text-xs" for="medicine"/>
                     </div>
+                    <div class="mt-10 w-full px-1 sm:w-[150px] break-words">
+                        <x-button class=" text-white  bg-green-600 hover:bg-green-500 ">
+                            <p>Agregar <br/> Medicamento</p>
+                        </x-button>
+                    </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="name" value="Nombre Comercial" />
                         <x-input id="name" wire:model='name' class="block mt-1 w-full truncate" type="text" name="name" :value="old('name')" autocomplete="name" />
