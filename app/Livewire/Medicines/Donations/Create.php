@@ -54,6 +54,7 @@ class Create extends Component
     public $compositions = [];
 
     public $citizenExists = false;
+    public $newMed = false;
 
     public function searchCitizen()
     {
@@ -113,6 +114,8 @@ class Create extends Component
         $this->parroquias = [];
     }
 
+
+
     public function updatedMunicipio()
     {
         if ($this->municipio != '#') {
@@ -120,6 +123,7 @@ class Create extends Component
         } else {
             $this->parroquias = [];
         }
+
         $this->parroquia = null;
     }
 

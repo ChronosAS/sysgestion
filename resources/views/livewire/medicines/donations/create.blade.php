@@ -1,5 +1,5 @@
 <div>
-    <div class="py-12" x-data='{ citizenExists: $wire.entangle("citizenExists") }'>
+    <div class="py-12" x-data='{ citizenExists: $wire.entangle("citizenExists"), newMed: $wire.entangle("newMed") }'>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit.prevent='save' class="mt-5 mx-10 container-md text-center flex items-center justify-center flex-wrap">
@@ -115,9 +115,8 @@
                     <div class="mt-8 w-full px-3 sm:w-3/1">
                         <p class="block font-medium text-2xl text-gray-900">Medicamentos</p>
                     </div>
-                    <x-toggle/>
-
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                    <x-toggle label="Buscar medicamento" name="newMed"/>
+                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/4">
                         <x-search-select wire:ignore name="medicine" label="Seleccionar Medicamento" :options="$medicaments" placeholder="Seleccione un medicamento"/>
                         <x-input-error class="text-xs" for="medicine"/>
                     </div>
@@ -126,12 +125,12 @@
                             <p>Agregar <br/> Medicamento</p>
                         </x-button>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="name" value="Nombre Comercial" />
                         <x-input id="name" wire:model='name' class="block mt-1 w-full truncate" type="text" name="name" :value="old('name')" autocomplete="name" />
                         <x-input-error class="text-xs" for="name"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-1/4">
                         <label for="presentation" class="block text-sm font-medium text-gray-900">Presentación(Composición)</label>
                         <div class="flex items-center">
                             <select wire:model='presentation' id="presentation" name="presentation" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-center">
@@ -143,12 +142,12 @@
                         </div>
                         <x-input-error class="text-xs" for="presentation"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="active_component" value="Componente Activo" />
                         <x-input id="active_component" wire:model='active_component' class="block mt-1 w-full truncate" type="text" name="active_component" :value="old('active_component')" autocomplete="active_component" />
                         <x-input-error class="text-xs" for="active_component"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-[250px]">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-[250px]">
                         <x-label for="composition_unit" value="Cantidad (Composición)" />
                         <div class="flex items-center">
                             <x-input id="composition_unit" wire:model='composition_unit' class="block mt-1 w-full truncate" type="text" name="composition_unit" autocomplete="composition_unit" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
@@ -160,22 +159,22 @@
                         </div>
                         <x-input-error class="text-xs" for="composition"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-[27.50%]">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-[27.50%]">
                         <x-label for="laboratory" value="Laboratorio" />
                         <x-input id="laboratory" wire:model='laboratory' class="block mt-1 w-full truncate" type="text" name="laboratory" :value="old('laboratory')" autocomplete="laboratory" />
                         <x-input-error class="text-xs" for="laboratory"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-[190px]">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-[190px]">
                         <x-label for="stock" value="Unidades" />
                         <x-input id="stock" wire:model='stock' class="block mt-1 w-full truncate" type="number" name="stock" :value="old('stock')" autocomplete="stock" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                         <x-input-error class="text-xs" for="stock"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/6">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="entry_date" value="Fecha de Ingreso" />
                         <x-input id="entry_date" wire:model='entry_date' class="block mt-1 w-full truncate" type="date" name="entry_date" :value="old('entry_date')" autocomplete="entry_date" />
                         <x-input-error class="text-xs" for="entry_date"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/6">
+                    <div x-show="newMed" class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="expiration_date" value="Fecha de Vencimiento" />
                         <x-input id="expiration_date" wire:model='expiration_date' class="block mt-1 w-full truncate" type="date" name="expiration_date" :value="old('expiration_date')" autocomplete="expiration_date" />
                         <x-input-error class="text-xs" for="expiration_date"/>
