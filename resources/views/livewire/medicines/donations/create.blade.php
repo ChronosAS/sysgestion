@@ -115,6 +115,8 @@
                     <div class="mt-8 w-full px-3 sm:w-3/1">
                         <p class="block font-medium text-2xl text-gray-900">Medicamentos</p>
                     </div>
+                    <x-toggle/>
+
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-search-select wire:ignore name="medicine" label="Seleccionar Medicamento" :options="$medicaments" placeholder="Seleccione un medicamento"/>
                         <x-input-error class="text-xs" for="medicine"/>
