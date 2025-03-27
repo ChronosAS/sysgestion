@@ -23,8 +23,9 @@ class Create extends Component
     public $gender;
     public $email;
     public $phone_number;
+    public $phone_number_2;
     public $grade;
-    public $civil;
+    public $civil_status;
     public $estado;
     public $municipio;
     public $parroquia;
@@ -56,31 +57,6 @@ class Create extends Component
     public $citizenExists = false;
     public $newMed = false;
 
-    public function searchCitizen()
-    {
-        $this->reset('citizen','first_names','last_names','civil_status','phone_number','phone_number_2','address','dob','citizenExists');
-        $this->validate(['document' => 'required'],[
-        'document.required' => 'Ingrese cédula para busqueda'
-        ]);
-
-        $citizen = Citizen::where('document', $this->document)->first();
-
-        if(!$citizen) {
-            $this->addError('document','No se encontró ciudadano con la cédula ingresada');
-            return;
-        }
-
-        $this->citizen = $citizen;
-        $this->fill($citizen);
-        $this->parroquia = $citizen->parroquia_id;
-        $this->citizenExists = true;
-
-    }
-
-    public function clearSearch()
-    {
-        $this->reset('citizen','first_names','last_names','civil_status','email','phone_number','phone_number_2','address','dob','citizenExists');
-    }
 
     public function mount()
     {
@@ -106,6 +82,36 @@ class Create extends Component
         $this->compositions = CompositionEnum::options();
     }
 
+    public function searchCitizen()
+    {
+        $this->reset('citizen','first_names','last_names','civil_status','phone_number','phone_number_2','address','dob','citizenExists');
+
+        $this->validate(['document' => 'required'],[
+        'document.required' => 'Ingrese cédula para busqueda'
+        ]);
+
+        $citizen = Citizen::where('document', $this->document)->first();
+
+        if(!$citizen) {
+            $this->addError('document','No se encontró ciudadano con la cédula ingresada');
+            return;
+        }
+
+        $this->citizen = $citizen;
+        $this->fill($citizen);
+        $this->estado = $citizen->estado_id;
+        $this->parroquia = $citizen->parroquia_id;
+        $this->municipio = $citizen->municipio_id;
+        $this->citizenExists = true;
+
+    }
+
+    public function clearSearch()
+    {
+        $this->reset('citizen','first_names','last_names','civil_status','email','phone_number','phone_number_2','address','dob','citizenExists');
+    }
+
+
     public function updatedEstado()
     {
         $this->municipios = Estado::find($this->estado)->municipios->pluck('municipio', 'id_municipio');
@@ -113,8 +119,6 @@ class Create extends Component
         $this->parroquia = null;
         $this->parroquias = [];
     }
-
-
 
     public function updatedMunicipio()
     {

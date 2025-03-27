@@ -3,11 +3,13 @@
 namespace App\Livewire\ElderProgram\Pension;
 
 use App\Concerns\LivewireCustomPagination;
+use App\Concerns\Telegram\ElderPensionChannel;
 use App\Models\ElderProgramMember;
 use App\Models\PensionReport;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 #[Layout('layouts.app')]
 class Show extends Component
@@ -41,6 +43,14 @@ class Show extends Component
     {
         $this->generateTxt();
         return Storage::download('reports/'.$this->pensionReport->code.'.txt');
+    }
+
+    public function telegram()
+    {
+        Telegram::sendMessage([
+            'chat_id' => -1002637878820,
+            'text' => 'Hello World'
+        ]);
     }
 
     public function loadElders()

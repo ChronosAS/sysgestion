@@ -59,8 +59,8 @@
                         <x-input-error class="text-xs" for="grade"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="civil" value="Edo. Civil" class="block text-sm font-medium text-black"/>
-                        <select wire:model='civil' id="civil" name="civil" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
+                        <x-label for="civil_status" value="Edo. Civil" class="block text-sm font-medium text-black"/>
+                        <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                             <option>Casado</option>
                             <option>Soltero</option>
                             <option>Divorciado</option>
@@ -68,14 +68,18 @@
                         </select>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <div>
-                            <x-search-select wire:ignore name="estado" label="Estado" :options="$states" />
+                        <x-label for="estado" value="Estado" class="block text-sm font-medium text-black"/>
+                        <div x-show="!citizenExists">
+                            <x-search-select wire:ignore name="estado" :options="$states" />
                             <x-input-error class="text-xs" for="estado"/>
+                        </div>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->estado->estado }}</h1>
                         </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="municipio" value="Municipio" class="block text-black"/>
-                        <div>
+                        <div x-show="!citizenExists">
                             <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center">Seleccionar</option>
                                 @foreach ($municipios as $value => $name)
@@ -84,10 +88,13 @@
                             </select>
                             <x-input-error class="text-xs" for="municipio"/>
                         </div>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->municipio->municipio }}</h1>
+                        </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="parroquia" value="Parroquia" class="block text-black"/>
-                        <div>
+                        <div x-show="!citizenExists">
                             <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center">Seleccionar</option>
                                 @foreach ($parroquias as $value => $name)
@@ -95,6 +102,9 @@
                                 @endforeach
                             </select>
                             <x-input-error class="text-xs" for="parroquia"/>
+                        </div>
+                        <div x-show="citizenExists">
+                            <h1>{{ $citizen?->parroquia->parroquia }}</h1>
                         </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">

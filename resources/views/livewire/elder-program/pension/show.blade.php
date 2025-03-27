@@ -39,6 +39,11 @@
                                 Guardar TXT
                             </x-button-href>
                         </div>
+                        <div class="mx-4">
+                            <x-button-href href="#" wire:click='telegram'  class="bg-blue-600 hover:bg-blue-500">
+                                Telegram
+                            </x-button-href>
+                        </div>
                     </div>
                 </div>
                 <table class="w-full border border-blue-700 text-center    text-white">
