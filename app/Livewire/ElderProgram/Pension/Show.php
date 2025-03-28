@@ -3,7 +3,6 @@
 namespace App\Livewire\ElderProgram\Pension;
 
 use App\Concerns\LivewireCustomPagination;
-use App\Concerns\Telegram\ElderPensionChannel;
 use App\Models\ElderProgramMember;
 use App\Models\PensionReport;
 use Illuminate\Support\Facades\Storage;
@@ -45,10 +44,21 @@ class Show extends Component
         return Storage::download('reports/'.$this->pensionReport->code.'.txt');
     }
 
-    public function telegram()
+    public function markAsPaid()
     {
+        $this->pensionReport->update([
+            'paid_at' => now()
+        ]);
+
+        $this->sendNotification();
+    }
+
+    public function sendNotification()
+    {
+        #-1002597715087 // Canal Gabriel
+        #-1002637878820 // Pruebas
         Telegram::sendMessage([
-            'chat_id' => -1002637878820,
+            'chat_id' => -1002597715087,
             'text' => 'Hello World'
         ]);
     }

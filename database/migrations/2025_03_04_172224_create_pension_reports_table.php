@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('total_elders');
             $table->decimal('amount',15,2);
             $table->decimal('total',15,2);
+            $table->timestamp('paid_at')->nullable();
             $table->timestamps();
         });
     }

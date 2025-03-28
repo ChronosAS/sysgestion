@@ -21,6 +21,7 @@ class PensionReport extends Model implements HasMedia
         'total_elders',
         'amount',
         'total',
+        'paid_at'
     ];
 
     public function getActivitylogOptions(): LogOptions

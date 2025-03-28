@@ -18,6 +18,13 @@ return new class extends Migration
             $table->string('donor_name')->nullable();
             $table->string('donor_email')->nullable();
             $table->string('donor_phone_number')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('donor_address')->nullable();
+            $table->string('donor_civil_status')->nullable();
+            $table->date('dob')->nullable();
+            $table->integer('estado_id')->nullable();
+            $table->integer('municipio_id')->nullable();
+            $table->integer('parroquia_id')->nullable();
             $table->timestamps();
         });
     }
