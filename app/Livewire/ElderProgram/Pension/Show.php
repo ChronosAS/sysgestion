@@ -17,7 +17,7 @@ class Show extends Component
 
     public PensionReport $pensionReport;
     public $hasTxt;
-    public $isPaid = false;
+    public $isPaid;
 
     public $sortField = null;
 
@@ -27,11 +27,6 @@ class Show extends Component
         'search' => ['except' => ''],
         'perPage' => ['except' => '10']
     ];
-
-    public function mount()
-    {
-        $this->checkIfPaid();
-    }
 
     private function generateTxt()
     {
@@ -52,7 +47,8 @@ class Show extends Component
 
     public function checkIfPaid()
     {
-        $this->isPaid = ($this->pensionReport->paid_at !== null) ? true : false;
+        $this->reset('isPaid');
+        $this->isPaid = ($this->pensionReport->paid_at != null) ? \Carbon\Carbon::parse($this->pensionReport->paid_at)->format('d/m/Y') : null;
     }
 
     public function markAsPaid()
@@ -108,6 +104,8 @@ class Show extends Component
 
     public function render()
     {
+        $this->checkIfPaid();
+
         return view('livewire.elder-program.pension.show',[
             'elders' => $this->loadElders()
         ]);

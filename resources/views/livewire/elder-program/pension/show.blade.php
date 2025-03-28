@@ -19,7 +19,7 @@
                     </div>
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                         <label class="block text-md font-bold text-gray-800">Fecha del Pago:</label>
-                        <p class="mt-1 text-gray-900 text-sm">{{ $pensionReport->created_at->format('d/m/Y') }}</p>
+                        <p class="mt-1 text-gray-900 text-sm">{{ $isPaid }}</p>
                     </div>
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                         <label class="block text-md font-bold text-gray-800">Monto Total:</label>
@@ -38,7 +38,7 @@
                             </div>
                             <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                         </div>
-                        
+
                         <div class="mx-4">
                             <x-button-href href="{{ route('elder-program.pension.report',$pensionReport->id) }}" target="_blank"  class="bg-green-600 hover:bg-green-500">
                                 Imprimir Reporte
@@ -50,7 +50,7 @@
                             </x-button-href>
                         </div>
                         <div class="mx-4">
-                            <div x-show="!isPaid">
+                            <div x-show="isPaid == null">
                                 <x-button-href href="#" wire:click='markAsPaid' class="bg-green-600 hover:bg-green-500">
                                     Pagado
                                 </x-button-href>
