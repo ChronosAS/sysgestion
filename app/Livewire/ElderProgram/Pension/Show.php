@@ -17,6 +17,7 @@ class Show extends Component
 
     public PensionReport $pensionReport;
     public $hasTxt;
+    public $isPaid = false;
 
     public $sortField = null;
 
@@ -26,6 +27,11 @@ class Show extends Component
         'search' => ['except' => ''],
         'perPage' => ['except' => '10']
     ];
+
+    public function mount()
+    {
+        $this->checkIfPaid();
+    }
 
     private function generateTxt()
     {
@@ -44,6 +50,11 @@ class Show extends Component
         return Storage::download('reports/'.$this->pensionReport->code.'.txt');
     }
 
+    public function checkIfPaid()
+    {
+        $this->isPaid = ($this->pensionReport->paid_at !== null) ? true : false;
+    }
+
     public function markAsPaid()
     {
         $this->pensionReport->update([
@@ -55,12 +66,21 @@ class Show extends Component
 
     public function sendNotification()
     {
-        #-1002597715087 // Canal Gabriel
-        #-1002637878820 // Pruebas
-        Telegram::sendMessage([
-            'chat_id' => -1002597715087,
-            'text' => 'Hello World'
-        ]);
+        try {
+            #-1002597715087 // Canal Gabriel
+            #-1002637878820 // Pruebas
+            Telegram::sendMessage([
+                'chat_id' => -1002597715087,
+                'text' => 'Se le informa a los miembros del programa abuelos que el reporte de pensiones ha sido pagado.'
+            ]);
+
+            $this->checkIfPaid();
+
+        } catch (\Exception $e) {
+            // Log the exception or handle it as needed
+            session()->flash('flash.banner','Error, mensaje no pudo ser enviado.');
+            session()->flash('flash.bannerStyle','danger');
+        }
     }
 
     public function loadElders()

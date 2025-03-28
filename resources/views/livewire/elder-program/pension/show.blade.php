@@ -1,5 +1,5 @@
 <div>
-    <div class="py-12">
+    <div class="py-12" x-data="{ isPaid: @entangle('isPaid') }">
         <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
             <div class="container mx-auto p-4 ">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Información del Reporte</h2>
@@ -39,10 +39,10 @@
                                 Guardar TXT
                             </x-button-href>
                         </div>
-                        <div class="mx-4" x-data="{ paidAt: @json($pensionReport->paid_at) }">
-                            <div x-show="paidAt == null">
-                                <x-button-href href="#" wire:click='markAsPaid' class="bg-blue-600 hover:bg-blue-500">
-                                    Telegram
+                        <div class="mx-4">
+                            <div x-show="!isPaid">
+                                <x-button-href href="#" wire:click='markAsPaid' class="bg-green-600 hover:bg-blue-500">
+                                    Pagado
                                 </x-button-href>
                             </div>
                         </div>
