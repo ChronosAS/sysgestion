@@ -2,8 +2,13 @@
     <div class="py-12" x-data="{ isPaid: @entangle('isPaid') }">
         <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
             <div class="container mx-auto p-4 ">
+                <div class="mx-4">
+                    <x-button-href href="{{ route('elder-program.pension.index') }}"  class="bg-blue-600 hover:bg-blue-500">
+                        Regresar
+                    </x-button-href>
+                </div>
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Información del Reporte</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                         <label class="block text-md font-bold text-gray-800">Codigo:</label>
                         <p class="mt-1 text-gray-900 text-sm">  {{ $pensionReport->code }}</p>
@@ -11,6 +16,10 @@
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                         <label class="block text-md font-bold text-gray-800">Fecha del Reporte:</label>
                         <p class="mt-1 text-gray-900 text-sm">  {{ $pensionReport->created_at->format('d/m/Y') }}</p>
+                    </div>
+                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                        <label class="block text-md font-bold text-gray-800">Fecha del Pago:</label>
+                        <p class="mt-1 text-gray-900 text-sm">{{ $pensionReport->created_at->format('d/m/Y') }}</p>
                     </div>
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                         <label class="block text-md font-bold text-gray-800">Monto Total:</label>
@@ -29,6 +38,7 @@
                             </div>
                             <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                         </div>
+                        
                         <div class="mx-4">
                             <x-button-href href="{{ route('elder-program.pension.report',$pensionReport->id) }}" target="_blank"  class="bg-green-600 hover:bg-green-500">
                                 Imprimir Reporte
@@ -41,7 +51,7 @@
                         </div>
                         <div class="mx-4">
                             <div x-show="!isPaid">
-                                <x-button-href href="#" wire:click='markAsPaid' class="bg-green-600 hover:bg-blue-500">
+                                <x-button-href href="#" wire:click='markAsPaid' class="bg-green-600 hover:bg-green-500">
                                     Pagado
                                 </x-button-href>
                             </div>

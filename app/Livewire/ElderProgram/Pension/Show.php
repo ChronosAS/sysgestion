@@ -71,7 +71,7 @@ class Show extends Component
             #-1002637878820 // Pruebas
             Telegram::sendMessage([
                 'chat_id' => -1002597715087,
-                'text' => 'Se le informa a los miembros del programa abuelos que el reporte de pensiones ha sido pagado.'
+                'text' => 'Se le informa a los miembros del programa abuelos que la pension ha sido pagada.'
             ]);
 
             $this->checkIfPaid();
