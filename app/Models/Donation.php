@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 
@@ -54,6 +55,11 @@ class Donation extends Model
                 $application->code = 'DM' . Str::padLeft($newCode, 5, '0');
             }
         });
+    }
+
+    public function medicines(): BelongsToMany
+    {
+        return $this->belongsToMany(Medicine::class,'donation_medicines');
     }
 
     public function estado() : BelongsTo

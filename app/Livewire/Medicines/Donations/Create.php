@@ -44,7 +44,8 @@ class Create extends Component
     public $entry_date;
     public $expiration_date;
 
-    public $medicaments = [];
+    public $all_medicines = [];
+    public $donation_medicines = [];
     public $medicine;
 
     public $municipios = [];
@@ -68,18 +69,23 @@ class Create extends Component
             ];
         })->toArray();
 
-        $medicaments = Medicine::all()->map(function($medicine) {
+        $all_medicines = Medicine::all()->map(function($medicine) {
             return [
                 'id' => $medicine->id,
                 'name' => $medicine->name.'('.$medicine->composition_quantity.$medicine->composition->name.')',
             ];
         })->toArray();
 
-        $this->medicaments = $medicaments;
+        $this->all_medicines = $all_medicines;
 
         $this->presentations = PresentationEnum::options();
 
         $this->compositions = CompositionEnum::options();
+    }
+
+    public function addMedicine()
+    {
+
     }
 
     public function searchCitizen()
