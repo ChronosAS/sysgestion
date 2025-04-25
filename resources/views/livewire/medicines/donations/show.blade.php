@@ -1,9 +1,17 @@
 <div>
     <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
-        
+        {{-- <div class="mx-4">
+            <x-button-href href="{{ route('medicines.donations.index') }}"  class="bg-blue-600 hover:bg-blue-500">
+                Regresar
+            </x-button-href>
+        </div> --}}
         <div class="container mx-auto p-4 ">
             <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Información del Donante</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">Código</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Cédula de identidad</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
@@ -29,7 +37,7 @@
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Numero de Telefono</label>
+                    <label class="block text-md font-bold text-gray-800">Numero de Teléfono</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">

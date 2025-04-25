@@ -3,7 +3,7 @@
     <div class="py-12">
         <div class="max-w-[100rem] mx-auto px-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Donaciones de Medicamentos</header>
+                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Solicitud de Medicación</header>
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column  space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -16,8 +16,8 @@
                                     <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                                 </div>
                                 <div class="mx-4">
-                                    <x-button-href href="{{ route('medicines.donations.create') }}"  class="bg-green-600 hover:bg-green-500">
-                                        Registrar Donación
+                                    <x-button-href href=""  class="bg-green-600 hover:bg-green-500">
+                                        Registrar Solicitud
                                     </x-button-href>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                                  --}}
                                     <tr>
                                         <td class="px-6 py-4 text-center text-xl col-span-5  text-black bg-white" colspan="10">
-                                            No hay Donaciones registradas.
+                                            No hay Solicitudes registradas.
                                         </td>
                                     </tr>
                                
