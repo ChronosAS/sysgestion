@@ -33,11 +33,10 @@ class Create extends Component
     public $address;
     public $observation;
 
-    public $comercial_name;
+    public $name;
     public $presentation;
     public $active_component;
     public $composition_quantity;
-    public $composition_unit;
     public $composition;
     public $laboratory;
     public $stock;
@@ -85,7 +84,26 @@ class Create extends Component
 
     public function addMedicine()
     {
+        if($this->newMed){
+            $this->fill(Medicine::find($this->medicine));
+        }
 
+        $this->donation_medicines[] = [
+            'name' => $this->name,
+            'presentation' => PresentationEnum::from($this->presentation),
+            'active_component' => $this->active_component,
+            'composition_quantity' => $this->composition_quantity,
+            'composition' => $this->composition,
+            'laboratory' => $this->laboratory,
+            'stock' => $this->stock,
+            'entry_date' => $this->entry_date,
+            'expiration_date' => $this->expiration_date,
+        ];
+    }
+
+    public function save()
+    {
+        dd($this->donation_medicines);
     }
 
     public function searchCitizen()

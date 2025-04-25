@@ -131,7 +131,7 @@
                         <x-input-error class="text-xs" for="medicine"/>
                     </div>
                     <div class="mt-10 w-full px-1 sm:w-[150px] break-words">
-                        <x-button class=" text-white  bg-green-600 hover:bg-green-500 ">
+                        <x-button type="button" wire:click='addMedicine' class=" text-white  bg-green-600 hover:bg-green-500 ">
                             <p>Agregar <br/> Medicamento</p>
                         </x-button>
                     </div>
@@ -158,9 +158,9 @@
                         <x-input-error class="text-xs" for="active_component"/>
                     </div>
                     <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-[250px]">
-                        <x-label for="composition_unit" value="Cantidad (Composición)" />
+                        <x-label for="composition" value="Cantidad (Composición)" />
                         <div class="flex items-center">
-                            <x-input id="composition_unit" wire:model='composition_unit' class="block mt-1 w-full truncate" type="text" name="composition_unit" autocomplete="composition_unit" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                            <x-input id="composition_quantity" wire:model='composition_quantity' class="block mt-1 w-full truncate" type="text" name="composition_quantity" autocomplete="composition_quantity" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
                             <select wire:model='composition' id="composition" name="composition" class="cursor-pointer rounded-r mt-1 ml-0 block w-1/2 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-center">
                                 @foreach ($compositions as $value => $name)
                                     <option value="{{ $value }}" class="text-center">{{ $name }}</option>
@@ -220,25 +220,31 @@
                                 @forelse ($donation_medicines as $medicine)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $medicine->first_names }}</div>
+                                            <div class="text-sm text-gray-900">{{ $medicine['name'] }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $medicine->last_names }}</div>
+                                            <div class="text-sm text-gray-900">{{ $medicine['composition_quantity'].$medicine['composition'] }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $medicine->relation }}</div>
+                                            <div class="text-sm text-gray-900">{{ $medicine['presentation']->label() }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $medicine->document }}</div>
+                                            <div class="text-sm text-gray-900">{{ $medicine['laboratory'] }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $medicine->age }}</div>
+                                            <div class="text-sm text-gray-900">{{ $medicine['stock'] }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">{{ $medicine['entry_date'] }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">{{ $medicine['expiration_date'] }}</div>
                                         </td>
                                     </tr>
                                 @empty
                                 <tr>
                                     <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
-                                        No hay familiares registrados.
+                                        No hay Medicamentos.
                                     </td>
                                 </tr>
                                 @endforelse
