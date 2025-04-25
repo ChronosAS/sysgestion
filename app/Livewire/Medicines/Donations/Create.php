@@ -84,6 +84,29 @@ class Create extends Component
 
     public function addMedicine()
     {
+        $this->validate([
+            'name' => 'required',
+            'presentation' => 'required',
+            'active_component' => 'required',
+            'composition_quantity' => 'required|numeric',
+            'composition' => 'required',
+            'laboratory' => 'required',
+            'stock' => 'required|numeric',
+            'entry_date' => 'required|date',
+            'expiration_date' => 'required|date|after:entry_date',
+        ],[
+            'name.required' => 'Ingrese nombre del medicamento',
+            'presentation.required' => 'Seleccione presentación',
+            'active_component.required' => 'Ingrese componente activo',
+            'composition_quantity.required' => 'Ingrese cantidad de composición',
+            'composition.required' => 'Seleccione composición',
+            'laboratory.required' => 'Ingrese laboratorio',
+            'stock.required' => 'Ingrese stock',
+            'entry_date.required' => 'Ingrese fecha de entrada',
+            'expiration_date.required' => 'Ingrese fecha de vencimiento',
+            'expiration_date.after' => 'La fecha de vencimiento debe ser posterior a la fecha de entrada'
+        ]);
+
         if($this->newMed){
             $this->fill(Medicine::find($this->medicine));
         }
@@ -99,6 +122,12 @@ class Create extends Component
             'entry_date' => $this->entry_date,
             'expiration_date' => $this->expiration_date,
         ];
+    }
+
+    public function removeMedicine($index)
+    {
+        unset($this->donation_medicines[$index]);
+        $this->donation_medicines = array_values($this->donation_medicines);
     }
 
     public function save()
