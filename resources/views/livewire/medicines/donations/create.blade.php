@@ -125,15 +125,12 @@
                     <div class="mt-8 w-full px-3 sm:w-3/1">
                         <p class="block font-medium text-2xl text-gray-900">Medicamentos</p>
                     </div>
-                    <x-toggle label="Buscar medicamento" name="newMed"/>
+                    <div class="mt-5 w-full px-3 sm:w-4/1">
+                        <x-toggle label="Buscar medicamento" name="newMed"/>
+                    </div>
                     <div x-show="newMed" class="mt-5 w-full z-50 px-3 sm:w-1/4">
                         <x-search-select wire:ignore name="medicine" label="Seleccionar Medicamento" :options="$all_medicines" placeholder="Seleccione un medicamento"/>
                         <x-input-error class="text-xs" for="medicine"/>
-                    </div>
-                    <div class="mt-10 w-full px-1 sm:w-[150px] break-words">
-                        <x-button type="button" wire:click='addMedicine' class=" text-white  bg-green-600 hover:bg-green-500 ">
-                            <p>Agregar <br/> Medicamento</p>
-                        </x-button>
                     </div>
                     <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="name" value="Nombre Comercial" />
@@ -188,6 +185,11 @@
                         <x-label for="expiration_date" value="Fecha de Vencimiento" />
                         <x-input id="expiration_date" wire:model='expiration_date' class="block mt-1 w-full truncate" type="date" name="expiration_date" :value="old('expiration_date')" autocomplete="expiration_date" />
                         <x-input-error class="text-xs" for="expiration_date"/>
+                    </div>
+                    <div class="mt-10 w-full px-1 sm:w-[150px] break-words">
+                        <x-button type="button" wire:click='addMedicine' class=" text-white  bg-green-600 hover:bg-green-500 ">
+                            <p>Agregar <br/> Medicamento</p>
+                        </x-button>
                     </div>
                     <div class="mt-5 w-full px-3">
                         <table class="min-w-full bg-white rounded-lg shadow-md border border-blue-700 ">
