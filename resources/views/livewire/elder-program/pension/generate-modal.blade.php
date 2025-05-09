@@ -18,7 +18,7 @@
                         {{ $total_elders }}
                     </div>
                     <div class="mt-4">
-                        <x-label for="total_elders" value="Monto Tolal" />
+                        <x-label for="total_elders" value="Monto Total"  />
                         {{ $total }}Bs
                     </div>
                 </div>

@@ -203,14 +203,14 @@
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_income" value="Ingreso Familiar" class="text-black"/>
                         <div>
-                            <x-input id="family_monthly_income" wire:model='family_monthly_income' class="block mt-1 w-full truncate" type="text" name="family_monthly_income" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
+                            <x-input id="family_monthly_income" placeholder="0.00" wire:model='family_monthly_income' class="block mt-1 w-full truncate text-center" type="text" name="family_monthly_income" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
                             <x-input-error class="text-xs" for="family_monthly_income"/>
                         </div>
                     </div>
                     <div class=" mt-5 w-full px-3 sm:w-1/2">
                         <x-label for="family_monthly_expenses" value="Egreso Familiar" class="text-black"/>
                         <div>
-                            <x-input id="family_monthly_expenses" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate" type="text" name="family_monthly_expenses" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
+                            <x-input id="family_monthly_expenses" placeholder="0.00" wire:model='family_monthly_expenses' class="block mt-1 w-full truncate text-center" type="text" name="family_monthly_expenses" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
                             <x-input-error class="text-xs" for="family_monthly_expenses"/>
                         </div>
                     </div>
