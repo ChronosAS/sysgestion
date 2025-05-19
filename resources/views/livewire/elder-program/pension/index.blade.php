@@ -79,7 +79,7 @@
                             </thead>
                             <tbody>
                                 @forelse ($reports as $index => $report)
-                                    <tr class="bg-white">
+                                    <tr class="bg-white border-b">
                                         <td class="px-6 py-4 text-gray-900 text-center">
                                             <a href="{{ route('elder-program.pension.show', $report->code) }}" class="text-blue-600 hover:underline hover:text-blue-800">
                                                 {{ $report->code }}
