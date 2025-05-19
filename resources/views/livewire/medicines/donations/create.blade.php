@@ -69,17 +69,17 @@
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="estado" value="Estado" class="block text-sm font-medium text-black"/>
-                        <div x-show="!citizenExists">
+                        <div {{-- x-show="!citizenExists" --}}>
                             <x-search-select wire:ignore name="estado" :options="$states" />
                             <x-input-error class="text-xs" for="estado"/>
                         </div>
-                        <div x-show="citizenExists">
+                        <div {{-- x-show="citizenExists" --}}>
                             <h1>{{ $citizen?->estado->estado }}</h1>
                         </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="municipio" value="Municipio" class="block text-black"/>
-                        <div x-show="!citizenExists">
+                        <div {{-- x-show="!citizenExists" --}}>
                             <select wire:model.live='municipio' id="municipio" name="municipio" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center">Seleccionar</option>
                                 @foreach ($municipios as $value => $name)
@@ -88,13 +88,13 @@
                             </select>
                             <x-input-error class="text-xs" for="municipio"/>
                         </div>
-                        <div x-show="citizenExists">
+                        <div {{-- x-show="citizenExists" --}}>
                             <h1>{{ $citizen?->municipio->municipio }}</h1>
                         </div>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="parroquia" value="Parroquia" class="block text-black"/>
-                        <div x-show="!citizenExists">
+                        <div {{-- x-show="!citizenExists" --}}>
                             <select wire:model='parroquia' id="parroquia" name="parroquia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
                                 <option value="#" class="text-center">Seleccionar</option>
                                 @foreach ($parroquias as $value => $name)
@@ -103,7 +103,7 @@
                             </select>
                             <x-input-error class="text-xs" for="parroquia"/>
                         </div>
-                        <div x-show="citizenExists">
+                        <div {{-- x-show="citizenExists" --}}>
                             <h1>{{ $citizen?->parroquia->parroquia }}</h1>
                         </div>
                     </div>
@@ -125,19 +125,19 @@
                     <div class="mt-8 w-full px-3 sm:w-3/1">
                         <p class="block font-medium text-2xl text-gray-900">Medicamentos</p>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-4/1">
+                    {{-- <div class="mt-5 w-full px-3 sm:w-4/1">
                         <x-toggle label="Buscar medicamento" name="newMed"/>
-                    </div>
-                    <div x-show="newMed" class="mt-5 w-full z-50 px-3 sm:w-1/4">
+                    </div> --}}
+                    {{-- <div x-show="newMed" class="mt-5 w-full z-50 px-3 sm:w-1/4">
                         <x-search-select wire:ignore name="medicine" label="Seleccionar Medicamento" :options="$all_medicines" placeholder="Seleccione un medicamento"/>
                         <x-input-error class="text-xs" for="medicine"/>
-                    </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/4">
+                    </div> --}}
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="name" value="Nombre Comercial" />
                         <x-input id="name" wire:model='name' class="block mt-1 w-full truncate" type="text" name="name" :value="old('name')" autocomplete="name" />
                         <x-input-error class="text-xs" for="name"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/4">
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-1/4">
                         <label for="presentation" class="block text-sm font-medium text-gray-900">Presentación(Composición)</label>
                         <div class="flex items-center">
                             <select wire:model='presentation' id="presentation" name="presentation" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-center">
@@ -149,12 +149,12 @@
                         </div>
                         <x-input-error class="text-xs" for="presentation"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/4">
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="active_component" value="Componente Activo" />
                         <x-input id="active_component" wire:model='active_component' class="block mt-1 w-full truncate" type="text" name="active_component" :value="old('active_component')" autocomplete="active_component" />
                         <x-input-error class="text-xs" for="active_component"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-[250px]">
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-[250px]">
                         <x-label for="composition" value="Cantidad (Composición)" />
                         <div class="flex items-center">
                             <x-input id="composition_quantity" wire:model='composition_quantity' class="block mt-1 w-full truncate" type="text" name="composition_quantity" autocomplete="composition_quantity" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
@@ -166,22 +166,22 @@
                         </div>
                         <x-input-error class="text-xs" for="composition"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-[27.50%]">
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-[27.50%]">
                         <x-label for="laboratory" value="Laboratorio" />
                         <x-input id="laboratory" wire:model='laboratory' class="block mt-1 w-full truncate" type="text" name="laboratory" :value="old('laboratory')" autocomplete="laboratory" />
                         <x-input-error class="text-xs" for="laboratory"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-[190px]">
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-[190px]">
                         <x-label for="stock" value="Unidades" />
                         <x-input id="stock" wire:model='stock' class="block mt-1 w-full truncate" type="number" name="stock" :value="old('stock')" autocomplete="stock" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                         <x-input-error class="text-xs" for="stock"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/6">
+                    <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="entry_date" value="Fecha de Ingreso" />
                         <x-input id="entry_date" wire:model='entry_date' class="block mt-1 w-full truncate" type="date" name="entry_date" :value="old('entry_date')" autocomplete="entry_date" />
                         <x-input-error class="text-xs" for="entry_date"/>
                     </div>
-                    <div x-show="!newMed" class="mt-5 w-full px-3 sm:w-1/6">
+                    <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="expiration_date" value="Fecha de Vencimiento" />
                         <x-input id="expiration_date" wire:model='expiration_date' class="block mt-1 w-full truncate" type="date" name="expiration_date" :value="old('expiration_date')" autocomplete="expiration_date" />
                         <x-input-error class="text-xs" for="expiration_date"/>
@@ -199,7 +199,7 @@
                                         Nombre Comercial
                                     </th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                        Cantidad(Composición)
+                                        Cantidad (Composición)
                                     </th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                         Presentación
@@ -250,7 +250,6 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
                                                     <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
                                                 </svg>
-
                                             </button>
                                         </td>
                                     </tr>

@@ -37,7 +37,7 @@ class Create extends Component
     public $presentation;
     public $active_component;
     public $composition_quantity;
-    public $composition;
+    public $composition = 'mg';
     public $laboratory;
     public $stock;
     public $entry_date;
@@ -72,6 +72,7 @@ class Create extends Component
             return [
                 'id' => $medicine->id,
                 'name' => $medicine->name.'('.$medicine->composition_quantity.$medicine->composition->name.')',
+                'laboratory' => $medicine->laboratory,
             ];
         })->toArray();
 
@@ -84,32 +85,36 @@ class Create extends Component
 
     public function addMedicine()
     {
-        $this->validate([
-            'name' => 'required',
-            'presentation' => 'required',
-            'active_component' => 'required',
-            'composition_quantity' => 'required|numeric',
-            'composition' => 'required',
-            'laboratory' => 'required',
-            'stock' => 'required|numeric',
-            'entry_date' => 'required|date',
-            'expiration_date' => 'required|date|after:entry_date',
-        ],[
-            'name.required' => 'Ingrese nombre del medicamento',
-            'presentation.required' => 'Seleccione presentación',
-            'active_component.required' => 'Ingrese componente activo',
-            'composition_quantity.required' => 'Ingrese cantidad de composición',
-            'composition.required' => 'Seleccione composición',
-            'laboratory.required' => 'Ingrese laboratorio',
-            'stock.required' => 'Ingrese stock',
-            'entry_date.required' => 'Ingrese fecha de entrada',
-            'expiration_date.required' => 'Ingrese fecha de vencimiento',
-            'expiration_date.after' => 'La fecha de vencimiento debe ser posterior a la fecha de entrada'
-        ]);
+        if(!$this->newMed){
 
-        if($this->newMed){
+            $this->validate([
+                'name' => 'required',
+                'presentation' => 'required',
+                'active_component' => 'required',
+                'composition_quantity' => 'required|numeric',
+                'composition' => 'required',
+                'laboratory' => 'required',
+                'stock' => 'required|numeric',
+                'entry_date' => 'required|date',
+                'expiration_date' => 'required|date|after:entry_date',
+            ],[
+                'name.required' => 'Ingrese nombre del medicamento',
+                'presentation.required' => 'Seleccione presentación',
+                'active_component.required' => 'Ingrese componente activo',
+                'composition_quantity.required' => 'Ingrese cantidad de composición',
+                'composition.required' => 'Seleccione composición',
+                'laboratory.required' => 'Ingrese laboratorio',
+                'stock.required' => 'Ingrese stock',
+                'entry_date.required' => 'Ingrese fecha de entrada',
+                'expiration_date.required' => 'Ingrese fecha de vencimiento',
+                'expiration_date.after' => 'La fecha de vencimiento debe ser posterior a la fecha de entrada'
+            ]);
+
+        }else{
+
             $this->fill(Medicine::find($this->medicine));
         }
+
 
         $this->donation_medicines[] = [
             'name' => $this->name,
@@ -137,7 +142,7 @@ class Create extends Component
 
     public function searchCitizen()
     {
-        $this->reset('citizen','first_names','last_names','civil_status','phone_number','phone_number_2','address','dob','citizenExists');
+        $this->clearSearch();
 
         $this->validate(['document' => 'required'],[
         'document.required' => 'Ingrese cédula para busqueda'
