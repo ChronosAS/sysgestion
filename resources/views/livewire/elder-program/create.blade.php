@@ -9,7 +9,7 @@
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label for="document" value="Cédula de Identidad " class="text-black " />
                         <div class="flex items-center">
-                            <x-input id="document" wire:model='document' class="block mt-1 w-full truncate rounded-none rounded-l-md disabled:text-slate-400" type="text" name="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');" x-bind:disabled="citizenExists" />
+                            <x-input id="document" wire:model='document' placeholder="e.j. 01234567" class="text-center block mt-1 w-full truncate rounded-none rounded-l-md disabled:text-slate-400" type="text" name="document" oninput="this.value = this.value.replace(/[^0-9]/g, '');" x-bind:disabled="citizenExists" />
                             <button x-show="!citizenExists" @click='$wire.searchCitizen' type="button" class="p-[9px] mt-1 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-none rounded-r-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -68,7 +68,7 @@
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="email" value="Correo Electrónico" class="text-black " />
                         <div x-show="!citizenExists">
-                            <x-input id="email" wire:model='email' class="block mt-1 w-full truncate" type="text" name="email"  />
+                            <x-input id="email" wire:model='email' placeholder="e.j. correo@electronico.com" class="block mt-1 w-full truncate text-center" type="text" name="email"  />
                             <x-input-error class="text-xs" for="email"/>
                         </div>
                         <div x-show="citizenExists">
@@ -78,7 +78,7 @@
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="phone_number" value="Teléfono" class="text-black " />
                         <div x-show="!citizenExists">
-                            <x-input id="phone_number" wire:model='phone_number' class="block mt-1 w-full truncate" type="text" name="phone_number"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');"/>
+                            <x-input id="phone_number" wire:model='phone_number' placeholder="" class="block mt-1 w-full truncate" type="text" name="phone_number"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');"/>
                             <x-input-error class="text-xs" for="phone_number"/>
                         </div>
                         <div x-show="citizenExists">
@@ -88,7 +88,7 @@
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="phone_number_2" value="Teléfono 2" class="text-black " />
                         <div x-show="!citizenExists">
-                            <x-input id="phone_number_2" wire:model='phone_number_2' class="block mt-1 w-full truncate" type="text" name="phone_number_2"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');"/>
+                            <x-input id="phone_number_2" wire:model='phone_number_2' placeholder="" class="block mt-1 w-full truncate" type="text" name="phone_number_2"   oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');"/>
                             <x-input-error class="text-xs" for="phone_number_2"/>
                         </div>
                         <div x-show="citizenExists">
@@ -176,7 +176,7 @@
                     <div class=" mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="account_number" value="Número de Cuenta" class="text-black" />
                         <div>
-                            <x-input id="account_number" wire:model='account_number' class="block mt-1 w-full truncate" type="text" name="account_number" maxlength="20" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                            <x-input id="account_number" placeholder="e.j. 01234567890123456789" wire:model='account_number' class="block mt-1 w-full truncate text-center" type="text" name="account_number" maxlength="20" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                             <x-input-error class="text-xs" for="account_number"/>
                         </div>
                     </div>
