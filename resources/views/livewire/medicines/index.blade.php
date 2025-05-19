@@ -125,7 +125,7 @@
                                         <td class="px-6 py-4 text-gray-900">
                                             {{ \Carbon\Carbon::parse($medicine->entry_date)->format('d-m-Y') }}
                                         </td>
-                                        <td class="px-6 py-4 text-gray-900">
+                                        <td class="px-6 py-4 {{ \Carbon\Carbon::parse($medicine->expiration_date)->isAfter(now()) ? 'text-green-500' : 'text-red-500' }}">
                                             {{ \Carbon\Carbon::parse($medicine->expiration_date)->format('d-m-Y') }}
                                         </td>
                                         <td class="px-6 py-4 text-gray-900">
