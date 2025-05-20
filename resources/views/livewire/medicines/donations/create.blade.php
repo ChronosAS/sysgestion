@@ -54,9 +54,9 @@
                         <x-input-error class="text-xs" for="phone_number"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="grade" value="Grado de Instrucción" class="text-black" />
-                        <x-input id="grade" wire:model='grade' class="block mt-1 w-full truncate" type="text" name="grade" :value="old('grade')" autocomplete="grade" />
-                        <x-input-error class="text-xs" for="grade"/>
+                        <x-label for="education_level" value="Grado de Instrucción" class="text-black" />
+                        <x-input id="education_level" wire:model='education_level' class="block mt-1 w-full truncate" type="text" name="education_level" :value="old('education_level')" autocomplete="education_level" />
+                        <x-input-error class="text-xs" for="education_level"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="civil_status" value="Edo. Civil" class="block text-sm font-medium text-black"/>
@@ -66,6 +66,7 @@
                             <option>Divorciado</option>
                             <option>Viudo</option>
                         </select>
+                        <x-input-error class="text-xs" for="civil_status"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/4">
                         <x-label for="estado" value="Estado" class="block text-sm font-medium text-black"/>

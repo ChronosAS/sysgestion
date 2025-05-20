@@ -123,7 +123,7 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="md:text-xs 2xl:text-sm xl:text-[10.5px] text-sm font-black">
+                            <tbody class="md:text-xs 2xl:text-sm xl:text-xs text-sm font-black">
                                 @forelse( $elders as $elder)
                                     <tr class="bg-white border-b">
                                         <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
