@@ -53,11 +53,6 @@
                         <x-input id="phone_number" wire:model='phone_number' class="block mt-1 w-full truncate" type="text" name="phone_number" :value="old('phone_number')" autocomplete="phone_number" oninput="this.value = this.value.replace(/[^0-9+\- ]/g, '');" />
                         <x-input-error class="text-xs" for="phone_number"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="education_level" value="Grado de Instrucción" class="text-black" />
-                        <x-input id="education_level" wire:model='education_level' class="block mt-1 w-full truncate" type="text" name="education_level" :value="old('education_level')" autocomplete="education_level" />
-                        <x-input-error class="text-xs" for="education_level"/>
-                    </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="civil_status" value="Edo. Civil" class="block text-sm font-medium text-black"/>
                         <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
@@ -68,8 +63,13 @@
                         </select>
                         <x-input-error class="text-xs" for="civil_status"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="estado" value="Estado" class="block text-sm font-medium text-black"/>
+                    <div class="mt-5 w-full px-3 sm:w-1/6">
+                        <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
+                        <x-input id="dob" wire:model='dob' class="block mt-1 w-full" type="date" name="dob" :value="old('dob')" autocomplete="dob" />
+                        <x-input-error class="text-xs" for="dob"/>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/3">
+                        <x-label for="estado" value="Estado" class="block text-sm text-center font-medium text-black"/>
                         <div {{-- x-show="!citizenExists" --}}>
                             <x-search-select wire:ignore name="estado" :options="$states" />
                             <x-input-error class="text-xs" for="estado"/>
@@ -107,11 +107,6 @@
                         <div {{-- x-show="citizenExists" --}}>
                             <h1>{{ $citizen?->parroquia->parroquia }}</h1>
                         </div>
-                    </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
-                        <x-input id="dob" wire:model='dob' class="block mt-1 w-full" type="date" name="dob" :value="old('dob')" autocomplete="dob" />
-                        <x-input-error class="text-xs" for="dob"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-2/4">
                         <x-label for="address" value="Dirección" class="text-black"/>
