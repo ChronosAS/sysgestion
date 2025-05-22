@@ -23,67 +23,79 @@
                             </div>
                         </div>
                         <table class="w-full border border-blue-700  text-center  text-white">
-                            <thead class="md:text-xs 2xl:text-sm xl:text-[10.5px] text-sm  font-semibold text-white uppercase bg-blue-800 ">
+                            <thead class="md:text-xs 2xl:text-sm xl:text-[11px] text-sm  text-center font-semibold  text-white uppercase bg-blue-800">
                                 <tr class="">
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex   items-center ">
                                             Código
-                                            <a href="#" wire:click.prevent="sortBy('code')" ><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-10 py-3 ">
-                                        <div class="flex   items-center">
-                                            Cédula 
-                                            <a href="#" wire:click.prevent="sortBy('code')" ><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-10 py-3 ">
-                                        <div class="flex text-wrap  items-center ">
-                                            Nombres y Apellidos
-                                            <a href="#" wire:click.prevent="sortBy('total_elders')">
-                                                <svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
+                                            <a href="#" wire:click.prevent="sortBy('code')" >
+                                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
                                                 </svg>
                                             </a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
+                                        <div class="flex   items-center">
+                                            Cédula 
+                                            <a href="#" wire:click.prevent="sortBy('code')" >
+                                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
+                                        <div class="flex text-wrap  items-center ">
+                                            Nombres y Apellidos
+                                            <a href="#" wire:click.prevent="sortBy('total_elders')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Edad
-                                            <a href="#" wire:click.prevent="sortBy('amount')"><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
+                                            <a href="#" wire:click.prevent="sortBy('amount')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Teléfono
-                                            <a href="#" wire:click.prevent="sortBy('total')"><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
+                                            <a href="#" wire:click.prevent="sortBy('total')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Correo Electrónico
-                                            <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
+                                            <a href="#" wire:click.prevent="sortBy('created_at')">     
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Dirección
-                                            <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
+                                            <a href="#" wire:click.prevent="sortBy('created_at')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
                                         </div>
                                     </th>
-                                    {{-- <th scope="col" class="px-10 py-3 ">
+                                    {{-- <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Municipio
                                             <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -91,12 +103,14 @@
                                                 </svg></a>
                                         </div>
                                     </th> --}}
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Fecha de Registro
-                                            <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="2xl:w-3 2xl:h-3 xl:w-2 xl:h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                                </svg></a>
+                                            <a href="#" wire:click.prevent="sortBy('created_at')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
                                         </div>
                                     </th>
                                 </tr>
@@ -163,7 +177,7 @@
                         <table class="w-full border border-blue-700  text-center  text-white">
                             <thead class="text-sm font-semibold  text-white uppercase bg-blue-800 ">
                                 <tr class="flex justify-around space-x-4">
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex   items-center">
                                             Código
                                             <a href="#" wire:click.prevent="sortBy('code')" ><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -171,7 +185,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex text-wrap  items-center ">
                                             Descripción
                                             <a href="#" wire:click.prevent="sortBy('total_elders')">
@@ -181,7 +195,7 @@
                                             </a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Presentación
                                             <a href="#" wire:click.prevent="sortBy('amount')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -189,7 +203,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Componente Activo
                                             <a href="#" wire:click.prevent="sortBy('total')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -197,7 +211,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Uso
                                             <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -205,7 +219,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Fecha de Vencimiento
                                             <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -213,7 +227,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Laboratorio
                                             <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -221,7 +235,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Cantidad (Composición)
                                             <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -229,7 +243,7 @@
                                                 </svg></a>
                                         </div>
                                     </th>
-                                    <th scope="col" class="px-10 py-3 ">
+                                    <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Unidades Disponibles
                                             <a href="#" wire:click.prevent="sortBy('created_at')"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
