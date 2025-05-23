@@ -6,7 +6,6 @@ use App\Enum\Citizens\CivilStatusEnum;
 use App\Enum\GenderEnum;
 use App\Enum\Medicines\CompositionEnum;
 use App\Enum\Medicines\PresentationEnum;
-use App\Livewire\ElderProgram\ValidationRules;
 use App\Models\Citizen;
 use App\Models\Donation;
 use App\Models\Estado;
@@ -19,7 +18,6 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class Create extends Component
 {
-    use ValidationRules;
 
     public Citizen $citizen;
 
