@@ -30,6 +30,19 @@ class Donation extends Model
         'parroquia_id'
     ];
 
+    public function scopeSearch($query,$term)
+    {
+        return $query->where('code','like','%'.$term.'%')
+            ->orWhere('donor_document','like','%'.$term.'%')
+            ->orWhere('donor_name','like','%'.$term.'%')
+            ->orWhere('donor_email','like','%'.$term.'%')
+            ->orWhere('donor_phone_number','like','%'.$term.'%')
+            ->orWhere('donor_address','like','%'.$term.'%')
+            ->orWhere('donor_civil_status','like','%'.$term.'%')
+            ->orWhere('donor_dob','like','%'.$term.'%')
+            ->orWhere('created_at','like','%'.$term.'%');
+    }
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()

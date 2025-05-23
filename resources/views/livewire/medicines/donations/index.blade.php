@@ -37,7 +37,7 @@
                                     </th>
                                     <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex   items-center">
-                                            Cédula 
+                                            Cédula
                                             <a href="#" wire:click.prevent="sortBy('code')" >
                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
@@ -78,7 +78,7 @@
                                     <th scope="col" class="2xl:px-10 xl:px-9 py-3">
                                         <div class="flex    items-center ">
                                             Correo Electrónico
-                                            <a href="#" wire:click.prevent="sortBy('created_at')">     
+                                            <a href="#" wire:click.prevent="sortBy('created_at')">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
                                                 </svg>
@@ -116,33 +116,43 @@
                                 </tr>
                             </thead>
                             <tbody class=" items-center">
-                                {{--  ( $reports as $index => $report)
-                                <tr class="bg-white border-b  flex justify-between">
-                                    <th scope="row" class=" px-6 py-4 text-gray-900 ">
-                                        <a href="{{ route('elder-program.pension.show',$report->code) }}"  class="text-blue-600 hover:underline hover:text-blue-800">
-                                            {{ $report->code }}
-                                        </a>
-                                    </th>
-                                    <td class=" px-6 py-4 text-gray-900">
-                                        {{ $report->total_elders }}
-                                    </td>
-                                    <td class=" px-6 py-4 text-gray-900">
-                                        {{ $report->amount }} Bs
-                                    </td>
-                                    <td class=" px-6 py-4 text-gray-900">
-                                        {{ $report->total }} Bs
-                                    </td>
-                                    <td class=" px-6 py-4 text-gray-900">
-                                        {{ $report->created_at->format('d/m/Y') }}
-                                    </td>
-                                </tr>
-                                 --}}
+                                @forelse( $donations as $index => $donation)
+                                    <tr class="bg-white border-b  flex justify-between">
+                                        <th scope="row" class=" px-6 py-4 text-gray-900 ">
+                                            <a href="#"  class="text-blue-600 hover:underline hover:text-blue-800">
+                                                {{ $donation->code }}
+                                            </a>
+                                        </th>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ $donation->donor_document }}
+                                        </td>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ $donation->donor_name }}
+                                        </td>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ \Carbon\Carbon::parse($donation->donor_dob)->age }}
+                                        </td>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ $donation->donor_phone_number }}
+                                        </td>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ $donation->donor_email }}
+                                        </td>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ $donation->donor_address }}
+                                        </td>
+                                        <td class=" px-6 py-4 text-gray-900">
+                                            {{ $donation->created_at->format('d/m/Y') }}
+                                        </td>
+                                    </tr>
+                                    @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-5  text-black bg-white" colspan="10">
+                                        <td class="px-6 py-4 text-center text-xl col-span-8  text-black bg-white" colspan="8">
                                             No hay Donaciones registradas.
                                         </td>
                                     </tr>
-                               
+                                @endforelse
+
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
@@ -274,20 +284,20 @@
                                         {{ $report->created_at->format('d/m/Y') }}
                                     </td>
                                 </tr>
-                                 
+
                                     <tr>
                                         <td class="px-6 py-4 text-center text-xl col-span-5  text-black bg-white" colspan="10">
                                             No hay Medicamentos registrados.
                                         </td>
                                     </tr>
-                               
+
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
                             {{ $reports->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }} -
                         </div>
                     </div>
-                    {{-- <livewire:elder-program.pension.generate-modal 
+                    {{-- <livewire:elder-program.pension.generate-modal
                 </div>
             </div>
         </div> --}}
