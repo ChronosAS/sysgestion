@@ -115,39 +115,39 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class=" items-center">
+                            <tbody class=" items-center md:text-xs 2xl:text-sm xl:text-xs text-sm font-black">
                                 @forelse( $donations as $index => $donation)
-                                    <tr class="bg-white border-b  flex justify-between">
-                                        <th scope="row" class=" px-6 py-4 text-gray-900 ">
+                                    <tr class="bg-white border-b break-words">
+                                        <th scope="row" class=" px-5 py-4 text-gray-900 ">
                                             <a href="#"  class="text-blue-600 hover:underline hover:text-blue-800">
                                                 {{ $donation->code }}
                                             </a>
                                         </th>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900  break-words min-w-0 max-w-[5rem]" >
                                             {{ $donation->donor_document }}
                                         </td>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900  break-words min-w-0 max-w-[5rem]">
                                             {{ $donation->donor_name }}
                                         </td>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900 break-words min-w-0 max-w-[5rem]">
                                             {{ \Carbon\Carbon::parse($donation->donor_dob)->age }}
                                         </td>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900 break-words min-w-0 max-w-[5rem]">
                                             {{ $donation->donor_phone_number }}
                                         </td>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900 break-words min-w-0 max-w-[5rem]">
                                             {{ $donation->donor_email }}
                                         </td>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900 break-words min-w-0 max-w-[5rem]">
                                             {{ $donation->donor_address }}
                                         </td>
-                                        <td class=" px-6 py-4 text-gray-900">
+                                        <td class=" px-5 py-4 text-gray-900">
                                             {{ $donation->created_at->format('d/m/Y') }}
                                         </td>
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-8  text-black bg-white" colspan="9">
+                                        <td class="px-2 py-4 text-center text-xl col-span-8  text-black bg-white" colspan="9">
                                             No hay Donaciones registradas.
                                         </td>
                                     </tr>
