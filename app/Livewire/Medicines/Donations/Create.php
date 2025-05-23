@@ -282,6 +282,7 @@ class Create extends Component
         return view('livewire.medicines.donations.create', [
             'states' => $this->states,
             'genders' => $this->genders,
+            'civil_statuses' => CivilStatusEnum::options(),
         ]);
     }
 }

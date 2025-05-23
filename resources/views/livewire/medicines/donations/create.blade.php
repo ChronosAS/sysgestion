@@ -56,10 +56,9 @@
                     <div class="mt-5 w-full px-3 sm:w-1/6">
                         <x-label for="civil_status" value="Edo. Civil" class="block text-sm font-medium text-black"/>
                         <select wire:model='civil_status' id="civil_status" name="civil_status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base cursor-pointer border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md text-center">
-                            <option>Casado</option>
-                            <option>Soltero</option>
-                            <option>Divorciado</option>
-                            <option>Viudo</option>
+                            @foreach ($civil_statuses as $value => $name)
+                                <option value="{{ $value }}" class="text-center">{{ $name }}</option>
+                            @endforeach
                         </select>
                         <x-input-error class="text-xs" for="civil_status"/>
                     </div>
