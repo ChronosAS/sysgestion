@@ -120,6 +120,7 @@
                     </div>
                     <div class="mt-8 w-full px-3 sm:w-3/1">
                         <p class="block font-medium text-2xl text-gray-900">Medicamentos</p>
+                        <x-input-error class="text-xs" for="donation_medicines"/>
                     </div>
                     {{-- <div class="mt-5 w-full px-3 sm:w-4/1">
                         <x-toggle label="Buscar medicamento" name="newMed"/>
@@ -161,6 +162,7 @@
                             </select>
                         </div>
                         <x-input-error class="text-xs" for="composition"/>
+                        <x-input-error class="text-xs" for="composition_quantity"/>
                     </div>
                     <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-[27.50%]">
                         <x-label for="laboratory" value="Laboratorio" />

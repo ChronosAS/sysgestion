@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('estado_id')->nullable();
             $table->integer('municipio_id')->nullable();
             $table->integer('parroquia_id')->nullable();
+            $table->string('observations',300)->nullable();
             $table->timestamps();
         });
     }

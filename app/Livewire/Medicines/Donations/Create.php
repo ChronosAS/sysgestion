@@ -8,6 +8,7 @@ use App\Enum\Medicines\CompositionEnum;
 use App\Enum\Medicines\PresentationEnum;
 use App\Livewire\ElderProgram\ValidationRules;
 use App\Models\Citizen;
+use App\Models\Donation;
 use App\Models\Estado;
 use App\Models\Medicine;
 use App\Models\Municipio;
@@ -143,51 +144,90 @@ class Create extends Component
 
     public function save()
     {
-        // $this->validate([
-        //     'document' => 'required|integer|min:7',
-        //     'first_names' => 'required|string|max:255',
-        //     'last_names' => 'required|string|max:255',
-        //     'dob' => ['required', 'date'],
-        //     'email' => 'email|unique:citizens,email',
-        //     'phone_number' => 'required|string|max:20',
-        //     'education_level' => 'required|string|max:255',
-        //     'address' => 'required|string|max:255',
-        //     'estado' => 'required',
-        //     'municipio' => 'required',
-        //     'parroquia' => 'required',
-        //     'gender' => ['required', Rule::enum(GenderEnum::class)],
-        //     'civil_status' => ['required', Rule::enum(CivilStatusEnum::class)],
-        // ],[
-        //     'document.required' => 'El número de documento es obligatorio.',
-        //     'document.integer' => 'El número de documento debe ser un número.',
-        //     'document.min' => 'El número de documento debe tener al menos 7 dígitos.',
-        //     'first_names.required' => 'Los nombres son obligatorios.',
-        //     'first_names.string' => 'Los nombres deben ser texto.',
-        //     'first_names.max' => 'Los nombres no pueden exceder 255 caracteres.',
-        //     'last_names.required' => 'Los apellidos son obligatorios.',
-        //     'last_names.string' => 'Los apellidos deben ser texto.',
-        //     'last_names.max' => 'Los apellidos no pueden exceder 255 caracteres.',
-        //     'dob.required' => 'La fecha de nacimiento es obligatoria.',
-        //     'dob.date' => 'La fecha de nacimiento debe ser una fecha válida.',
-        //     'email.email' => 'El correo electrónico debe ser válido.',
-        //     'email.unique' => 'El correo electrónico ya está registrado.',
-        //     'phone_number.required' => 'El número de teléfono es obligatorio.',
-        //     'phone_number.string' => 'El número de teléfono debe ser texto.',
-        //     'phone_number.max' => 'El número de teléfono no puede exceder 20 caracteres.',
-        //     'education_level.required' => 'El nivel educativo es obligatorio.',
-        //     'education_level.string' => 'El nivel educativo debe ser texto.',
-        //     'education_level.max' => 'El nivel educativo no puede exceder 255 caracteres.',
-        //     'address.required' => 'La dirección es obligatoria.',
-        //     'address.string' => 'La dirección debe ser texto.',
-        //     'address.max' => 'La dirección no puede exceder 255 caracteres.',
-        //     'estado.required' => 'El estado es obligatorio.',
-        //     'municipio.required' => 'El municipio es obligatorio.',
-        //     'parroquia.required' => 'La parroquia es obligatoria.',
-        //     'gender.required' => 'El género es obligatorio.',
-        //     'gender.enum' => 'El género seleccionado no es válido.',
-        //     'civil_status.required' => 'El estado civil es obligatorio.',
-        //     'civil_status.enum' => 'El estado civil seleccionado no es válido.',
-        // ]);
+        $this->validate([
+            'document' => 'nullable|integer|min:7',
+            'first_names' => 'nullable|string|max:255',
+            'last_names' => 'nullable|string|max:255',
+            'dob' => ['nullable', 'date'],
+            'email' => 'nullable|email|unique:citizens,email',
+            'phone_number' => 'nullable|string|max:20',
+            'education_level' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'gender' => ['nullable', Rule::enum(GenderEnum::class)],
+            'civil_status' => ['nullable', Rule::enum(CivilStatusEnum::class)],
+            'donation_medicines' => 'required|array|min:1',
+        ],[
+            'document.integer' => 'El número de documento debe ser un número.',
+            'document.min' => 'El número de documento debe tener al menos 7 dígitos.',
+            'first_names.string' => 'Los nombres deben ser texto.',
+            'first_names.max' => 'Los nombres no pueden exceder 255 caracteres.',
+            'last_names.string' => 'Los apellidos deben ser texto.',
+            'last_names.max' => 'Los apellidos no pueden exceder 255 caracteres.',
+            'dob.date' => 'La fecha de nacimiento debe ser una fecha válida.',
+            'email.email' => 'El correo electrónico debe ser válido.',
+            'email.unique' => 'El correo electrónico ya está registrado.',
+            'phone_number.string' => 'El número de teléfono debe ser texto.',
+            'phone_number.max' => 'El número de teléfono no puede exceder 20 caracteres.',
+            'education_level.string' => 'El nivel educativo debe ser texto.',
+            'education_level.max' => 'El nivel educativo no puede exceder 255 caracteres.',
+            'address.string' => 'La dirección debe ser texto.',
+            'address.max' => 'La dirección no puede exceder 255 caracteres.',
+            'gender.enum' => 'El género seleccionado no es válido.',
+            'civil_status.enum' => 'El estado civil seleccionado no es válido.',
+            'donation_medicines.required' => 'Debe agregar al menos un medicamento a la donación.',
+            'donation_medicines.array' => 'Los medicamentos deben estar en formato de lista.',
+            'donation_medicines.min' => 'Debe agregar al menos un medicamento a la donación.',
+        ]);
+
+        tap(Donation::create([
+            'donor_document' => $this->document,
+            'donor_name' => $this->first_names.' '.$this->last_names,
+            'donor_email' => $this->email,
+            'donor_phone_number' => $this->phone_number,
+            'donor_civil_status' => $this->civil_status,
+            'donor_dob' => $this->dob,
+            'donor_address' => $this->address,
+            'estado_id' => $this->estado,
+            'municipio_id' => $this->municipio,
+            'parroquia_id' => $this->parroquia,
+            'observations' => $this->observation,
+        ]), function ($donation) {
+                foreach ($this->donation_medicines as $medicine) {
+                    $existingMedicine = Medicine::where([
+                        'name' => $medicine['name'],
+                        'presentation' => $medicine['presentation'],
+                        'active_component' => $medicine['active_component'],
+                        'composition_quantity' => $medicine['composition_quantity'],
+                        'composition' => $medicine['composition'],
+                        'laboratory' => $medicine['laboratory'],
+                        'entry_date' => $medicine['entry_date'],
+                        'expiration_date' => $medicine['expiration_date'],
+                    ])->first();
+
+                    if ($existingMedicine) {
+                        $existingMedicine->stock += $medicine['stock'];
+                        $existingMedicine->save();
+                        continue;
+                    }
+
+                    $donation->medicines()->create([
+                        'name' => $medicine['name'],
+                        'presentation' => $medicine['presentation'],
+                        'active_component' => $medicine['active_component'],
+                        'composition_quantity' => $medicine['composition_quantity'],
+                        'composition' => $medicine['composition'],
+                        'laboratory' => $medicine['laboratory'],
+                        'stock' => $medicine['stock'],
+                        'entry_date' => $medicine['entry_date'],
+                        'expiration_date' => $medicine['expiration_date'],
+                    ]);
+                }
+            });
+
+            session()->flash('flash.banner','Donación registrado con exito.');
+            session()->flash('flash.bannerStyle','success');
+
+        return redirect()->route('medicines.donations.index');
     }
 
     public function searchCitizen()
