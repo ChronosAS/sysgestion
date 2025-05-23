@@ -147,16 +147,15 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td class="px-6 py-4 text-center text-xl col-span-8  text-black bg-white" colspan="8">
+                                        <td class="px-6 py-4 text-center text-xl col-span-8  text-black bg-white" colspan="9">
                                             No hay Donaciones registradas.
                                         </td>
                                     </tr>
                                 @endforelse
-
                             </tbody>
                         </table>
                         <div class="m-4 text-black ">
-                            {{-- {{ $reports->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }} --}}
+                            {{ $donations->links('vendor.livewire.tailwind-pagination',data: ['scrollTo'=>false]) }}
                         </div>
                     </div>
                     {{-- <livewire:elder-program.pension.generate-modal /> --}}
