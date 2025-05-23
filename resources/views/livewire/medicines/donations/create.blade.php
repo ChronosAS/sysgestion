@@ -261,7 +261,7 @@
                         </table>
                     </div>
                     <div class=" w-full px-3 sm:w-3/1 mt-5 mx-10 container-md text-center flex items-center justify-center flex-wrap">
-                        <x-button-href href="" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
+                        <x-button-href href="{{ route('medicines.donations.index') }}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                             Regresar
                         </x-button-href>
                         <x-button class="ms-4 mt-5 mb-5 bg-green-600 hover:bg-green-500">
