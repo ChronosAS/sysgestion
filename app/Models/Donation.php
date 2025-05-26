@@ -78,7 +78,7 @@ class Donation extends Model
 
     public function medicines(): BelongsToMany
     {
-        return $this->belongsToMany(Medicine::class,'donation_medicines');
+        return $this->belongsToMany(Medicine::class,'donation_medicines')->withPivot('quantity');
     }
 
     public function estado() : BelongsTo

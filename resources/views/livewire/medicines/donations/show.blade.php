@@ -68,7 +68,7 @@
         <div class="container mx-auto p-4 ">
             <div class="overflow-x-auto">
                 <h1  class="text-2xl font-semibold text-gray-800 mb-4 text-center">Lista de Medicamentos Donados</h1>
-                <table class="min-w-full bg-white rounded-lg shadow-md border border-blue-700 ">
+                <table class="min-w-full bg-white text-center rounded-lg shadow-md border border-blue-700 ">
                     <thead class="bg-blue-700">
                         <tr>
                             <th class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
@@ -91,7 +91,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-slate-300 divide-y divide-gray-200">
+                    <tbody class="bg-white items-center md:text-xs 2xl:text-sm xl:text-xs text-sm font-black">
                         @forelse($donation->medicines as $medicine)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -101,7 +101,7 @@
                                     {{ $medicine->active_component }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $medicine->composition_quantity.'('.$medicine->composition')' }}
+                                    {{ $medicine->composition_quantity.'('.$medicine->composition->label().')' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ $medicine->laboratory }}
