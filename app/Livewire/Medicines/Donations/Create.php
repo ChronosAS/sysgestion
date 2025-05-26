@@ -27,10 +27,7 @@ class Create extends Component
     public $gender;
     public $email;
     public $phone_number;
-    public $phone_number_2;
-    public $grade;
     public $civil_status;
-    public $education_level;
     public $estado;
     public $municipio;
     public $parroquia;
@@ -205,19 +202,23 @@ class Create extends Component
                     if ($existingMedicine) {
                         $existingMedicine->stock += $medicine['stock'];
                         $existingMedicine->save();
-                        continue;
+                    } else {
+                        $existingMedicine = Medicine::create([
+                            'name' => $medicine['name'],
+                            'presentation' => $medicine['presentation'],
+                            'active_component' => $medicine['active_component'],
+                            'composition_quantity' => $medicine['composition_quantity'],
+                            'composition' => $medicine['composition'],
+                            'laboratory' => $medicine['laboratory'],
+                            'stock' => $medicine['stock'],
+                            'entry_date' => $medicine['entry_date'],
+                            'expiration_date' => $medicine['expiration_date'],
+                        ]);
                     }
 
-                    $donation->medicines()->create([
-                        'name' => $medicine['name'],
-                        'presentation' => $medicine['presentation'],
-                        'active_component' => $medicine['active_component'],
-                        'composition_quantity' => $medicine['composition_quantity'],
-                        'composition' => $medicine['composition'],
-                        'laboratory' => $medicine['laboratory'],
-                        'stock' => $medicine['stock'],
-                        'entry_date' => $medicine['entry_date'],
-                        'expiration_date' => $medicine['expiration_date'],
+                    // Attach medicine to donation with quantity in pivot
+                    $donation->medicines()->attach($existingMedicine->id, [
+                        'quantity' => $medicine['stock'],
                     ]);
                 }
             });

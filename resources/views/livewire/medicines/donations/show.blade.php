@@ -87,45 +87,39 @@
                                 Unidades
                             </th>
                             <th class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
-                               Fecha de Ingreso
-                            </th>
-                            <th class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
                                 Fecha de Vencimiento
                             </th>
                         </tr>
                     </thead>
                     <tbody class="bg-slate-300 divide-y divide-gray-200">
-                      
+                        @forelse($donation->medicines as $medicine)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                  
+                                    {{ $medicine->name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    
+                                    {{ $medicine->active_component }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    
+                                    {{ $medicine->composition_quantity.'('.$medicine->composition')' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    
+                                    {{ $medicine->laboratory }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                   
+                                    {{ $medicine->pivot->quantity }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                   
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                   
+                                    {{ \Carbon\Carbon::parse($medicine->expiration_date)->format('d/m/Y') }}
                                 </td>
                             </tr>
-                       
+                        @empty
                         <tr>
-                            <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
+                            <td class="px-6 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="6">
                                 No hay Medicamentos Donados registrados.
                             </td>
                         </tr>
-                    
+                        @endforelse
                     </tbody>
                 </table>
             </div>

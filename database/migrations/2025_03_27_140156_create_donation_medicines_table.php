@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignUuid('donation_id')->constrained('donations');
             $table->foreignId('medicine_id')->constrained('medicines');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

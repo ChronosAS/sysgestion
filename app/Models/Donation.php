@@ -28,7 +28,8 @@ class Donation extends Model
         'donor_gender',
         'estado_id',
         'municipio_id',
-        'parroquia_id'
+        'parroquia_id',
+        'observations'
     ];
 
     protected $casts = [
