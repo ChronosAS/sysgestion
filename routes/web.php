@@ -107,7 +107,7 @@ Route::middleware([
             ->prefix('/donaciones')->group(function(){
                 Route::get('/',App\Livewire\Medicines\Donations\Index::class)->name('medicines.donations.index');
                 Route::get('/crear',App\Livewire\Medicines\Donations\Create::class)->name('medicines.donations.create');
-                // Route::get('/{donation}',App\Livewire\Medicines\Donations\Show::class)->name('medicines.donations.show');
+                Route::get('/{donation}',App\Livewire\Medicines\Donations\Show::class)->name('medicines.donations.show');
                 // Route::get('/editar/{donation}',App\Livewire\Medicines\Donations\Edit::class)->name('medicines.donations.edit');
             });
             Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');

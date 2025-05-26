@@ -10,67 +10,57 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Código</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm"> {{ $donation->code }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Cédula de identidad</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->donor_document }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Nombres</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
-                </div>
-                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Apellidos</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <label class="block text-md font-bold text-gray-800">Nombre Completo</label>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->donor_name }}</p>
                 </div>
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Fecha de nacimiento</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm"> {{ \Carbon\Carbon::parse($donation->donor_dob)->format('d/m/Y') }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Edad</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm"> {{ \Carbon\Carbon::parse($donation->donor_dob)->age }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Correo electrónico</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm"> {{ $donation->donor_email }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Numero de Teléfono</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
-                </div>
-                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Grado de Instrucción</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
-                </div>
-                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Ocupación</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->donor_phone_number }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Edo. Civil</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">
+                        {{ $donation->donor_civil_status->label()}}
+                    </p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Estado</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->estado->estado }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Municipio</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->municipio->municipio }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Parroquia</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->parroquia->parroquia }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Dirección</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm break-words">{{ $donation->donor_address }}</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Observación del Caso</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <p class="mt-1 text-gray-900 text-sm">{{ $donation->observations }}</p>
                 </div>
             </div>
 

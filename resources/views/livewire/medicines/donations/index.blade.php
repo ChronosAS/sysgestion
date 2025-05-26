@@ -119,7 +119,7 @@
                                 @forelse( $donations as $index => $donation)
                                     <tr class="bg-white border-b break-words">
                                         <th scope="row" class=" px-5 py-4 text-gray-900 ">
-                                            <a href="#"  class="text-blue-600 hover:underline hover:text-blue-800">
+                                            <a href="{{ route('medicines.donations.show', $donation->id)}}"  class="text-blue-600 hover:underline hover:text-blue-800">
                                                 {{ $donation->code }}
                                             </a>
                                         </th>
