@@ -135,7 +135,7 @@
                         <x-input-error class="text-xs" for="name"/>
                     </div>
                     <div {{-- x-show="!newMed" --}} class="mt-5 w-full px-3 sm:w-1/4">
-                        <label for="presentation" class="block text-sm font-medium text-gray-900">Presentación(Composición)</label>
+                        <label for="presentation" class="block text-sm font-medium text-gray-900">Presentación</label>
                         <div class="flex items-center">
                             <select wire:model='presentation' id="presentation" name="presentation" class="cursor-pointer rounded-l mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-center">
                                 <option value="#" class="text-center">Seleccionar</option>

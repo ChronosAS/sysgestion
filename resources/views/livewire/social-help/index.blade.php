@@ -3,7 +3,7 @@
     <div class="py-12">
         <div class="max-w-[100rem] mx-auto px-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Solicitudes Medicas</header>
+                <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Solicitud de Ayudas Médicas</header>
                 <div class="p-6 lg:p-8 bg-gray-200 border-t-2  border-blue-700">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <div class="flex flex-column  space-y-4 sm:space-y-0 items-center justify-between pb-4">
