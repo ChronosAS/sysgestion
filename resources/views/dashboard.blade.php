@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 pt-5">
-                        <template x-for="index in cards.length" :key="index">
+                        <template x-for="index in maxSlides" :key="index">
                             <button class="rounded-full w-3 h-3 focus:outline-none" :class="{ 'bg-blue-500': currentIndex === index - 1, 'bg-gray-300': currentIndex !== index - 1 }" @click="goToSlide(index - 1)">
                             
                             </button>
