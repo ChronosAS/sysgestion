@@ -114,7 +114,7 @@ Route::middleware([
             Route::middleware(PermissionMiddleware::using('application:access'))
             ->prefix('/solicitudes')->group(function(){
                 Route::get('/', App\Livewire\Medicines\MedicineApplications\Index::class)->name('medicines.medicine-applications.index');
-                // Route::get('/crear', App\Livewire\Medicines\MedicineApplications\Create::class)->name('medicines.medicine-applications.create');
+                Route::get('/crear', App\Livewire\Medicines\MedicineApplications\Create::class)->name('medicines.medicine-applications.create');
                 // Route::get('/{application}', App\Livewire\Medicines\MedicineApplications\Show::class)->name('medicines.medicine-applications.show');
                 // Route::get('/editar/{application}', App\Livewire\Medicines\MedicineApplications\Edit::class)->name('medicines.medicine-applications.edit');
             });
