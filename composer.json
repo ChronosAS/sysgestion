@@ -12,7 +12,7 @@
         "laravel/jetstream": "^5.1",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.0",
+        "livewire/livewire": "*",
         "nikic/php-parser": "*",
         "spatie/browsershot": "^5.0",
         "spatie/laravel-activitylog": "^4.8",

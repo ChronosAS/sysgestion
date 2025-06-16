@@ -110,7 +110,18 @@ Route::middleware([
                 Route::get('/{donation}',App\Livewire\Medicines\Donations\Show::class)->name('medicines.donations.show');
                 // Route::get('/editar/{donation}',App\Livewire\Medicines\Donations\Edit::class)->name('medicines.donations.edit');
             });
+
+            Route::middleware(PermissionMiddleware::using('application:access'))
+            ->prefix('/solicitudes')->group(function(){
+                Route::get('/', App\Livewire\Medicines\MedicineApplications\Index::class)->name('medicines.medicine-applications.index');
+                // Route::get('/crear', App\Livewire\Medicines\MedicineApplications\Create::class)->name('medicines.medicine-applications.create');
+                // Route::get('/{application}', App\Livewire\Medicines\MedicineApplications\Show::class)->name('medicines.medicine-applications.show');
+                // Route::get('/editar/{application}', App\Livewire\Medicines\MedicineApplications\Edit::class)->name('medicines.medicine-applications.edit');
+            });
+
             Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
         });
+
+ 
 
 });
