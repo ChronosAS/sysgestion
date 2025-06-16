@@ -4,7 +4,7 @@
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                     <div class="mt-5 w-full px-3 sm:w-3/1">
-                        <p class="block font-medium text-2xl text-gray-900">Registro de Solicitud de Medicamento</p>
+                        <p class="block font-medium text-2xl text-gray-900">Registro de Solicitud de Medicamentos</p>
                     </div>
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label for="document" value="Cédula de Identidad " class="text-black " />
@@ -117,7 +117,7 @@
                         <x-input-error class="text-xs" for="environmental_aspect"/>
                     </div>
                     <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
-                        <x-button-href href="#" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
+                        <x-button-href href="{{ route('medicines.medicine-applications.index')}}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                             Regresar
                         </x-button-href>
                         <x-button class="ms-4 mt-5 mb-5 bg-green-600 hover:bg-green-500">
