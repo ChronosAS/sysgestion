@@ -98,9 +98,9 @@
                         />
                         <x-input-error class="text-xs" for="dob"/>
                     </div>
-                    <div class="mt-5 w-full px-3 sm:w-1/4">
-                        <x-label for="age" value="Edad" class="text-black" />
-                        <x-input id="age" class="block mt-1 w-full" type="text" name="age" x-model="age" readonly/>
+                    <div class="mt-5 w-full px-3 sm:w-1/6 ">
+                        <x-label for="age" value="Edad" class="text-black " />
+                        <x-input id="age" class="block mt-1 w-full text-center " type="text" name="age" x-model="age" readonly/>
                         <x-input-error class="text-xs" for="age"/>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
