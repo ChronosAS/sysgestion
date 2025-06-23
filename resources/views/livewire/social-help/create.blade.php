@@ -113,13 +113,45 @@
                         <x-input id="work_address" class="block mt-1 w-full truncate" type="text" name="work_address"/>
                         <x-input-error class="text-xs" for="work_address"/>
                     </div>
-                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                    {{-- <div class="mt-5 w-full px-3  sm:w-3/1">
                         <x-label for="medical_aspect" value="Aspecto Médico" class="text-black"/>
                         <x-input id="medical_aspect" class="block mt-1 w-full truncate" type="text" name="medical_aspect"/>
                         <x-input-error class="text-xs" for="medical_aspect"/>
+                    </div> --}}
+                     <div class="mt-5 w-full px-3 sm:w-3/1">
+                        <p class="block font-medium text-lg text-gray-900">Datos del Solicitante</p>
                     </div>
-                        <div class=" mt-5 w-full px-3 sm:w-4/2 ">
-                        <x-label  value="Grupo Familiar" class="text-black" />
+                     <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="first_names" value="Nombres" class="text-black " />
+                        <x-input id="first_names" class="block mt-1 w-full truncate" type="text" name="first_names" />
+                        <x-input-error class="text-xs" for="first_names"/>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="last_names" value="Apellidos" class="text-black " />
+                        <x-input id="last_names" class="block mt-1 w-full truncate" type="text" name="last_names"/>
+                        <x-input-error class="text-xs" for="last_names"/>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/4">
+                        <x-label for="dob" value="Fecha de Nacimiento" class="text-black" />
+                        <x-input id="dob" class="block mt-1 w-full" type="date" name="dob" 
+                        />
+                        <x-input-error class="text-xs" for="dob"/>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-1/6 ">
+                        <x-label for="age" value="Edad" class="text-black " />
+                        <x-input id="age" class="block mt-1 w-full text-center " type="text" name="age" />
+                        <x-input-error class="text-xs" for="age"/>
+                    </div>
+                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                        <x-label for="address" value="Dirección de Habitación" class="text-black"/>
+                        <x-input id="address" class="block mt-1 w-full truncate" type="text" name="address"/>
+                        <x-input-error class="text-xs" for="address"/>
+                    </div>
+                    <div class="mt-5 w-full px-3 sm:w-3/1">
+                        <p class="block font-medium text-lg text-gray-900">Grupo familiar</p>
+                    </div>
+                    <div class=" mt-5 w-full px-3 sm:w-4/2 ">
+                        <x-label  value="" class="text-black" />
                         <x-table.table class="w-full ">
                             <x-slot name="thead">
                                 <tr class="bg-blue-800 text-white ">
@@ -198,6 +230,12 @@
                         <x-label for="family_monthly_expenses" value="Egreso Familiar" class="text-black"/>
                         <x-input id="family_monthly_expenses" placeholder="0.00" class="block mt-1 w-full truncate text-center" type="text" name="family_monthly_expenses" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/^(\d{10})\d+(\.\d{0,2})?$/, '$1$2');" />
                         <x-input-error class="text-xs" for="family_monthly_expenses"/>
+                    </div>
+
+                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                        <x-label for="Observatios" value="Observaciones del Caso" class="text-black"/>
+                        <x-input id="Observatios" class="block mt-1 w-full truncate" type="text" name="Observatios"/>
+                        <x-input-error class="text-xs" for="Observatios"/>
                     </div>
                     
                     <div class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">

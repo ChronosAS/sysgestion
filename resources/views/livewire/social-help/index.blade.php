@@ -31,6 +31,9 @@
                                         </x-button-href>
                                  
                                 </div>
+                                <div class=" p-2 ps-0">
+                                    <x-input id="date" type="date" style="color: black" class="   text-black bg-white dark:bg-white dark:text-black focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500" wire:model.live="date" />
+                                </div>
                             </div>
                         </div>
                         <table class="w-full border border-blue-700  text-center rtl:text-right text-white">
