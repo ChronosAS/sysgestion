@@ -126,7 +126,7 @@
         </div>
         <div class="flex  justify-around overflow-hidden  space-x-2 text-center">
             <a href="{{ route('medicines.donations.index') }}" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
-            <a href="#" class="bg-green-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Imprimir Reporte</a>
+            
         </div>
     </div>
     {{-- <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
