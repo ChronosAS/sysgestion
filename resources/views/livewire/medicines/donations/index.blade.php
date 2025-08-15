@@ -20,6 +20,7 @@
                                         Registrar Donación
                                     </x-button-href>
                                 </div>
+                                <x-button-href class="bg-green-600 hover:bg-green-500" href="{{ route('medicines.donations.report') }}">Imprimir Reporte</x-button-href>
                                 <div class="mx-4">
                                     <x-input id="date" type="date" style="color: black" class=" flex 2xl:col-start-6 xl:col-start-5 md:col-start-5 w-full sm:w-[10rem]  xl:w-[10rem]  lg:w-[10rem] md:w-[10rem] 2xl:w-[10rem]  text-black bg-white dark:bg-white dark:text-black focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500" wire:model.live="date" />
                                 </div>
