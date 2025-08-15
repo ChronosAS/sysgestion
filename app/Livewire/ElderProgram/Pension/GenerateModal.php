@@ -18,16 +18,19 @@ class GenerateModal extends Component
 
     public function generate()
     {
+        $this->reset('total','total_elders');
+        $this->total_elders = ElderProgramMember::count();
+
         $this->validate([
             'amount' => ['required', 'numeric', 'min:0', 'regex:/^\d{1,10}(\.\d{1,2})?$/'],
+            'total_elders' => ['required', 'numeric', 'min:1'],
         ],[
             'amount.required' => 'El monto de pago es obligatorio.',
             'amount.numeric' => 'El monto de pago debe ser un número.',
             'amount.min' => 'El monto de pago no puede ser negativo.',
             'amount.regex' => 'El monto de pago debe tener hasta 10 dígitos y 2 decimales.',
+            'total_elders.min' => 'Debe haber al menos un miembro del programa.',
         ]);
-        $this->reset('total','total_elders');
-        $this->total_elders = ElderProgramMember::count();
 
         $this->total = $this->total_elders * $this->amount;
 

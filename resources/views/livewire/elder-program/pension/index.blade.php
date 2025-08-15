@@ -16,9 +16,11 @@
                                     <input wire:model.live='search' type="text" name="search" id="search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
                                 </div>
                                 <div class="mx-4">
-                                    <x-button-href @click="$dispatch('showGenerateModal')" class="bg-green-600 hover:bg-green-500">
-                                        Generar Reporte
-                                    </x-button-href>
+                                    @can('elder-pension:create')
+                                        <x-button-href @click="$dispatch('showGenerateModal')" class="bg-green-600 hover:bg-green-500">
+                                            Generar Reporte
+                                        </x-button-href>
+                                    @endcan
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\RolesAndPermissions\Modals;
 
+use App\Models\Role;
 use Illuminate\Support\Str;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
@@ -11,7 +12,7 @@ use Spatie\Permission\Models\Permission;
 class Create extends Component
 {
     #[Validate('required',message: 'Porfavor ingrese un nombre.')]
-    #[Validate('unique:roles',message: 'Ya existe un rol con este nombre.')]
+    #[Validate('unique:roles,name,{$this->role->id}',message: 'Ya existe un rol con este nombre.')]
     #[Validate('string',message: 'Formato de nombre invalido.')]
     #[Validate('max:50',message: 'Nombre exede el tamaño maximo de 50 caracteres.')]
     public $name;
@@ -31,8 +32,9 @@ class Create extends Component
     {
         $this->validate();
 
-        $this->role->update(['name'=>$this->name]);
-        $this->role->permissions()->sync($this->permissions);
+        tap(Role::create(['name' => $this->name, 'guard_name' => 'web']), function ($role) {
+            $role->permissions()->sync($this->permissions);
+        });
 
         session()->flash('flash.banner','Rol editado con exito.');
         session()->flash('flash.bannerStyle','success');

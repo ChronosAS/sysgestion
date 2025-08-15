@@ -1,4 +1,4 @@
-<x-dialog-modal wire:model.live="showCreateRoleModal">
+<x-dialog-modal wire:model.live="showCreateRoleModal" maxWidth="3xl">
     <x-slot name="title" >
         <h1 class="text-center border-b text-slate-900">Crear Rol</h1>
     </x-slot>
@@ -11,12 +11,12 @@
                         wire:keydown.enter="save" />
             <x-input-error for="name" class="mt-2" />
         </div>
-        <div class="grid grid-cols-2 gap-2 mt-2 mx-10">
+        <div class="grid grid-cols-4 gap-2 mt-2 mx-10">
             @foreach ($permissionsGrouped as $group => $permissions)
                 <div>
                     <h1 class="text-lg text-slate-900 font-bold" >{{ $group }}</h1>
                     @foreach ($permissions as $permission)
-                        <x-custom-checkbox   name="permissions" value="{{ $permission['permission_fullname'] }}" title="{{ $permission['permission_name'] }}" id="{{ $permission['permission_fullname'] }}" />
+                        <x-custom-checkbox name="permissions" value="{{ $permission['permission_id'] }}" title="{{ $permission['permission_name'] }}" id="{{ $permission['permission_fullname'] }}" />
                     @endforeach
                 </div>
             @endforeach

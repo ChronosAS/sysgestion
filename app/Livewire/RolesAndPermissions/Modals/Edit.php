@@ -12,33 +12,37 @@ use Spatie\Permission\Models\Permission;
 class Edit extends Component
 {
     public $role = null;
-    #[Validate('required',message: 'Porfavor ingrese un nombre.')]
-    #[Validate('unique:roles,name,{$this->role->id}',message: 'Ya existe un rol con este nombre.')]
-    #[Validate('string',message: 'Formato de nombre invalido.')]
-    #[Validate('max:50',message: 'Nombre exede el tamaño maximo de 50 caracteres.')]
     public $name;
-    public $permissions = [];
+    public $permissions;
     public $showEditRoleModal = false;
 
     #[On('editRoleModal')]
     public function toggleModal($role = null)
     {
-
-        $this->reset(['role','name','permissions']);
+        $this->reset(['role','name', 'permissions']);
 
         if ($role) {
-            $this->role = Role::where('guard_name', 'web')->where('id', $role)->first();
+            $this->role = Role::where('id', $role)->first();
             $this->name = $this->role->name;
-            $this->permissions = $this->role->permissions->pluck('id');
+            $this->permissions = $this->role->permissions->pluck('id')->toArray();
         }
 
         $this->showEditRoleModal = !$this->showEditRoleModal;
-
     }
 
-    public function save()
+    public function update()
     {
-        // $this->validate();
+        $this->validate(
+            [
+                'name' => 'required|string|max:255|unique:roles,name,' . $this->role->id,
+            ],
+            [
+                'required' => 'Porfavor ingrese un nombre.',
+                'string' => 'Formato de nombre invalido.',
+                'max' => 'Nombre exede el tamaño maximo de 50 caracteres.',
+                'unique' => 'Ya existe un rol con este nombre.'
+            ]
+        );
 
         $this->role->update(['name'=>$this->name]);
         $this->role->permissions()->sync($this->permissions);

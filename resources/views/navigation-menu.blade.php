@@ -58,15 +58,21 @@
                         <x-nav-link @click=" health = false;  socialHelp = false; requests = false; elderHelp = !elderHelp" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
                             <x-logos.abuelos />
                         </x-nav-link>
-                        <x-nav-link @click=" elderHelp = false; socialHelp = false; requests = false; health = !health" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" >
-                            <x-logos.dona-salud />
-                        </x-nav-link>
-                        <x-nav-link @click=" health = false; requests = false; elderHelp = false; socialHelp = !socialHelp" class=" cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
-                            <x-logos.social-help/>
-                        </x-nav-link>
-                        <x-nav-link @click=" health = false; elderHelp = false; socialHelp = false; requests = !requests"  class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
-                            <x-logos.solicitudes />
-                        </x-nav-link>
+                        @can('medicine:access')
+                            <x-nav-link @click=" elderHelp = false; socialHelp = false; requests = false; health = !health" class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500" >
+                                <x-logos.dona-salud />
+                            </x-nav-link>
+                        @endcan
+                        @can('application:access')
+                            <x-nav-link @click=" health = false; requests = false; elderHelp = false; socialHelp = !socialHelp" class=" cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
+                                <x-logos.social-help/>
+                            </x-nav-link>
+                        @endcan
+                        @can('application:access')
+                            <x-nav-link @click=" health = false; elderHelp = false; socialHelp = false; requests = !requests"  class="cursor-pointer hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
+                                <x-logos.solicitudes />
+                            </x-nav-link>
+                        @endcan
                     </div>
                     @role('admin')
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -140,10 +146,11 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('users.administration') }}">
-                                    Administracion de Usuarios
-                                </x-dropdown-link>
-
+                                @can('user:access')
+                                    <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200" href="{{ route('users.administration') }}">
+                                        Administracion de Usuarios
+                                    </x-dropdown-link>
+                                @endcan
                                 <x-dropdown-link class="hover:bg-blue-600 dark:hover:bg-blue-600  text-white hover:text-gray-200 cursor-pointer" target="_blank" href="{{ route('mintainance-plan') }}">
                                     Plan de mantenimiento
                                 </x-dropdown-link>
