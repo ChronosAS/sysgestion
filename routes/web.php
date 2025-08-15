@@ -94,6 +94,15 @@ Route::middleware([
 
     });
 
+    Route::middleware(PermissionMiddleware::using('application:access'))
+        ->prefix('/permisos')->group(function(){
+            Route::get('/', App\Livewire\Permits\Index::class)->name('permits.index');
+            Route::get('/crear', App\Livewire\Permits\Create::class)->name('permits.create');
+            Route::get('/{permit}', App\Livewire\Permits\Show::class)->name('permits.show');
+            Route::get('/editar/{permit}', App\Livewire\Permits\Edit::class)->name('permits.edit');
+            Route::get('/eliminar/{permit}', App\Livewire\Permits\Delete::class)->name('permits.create');
+        });
+
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){
 
