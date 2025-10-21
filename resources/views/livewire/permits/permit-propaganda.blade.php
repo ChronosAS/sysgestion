@@ -12,70 +12,70 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class=" items-center justify-center mx-6">
-    <header class="w-full text-center bg-blue-700 my-4 text-white p-4">
+    <header class="w-full text-center bg-blue-700 my-4 text-white p-4 mb-7 mt-7">
         <h1 class=" text-2xl font-black tracking-tighter">DIRECCIÓN DE ASUNTOS PÚBLICOS</h1>
     </header>
 
-    <main class="mt-5  mx-10 container-lg  text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-2 mb-4">
-        <div class="w-full text-center bg-blue-700  font-black tracking-tighter text-white ">
+    <main class="mt-5  mx-10 container-md   text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-1">
+        <div class="w-full text-center bg-blue-700  font-black tracking-tighter text-white mb-7 mt-7">
             <h1 class=" text-xl">
                 PERMISO PARA PUBLICIDAD Y/O PROPAGANDA    
             </h1>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3">
+       <div class=" border border-black  w-full  text-left font-black sm:w-64 px-4 mb-3 mt-3">
            <label class="text-black  " >F. DE ELABORACIÓN DEL PERMISO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/5 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/5 px-4 mb-3 mt-3 ">
            <label class="text-black " >NÚMERO DE PERMISO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/6 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-48 px-4 mb-3 mt-3 ">
            <label class="text-black " >FECHA DE LA ACTIVIDAD:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-4 mb-3 mt-3">
            <label class="text-black " >NOMBRE Y APELLIDO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-4 mb-3 mt-3">
            <label class="text-black " >C.I Y R.I.F:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/6 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/6 px-4 mb-3 mt-3">
            <label class="text-black " >HORARIO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black ">
+        <div class=" border border-black  w-full mx-auto text-left font-black mb-3 mt-3">
            <label class="text-black " >DIRECCIÓN DE HABITACIÓN Y TELÉFONO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black ">
+        <div class=" border border-black  w-full mx-auto text-left font-black mb-3">
            <label class="text-black " >SECTOR Y ÁREA PERMISADA:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
         <div class="w-full text-center 0  font-black tracking-tighter ">
             <h1 class=" text-xl">
-                DESCRIPCIÓN DE LA PUBLICIDA
+                DESCRIPCIÓN DE LA PUBLICIDAD 
             </h1>
         </div>
-        <div class="  flex items-center justify-center  w-full mx-auto text-left font-black sm:w-1/2">
+        <div class="  flex items-center justify-center  w-full mx-auto text-left font-black sm:w-1/2 mb-6 mt-4">
             <table class=" w-full ">
                 <tr class="hidden">
                     <th>Company</th>
@@ -99,11 +99,11 @@
                 OBSERVACIONES
             </h1>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black ">
+        <div class=" border border-black  w-full mx-auto text-left font-black mb-6 ">
             <div class="p-4"> 
             </div>
         </div>
-        <div class="w-full mx-auto text-center  ">
+        <div class="w-full mx-auto text-center  mb-6 ">
             <div class="flex items-center justify-around gap-10"> 
                  <p>
                     <b>Ing.Jamel Navarro Cazorla</b> 

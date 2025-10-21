@@ -12,73 +12,72 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class=" items-center justify-center mx-6">
-    <header class="w-full text-center bg-blue-700 my-4 text-white p-4">
+    <header class="w-full text-center bg-blue-700 my-6 text-white p-4 mb-6 mt-6">
         <h1 class=" text-2xl font-black tracking-tighter">DIRECCIÓN DE ASUNTOS PÚBLICOS</h1>
+      
     </header>
 
-    <main class="mt-5  mx-10 container-md  text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-2 mb-4">
-        <div class="w-full text-center bg-blue-700  font-black tracking-tighter text-white ">
+    <main class="mt-5  mx-10 container-md  text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-1 ">
+        <div class="w-full text-center bg-blue-700  font-black tracking-tighter text-white mb-6 mt-6">
             <h1 class=" text-xl">
                 PERMISO PROVISIONAL PARA EVENTOS ESPECIALES    
             </h1>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3">
+        <div class=" border border-black  w-full  text-left font-black sm:w-64 px-4 mb-3 mt-3">
            <label class="text-black  " >F. DE ELABORACIÓN DEL PERMISO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/5 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/5 px-4 mb-3 mt-3 ">
            <label class="text-black " >NÚMERO DE PERMISO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/6 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-48 px-4 mb-3 mt-3 ">
            <label class="text-black " >FECHA DE LA ACTIVIDAD:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-4 mb-3 mt-3">
            <label class="text-black " >NOMBRE Y APELLIDO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-4 mb-3 mt-3">
            <label class="text-black " >C.I Y R.I.F:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full  text-left font-black sm:w-1/6 px-3 ">
+        <div class=" border border-black  w-full  text-left font-black sm:w-1/6 px-4 mb-3 mt-3">
            <label class="text-black " >HORARIO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black ">
+        <div class=" border border-black  w-full mx-auto text-left font-black mb-3 mt-3">
            <label class="text-black " >DIRECCIÓN DE HABITACIÓN Y TELÉFONO:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black ">
+        <div class=" border border-black  w-full mx-auto text-left font-black mb-3 mt-3">
            <label class="text-black " >SECTOR Y ÁREA PERMISADA:</label>
-            <div class="p-4">
+            <div class="p-3">
                
             </div>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black">
-           <label class="text-black " ></label>
-            <div>
+        <div class=" border border-black  w-full mx-auto text-left font-black text-base mb-4 mt-4">
+            <div class="p-2">
                ESTE PERMISO SE OTORGA PARA REALIZAR EVENTOS ESPECIFICADOS POR EL MISMO EN EL MUNICIPIO TURÍSTICO EL MORRO "LICENCIADO DIEGO BAUTISTA URBANEJA" A PARTIR DE LA FECHA DE EXPEDICÓN AUTORIZADA HASTA SU VENCIMIENTO, SIENDO MOTIVOS SUFICIENTE PARA LA CANCELACIÓN DEL PERMISO, EL INCUMPLIMIENTO DE LAS CONDICIONES SEÑALADAS A CONTINUACIÓN:
             </div>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black">
-           <label class="text-black " ></label>
-            <div>
+        <div class=" border border-black  w-full mx-auto text-left font-black text-base mb-4 mt-4">
+            <div class="p-2">
                 <ul>
                     <li>1. Este permiso NO autoriza el expendio de bebidas alcohólicas.</li>
                     <li>2. Mantener limpio el espacio permisado durante y despues de la actividad.</li>
@@ -96,7 +95,7 @@
         </div>
     </main>
 
-    <footer class="w-full text-center bg-blue-700 p-4 text-white text-md">
+    <footer class="w-full text-center bg-blue-700 p-3 text-white text-md">
         <div class=" flex flex-col items-center justify-center">
             <p>
                 Alcaldía del Municipio Turístico El Morro "Licencciado Diego Bautista Urbaneja". G-20001136-2 
