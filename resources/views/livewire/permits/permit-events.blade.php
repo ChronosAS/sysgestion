@@ -16,10 +16,10 @@
         <h1 class=" text-2xl font-black tracking-tighter">DIRECCIÓN DE ASUNTOS PÚBLICOS</h1>
     </header>
 
-    <main class="mt-5  mx-10 container-lg  text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-2 mb-4">
+    <main class="mt-5  mx-10 container-md  text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-2 mb-4">
         <div class="w-full text-center bg-blue-700  font-black tracking-tighter text-white ">
             <h1 class=" text-xl">
-                PERMISO PARA PUBLICIDAD Y/O PROPAGANDA    
+                PERMISO PROVISIONAL PARA EVENTOS ESPECIALES    
             </h1>
         </div>
         <div class=" border border-black  w-full  text-left font-black sm:w-1/3 px-3">
@@ -70,53 +70,28 @@
                
             </div>
         </div>
-        <div class="w-full text-center 0  font-black tracking-tighter ">
-            <h1 class=" text-xl">
-                DESCRIPCIÓN DE LA PUBLICIDA
-            </h1>
-        </div>
-        <div class="  flex items-center justify-center  w-full mx-auto text-left font-black sm:w-1/2">
-            <table class=" w-full ">
-                <tr class="hidden">
-                    <th>Company</th>
-                    <th>Contact</th>
-                </tr>
-                <tr class="border border-black"><td>VOLANTES</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>AFICHES</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>PENDONES</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>HABLADORES</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>PANCARTAS</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>CALCOMANIAS</td><td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>BANDEROLAS O BANDERINES</td><td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>STANDS</td><td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>TOLDOS</td><td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>INFLABLES</td><td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>OTROS</td><td class="px-6 border border-black"></td></tr>
-            </table>
-        </div>
-        <div class="w-full text-center 0  font-black tracking-tighter ">
-            <h1 class=" text-xl">
-                OBSERVACIONES
-            </h1>
-        </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black ">
-            <div class="p-4"> 
+        <div class=" border border-black  w-full mx-auto text-left font-black">
+           <label class="text-black " ></label>
+            <div>
+               ESTE PERMISO SE OTORGA PARA REALIZAR EVENTOS ESPECIFICADOS POR EL MISMO EN EL MUNICIPIO TURÍSTICO EL MORRO "LICENCIADO DIEGO BAUTISTA URBANEJA" A PARTIR DE LA FECHA DE EXPEDICÓN AUTORIZADA HASTA SU VENCIMIENTO, SIENDO MOTIVOS SUFICIENTE PARA LA CANCELACIÓN DEL PERMISO, EL INCUMPLIMIENTO DE LAS CONDICIONES SEÑALADAS A CONTINUACIÓN:
             </div>
         </div>
-        <div class="w-full mx-auto text-center  ">
-            <div class="flex items-center justify-around gap-10"> 
-                 <p>
-                    <b>Ing.Jamel Navarro Cazorla</b> 
-                    <br><b>Directora de Asuntos Públicos</b>
-                    <br>Según Resolución N° 111/2025 de fecha 04/08/2025
-                    <br>Gaceta Municipal Extraordinaria N° 039/2025 de fecha 11/08/2025
-                </p>
-                <p>
-                    <b>Abog. María Carolina Morillo</b> 
-                    <br><b>Directora de Administración Tributaria</b>
-                    <br>Según Resolución N° 091/2025 de fecha 04/08/2025
-                    <br>Gaceta Municipal Extraordinaria N° 039/2025 de fecha 11/08/2025
-                </p>
+        <div class=" border border-black  w-full mx-auto text-left font-black">
+           <label class="text-black " ></label>
+            <div>
+                <ul>
+                    <li>1. Este permiso NO autoriza el expendio de bebidas alcohólicas.</li>
+                    <li>2. Mantener limpio el espacio permisado durante y despues de la actividad.</li>
+                    <li>3. Colocar recipientes resistentes para la basura</li>
+                    <li>4. Cumplir con el horario establecido</li>
+                    <li>5. El presente permiso es intransferible</li>
+                    <li>6. Debe contar con seguridad privada.</li>
+                    <li>7. Debe garantizar el estacionamiento para su actividad.</li>
+                    <li>8. Velar por el resguardo del patrimonio municipal.</li>
+                    <li>9. Respetar el horario previamente acordado y establecido en este permiso.</li>
+                    <li>10. Es imperativo considerar respetar la convivencia con los vecinos y ciudadanos.</li>
+                    <li>11. El incumplimiento de alguna de las causas establecidas en este permiso acarrea sanciones tribuarias y/o multas.</li>
+                </ul>
             </div>
         </div>
     </main>
