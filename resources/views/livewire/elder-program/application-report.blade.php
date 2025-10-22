@@ -12,7 +12,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class=" items-center justify-center mx-6">
-    <header class="w-full text-center bg-blue-700 my-4 text-white p-6 mb-7 mt-7">
+    <header class="w-full text-center bg-blue-700 my-4 text-white p-8 mb-7 mt-7">
         <h1 class=" text-2xl font-black tracking-tighter"></h1>
     </header>
 
@@ -23,18 +23,18 @@
                 DESCRIPCIÓN DE LA PUBLICIDAD 
             </h1>
         </div>
-        <div class=" w-full mx-auto text-left font-black sm:w-1/2 mb-7 mt-7 text-base">
+        <div class=" w-full mx-auto text-left font-black sm:w-[35rem] mb-7 mt-7 text-base">
             <table class=" w-full ">
                 <tr class="hidden">
                     <th>Company</th>
                     <th>Contact</th>
                 </tr>
-                <tr class="border border-black"><td>DEPORTIVO</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>CULTURAL</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>BENÉFICO</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>EDUCATIVO</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>RELIGIOSO</td> <td class="px-6 border border-black"></td></tr>
-                <tr class="border border-black"><td>OTROS:</td><td class="px-6 border border-black"></td></tr>
+                <tr class="border border-black"><td>DEPORTIVO</td> <td class="px-2 border border-black"></td></tr>
+                <tr class="border border-black"><td>CULTURAL</td> <td class="px-2 border border-black"></td></tr>
+                <tr class="border border-black"><td>BENÉFICO</td> <td class="px-2 border border-black"></td></tr>
+                <tr class="border border-black"><td>EDUCATIVO</td> <td class="px-2 border border-black"></td></tr>
+                <tr class="border border-black"><td>RELIGIOSO</td> <td class="px-2 border border-black"></td></tr>
+                <tr class="border border-black"><td>OTROS:</td><td class="px-2 border border-black"></td></tr>
             </table>
         </div>
         <div class="w-full mx-auto text-center   font-black tracking-tighter mt-7 ">
@@ -42,7 +42,7 @@
                 OBSERVACIONES
             </h1>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black mb-4 ">
+        <div class=" border border-black sm:w-[35rem] w-full mx-auto text-left font-black mb-4 ">
             <div class=" p-24"> 
             </div>
         </div>
