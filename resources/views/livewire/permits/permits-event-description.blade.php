@@ -12,7 +12,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class=" items-center justify-center mx-6">
-    <header class="w-full text-center bg-blue-700 my-4 text-white p-4 mb-7 mt-7">
+    <header class="w-full text-center bg-blue-700 my-4 text-white p-6 mb-7 mt-7">
         <h1 class=" text-2xl font-black tracking-tighter"></h1>
     </header>
 
@@ -42,11 +42,11 @@
                 OBSERVACIONES
             </h1>
         </div>
-        <div class=" border border-black  w-full mx-auto text-left font-black mb-7 ">
+        <div class=" border border-black  w-full mx-auto text-left font-black mb-4 ">
             <div class=" p-24"> 
             </div>
         </div>
-         <div class="w-full mx-auto text-justify   font-black tracking-tighter mt-5 mb-4">
+         <div class="w-full mx-auto text-center   font-black tracking-tighter mt-3 mb-4">
             <h1 class=" text-xl">
                 LAS ACTIVIDADES PERMISADAS SE DEBEN REALIZAR ESTRICTAMENTE EN LOS HORARIOS Y ESPACIOS INDICADOS.
             </h1>
@@ -83,3 +83,4 @@
     </footer>
 </body>
 </html>
+<!DOCTYPE html>
