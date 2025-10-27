@@ -12,10 +12,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class=" items-center justify-center mx-6">
-    <header class="w-full text-center bg-blue-700 my-4 text-white p-4 mb-7 mt-7">
-        <h1 class=" text-2xl font-black tracking-tighter">DIRECCIÓN DE ASUNTOS PÚBLICOS</h1>
+    <header class="w-full text-center bg-blue-700 my-6 text-white p-6 mb-6 mt-6 relative flex items-center  flex-col justify-evenly">
+        <img src="{{asset('assets/img/escudo-lecheria.webp')}}" alt="Logo Alcaldía" class="mx-auto  w-20 absolute h-20 left-5 "/>
+        <h1 class=" text-2xl font-black tracking-tighter absolute self-center">DIRECCIÓN DE ASUNTOS PÚBLICOS</h1>
+        <img src="{{asset('assets/img/logo-lecheria-letras.png')}}" alt="Logo Municipio" class="mx-auto mt-7 w-20 absolute h-20 right-5  "/>
     </header>
-
+    
     <main class="mt-5  mx-10 container-md   text-[0.60rem] text-center flex items-center justify-between flex-wrap gap-1">
         <div class="w-full text-center bg-blue-700  font-black tracking-tighter text-white mb-7 mt-7">
             <h1 class=" text-xl">
