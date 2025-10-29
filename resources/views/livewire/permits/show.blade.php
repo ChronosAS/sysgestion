@@ -40,93 +40,152 @@
     </div>
     <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
         <div class="container mx-auto p-4 ">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Información del Abuelo</h2>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Descripcion del evento y Publicidad</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Cédula de identidad</label>
+                    <label class="block text-md font-bold text-gray-800">Nombre</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Nombres</label>
+                    <label class="block text-md font-bold text-gray-800">Apellido</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Apellidos</label>
+                    <label class="block text-md font-bold text-gray-800">Horario</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                     <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Fecha de nacimiento</label>
+                    <label class="block text-md font-bold text-gray-800">Fecha de Elaboración del Permiso</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Lugar de Nacimiento</label>
+                    <label class="block text-md font-bold text-gray-800"> Número del permiso</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Edad</label>
+                    <label class="block text-md font-bold text-gray-800">Fecha de la actividad</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Correo electrónico</label>
+                    <label class="block text-md font-bold text-gray-800">Cedula de Identidad</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Numero de Telefono</label>
+                    <label class="block text-md font-bold text-gray-800">RIF</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Nivel de Instrucción</label>
+                    <label class="block text-md font-bold text-gray-800">Dirección de Habitcaión</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Ocupación</label>
+                    <label class="block text-md font-bold text-gray-800">Télefono</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Edo. Civil</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <label class="block text-md font-bold text-gray-800">Sector</label>
+                    <p class="mt-1 text-gray-900 text-sm">Casas Bote Lechería, Estado Anzoátegui, Venezuela.</p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Dirección</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
-                </div>
-                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Número de Cuenta</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
+                    <label class="block text-md font-bold text-gray-800">Área Permisada</label>
+                    <p class="mt-1 text-gray-900 text-sm">Urbanización Casas Bote A Calle principal, Avenida 2, Casa CB12-5 (o Apartamento A-3C)</p>
                 </div>
             </div>
-
         </div>
-        <div class="container mx-auto p-4 ">
-            <div class="overflow-x-auto">
-                <h1  class="text-2xl font-semibold text-gray-800 mb-4 text-center"></h1>
-                
+    </div>
+    <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
+        <div class="container mx-auto p-4 text-center ">
+            <h2 class="text-2xl font-semibold text-gray-800  text-center w-full sm:w-4/1">Observaciones:</h2>
+            <div class="mt-5   container-md  text-center  flex items-center justify-evenly flex-wrap gap-1 ">
+                <div class="  mt-5 w-full sm:w-3/2 border border-blue-700 text-wrap">
+                    <label class="bg-blue-600 block text-md font-bold text-white">Observaciones del Evento</label>
+                    <p class="bg-white  text-gray-900 text-sm "></p>
+                </div>
+                <div class="   mt-5 w-full  sm:w-3/2 border border-blue-700 text-wrap">
+                    <label class="bg-blue-600 block text-md font-bold text-white">Observaciones de la Publicidad y/o propaganda</label>
+                    <p class="bg-white  text-gray-900 text-sm "></p>
+                </div>
             </div>
         </div>
     </div>
     <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
         <div class="container mx-auto p-4 ">
-            <div class="mt-1  mx-10 container-md  text-center  flex items-center justify-center flex-wrap ">
-                <h2 class="text-2xl font-semibold text-gray-800  text-center w-full  sm:w-4/1">Diagnostico del Caso</h2>
-                <div class=" sm:mr-4 mt-5 w-full sm:w-1/3 border border-blue-700">
-                    <label class="bg-blue-600 block text-md font-bold text-white">Ingreso Familiar</label>
-                    <p class="bg-white  text-gray-900 text-sm">.</p>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Descripcion del evento</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">DEPORITVO:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
-                <div class=" sm:ml-4  mt-5 w-full  sm:w-1/3 border border-blue-700">
-                    <label class="bg-blue-600 block text-md font-bold text-white">Egreso Familiar</label>
-                    <p class="bg-white  text-gray-900 text-sm"></p>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">CULTURAL:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
-                <div class="  mt-5 w-full  sm:w-4/1 border border-blue-700">
-                    <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Médico</label>
-                    <p class="bg-white  text-gray-900 text-sm"></p>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">BENÉFICO:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
-                <div class=" mt-5 w-full  sm:w-4/1  border border-blue-700">
-                    <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Psico-Social</label>
-                    <p class="bg-white  text-gray-900 text-sm"></p>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">EDUCATIVO:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
-                <div class="  mt-5 w-full  sm:w-4/1  border border-blue-700">
-                    <label class="bg-blue-600 block text-md font-bold text-white">Aspecto Físico-Ambiental</label>
-                    <p class="bg-white  text-gray-900 text-sm"></p>
+                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">RELIGIOSO:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800"> OTROS:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
+        <div class="container mx-auto p-4 ">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Descripción de la Publicidad y/o Propagandada</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">VOLANTES:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">AFICHES:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">PENDONES:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">HABLADORES:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                    <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">PANCARTAS:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">CALCOMANIAS:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">BANDEROLAS O BANDERINES:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">STANDS:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">TOLDOS:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">INFLABLES:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
+                </div>
+                <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
+                    <label class="block text-md font-bold text-gray-800">OTROS:</label>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
             </div>
         </div>
