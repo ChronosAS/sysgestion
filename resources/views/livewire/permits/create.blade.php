@@ -122,9 +122,14 @@
                         <x-input-error class="text-xs" for="Area"/>
                     </div>
                     <div class="mt-5 w-full px-3  sm:w-3/1">
-                        <x-label for="observations" value="Observaciones" class="text-black"/>
-                        <x-input id="observations" class="block mt-1 w-full truncate" type="text" name="observations"/>
-                        <x-input-error class="text-xs" for="observations"/>
+                        <x-label for="event_observations" value="Observaciones del evento" class="text-black"/>
+                        <x-input id="event_observations" class="block mt-1 w-full truncate" type="text" name="event_observations"/>
+                        <x-input-error class="text-xs" for="event_observations"/>
+                    </div>
+                    <div class="mt-5 w-full px-3  sm:w-3/1">
+                        <x-label for="propaganda_observations" value="Observaciones de Publicidad y/o propaganda" class="text-black"/>
+                        <x-input id="propaganda_observations" class="block mt-1 w-full truncate" type="text" name="propaganda_observations"/>
+                        <x-input-error class="text-xs" for="propaganda_observations"/>
                     </div>
                     <div x-data="{modalIsOpen: false}" class="mt-5 w-full   sm:w-1/3">
                         <button x-on:click="modalIsOpen = true" type="button" class="whitespace-nowrap rounded-sm bg-black border border-black dark:border-white px-4 py-2 text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 dark:bg-white dark:text-black dark:focus-visible:outline-white">Descripción Del evento</button>
