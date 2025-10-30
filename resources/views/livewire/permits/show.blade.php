@@ -75,7 +75,7 @@
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
-                    <label class="block text-md font-bold text-gray-800">Dirección de Habitcaión</label>
+                    <label class="block text-md font-bold text-gray-800">Dirección de Habitación</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
