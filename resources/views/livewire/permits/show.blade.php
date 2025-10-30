@@ -84,11 +84,11 @@
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Sector</label>
-                    <p class="mt-1 text-gray-900 text-sm">Casas Bote Lechería, Estado Anzoátegui, Venezuela.</p>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
                 <div class="bg-blue-200 border-l-4 border-blue-500 p-4">
                     <label class="block text-md font-bold text-gray-800">Área Permisada</label>
-                    <p class="mt-1 text-gray-900 text-sm">Urbanización Casas Bote A Calle principal, Avenida 2, Casa CB12-5 (o Apartamento A-3C)</p>
+                    <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
             </div>
         </div>
