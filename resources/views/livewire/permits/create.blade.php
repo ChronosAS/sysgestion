@@ -34,9 +34,9 @@
                         <x-input-error class="text-xs" for="permit_number"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/6">
-                        <x-label for="doe" value="F. de Vencimiento " class="text-black" />
-                        <x-input id="doe" class="block mt-1 w-full " type="date" name="doe"/>
-                        <x-input-error class="text-xs" for="doe"/>
+                        <x-label for="doa" value="F. de Actividad " class="text-black" />
+                        <x-input id="doa" class="block mt-1 w-full " type="date" name="doa"/>
+                        <x-input-error class="text-xs" for="doa"/>
                     </div>
                     <div class="mt-5 w-full px-3 sm:w-1/3">
                         <x-label for="first_names" value="Nombre " class="text-black " />
