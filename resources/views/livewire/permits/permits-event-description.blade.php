@@ -57,7 +57,7 @@
             </div>
             <div class=" border border-black font-black p-3 text-sm text-center"> 
                 Se Agradece a todos los organismos públicos y competentes que presten toda la colaboración posible para que se respeten los lapsos de vencimiento establecidos en este permiso. <br>
-                La expedición de cualquier permiso fuera de la fecha estipulada en este documento, etaria violando la normativa de nuestro municipio.
+                La expedición de cualquier permiso fuera de la fecha estipulada en este documento, estaria violando la normativa de nuestro municipio.
             </div>
         </div>
         <div class="w-full mx-auto text-center   ">

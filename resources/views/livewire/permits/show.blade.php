@@ -4,8 +4,7 @@
             <div class="overflow-hidden p-6">
                 <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-9">
                     <div class="text-center">
-                       
-                        
+                        {{-- <a href="{{ route('elder-program.application.report', $elderProgramMember->id) }}" target="_blank" class="bg-green-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Imprimir</a> --}}
                         {{-- <div class="flex flex-col justify-center items-center space-y-2">
                             <form wire:submit='loadImage'>
                                 <x-label for="image" value="Agregar Foto" class="text-black mb-2" />
@@ -32,7 +31,7 @@
         <div class="w-full sm:w-auto  max-w-[10rem] bg-gray-200 mb-6 py-6 sm:px-6 lg:px-8 shadow-lg rounded-xl">
             <div>
                 <div class="flex flex-col justify-around overflow-hidden space-y-2">
-                    <a href="{{ route('elder-program.index') }}" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
+                    <a href="{{ route('permits.index') }}" class="bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Regresar</a>
                     <a class="bg-green-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700">Imprimir</a>
                 </div>
             </div>
