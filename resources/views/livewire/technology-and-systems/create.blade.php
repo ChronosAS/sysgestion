@@ -66,23 +66,21 @@
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label value="Departamento" class="text-black text-md font-black " />
                         <div>
-                           <select>
-                                <option></option>
-                           </select>
+                           <x-input id="department" wire:model='department' class="block mt-1 w-full truncate" type="text" name="department"/>
+                            <x-input-error class="text-xs" for="department"/>
                         </div>
                     </div>
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label  value="Dirección" class="text-black text-md font-black " />
                         <div>
-                            <select>
-                                <option></option>
-                            </select>
+                            <x-input id="address"  class="block mt-1 w-full truncate" type="text" name="address"/>
+                            <x-input-error class="text-xs" for="address"/>
                         </div>
                     </div>
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                     <x-label for="computer_user" value="Usuario" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="computer_user" wire:model='computer_user' class="block mt-1 w-full truncate" type="text" name="computer_user"/>
+                            <x-input id="computer_user"  class="block mt-1 w-full truncate" type="text" name="computer_user"/>
                             <x-input-error class="text-xs" for="computer_user"/>
                         </div>
                     </div>
@@ -139,20 +137,7 @@
                         </div>
                     </div>
                 
-                    <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                        <x-label for="elaborated_by" value="Elaborado por" class="text-black text-md font-black " />
-                        <div>
-                            <x-input id="elaborated_by" wire:model='elaborated_by' class="block mt-1 w-full truncate" type="text" name="elaborated_by"/>
-                            <x-input-error class="text-xs" for="elaborated_by"/>
-                        </div>
-                    </div>
-                    <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                        <x-label for="accepted_by" value="Aceptado por" class="text-black text-md font-black " />
-                        <div>
-                            <x-input id="accepted_by" wire:model='accepted_by' class="block mt-1 w-full truncate" type="text" name="accepted_by"/>
-                            <x-input-error class="text-xs" for="last_names"/>
-                        </div>
-                    </div>
+                    
                     <div class="mt-5  container-md  text-center  flex items-center justify-center flex-wrap w-full px-3  sm:w-1/2">
                         <x-button-href href="{{ route('technology-and-systems.index')}}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
                             Regresar
