@@ -51,7 +51,7 @@ class Index extends Component
             ->paginate($this->perPage);
     }
 
-    #[Layout('layouts.app',['header'=>'Solicitudes'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.applications.index',[

@@ -1,0 +1,113 @@
+<?php
+
+namespace App\Livewire\ElderProgram\Pension;
+
+use App\Concerns\LivewireCustomPagination;
+use App\Models\ElderProgramMember;
+use App\Models\PensionReport;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
+use Telegram\Bot\Laravel\Facades\Telegram;
+
+#[Layout('layouts.app')]
+class Show extends Component
+{
+    use LivewireCustomPagination;
+
+    public PensionReport $pensionReport;
+    public $hasTxt;
+    public $isPaid;
+
+    public $sortField = null;
+
+    protected $queryString = [
+        'sortField' => ['except' => null],
+        'sortAsc' => ['except' => true],
+        'search' => ['except' => ''],
+        'perPage' => ['except' => '10']
+    ];
+
+    private function generateTxt()
+    {
+        $reportTxt = $this->pensionReport->elders->map(fn($elder) => implode(' ', [
+            $elder->elder->document,
+            $elder->account_number,
+            $this->pensionReport->amount,
+       ]))->implode("\n");
+
+       Storage::put('reports/'.$this->pensionReport->code.'.txt', $reportTxt);
+    }
+
+    public function saveTxt()
+    {
+        $this->generateTxt();
+        return Storage::download('reports/'.$this->pensionReport->code.'.txt');
+    }
+
+    public function checkIfPaid()
+    {
+        $this->reset('isPaid');
+        $this->isPaid = ($this->pensionReport->paid_at != null) ? \Carbon\Carbon::parse($this->pensionReport->paid_at)->format('d/m/Y') : null;
+    }
+
+    public function markAsPaid()
+    {
+        $this->pensionReport->update([
+            'paid_at' => now()
+        ]);
+
+        $this->sendNotification();
+    }
+
+    public function sendNotification()
+    {
+        try {
+            #-1002597715087 // Canal Gabriel
+            #-1002637878820 // Pruebas
+            Telegram::sendMessage([
+                'chat_id' => -1002597715087,
+                'text' => 'Se le informa a los miembros del programa abuelos que la pension ha sido pagada.'
+            ]);
+
+            $this->checkIfPaid();
+
+        } catch (\Exception $e) {
+            // Log the exception or handle it as needed
+            session()->flash('flash.banner','Error, mensaje no pudo ser enviado.');
+            session()->flash('flash.bannerStyle','danger');
+        }
+    }
+
+    public function loadElders()
+    {
+        return ElderProgramMember::query()
+            ->select([
+                'id',
+                'status',
+                'elder_id',
+                'created_at',
+                'account_number'
+            ])
+            ->withAggregate('elder','document')
+            ->withAggregate('elder','first_names')
+            ->withAggregate('elder','last_names')
+            ->withAggregate('elder','email')
+            ->withAggregate('elder','phone_number')
+            ->whereHas('pensionReport', function ($query) {
+                $query->where('pension_report_id', $this->pensionReport->id);
+            })
+            ->search($this->search)
+            // ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')
+            ->paginate($this->perPage);
+    }
+
+    public function render()
+    {
+        $this->checkIfPaid();
+
+        return view('livewire.elder-program.pension.show',[
+            'elders' => $this->loadElders()
+        ]);
+    }
+}

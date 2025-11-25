@@ -40,7 +40,7 @@ class Index extends Component
             ->paginate($this->perPage);
     }
 
-    #[Layout('layouts.app',['header'=>'Funcionarios'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.officials.index',[

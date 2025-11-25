@@ -131,7 +131,7 @@ class Edit extends Component
         $this->loadRecipients();
     }
 
-    #[Layout('layouts.app',['header'=>'Editar Solicitud'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.applications.edit',[

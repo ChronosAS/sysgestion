@@ -13,13 +13,15 @@ class Estado extends Model
 
     protected $connection= 'estado_ciudad_municipio';
 
+    protected $primaryKey = 'id_estado';
+
     public function municipios() : HasMany
     {
-        return $this->hasMany(Municipio::class);
+        return $this->hasMany(Municipio::class, 'id_estado');
     }
 
     public function parroquias() : HasManyThrough
     {
-        return $this->hasManyThrough(Parroquia::class,Municipio::class);
+        return $this->hasManyThrough(Parroquia::class,Municipio::class,'id_estado','id_municipio');
     }
 }

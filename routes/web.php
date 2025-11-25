@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ElderProgramController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 
 Route::middleware([
@@ -12,6 +14,10 @@ Route::middleware([
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/plan-mantenimiento', function () {
+        return response()->file(public_path('assets/plan_mantenimiento.pdf'));
+    })->name('mintainance-plan');
 
     Route::middleware(PermissionMiddleware::using('user:access'))
         ->prefix('/usuarios')->group(function(){
@@ -50,9 +56,68 @@ Route::middleware([
             Route::get('/editar/{application:code}',App\Livewire\Applications\Edit::class)->name('applications.edit');
         });
 
+    Route::middleware(PermissionMiddleware::using('elder:access'))->prefix('/programa-abuelos-lecheria')->group(function(){
+
+        Route::middleware(PermissionMiddleware::using('elder-pension:access'))->prefix('/pension')->group(function(){
+
+            Route::get('/',App\Livewire\ElderProgram\Pension\Index::class)->name('elder-program.pension.index');
+
+            Route::get('/reporte/pdf/{pensionReport}',[ElderProgramController::class,'generatePensionReport'])->name('elder-program.pension.report');
+
+            Route::get('/reporte/{pensionReport:code}',App\Livewire\ElderProgram\Pension\Show::class)->name('elder-program.pension.show');
+        });
+
+        Route::get('/reporte-ingreso/{elderProgramMember}',[ElderProgramController::class,'generateApplicationReport'])->name('elder-program.application.report');
+
+        Route::get('/carnet/{id}', [ElderProgramController::class,'generateIdCard'])->name('elder-program.card');
+
+        Route::get('/',App\Livewire\ElderProgram\Index::class)->name('elder-program.index');
+
+        Route::get('/crear',App\Livewire\ElderProgram\Create::class)->name('elder-program.create');
+
+        Route::get('/{elderProgramMember}',App\Livewire\ElderProgram\Show::class)->name('elder-program.show');
+
+        Route::get('/editar/{elderProgramMember}',App\Livewire\ElderProgram\Edit::class)->name('elder-program.edit');
+
+    });
+
+    Route::middleware(PermissionMiddleware::using('application:access'))
+    ->prefix('/ayuda-social')->group(function(){
+
+        Route::get('/',App\Livewire\SocialHelp\Index::class)->name('social-help.index');
+
+        Route::get('/crear',App\Livewire\SocialHelp\Create::class)->name('social-help.create');
+
+        Route::get('/{application:code}',App\Livewire\SocialHelp\Show::class)->name('social-help.show');
+
+        Route::get('/editar/{application:code}',App\Livewire\SocialHelp\Edit::class)->name('social-help.edit');
+
+    });
+
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){
-            Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
+
+            Route::middleware(PermissionMiddleware::using('medicine:access'))
+            ->prefix('/donaciones')->group(function(){
+
+                Route::get('/',App\Livewire\Medicines\Donations\Index::class)->name('medicines.donations.index');
+                Route::get('/reporte',App\Livewire\Medicines\Donations\Report::class)->name('medicines.donations.report');
+                Route::get('/crear',App\Livewire\Medicines\Donations\Create::class)->name('medicines.donations.create');
+                Route::get('/{donation}',App\Livewire\Medicines\Donations\Show::class)->name('medicines.donations.show');
+                // Route::get('/editar/{donation}',App\Livewire\Medicines\Donations\Edit::class)->name('medicines.donations.edit');
+            });
+
+        Route::middleware(PermissionMiddleware::using('application:access'))
+        ->prefix('/solicitudes')->group(function(){
+            Route::get('/', App\Livewire\Medicines\MedicineApplications\Index::class)->name('medicines.medicine-applications.index');
+            Route::get('/crear', App\Livewire\Medicines\MedicineApplications\Create::class)->name('medicines.medicine-applications.create');
+            // Route::get('/{application}', App\Livewire\Medicines\MedicineApplications\Show::class)->name('medicines.medicine-applications.show');
+            // Route::get('/editar/{application}', App\Livewire\Medicines\MedicineApplications\Edit::class)->name('medicines.medicine-applications.edit');
         });
+
+        Route::get('/',App\Livewire\Medicines\Index::class)->name('medicines.index');
+    });
+
+
 
 });

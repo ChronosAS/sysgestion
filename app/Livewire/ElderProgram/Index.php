@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Livewire\ElderProgram;
+
+use App\Concerns\LivewireCustomPagination;
+use App\Models\ElderProgramMember;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
+
+#[Layout('layouts.app')]
+class Index extends Component
+{
+    use LivewireCustomPagination;
+
+    public $status;
+    public $sortField;
+    public $hasCard;
+
+    protected $queryString = [
+        'sortField' => ['except' => null],
+        'sortAsc' => ['except' => true],
+        'search' => ['except' => ''],
+        'perPage' => ['except' => '10']
+    ];
+
+    public function loadElders()
+    {
+        return ElderProgramMember::query()
+            ->select([
+                'id',
+                'account_number',
+                'elder_id',
+                'has_card',
+                'created_at',
+            ])
+            ->withAggregate('elder','document')
+            ->withAggregate('elder','first_names')
+            ->withAggregate('elder','dob')
+            ->withAggregate('elder','last_names')
+            ->withAggregate('elder','email')
+            ->withAggregate('elder','phone_number')
+            ->when($this->hasCard, function ($query) {
+                return $query->where('has_card',$this->hasCard);
+            })
+            ->search($this->search)
+            ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')
+            ->paginate($this->perPage);
+    }
+
+    public function render()
+    {
+        return view('livewire.elder-program.index',[
+            'elders' => $this->loadElders()
+        ]);
+    }
+}

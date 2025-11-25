@@ -6,7 +6,7 @@
     'wire' => 'defer',
 ])
 
-<div class="mt-1 relative">
+<div class=" relative">
     <select
         id="{{ $name }}"
         name="{{ $name }}"

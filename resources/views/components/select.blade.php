@@ -6,13 +6,13 @@
     'wire' => 'defer',
 ])
 
-<div class="mt-1 relative">
+<div class="relative">
     <select
         id="{{ $name }}"
         name="{{ $name }}"
         wire:model.{{ $wire }}="{{ $name }}"
         @class([
-            'block w-full pl-3 pr-10 py-2 text-sm rounded-md cursor-pointer',
+            'block w-full pl-3 pr-10  text-sm rounded-md p-2 cursor-pointer',
             'bg-white divide-y divide-white text-black border-blue-800 rounded-lg shadow' => !$errors->has($name),
             'border-red-300 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' => $errors->has($name)
         ])

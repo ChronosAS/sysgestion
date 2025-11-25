@@ -18,18 +18,17 @@ class Medicine extends Model
     protected $fillable = [
         'name',
         'composition',
+        'composition_quantity',
         'active_component',
         'presentation',
         'laboratory',
         'stock',
-        'price',
         'expiration_date',
         'entry_date',
     ];
 
     protected $casts = [
         'stock' => 'integer',
-        'price' => 'decimal:2',
         'composition' => CompositionEnum::class,
         'presentation' => PresentationEnum::class,
     ];
@@ -37,11 +36,11 @@ class Medicine extends Model
     public function scopeSearch($query,$term){
 
         return $query->where('name','like','%'.$term.'%')
+            ->orWhere('composition_quantity','like','%'.$term.'%')
             ->orWhere('composition','like','%'.$term.'%')
             ->orWhere('active_component','like','%'.$term.'%')
             ->orWhere('presentation','like','%'.$term.'%')
             ->orWhere('laboratory','like','%'.$term.'%')
-            ->orWhere('price','like','%'.$term.'%')
             ->orWhere('stock','like','%'.$term.'%');
     }
 
@@ -55,6 +54,11 @@ class Medicine extends Model
     public function applications() : BelongsToMany
     {
         return $this->belongsToMany(Application::class,'application_medicine')->withPivot('quantity');
+    }
+
+    public function donations(): BelongsToMany
+    {
+        return $this->belongsToMany(Donation::class,'donation_medicines');
     }
 
     public function addToStock($amount)

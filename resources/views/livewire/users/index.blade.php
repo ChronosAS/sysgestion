@@ -1,4 +1,5 @@
 <div>
+    <x-logos.watermark/>
     <div class="bg-blue-800 overflow-hidden shadow-xl sm:rounded-lg">
         <header class="text-center text-xl mt-5 font-black text-white font-sans pb-5 ">Usuarios</header>
         <div class="p-6 lg:p-8 bg-slate-200 border-t-2  border-blue-700">
@@ -119,7 +120,7 @@
                                     </td>
                                 </tr>
                             @else --}}
-                                <tr class="bg-blue-500 border-b border-blue-600 hover:bg-blue-600">
+                                <tr class="bg-white border-b border-blue-600 text-black">
                                     <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
                                         {{ $user->document }}
                                     </th>

@@ -21,7 +21,7 @@ class Create extends Component
     public $gender;
     public $beneficiaries = [];
 
-    #[Layout('layouts.app',['header'=>'Crear Funcionario'])]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.officials.create',[

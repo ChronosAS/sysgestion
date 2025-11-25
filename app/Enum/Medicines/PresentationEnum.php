@@ -11,9 +11,9 @@ enum PresentationEnum: string
     use EnumOptions,AttributableEnum;
 
     #[Label('Pastillas')]
-    case PILL = 'pill';
+    case pill = 'pill';
     #[Label('Jarabe')]
     case syrup = 'syrup';
     #[Label('Ampollas')]
-    case AMPOULE = 'ampoule';
+    case ampoule = 'ampoule';
 }

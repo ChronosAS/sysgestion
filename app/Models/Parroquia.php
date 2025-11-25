@@ -12,8 +12,10 @@ class Parroquia extends Model
 
     protected $connection= 'estado_ciudad_municipio';
 
+    protected $primaryKey = 'id_parroquia';
+
     public function municipio() : BelongsTo
     {
-        return $this->belongsTo(Municipio::class);
+        return $this->belongsTo(Municipio::class,'id_municipio');
     }
 }

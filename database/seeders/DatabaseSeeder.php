@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -15,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         // User::factory(10)->create();
         Role::create([
             'name' => 'admin'
@@ -38,6 +40,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->assignRole('admin');
+
+        if (!DB::select('SHOW DATABASES LIKE "venezuela"')) {
+            $this->createVenezuelaDB();
+        }
     }
 
     private function models(): array
@@ -47,6 +53,8 @@ class DatabaseSeeder extends Seeder
             'role' => $this->defaultActions(),
             'official' => $this->defaultActions(),
             'beneficiary' => $this->defaultActions(),
+            'elder' => $this->defaultActions(),
+            'elder-pension' => $this->defaultActions(),
             'medicine' => $this->defaultActions(),
             'application' => $this->defaultActions(),
         ];
@@ -62,5 +70,19 @@ class DatabaseSeeder extends Seeder
             'delete',
             'restore'
         ];
+    }
+
+    private function createVenezuelaDB() : void
+    {
+        DB::statement('CREATE DATABASE IF NOT EXISTS venezuela');
+        DB::statement('USE '.env('SECOND_DB_DATABASE'));
+
+        $file_path = database_path('sql/venezuela.sql');
+
+        if (file_exists($file_path)) {
+            DB::unprepared(file_get_contents($file_path));
+        }
+
+        DB::statement('USE '.env('DB_DATABASE'));
     }
 }
