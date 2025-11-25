@@ -73,6 +73,11 @@
                                 <x-logos.solicitudes />
                             </x-nav-link>
                         @endcan
+                        @can('application:access')
+                            <x-nav-link href="{{ route('technology-and-systems.index') }}" class=" hover:text-gray-300 dark:hover:text-gray-300 focus:text-blue-500"  >
+                                <x-logos.soporte />
+                            </x-nav-link>
+                        @endcan
                     </div>
                     @role('admin')
                         <div class="hidden sm:flex sm:items-center sm:ms-6">

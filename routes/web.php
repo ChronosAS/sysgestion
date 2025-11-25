@@ -94,6 +94,19 @@ Route::middleware([
 
     });
 
+    Route::middleware(PermissionMiddleware::using('application:access'))
+    ->prefix('/soporte')->group(function(){
+
+        Route::get('/',App\Livewire\TechnologyAndSystems\Index::class)->name('technology-and-systems.index');
+
+        Route::get('/crear',App\Livewire\TechnologyAndSystems\Create::class)->name('technology-and-systems.create');
+
+        Route::get('/ver',App\Livewire\TechnologyAndSystems\Show::class)->name('technology-and-systems.show');
+
+        Route::get('/editar',App\Livewire\TechnologyAndSystems\Edit::class)->name('technology-and-systems.edit');
+
+    });
+
     Route::middleware(PermissionMiddleware::using('medicine:access'))
         ->prefix('/medicamentos')->group(function(){
 
