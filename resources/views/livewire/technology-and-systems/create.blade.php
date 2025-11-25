@@ -1,19 +1,19 @@
 <div>
     <div class="py-12" >
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center ">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
-                <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
+                <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap mb-4">
                     <div class="mt-5 w-full px-3 sm:w-3/1">
-                        <p class="block font-medium text-2xl text-gray-900">Registro de Soporte Técnico</p>
+                        <p class="block font-medium text-2xl text-gray-900">Hoja De Servicio</p>
                     </div>
-                    <div class="mt-5  w-full sm:w-1/6 px-3 ">
-                    <x-label for="date" value="Fecha" class="text-black text-md font-black " />
+                    <div class="mt-5  w-full  px-3 ">
+                        <x-label for="date" value="Fecha" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="date" wire:model='date' class="block mt-1 w-full truncate" type="date" name="date"/>
+                            <p class="text-md font-black text-black">{{ now()->format('d/m/Y') }}</p>
                             <x-input-error class="text-xs" for="date"/>
                         </div>
                     </div>
-                    <div x-data="{
+                    {{-- <div x-data="{
                             startHour: '', 
                             startMinute: '', 
                             startPeriod: 'AM',
@@ -55,49 +55,52 @@
                             <input type="hidden" name="end_time" :value="(endHour ? endHour.padStart(2, '0') : '') + ':' + (endMinute ? endMinute.padStart(2, '0') : '00') + ' ' + endPeriod">
                             <x-input-error class="text-xs" for="end_time"/>
                         </div>
-                    </div> 
-                    <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                    <x-label for="full_name" value="Nombre" class="text-black text-md font-black " />
+                    </div>  --}}
+                    <div class="mt-5  w-full sm:w-1/4 px-3 ">
+                        <x-label for="full_name" value="Nombre" class="text-black text-md font-black " />
                         <div>
                             <x-input id="full_name" wire:model='full_name' class="block mt-1 w-full truncate" type="text" name="full_name"/>
                             <x-input-error class="text-xs" for="full_name"/>
                         </div>
                     </div>
-                    <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                    <x-label for="office" value="Departamento" class="text-black text-md font-black " />
+                    <div class="mt-5  w-full sm:w-1/4 px-3 ">
+                        <x-label value="Departamento" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="office" wire:model='office' class="block mt-1 w-full truncate" type="text" name="office"/>
-                            <x-input-error class="text-xs" for="office"/>
+                           <select>
+                                <option></option>
+                           </select>
                         </div>
                     </div>
-                    <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                    <x-label for="direction" value="Dirección" class="text-black text-md font-black " />
+                    <div class="mt-5  w-full sm:w-1/4 px-3 ">
+                        <x-label  value="Dirección" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="direction" wire:model='direction' class="block mt-1 w-full truncate" type="text" name="direction"/>
-                            <x-input-error class="text-xs" for="direction"/>
+                            <select>
+                                <option></option>
+                            </select>
                         </div>
                     </div>
-                    <div class="mt-5  w-full sm:w-1/2 px-3 ">
+                    <div class="mt-5  w-full sm:w-1/4 px-3 ">
                     <x-label for="computer_user" value="Usuario" class="text-black text-md font-black " />
                         <div>
                             <x-input id="computer_user" wire:model='computer_user' class="block mt-1 w-full truncate" type="text" name="computer_user"/>
                             <x-input-error class="text-xs" for="computer_user"/>
                         </div>
                     </div>
-                    <div class="mt-5  w-full  px-3 " >
-                        <p class="block font-black text-xl text-gray-900 mt-6">
-                        Hoja De Servicio
-                        </p>
-                    </div>
                     <div class="mt-5  w-full px-3 ">
-                    <x-label for="equipment_characteristics" value="Caracteristicas del equipo" class="text-black text-md font-black " />
+                        <x-label for="equipment_characteristics" value="Caracteristicas del equipo" class="text-black text-md font-black " />
                         <div>
                             <x-input id="equipment_characteristics" wire:model='equipment_characteristics' class="block mt-1 w-full truncate" type="text" name="equipment_characteristics"/>
                             <x-input-error class="text-xs" for="equipment_characteristics"/>
                         </div>
                     </div>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center my-6">
+            <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
+                <form wire:submit='save' class=" mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                     <div class="mt-5  w-full  px-3 ">
-                    <x-label for="service_type" value="Tipo de Servicio" class="text-black text-md   font-black text-xl mt-6" />
+                        <x-label for="service_type" value="Tipo de Servicio" class="text-black text-md   font-black text-xl mt-6" />
                         <div class=" mx-auto items-left justify-left grid grid-cols-2 gap-4 p-4 "> 
                             <p class="text-left font-black">MANTENIMIENTO DE IMPRESORA:<x-checkbox id="printer_maintenance" name="printer_maintenance"  class=" pointer-auto cursor-pointer"/></p>
                             <p class="text-left font-black">MANTENIMIENTO DE SISTEMAS:<x-checkbox id="system_maintenance" name="system_maintenance"  class=" pointer-auto cursor-pointer"/></p>
@@ -115,15 +118,21 @@
                             <p class="text-left font-black">OTROS:<x-checkbox id="other" name="other"  class=" pointer-auto cursor-pointer"/></p>
                         </div>
                     </div>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center my-6">
+            <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
+                <form wire:submit='save' class=" mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
                     <div class="mt-5  w-full  px-3 ">
-                    <x-label for="service_performed" value="Descripcion del serivicio efectuado" class="text-black text-md font-black " />
+                        <x-label for="service_performed" value="Descripcion del serivicio efectuado" class="text-black text-md font-black " />
                         <div>
                             <x-input id="service_performed" wire:model='service_performed' class="block mt-1 w-full truncate" type="text" name="service_performed"/>
                             <x-input-error class="text-xs" for="service_performed"/>
                         </div>
                     </div>
                     <div class="mt-5  w-full  px-3 ">
-                    <x-label for="technical_suggestions" value="Sugerencias Técnicas" class="text-black text-md font-black " />
+                        <x-label for="technical_suggestions" value="Sugerencias Técnicas" class="text-black text-md font-black " />
                         <div>
                             <x-input id="technical_suggestions" wire:model='technical_suggestions' class="block mt-1 w-full truncate" type="text" name="technical_suggestions"/>
                             <x-input-error class="text-xs" for="technical_suggestions"/>
@@ -131,18 +140,26 @@
                     </div>
                 
                     <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                    <x-label for="elaborated_by" value="Elaborado por" class="text-black text-md font-black " />
+                        <x-label for="elaborated_by" value="Elaborado por" class="text-black text-md font-black " />
                         <div>
                             <x-input id="elaborated_by" wire:model='elaborated_by' class="block mt-1 w-full truncate" type="text" name="elaborated_by"/>
                             <x-input-error class="text-xs" for="elaborated_by"/>
                         </div>
                     </div>
                     <div class="mt-5  w-full sm:w-1/2 px-3 ">
-                    <x-label for="accepted_by" value="Aceptado por" class="text-black text-md font-black " />
+                        <x-label for="accepted_by" value="Aceptado por" class="text-black text-md font-black " />
                         <div>
                             <x-input id="accepted_by" wire:model='accepted_by' class="block mt-1 w-full truncate" type="text" name="accepted_by"/>
                             <x-input-error class="text-xs" for="last_names"/>
                         </div>
+                    </div>
+                    <div class="mt-5  container-md  text-center  flex items-center justify-center flex-wrap w-full px-3  sm:w-1/2">
+                        <x-button-href href="{{ route('technology-and-systems.index')}}" class="ms-4 mt-5 mb-5 bg-blue-900 inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150">
+                            Regresar
+                        </x-button-href>
+                        <x-button class="ms-4 mt-5 mb-5 bg-green-600 hover:bg-green-500">
+                            Registrar
+                        </x-button>
                     </div>
                 </form>
             </div>
