@@ -3,20 +3,27 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasRoles;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -24,9 +31,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'document',
+        'first_names',
+        'last_names',
+        'dob',
         'email',
         'password',
+        'status',
     ];
 
     /**
@@ -60,6 +71,31 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'status' => 'boolean'
         ];
+    }
+
+    public function scopeSearch($query,$term): void
+    {
+        if($term){
+            $query->where('first_names','like','%'.$term.'%')
+                ->orWhere('last_names','like','%'.$term.'%')
+                ->orWhere('email','like','%'.$term.'%')
+                ->orWhere('document','like','%'.$term.'%');
+        }
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['*'])
+        ->logOnlyDirty();
+    }
+
+    public function name() : Attribute
+    {
+        return new Attribute(
+            get: fn()=> $this->first_names.' '.$this->last_names
+        );
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Spatie\Activitylog\Models\Activity;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Translate Activity desctiption
+        Activity::saving(function (Activity $activity) {
+            $desc = $activity->description;
+            if( $desc == 'updated' || $desc == 'created' || $desc == 'deleted'){
+                $activity->description = trans('logs.'.$desc);
+            }
+        });
     }
 }

@@ -62,7 +62,7 @@ return [
             ]) : [],
         ],
 
-        'state_municipality_parish' => [
+        'estado_ciudad_municipio' => [
             'driver' => 'mysql',
             'url' => env('SECOND_DB_URL'),
             'host' => env('SECOND_DB_HOST', '127.0.0.1'),
