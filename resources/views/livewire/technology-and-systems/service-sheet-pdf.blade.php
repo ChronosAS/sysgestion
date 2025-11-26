@@ -12,7 +12,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body >
-    <div style="width: 486px; height: 306px; background-image: url({{ asset('pdf/technology-and-systems/assets/service-record.png') }}); " class=" bg-contain relative overflow-hidden">
+    <div style="width: 486px; height: 306px; background-image: url({{ asset('pdf/technology-and-systems/assets/service-sheet.png') }}); " class=" bg-contain relative overflow-hidden">
         <header class="text-center right-3.5 absolute">
         </header>
         <main class=" justify-center items-center absolute top-28  right-[40px] mr-[40px]  block">
