@@ -4,7 +4,7 @@
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
                 <form wire:submit='save' class="mt-5  mx-10 container-md  text-center  flex items-center justify-center flex-wrap mb-4">
                     <div class="mt-5 w-full px-3 sm:w-3/1">
-                        <p class="block font-medium text-2xl text-gray-900">Hoja De Servicio</p>
+                        <p class="block font-medium text-2xl text-gray-900">Entrada de Equipo</p>
                     </div>
                     <div class="mt-5  w-full sm:w-1/4 px-3">
                         <x-label for="date" value="Fecha De Entrada" class="text-black text-md font-black " />
