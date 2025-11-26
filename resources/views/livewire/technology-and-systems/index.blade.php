@@ -30,7 +30,7 @@
                                 <tr>
                                     <th scope="col" class="2xl:px-9 xl:px-7 py-3 ">
                                         <div class="flex   items-center">
-                                            Cédula
+                                            Numero de Soporte
                                             <a href="#" wire:click.prevent="sortBy('created_at')">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
@@ -40,7 +40,7 @@
                                     </th>
                                     <th scope="col" class="2xl:px-9 xl:px-7 py-3 ">
                                         <div class="flex text-wrap  items-center ">
-                                            Nombre Completo
+                                            Nombre del Tecnico
                                             <a href="#" wire:click.prevent="sortBy('elder_first_names')">
                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
@@ -51,7 +51,7 @@
                                     </th>
                                     <th scope="col" class="2xl:px-9 xl:px-7 py-3">
                                         <div class="flex    items-center ">
-                                            Edad
+                                            Departamento
                                             <a href="#" wire:click.prevent="sortBy('created_at')">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
@@ -61,7 +61,7 @@
                                     </th>
                                     <th scope="col" class="2xl:px-9 xl:px-7 py-3">
                                         <div class="flex   items-center ">
-                                            Correo Electrónico
+                                            Usuario del Equipo
                                             <a href="#" wire:click.prevent="sortBy('created_at')">
                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
@@ -72,40 +72,7 @@
                                     </th>
                                     <th scope="col" class="2xl:px-9 xl:px-7 py-3">
                                         <div class="flex   items-center ">
-                                            Teléfono
-                                            <a href="#" wire:click.prevent="sortBy('created_at')">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
-                                                </svg>
-
-                                            </a>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="2xl:px-9 xl:px-7 py-3">
-                                        <div class="flex  text-wrap items-center ">
-                                            Numero de Cuenta
-                                           <a href="#" wire:click.prevent="sortBy('created_at')">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
-                                                </svg>
-
-                                            </a>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="2xl:px-9 xl:px-7 py-3">
-                                        <div class="flex   items-center ">
-                                            Fecha de ingreso
-                                            <a href="#" wire:click.prevent="sortBy('created_at')">
-                                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                                                    <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
-                                                </svg>
-
-                                            </a>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="2xl:px-9 xl:px-7 py-3">
-                                        <div class="flex   items-center ">
-                                            Carnet
+                                            Fecha del Soporte
                                             <a href="#" wire:click.prevent="sortBy('created_at')">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                                     <path fill-rule="evenodd" d="M13.78 10.47a.75.75 0 0 1 0 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l.97.97V5.75a.75.75 0 0 1 1.5 0v5.69l.97-.97a.75.75 0 0 1 1.06 0ZM2.22 5.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V4.56l-.97.97a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
@@ -123,7 +90,7 @@
                             </thead>
                             <tbody class="md:text-xs 2xl:text-sm xl:text-xs text-sm font-black">
                                 
-                                    <tr class="bg-white border-b">
+                                    <tr class="border-blue-700 border-b">
                                         <th scope="row" class=" py-4 font-medium text-gray-900 whitespace-nowrap ">
                                           
                                         </th>
@@ -153,11 +120,6 @@
                                         </td>
                                     </tr>
        
-                                    <tr>
-                                        <td class="2xl:px-9 xl:px-7 py-4 text-center text-xl col-span-5 text-black bg-white" colspan="10">
-                                            No hay Abuelos registrados.
-                                        </td>
-                                    </tr>
                    
                             </tbody>
                         </table>
