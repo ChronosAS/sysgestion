@@ -101,6 +101,8 @@ Route::middleware([
 
         Route::get('/crear',App\Livewire\TechnologyAndSystems\Create::class)->name('technology-and-systems.create');
 
+        Route::get('/servicio',App\Livewire\TechnologyAndSystems\ServiceSheet::class)->name('livewire.technology-and-systems.service-sheet');
+
         Route::get('/ver',App\Livewire\TechnologyAndSystems\Show::class)->name('technology-and-systems.show');
 
         Route::get('/editar',App\Livewire\TechnologyAndSystems\Edit::class)->name('technology-and-systems.edit');

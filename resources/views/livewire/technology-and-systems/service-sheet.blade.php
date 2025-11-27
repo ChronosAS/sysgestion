@@ -6,56 +6,25 @@
                     <div class="mt-5 w-full px-3 sm:w-3/1">
                         <p class="block font-medium text-2xl text-gray-900">Hoja De Servicio</p>
                     </div>
-                    <div class="mt-5  w-full  px-3 ">
-                        <x-label for="date" value="Fecha" class="text-black text-md font-black " />
+                    
+                </form>
+            </div>
+        </div>
+        <div class="max-w-[67rem] mx-auto sm:px-6 lg:px-8 justify-self-center my-6">
+            <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
+                <form wire:submit='save' class=" mx-10 container-md  text-center  flex items-center justify-center flex-wrap mb-4">
+                    <div class="mt-5 w-full px-3 sm:w-3/1">
+                        <p class="block font-medium text-2xl text-gray-900">Caracteristicas del equipo</p>
+                    </div>
+                    <div class="mt-5  w-full sm:w-1/5 px-3">
+                        <x-label for="date" value="Fecha De Entrada" class="text-black text-md font-black " />
                         <div>
-                            <p class="text-md font-black text-black">{{ now()->format('d/m/Y') }}</p>
+                            <x-input id="date" wire:model='date' class="block mt-1 w-full truncate" type="date" name="date"/>
+                            {{-- <p class="text-md font-black text-black">{{ now()->format('d/m/Y') }}</p> --}}
                             <x-input-error class="text-xs" for="date"/>
                         </div>
                     </div>
-                    {{-- <div x-data="{
-                            startHour: '', 
-                            startMinute: '', 
-                            startPeriod: 'AM',
-                            endHour: '', 
-                            endMinute: '', 
-                            endPeriod: 'AM'
-                        }" class="flex space-x-28 justify-center w-full px-3 sm:w-3/1">
                     
-                        <!-- Hora de Inicio -->
-                        <div class="mt-5 w-full px-3 sm:w-1/5 flex flex-col">
-                            <x-label for="start_time" value="Hora de Inicio" class="text-black text-md font-black" />
-                            <div class="flex items-center">
-                                <input type="number" min="1" max="12" x-model="startHour" placeholder="hh" class="block mt-1 w-16 text-center rounded" />
-                                <span class="mx-1">:</span>
-                                <input type="number" min="0" max="59" x-model="startMinute" placeholder="mm" class="block mt-1 w-16 text-center rounded" />
-                                <select x-model="startPeriod" class="block mt-1 ms-2 rounded">
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
-                                </select>
-                            </div>
-                            <!-- Campo oculto para enviar el valor combinado -->
-                            <input type="hidden" name="start_time" :value="(startHour ? startHour.padStart(2, '0') : '') + ':' + (startMinute ? startMinute.padStart(2, '0') : '00') + ' ' + startPeriod">
-                            <x-input-error class="text-xs" for="start_time"/>
-                        </div>
-    
-                        <!-- Hora de Conclusión -->
-                        <div class="mt-5 w-full px-3 sm:w-1/5 flex flex-col">
-                            <x-label for="end_time" value="Hora de Finalizacion" class="text-black text-md font-black" />
-                            <div class="flex items-center">
-                                <input type="number" min="1" max="12" x-model="endHour" placeholder="hh" class="block mt-1 w-16 text-center rounded" />
-                                <span class="mx-1">:</span>
-                                <input type="number" min="0" max="59" x-model="endMinute" placeholder="mm" class="block mt-1 w-16 text-center rounded" />
-                                <select x-model="endPeriod" class="block mt-1 ms-2 rounded">
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
-                                </select>
-                            </div>
-                            <!-- Campo oculto para enviar el valor combinado -->
-                            <input type="hidden" name="end_time" :value="(endHour ? endHour.padStart(2, '0') : '') + ':' + (endMinute ? endMinute.padStart(2, '0') : '00') + ' ' + endPeriod">
-                            <x-input-error class="text-xs" for="end_time"/>
-                        </div>
-                    </div>  --}}
                     <div class="mt-5  w-full sm:w-1/4 px-3 ">
                         <x-label for="full_name" value="Nombre" class="text-black text-md font-black " />
                         <div>
@@ -84,11 +53,25 @@
                             <x-input-error class="text-xs" for="computer_user"/>
                         </div>
                     </div>
-                    <div class="mt-5  w-full px-3 ">
-                        <x-label for="equipment_characteristics" value="Caracteristicas del equipo" class="text-black text-md font-black " />
+                    <div class="mt-5  w-full  px-3 sm:w-1/3 ">
+                        <x-label for="serial_number" value="Numero Serial" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="equipment_characteristics" wire:model='equipment_characteristics' class="block mt-1 w-full truncate" type="text" name="equipment_characteristics"/>
-                            <x-input-error class="text-xs" for="equipment_characteristics"/>
+                            <x-input id="serial_number" wire:model='serial_number' class="block mt-1 w-full truncate" type="text" name="serial_number"/>
+                            <x-input-error class="text-xs" for="serial_number"/>
+                        </div>
+                    </div>
+                    <div class="mt-5  w-full  px-3 sm:w-1/4">
+                        <x-label for="computer_model" value="Modelo Del equipo" class="text-black text-md font-black " />
+                        <div>
+                            <x-input id="computer_model" wire:model='computer_model' class="block mt-1 w-full truncate" type="text" name="computer_model"/>
+                            <x-input-error class="text-xs" for="computer_model"/>
+                        </div>
+                    </div>
+                    <div class="mt-5  w-full px-3 sm:w-1/6 ">
+                        <x-label for="computer_type" value="Tipo de equipo" class="text-black text-md font-black " />
+                        <div>
+                            <x-input id="computer_type" wire:model='computer_type' class="block mt-1 w-full truncate" type="text" name="computer_type"/>
+                            <x-input-error class="text-xs" for="computer_type"/>
                         </div>
                     </div>
                 </form>
@@ -119,20 +102,20 @@
                 </form>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-self-center my-6">
+        <div class="max-w-[67rem] mx-auto sm:px-6 lg:px-8 justify-self-center my-6">
             <div class="bg-slate-200 overflow-hidden shadow-xl sm:rounded-lg">
-                <form wire:submit='save' class=" mx-10 container-md  text-center  flex items-center justify-center flex-wrap">
-                    <div class="mt-5  w-full  px-3 ">
+                <form wire:submit='save' class=" mx-10 container-md  text-center  flex items-center justify-center flex-wrap mb-4">
+                    <div class="mt-5  w-full sm:w-[28rem] px-3 ">
                         <x-label for="service_performed" value="Descripcion del serivicio efectuado" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="service_performed" wire:model='service_performed' class="block mt-1 w-full truncate" type="text" name="service_performed"/>
+                            <textarea   class="mt-2 w-full h-28 resize-none border-gray-400 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm "></textarea>
                             <x-input-error class="text-xs" for="service_performed"/>
                         </div>
                     </div>
-                    <div class="mt-5  w-full  px-3 ">
+                    <div class="mt-5  w-full sm:w-[28rem] px-3 ">
                         <x-label for="technical_suggestions" value="Sugerencias Técnicas" class="text-black text-md font-black " />
                         <div>
-                            <x-input id="technical_suggestions" wire:model='technical_suggestions' class="block mt-1 w-full truncate" type="text" name="technical_suggestions"/>
+                            <textarea   class="mt-2 w-full h-28 resize-none border-gray-400 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm "></textarea>
                             <x-input-error class="text-xs" for="technical_suggestions"/>
                         </div>
                     </div>
