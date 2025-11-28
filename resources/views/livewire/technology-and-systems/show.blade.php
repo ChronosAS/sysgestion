@@ -34,10 +34,7 @@
                     <label class="block text-md font-bold text-gray-800">Nombre del Usuario</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
                 </div>
-                <div class="bg-blue-200 border-l-4 mt-5  w-full px-3">
-                    <label class="block text-md font-bold text-gray-800">Caracteristicas del Equipo</label>
-                    <p class="mt-1 text-gray-900 text-sm"></p>
-                </div>
+               
                 <div class="bg-blue-200 border-l-4 mt-5  w-full  px-3">
                     <label class="block text-md font-bold text-gray-800">Descripcion del Servicio Efectuado</label>
                     <p class="mt-1 text-gray-900 text-sm"></p>
@@ -64,6 +61,24 @@
                 </div> --}}
             </div>
 
+        </div>
+    </div>
+    <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
+        <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
+        <div class="container mx-auto p-4 ">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Caracteristicas del Equipo</h2>
+            <div class="bg-blue-200 border-l-4 mt-5  w-full px-3">
+                <label class="block text-md font-bold text-gray-800">Serial</label>
+                <p class="mt-1 text-gray-900 text-sm"></p>
+            </div>
+            <div class="bg-blue-200 border-l-4 mt-5  w-full px-3">
+                <label class="block text-md font-bold text-gray-800">Modelo</label>
+                <p class="mt-1 text-gray-900 text-sm"></p>
+            </div>
+            <div class="bg-blue-200 border-l-4 mt-5  w-full px-3">
+                <label class="block text-md font-bold text-gray-800">Tipo de Equipo</label>
+                <p class="mt-1 text-gray-900 text-sm"></p>
+            </div>
         </div>
     </div>
     <div class="max-w-7xl bg-gray-200 mx-auto my-6 py-6 sm:px-6 lg:px-8 shadow-lg  rounded-xl">
