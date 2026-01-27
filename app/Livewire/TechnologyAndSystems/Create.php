@@ -8,8 +8,8 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class Create extends Component
 {
-    public function render()
-    {
+     public function render()
+     {
         return view('livewire.technology-and-systems.create');
     }
 }
